@@ -1,0 +1,205 @@
+  @media only screen and (max-width: 575px) {
+   
+      .table-baglama table {
+          border-collapse: collapse;
+          margin: 50px auto;
+          width: 100%;
+
+      }
+
+      .table-baglama table,
+      thead,
+      tbody,
+      th,
+      td,
+      tr {
+          display: block;
+
+      }
+
+      thead tr {
+          position: absolute;
+          top: -9999px;
+          left: 99px;
+
+      }
+     
+      tr {
+          margin-bottom: 50px !important;
+          border: 1px solid #ccc;
+          border-width: 0px;
+      }
+
+      td {
+          /* Behave  like a "row" */
+          border: none;
+
+          position: relative;
+          padding: 10px !important;
+          padding-left: 58% !important;
+          min-height: 40px;
+          line-height: 40px;
+
+      }
+
+      td button {
+          width: 70% !important;
+          margin-left: 20px;
+          margin-top: -10px !important;
+      }
+
+      td:last-child {
+          border-bottom-width: 0px;
+          display: flex;
+          justify-content: flex-end;
+      }
+
+      td:last-child i {
+          width: 20%;
+          display: block;
+          margin-right: 20px !important;
+
+      }
+
+      td:before {
+          /* Now like a table header */
+          position: absolute;
+          /* Top/left values mimic padding */
+          top: 0px;
+          left: 0px;
+          width: 56%;
+
+          padding-left: 10px;
+          height: 100% !important;
+          text-align: left;
+          letter-spacing: 0.2px;
+          font-size: 19px !important;
+          white-space: pre-wrap;
+          /* Label the data */
+          content: attr(data-column);
+          line-height: 40px;
+          background: #F2F2F2;
+          color: #57606F;
+
+          letter-spacing: 0.8px !important;
+      }
+
+      td:last-child:before {
+          border-bottom-width: 0px;
+
+      }
+
+      #Baglama th,
+      td {
+          min-height: 80px;
+          line-height: 80px;
+          padding-left: 50% !important;
+          border-bottom: 0.7px solid #D8E0E9;
+      }
+
+
+      #Baglama td:before {
+          position: absolute;
+          /* Top/left values mimic padding */
+          top: 0px;
+          left: 0px;
+          width: 50%;
+
+          padding-left: 10px;
+          height: 100% !important;
+          text-align: left;
+          letter-spacing: 0.2px;
+          font-size: 18px;
+          white-space: pre-wrap;
+          /* Label the data */
+          content: attr(data-column);
+
+          background: #F2F2F2;
+          color: #57606F;
+
+      }
+
+      #Baglama td span {
+          display: block;
+      }
+
+      #Baglama td button {
+          margin-top: 10px !important;
+      }
+
+      #Baglama thead {
+          height: 0px !important;
+      }
+
+      #KuryerTable td {
+          padding-left: 40% !important;
+      }
+
+      #KuryerTable tr td:last-child:before {
+          height: 50px !important;
+      }
+
+      #KuryerTable td img {
+          width: 20px !important;
+          height: 20px !important;
+      }
+
+      #KuryerTable thead {
+          height: 0px !important;
+      }
+
+      #KuryerTable td:before {
+          position: absolute;
+          /* Top/left values mimic padding */
+          top: 0px;
+          left: 0px;
+          width: 43%;
+
+          padding-left: 10px;
+          height: 100% !important;
+          text-align: left;
+          letter-spacing: 0.2px;
+          font-size: 18px;
+          white-space: pre-wrap;
+          /* Label the data */
+          content: attr(data-column);
+
+          background: #F2F2F2;
+          color: #57606F;
+      }
+  }
+
+  /* .fixed_header {
+      table-layout: fixed;
+      border-collapse: collapse;
+  }
+
+  .fixed_header tbody {
+
+      overflow: auto;
+  } */
+
+  .fixed_header th {
+      z-index: 10;
+      position: sticky !important;
+      top: 0px;
+      background: #EAEAEA;
+
+      /* Don't forget this, required for the stickiness */
+  }
+
+  /* .fixed_header thead tr {
+      display: block;
+  } */
+
+  /* .fixed_header thead {
+      background: black;
+      color: #fff;
+  }
+
+  .fixed_header th,
+  .fixed_header td {
+      padding: 5px;
+      text-align: left;
+      width: 200px;
+  } */

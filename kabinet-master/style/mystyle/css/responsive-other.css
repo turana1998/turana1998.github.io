@@ -1,0 +1,113 @@
+@media screen and (max-width: 1280px) {
+
+    /* navbar */
+    .phone-numbers {
+        font-size: 14px;
+    }
+
+    /* baglamalarim */
+    /* .radiobtn_hr {
+        width: 200px !important;
+    } */
+
+    .radio-images {
+        width: 200px
+    }
+}
+
+@media screen and (max-width: 998px) {
+
+    /* navbar */
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        box-shadow: 0px 2px 8px rgba(47, 53, 66, 0.16);
+    }
+
+    .nav-logo {
+        margin-left: 125px;
+    }
+
+    .phone-numbers {
+        font-size: 14px;
+    }
+
+    /* 
+    personal cabinet .private-account-nav {
+        width: 100% !important;
+    } */
+
+    #navbarSupportedContent2 {
+        margin-top: 0 !important;
+    }
+
+    .sexsi_kabinet_title {
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* #mobile-sifaris{
+        display: none;
+    } */
+    /* .tables-mobile {
+        display: block;
+    } */
+   
+    .xariciunvan_title {
+        font-size: 25px;
+    }
+
+}
+
+@media screen and (max-width: 576px) {
+    .kuryersifariset_btn{
+        display: block;
+        margin:20px auto;
+        float: inherit;
+    }
+    .sifaris-title{
+        font-size: 28px;
+    }
+    #selectator_country{
+        width: 340px !important;
+    }
+    .width100 .custom-control.custom-radio.mt-4  {
+        width: 100% !important;
+    }
+    /* .logo {
+        width: 60px !important;
+        height: 25px !important;
+    } */
+
+    .nav-link {
+        padding: 0;
+    }
+
+    /* balans */
+    .btns {
+        width: 100%;
+    }
+
+    /* .xariciunvan_btn{
+        width: 100%;
+        margin: 1px;
+        padding: 10px 0;
+        font-size: 10px;
+    } */
+
+    .toplam_qiymet {
+        font-size: 10px !important;
+        width: 100% !important;
+        padding: 0 !important;
+    }
+    .formsifariset button{
+        margin: auto;
+    }
+}
+
+
+/* .logo {
+    width: 86px;
+    height: 32px;
+} */

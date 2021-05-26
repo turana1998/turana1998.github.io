@@ -1,0 +1,1078 @@
+@font-face {
+    font-family: Kanit;
+    src: url(../fonts/Kanit/Kanit-Regular.ttf);
+}
+
+@media(max-width:1348px) {
+    .footerdiv p {
+        font-size: 12px;
+    }
+
+}
+
+@media(max-width:1208px) {
+    .footerdiv p {
+        font-size: 11px;
+    }
+
+}
+
+@media(max-width:1280px) {
+    .top_radio {
+        top: 38px !important;
+        left: 7% !important;
+
+    }
+
+    .top-image img {
+
+        margin-top: -60px !important;
+    }
+}
+
+@media (max-width:1920px) and (min-width:1800px) {
+    .radiobtn_hr {
+        width: 470px !important;
+    }
+
+    .logo {
+        width: 70px;
+    }
+}
+
+@media (max-width:1800px) and (min-width:1440px) {
+    .radiobtn_hr {
+        width: 365px !important;
+    }
+
+    .logo {
+        width: 70px;
+    }
+}
+
+@media (max-width:1440px) and (min-width:1200px) {
+    .radiobtn_hr {
+        width: 295px !important;
+    }
+
+    .logo {
+        width: 70px;
+    }
+}
+
+@media only screen and (min-device-width: 1440px) and (max-device-width: 1920px) {
+    .container {
+        max-width: 90% !important;
+        padding-right: 0;
+        padding-left: 0;
+        margin-right: 75px;
+        margin-left: 75px;
+    }
+
+    .containernav {
+        max-width: 100% !important;
+        padding-right: 0;
+        padding-left: 0;
+        margin-right: 0px;
+        border-bottom: 1px solid #E7ECF2;
+        margin-left: px;
+    }
+
+    .containernav .navbar {
+        max-width: 90% !important;
+        margin-right: 75px;
+        margin-left: 75px;
+    }
+
+}
+
+@media only screen and (min-device-width: 1200px) and (max-device-width: 1439px) {
+    .container {
+        max-width: 96% !important;
+        padding-right: 0;
+        padding-left: 0;
+        /* margin-right: 40px;
+        margin-left: 40px; */
+    }
+
+    .containernav {
+        max-width: 100% !important;
+        padding-right: 0;
+        padding-left: 0;
+        margin-right: 0px;
+        margin-left: px;
+        border-bottom: 1px solid #E7ECF2;
+    }
+
+    .containernav .navbar {
+        max-width: 100% !important;
+        margin-right: 25px;
+        margin-left: 25px;
+    }
+
+}
+
+@media only screen and (min-device-width: 1000px) and (max-device-width: 1438px) {
+    .container {
+        max-width: 96% !important;
+        padding-right: 0;
+        padding-left: 0;
+        /* margin-right: 40px;
+        margin-left: 40px; */
+    }
+
+    .containernav {
+        max-width: 100% !important;
+        padding-right: 0;
+        padding-left: 0;
+        margin-right: 0px;
+        border-bottom: 1px solid #E7ECF2;
+        margin-left: px;
+    }
+
+    .containernav .navbar {
+        max-width: 100% !important;
+        margin-right: 25px;
+        margin-left: 25px;
+    }
+
+}
+
+
+@media (max-width: 768px) {
+    .navbar{
+        height: 78px;
+    }
+    .qeydiyyat_modal .modal-header img {
+        position: absolute !important;
+        left: 4% !important;
+        top: 5% !important;
+    }
+    #table_siyahi{
+        width: 100%;
+    }
+    #table_siyahi .table th {
+        width: 174px;
+    }
+    #table_siyahi .table td, #table_siyahi .table th {
+        width: 174px;
+    }
+    .containernav{
+        box-shadow: 0px 2px 8px rgba(47, 53, 66, 0.16);
+    }
+    .form_qeydiyyat .form-control,
+    .form_qeydiyyat .qeydiyat_input::placeholder,
+    .qeydiyat_input_col9::placeholder,
+    .qeydiyat_input_col6::placeholder,
+    .form_qeydiyyat select option {
+        font-family: Kanit;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 24px;
+        display: flex;
+        align-items: center;
+
+        /* White */
+
+        color: #FFFFFF !important;
+    }
+
+    #qeydiyyat .modal-body {
+        padding: 0 !important;
+    }
+
+    .sekilli {
+        border: none !important;
+    }
+
+    .sekilli img {
+        display: none;
+    }
+
+    .qeydiyat_infor {
+        display: none;
+    }
+
+    .qeydiyyat_btn {
+        width: 193px !important;
+        height: 42px !important;
+    }
+
+    .qeydiyt {
+        flex-direction: column;
+        width: 50%;
+    }
+
+    .qeydiyat_input {
+        width: 135px !important;
+        /* height: 29px; */
+        border: none;
+        background-color: transparent;
+        border-bottom: 1px solid #FFFFFF !important;
+    }
+
+    .qeydiyat_input_col6 {
+        width: 90% !important;
+        /* height: 29px; */
+        border: none;
+        background-color: transparent;
+        border-bottom: 1px solid #FFFFFF !important;
+    }
+
+    .qeydiyat_input_col9 {
+        width: 90% !important;
+        /* height: 29px; */
+        border: none;
+        background-color: transparent;
+        border-bottom: 1px solid #FFFFFF !important;
+    }
+
+    .qeydiyyat_modal .form-group {
+        margin-bottom: 0;
+    }
+
+    .qeydiyat_label {
+        font-size: 10px;
+    }
+
+    /* .qeydiyat_input {
+        width: 37% !important;
+    } */
+
+    /* .qeydiyat_input_col6 {
+        width: 37% !important;
+    } */
+.modal-dialog{
+    margin: 1.75rem auto;
+}
+    .qeydiyyat_modal {
+        width: 90%;
+        margin-left: 20px;
+    }
+
+    .qeydiyat_infor {
+        width: 100%;
+        font-size: 8px;
+    }
+    .qeydiyyat_modal .modal-header img {
+        position: absolute;
+        left: 4%;
+        top: 5%;
+    }
+
+    .qeydiyyat_btn {
+        width: 287px;
+        height: 19px;
+        display: block;
+        margin: auto;
+        margin-top: 12px;
+        background: #FFFFFF;
+        border-radius: 32px;
+        font-family: Kanit;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 0px;
+        /* text-align: center; */
+        color: #1F3F30;
+    }
+
+    #mehsullinki{
+        top: 7px !important;
+    width: 34% !important;
+    height: 19px ;
+    padding: 0 5px !important;
+    background-color: white;
+    }
+    #mehsul{
+        top: 7px !important;
+    width: 34% !important;
+    height: 19px ;
+    padding: 0 5px !important;
+    background-color: white;
+    }
+    .sifaris_redakte2{
+        width: 100% !important;
+        margin-left: 0 !important;
+    }
+    .sifaris_redakte_header2{
+        width: 100% !important;
+    }
+    .baglama_okey{
+        width: 158px !important;
+    }
+    .baglama_notokey{
+        width: 158px !important;
+    }
+    /* table tbody {
+        overflow: hidden;
+        height: auto;
+        max-height: 100% !important;
+    } */
+
+    #Baglama tbody {
+        overflow: hidden;
+        height: auto;
+        max-height: 100% !important;
+    }
+/* .tbody_table{
+    margin-top: 40px;
+}
+   */ 
+   .table_baglama {
+        height: 100%;
+    }
+    .sifaris_redakte_modal tbody{
+        margin-top: 38px;
+    }
+    .sifaris_redakte_header h5{
+        font-size: 16px !important;
+        margin-left: 0;
+    }
+
+    .sifaris_redakte tr {
+        margin-bottom: 0px !important;
+        border: none;
+
+    }
+
+    .sifaris_redakte td:last-child {
+
+
+        border-bottom-width: 0px;
+        display: flex;
+
+
+
+
+    }
+
+    .sifaris_redakte td {
+        /* Behave  like a "row" */
+        border: none;
+
+        position: relative;
+        padding-left: 0 !important;
+        min-height: 50px;
+        border-bottom: 0.7px solid #D8E0E9;
+
+
+    }
+
+    .sifaris_redakte_modal thead tr {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+
+    }
+
+    .sifaris_redakte td:before {
+        /* Now like a table header */
+
+        content: none;
+    }
+
+    .sifaris_redakte .table {
+        width: 300px !important;
+    }
+
+    .sifaris_redakte .table_head {
+        width: 300px !important;
+        height: 44px;
+        background: #EAEAEA;
+    }
+
+    .sifaris_redakte_modal .table th {
+        font-family: Kanit;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px !important;
+        line-height: 27px;
+        text-align: center;
+        letter-spacing: 0.2px;
+        color: #57606F;
+    }
+
+    /* 
+    .sifaris_redakte_modal .table td,
+    .sifaris_redakte_modal thead,
+    .sifaris_redakte_modal tr {
+        display: table-cell !important;
+    } */
+
+    .sifaris_redakte_modal tr {
+        display: flex !important;
+    }
+
+    .sifaris_redakte {
+        width: 346px !important;
+        height: 464px !important;
+        margin-left: 0px !important;
+    }
+
+    .sifaris_redakte_header {
+        width: 322px !important;
+        height: 76px !important;
+    }
+
+    .navbar {
+        border: none;
+        padding: 0 15px !important;
+    }
+
+    .navbar-collapse {
+        margin-left: -15px;
+        margin-top: -23px;
+    }
+
+    .container {
+        max-width: 100% !important;
+        padding-right: 0;
+        padding-left: 0;
+        margin-right: 0;
+        margin-left: 0px;
+    }
+
+
+}
+
+@media (min-width: 576px) {
+
+    .ml-sm-5,
+    .mx-sm-5 {
+        margin-left: 0rem !important;
+    }
+
+}
+
+@media (max-device-width: 1023px) {
+    .navbar {
+
+        margin: 0 !important;
+    }
+}
+
+@media (max-width:2560px) and (min-width:1532px) {
+    body {
+        overflow-x: hidden;
+    }
+}
+
+@media (max-width:1562px) and (min-width:1400px) {
+    body {
+        overflow-x: hidden;
+    }
+}
+
+
+@media (max-width:1532px) and (min-width:1300px) {
+    body {
+        overflow-x: hidden;
+    }
+}
+
+
+@media only screen and (max-width: 1024px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .field-container {
+        width: 210px;
+    }
+
+}
+
+@media only screen and (max-width:768px) {
+    .formsifariset {
+        width: 100% !important;
+    }
+    .formsifariset button{
+        width: 124px;
+    }
+    .balansdaxilet{
+        width: 100%;
+    }
+    #qeyddd{
+        display: none !important;
+    }
+    #qeydd{
+        
+    
+    display: block !important;
+   
+    }
+    .footerr{
+        margin-top: 60px !important;
+        margin-bottom: 0 !important;
+    }
+  
+    #Baglama img {
+        width: 36px !important;
+        height: 36px !important;
+    }
+
+    .table img {
+        width: 14px;
+        height: 14px;
+    }
+
+    #KuryerTable tbody {
+        display: block;
+        max-height: 100% !important;
+        overflow-y: hidden;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+
+    .field-container {
+        width: 150px;
+    }
+}
+
+@media (max-width:1000px) and (min-width:768px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .labelss {
+        margin-right: 30px;
+    }
+}
+
+@media only screen and (max-device-width: 1024px) {
+    .navbar {
+
+        margin: 0 !important;
+        z-index: 1;
+    }
+
+    .container.navv .col-auto {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .container {
+        margin-left: 0;
+    }
+
+    .contact_form {
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) {
+    .footerr{
+        margin-top: 40px !important;
+
+    }
+    .tables-mobile {
+        display: none;
+    }
+   
+    .treknomre{
+        width: 20%;
+    }
+    .status{
+        width: 16%;
+    }
+    #erazi,#telefon{
+        width: 80% !important;
+    }
+    #balans th{
+        width: 105px !important;
+    }
+    .id{
+        width: 7%;
+    }
+    .kuryer_infor{
+        width: 3%;
+    }
+    .odenis{
+        width: 20%;
+    }
+    .table thead th {
+        vertical-align: middle !important;
+        border-bottom: 1px solid #E7ECF2;;
+    }
+    .odenilecek_mebleg {
+        width: 20% !important;
+    }
+
+    .ml-md-5,
+    .mx-md-5 {
+        margin-left: 0 !important;
+    }
+
+    .container.navv {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+
+}
+
+/*end header*/
+@media (max-width:768px) and (min-width:279px) {
+    #Invoysqiyməti{
+        width: 78% !important;
+    }
+    .info_kuryersifaris_tbl thead{
+        width: 100% !important;
+    }
+    .info_kuryersifaris_tbl tr th,
+    .info_kuryersifaris_tbl tr td {
+      font-size: 10px !important;
+    }
+    .kuryersifarisi_secim .col-sm-3 {
+        padding: 0 15px !important;
+    }
+
+    #overlay {
+
+        position: fixed;
+        display: none;
+        width: 100%;
+        height: 100%;
+        top: 85px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.4);
+        z-index: 200;
+
+    }
+
+    /* #nvbr {
+        z-index: 10000;
+    } */
+
+    
+    .private-account-nav {
+        position: absolute;
+        width: 240px !important;
+        height: 100% !important;
+        right: -240px;
+        top:85px;
+        border-radius: 0px !important;
+        background: #1F3F30 !important;
+        z-index: 1000;
+        padding: 20px;
+        display: none;
+    }
+
+    .beNone {
+        display: none;
+    }
+
+    .my-top-0 {
+        margin-top: 0px !important;
+    }
+
+    .mobile-navbar {
+        display: block;
+        z-index: 1000;
+        left: -204px;
+
+    }
+
+    .btns {
+        justify-content: center !important;
+    }
+
+    .ferqli {
+        width: 172px !important;
+    }
+
+    .xariciunvan_btn {
+        font-size: 14px;
+        padding: 10px 3px;
+    }
+
+    .kuryer_title_col6 {
+        margin-bottom: 100px;
+    }
+
+    .baglamalarisecin {
+        width: 100%;
+    }
+
+    .baglamalarisecin_btn {
+        width: 100px;
+        font-size: 13px;
+    }
+
+    .kuryersifariset_btn {
+        margin: 20px auto;
+    }
+
+    .custom-control label {
+        font-size: 15px;
+        font-weight: 500;
+    }
+
+    /* .custom-control label span {
+        display: none;
+    } */
+
+    .Turkey-Desktop {
+        display: none !important;
+    }
+
+    .toplam_qiymet {
+        margin-left: 15px;
+        font-size: 14px;
+        padding-bottom: 10px;
+        width: 180px;
+        height: 40px;
+        /* White */
+
+        background: #FFFFFF;
+        /* Color */
+
+        border: 2px solid #F16136;
+        box-sizing: border-box;
+        border-radius: 4px;
+
+    }
+
+
+
+    .order-rule {
+
+        margin: 10px auto;
+    }
+
+    .sifarisetinforpink {
+        padding: 0px !important;
+        width: 100%;
+        background-image: url(../img/pinkbg.png);
+        background-repeat: no-repeat;
+        background-position: right;
+        top: 100px;
+        z-index: 110;
+    }
+
+    .sifarisetinforblue {
+        width: 100%;
+    }
+
+    .selectator_element.single {}
+
+    .sifarisetinforpink p {
+        text-align: center;
+        line-height: 25px;
+        padding: 20px !important;
+        margin-left: 0px !important;
+        font-size: 17px;
+
+    }
+
+    .sifarisetinforpink img {
+        position: absolute;
+        z-index: -200;
+        right: 20px;
+        top: 10px;
+    }
+
+    .sifarisetinforblue p {
+        font-size: 15px;
+        text-align: center;
+    }
+
+    #table_sifaris {
+        display: none !important;
+    }
+
+    .referal-account {
+        order: 1;
+        margin-top: 10px;
+
+    }
+
+    .referaluzre-buttons button {
+        width: 45% !important;
+
+    }
+
+    .referaluzre-buttons {
+        
+    }
+
+    .packed {
+        order: 1;
+    }
+
+    .packed .xariciunvan_title {
+        font-size: 23px !important;
+        margin-top: 16px;
+        margin-bottom: 10px;
+    }
+
+    .order-list {
+        width: 100%;
+        font-size: 16px;
+        flex-direction: column;
+        padding-left: 0px;
+        margin-top: 20px !important;
+        display: block !important;
+    }
+
+    .order-list input {
+
+        display: inline-block !important;
+        width: 20px;
+        height: 20px;
+        margin-right: 20px;
+    }
+
+    .order-list i {
+        color: gray !important;
+
+    }
+/* 
+    .order-list span {
+        margin-left: 20px !important;
+    } */
+
+    .list-main {
+        margin-left: 0px !important;
+        font-size: 22px;
+        margin-bottom: 5px;
+    }
+
+    .mobile-list {
+        font-size: 28px !important;
+    }
+
+    .info_baglamala_modal {
+        width: 100% !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    .col-xl-31 {
+        max-width: 20% !important;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .xarici_unvanlar {
+        margin-top: 20px;
+    }
+
+    .btns {
+        order: 0;
+    }
+
+    .mobile-balans {
+        order: 1;
+    }
+
+    .mobile-kur-sif {
+        order: 1;
+        margin-top: 10px;
+    }
+
+    .mobile-kur-sif .xariciunvan_title {
+        font-size: 23px !important;
+        margin-left: -5px;
+
+    }
+
+    .orders {
+        order: 1;
+        font-size: 20px;
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .arxiv-button {
+
+        display: inline-block !important;
+        /* Color */
+        outline: none;
+        cursor: pointer;
+        border: 2px solid #F16136;
+        border-radius: 6px;
+        /* SİFARİŞ ET */
+        font-family: Kanit;
+        font-style: normal;
+        font-size: 20px;
+        /* Second color */
+        background: #F16136;
+        color: white;
+        padding: 5px 20px;
+    }
+
+    .orders .xariciunvan_title {
+        font-size: 24px !important;
+
+    }
+
+    .xariciunvan_main {
+        margin-top: 20px;
+        order: 1;
+
+    }
+
+    .xariciunvan_title {
+        font-size: 18px !important;
+    }
+
+    .mar-1 {
+        margin-top: 7px;
+    }
+
+    .xariciunvan_btn {
+        margin-right: 7px;
+    }
+
+    .olkeler {
+        /* Group 223 */
+        width: 100%;
+        height: auto;
+        margin: auto;
+
+    }
+
+    .olke,
+    .turkiye {
+        margin-top: 20px;
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        padding-top: 5px;
+    }
+.turkey{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+    .olke:nth-child(even) {
+        box-sizing: border-box;
+        /* padding-left: 20px; */
+    }
+
+    .olke span {
+        display: block;
+    }
+
+    #xariciunvan_inform {
+        display: none;
+    }
+
+    .copy {
+        display: block !important;
+    }
+
+    .footer {
+        display: none;
+    }
+
+    .mobile_link {
+        display: inline;
+    }
+
+    .balans {
+        margin-top: 15px;
+    }
+
+    .balans_title {
+        font-size: 18px;
+    }
+
+    .balansbtn {
+        margin: 20px auto;
+    }
+
+    .blt2 {
+        text-align: center !important;
+    }
+
+
+    .tables-mobile-container {
+        width: 100%;
+        display: flex;
+    }
+
+    .tables-mobile {
+        width: 100%;
+    }
+
+    .mobile-table-container {
+        display: block !important;
+        margin-top: 20px;
+    }
+
+    .mobile-table tr th {
+        width: 180px !important;
+        background: #F2F2F2;
+        color: #57606F;
+
+    }
+
+    .mobile-table tr td {
+        width: 100% !important;
+
+    }
+
+    .mobile-hide {
+        display: none !important;
+    }
+
+    .order-list {
+        display: block;
+        padding-left: 15px;
+    }
+
+}
+
+@media (max-width:767px) and (min-width:415px) {
+    .olkeler {
+        /* Group 223 */
+        width: 100%;
+        height: 48px;
+        margin: auto;
+        margin-top: 30px;
+        display: flex;
+    }
+
+    .turkiye {
+        margin-top: 20px;
+    }
+
+    .olke {
+        margin-top: 20px;
+
+    }
+}
+
+@media (max-width:768px) {
+    .input-field #qeyd label {
+        display: none !important;
+      }
+      .input-field #qeyd label:after {
+        content: 'whatever it is you want to add' !important;
+      }
+    .languages {
+        visibility: hidden;
+    }
+
+    .col-qalan-hisse {
+        width: 100% !important;
+    }
+
+    .olkeler {
+        width: 100%;
+    }
+
+    .turkiye,
+    .olke {
+        margin-top: 20px;
+    }
+}

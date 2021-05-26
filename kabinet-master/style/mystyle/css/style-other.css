@@ -1,0 +1,73 @@
+@font-face {
+    font-family: Kanit;
+    src: url(../fonts/Kanit/Kanit-Regular.ttf);
+}
+
+.tables-mobile {
+    width: 100%;
+    padding: 10px;
+}
+
+.tables-mobile-container {
+    font-size: 18px;
+    font-family: Kanit;
+    border-top-left-radius: 4px;
+    border-bottom: 0.5px solid #57606F;
+    color: #57606F;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+
+}
+
+.tables-mobile p {
+    margin: 0;
+}
+
+.tables-mobile .table-mobile-second:first-child{
+    border-radius: 0 6px 0 0;
+}
+.tables-mobile .table-mobile-first {
+    border-right: 1px solid #D8E0E9;
+    border-bottom: 1px solid #D8E0E9;
+    background: #F2F2F2;
+    padding:  2px 5px;
+}
+
+.tables-mobile .table-mobile-second {
+    border-bottom: 1px solid #D8E0E9;
+    padding: 2px 5px;
+    font-size: 14px;
+}
+
+.table-mobile-first p:nth-last-child(1),
+.table-mobile-second p:nth-last-child(1) {
+    font-size: 14px;
+}
+.table-mobile-first .custom-control{
+    margin-bottom: 7px;
+    margin-top: -10px;
+}
+
+.tables-mobile .table-mobile-first:last-child,
+.tables-mobile .table-mobile-second:last-child {
+    border-bottom: none !important;
+}
+.tables-mobile .table-mobile-first:first-child{
+    border-radius:  6px 0 0 0 ;
+}
+.tables-mobile .table-mobile-first:last-child{
+    border-radius:  0 0 0 6px !important;
+    border-bottom: none !important;
+}
+.table-mobile-first .custom-control-label::after {
+position: relative;
+    top: 0rem; 
+    left: 0rem;
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    content: "";
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+}
