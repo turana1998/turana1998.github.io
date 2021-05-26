@@ -1,0 +1,1386 @@
+@media only screen and (min-device-width: 1441px) and (max-device-width: 1920px) {
+    .container {
+        max-width: 90% !important;
+        border-bottom: 1px solid #E7ECF2;
+        padding-right: 0;
+        padding-left: 0;
+        margin: auto;
+
+    }
+
+    .containernav {
+        max-width: 100% !important;
+        padding-right: 0;
+        padding-left: 0;
+        margin-right: 0px;
+        margin-left: px;
+    }
+
+    .navbar {
+        width: 100% !important;
+        /* margin: auto; */
+        margin-right: calc(8%);
+        margin-left: calc(8%);
+    }
+
+}
+
+@media only screen and (min-device-width:1000px) and (max-device-width: 1280px) {
+    .users {
+        margin-left: -12px;
+    }
+
+    .container {
+        max-width: 90% !important;
+
+        padding-right: 0;
+        padding-left: 0;
+        margin-right: 40px;
+        margin-left: 40px;
+    }
+
+    .containernav {
+        max-width: 100% !important;
+        border-bottom: 1px solid #E7ECF2;
+        padding-right: 0;
+        padding-left: 0;
+        margin-right: 0px;
+        margin-left: px;
+    }
+
+    .navbar {
+        max-width: 90% !important;
+        margin-right: 40px;
+        margin-left: 40px;
+    }
+}
+
+@media only screen and (min-device-width:1281px) and (max-device-width: 1440px) {
+    .container {
+        max-width: 90% !important;
+
+        padding-right: 0;
+        padding-left: 0;
+        margin-right: 75px;
+        margin-left: 75px;
+    }
+
+    .containernav {
+        max-width: 100% !important;
+        border-bottom: 1px solid #E7ECF2;
+        padding-right: 0;
+        padding-left: 0;
+        margin-right: 0px;
+        margin-left: px;
+    }
+
+    .navbar {
+        max-width: 90% !important;
+        margin-right: 75px;
+        margin-left: 75px;
+    }
+
+}
+
+
+@media only screen and (max-device-width: 1024px) {
+
+    .container.navv .col-auto {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .container {
+        margin-left: 0;
+        max-width: 90% !important;
+    }
+
+    .contact_form {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .form_qeydiyyat .form-control,
+    .form_qeydiyyat .qeydiyat_input::placeholder,
+    .qeydiyat_input_col9::placeholder,
+    .qeydiyat_input_col6::placeholder,
+    .form_qeydiyyat select option {
+        font-family: Kanit;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 24px;
+        display: flex;
+        align-items: center;
+
+        /* White */
+
+        color: #FFFFFF !important;
+    }
+
+    #qeydiyyat .modal-body {
+        padding: 0 !important;
+    }
+
+    .sekilli {
+        border: none !important;
+    }
+
+    .sekilli img {
+        display: none;
+    }
+
+    .qeydiyat_infor {
+        display: none;
+    }
+
+    .qeydiyyat_btn {
+        width: 193px !important;
+        height: 42px !important;
+    }
+
+    .qeydiyt {
+        flex-direction: column;
+        width: 50%;
+    }
+
+    .qeydiyat_input {
+        width: 135px !important;
+        /* height: 29px; */
+        border: none;
+        background-color: transparent;
+        border-bottom: 1px solid #FFFFFF !important;
+    }
+
+    .qeydiyat_input_col6 {
+        width: 90% !important;
+        /* height: 29px; */
+        border: none;
+        background-color: transparent;
+        border-bottom: 1px solid #FFFFFF !important;
+    }
+
+    .qeydiyat_input_col9 {
+        width: 90% !important;
+        /* height: 29px; */
+        border: none;
+        background-color: transparent;
+        border-bottom: 1px solid #FFFFFF !important;
+    }
+
+    .qeydiyyat_modal .form-group {
+        margin-bottom: 0;
+    }
+
+    .qeydiyat_label {
+        font-size: 10px;
+    }
+
+    /* .qeydiyat_input {
+        width: 37% !important;
+    } */
+
+    /* .qeydiyat_input_col6 {
+        width: 37% !important;
+    } */
+
+    .qeydiyyat_modal {
+        width: 90%;
+        margin-left: 20px;
+    }
+
+    .qeydiyat_infor {
+        width: 100%;
+        font-size: 8px;
+    }
+
+    .qeydiyyat_btn {
+        width: 287px;
+        height: 19px;
+        display: block;
+        margin: auto;
+        margin-top: 12px;
+        background: #FFFFFF;
+        border-radius: 32px;
+        font-family: Kanit;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 0px;
+        /* text-align: center; */
+        color: #1F3F30;
+    }
+
+    .giris_modal {
+        width: 86%;
+        margin-left: 3%;
+    }
+    .form_qeydiyyat .row{
+        padding-left: 10px !important;
+    }
+    .qeydiyyat_modal{
+        margin-left: 3%;
+    }
+    .qeydiyyat_modal .modal-header {
+        border: none !important;
+        padding-top: 25px;
+    }
+    .qeydiyyat{
+        left: 80%;
+    }
+
+    .giris_btn {
+        width: 254px;
+    }
+
+    .container {
+        max-width: 100% !important;
+        padding-right: 0;
+        padding-left: 0;
+        margin-right: 0;
+        margin-left: 0px;
+    }
+
+    .containernav {
+        padding: 0 15px;
+        height: 64px;
+        box-shadow: 0px 2px 8px rgba(47, 53, 66, 0.16);
+    }
+}
+@media (max-width:576px)
+{
+    .form_qeydiyyat .input-field>label{
+        font-size: 14px !important;
+    }
+}
+@media (min-width: 576px) {
+
+    .ml-sm-5,
+    .mx-sm-5 {
+        margin-left: 0rem !important;
+    }
+
+}
+
+@media only screen and (max-device-width: 767px) {
+    .carousel-indicators {
+        margin-bottom: 6%;
+        left: 16px;
+    }
+
+    .carousel-indicators li {
+        width: 8px;
+        height: 8px;
+    }
+
+    .carousel-indicators .active {
+        width: 6px;
+        height: 6px;
+    }
+
+    .qayda_img {
+        display: none;
+    }
+
+    .connect {
+        height: 40px;
+    }
+
+    .contact_title {
+        margin-top: 20px
+    }
+
+    .contact_form textarea {
+        height: 165px;
+    }
+
+    .contact_form {
+        margin-top: 20px;
+    }
+
+    .contact_btn {
+        margin-bottom: 40px;
+    }
+
+    #overlay {
+
+        position: fixed;
+        display: none;
+        width: 100%;
+        height: 100%;
+        top: 64px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.4);
+        z-index: 200;
+
+    }
+
+    /* .carousel-div_mobile {
+        display: none;
+    } */
+
+    .col-9_p {
+        margin-top: 0;
+    }
+
+    .qayda_img {
+        margin-top: 25px;
+    }
+
+    .elaqe-contact {
+        padding: 15px !important;
+    }
+
+    #nav_togle {
+        margin: auto;
+        margin-left: -17px;
+    }
+
+    .navbar-collapse {
+        margin-left: -15px;
+        margin-top: -23px;
+    }
+
+    #nav {
+        background-color: #FFFFFF;
+        margin: 0 !important;
+        width: 0;
+        height: 0;
+    }
+
+    .logo {
+        display: none !important;
+    }
+
+    /* #logo1 {
+        display: none;
+    } */
+
+    #logo2 {
+        display: block;
+    }
+
+    /* .logorespons {
+        display: inline;
+    } */
+
+    .logo-mobile {
+        background-color: transparent;
+    }
+
+    .phone {
+        display: none;
+    }
+
+    .social-networks {
+        display: none;
+    }
+
+    .languages {
+        display: none;
+    }
+
+    .mobile-users {
+        height: 64px;
+        align-items: center;
+        width: 40px;
+
+    }
+
+    .contact_title {
+        font-family: Kanit;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px;
+        align-items: center;
+        text-align: center;
+
+        /* Main color */
+
+        color: #57606F;
+    }
+
+    .menu {
+        background-color: #F16136;
+        width: 174px;
+        height: 567px;
+
+    }
+
+    .navbar-light .navbar-nav .nav-link {
+        color: #FFFFFF;
+    }
+
+    .menu hr {
+        display: none;
+    }
+
+    .menu-top {
+        padding-left: 10px;
+    }
+
+    .menu-bottom {
+        padding-left: 10px;
+        justify-content: start;
+    }
+
+
+}
+
+
+@media (max-device-width: 1023px) {
+    .navbar {
+
+        margin: 0 !important;
+        z-index: 1;
+    }
+}
+
+@media (max-width:1280px) and (min-width:1000px) {
+    .xeber-text {
+        padding-left: 8% !important;
+    }
+}
+
+@media (max-width:2560px) and (min-width:1532px) {
+    body {
+        overflow-x: hidden;
+    }
+}
+
+@media (max-width:1562px) and (min-width:1400px) {
+    body {
+        overflow-x: hidden;
+    }
+}
+
+
+@media (max-width:1532px) and (min-width:1300px) {
+    body {
+        overflow-x: hidden;
+    }
+}
+
+
+@media only screen and (max-width: 1024px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .field-container {
+        width: 210px;
+    }
+
+}
+
+@media only screen and (max-width:768px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .field-container {
+        width: 150px;
+    }
+}
+
+@media (max-width:768px) and (min-width:300px) {
+    .navbar {
+        height: 64px;
+    }
+
+    .mobile-navbar {
+        display: block !important;
+        z-index: 1000;
+        left: -204px;
+
+    }
+
+}
+
+@media (max-width:1000px) and (min-width:768px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .labelss {
+        margin-right: 30px;
+    }
+
+    .calc_text {
+
+        width: 606px;
+        height: 84px;
+        font-family: Kanit;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 26px;
+        line-height: 24px;
+        margin: auto;
+        margin-top: 20px;
+
+        /* Second color */
+
+        color: #747D8C;
+    }
+
+    .xeberler_div {
+        margin-top: 40px;
+        width: 100%;
+        height: 500px;
+        background: #FFFFFF;
+        /* Shadow */
+        box-shadow: 0px 2px 8px rgba(47, 53, 66, 0.16);
+        border-radius: 4px;
+    }
+
+}
+
+@media (max-width:767px) and (min-width:300px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .xeberler_div {
+        margin-top: 40px;
+        width: auto;
+        height: auto;
+        background: #FFFFFF;
+        /* Shadow */
+        box-shadow: 0px 2px 8px rgba(47, 53, 66, 0.16);
+        border-radius: 4px;
+    }
+
+    .newss_p {
+        width: auto;
+    }
+}
+
+@media (max-width:425px) and (min-width:320px) {
+    body {
+        overflow-x: hidden;
+    }
+
+
+    .xeberler_div {
+        margin-top: 40px;
+        width: auto;
+        height: 500px;
+        background: #FFFFFF;
+        /* Shadow */
+        box-shadow: 0px 2px 8px rgba(47, 53, 66, 0.16);
+        border-radius: 4px;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .news-news {
+        display: none;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+}
+
+@media only screen and (max-width: 1095px) {
+    body {
+        overflow-x: hidden;
+    }
+}
+
+@media only screen and (max-width: 1005px) {
+    body {
+        overflow-x: hidden;
+    }
+}
+
+@media only screen and (max-width: 950px) {
+    body {
+        overflow-x: hidden;
+    }
+}
+
+@media only screen and (max-width: 605px) {
+    body {
+        overflow-x: hidden;
+    }
+}
+
+@media only screen and (max-width: 414px) {
+    .haqqinda-text {
+        padding: 0 15px;
+
+    }
+
+    .news_fb {
+        display: none;
+    }
+
+    .news_image {
+        width: 314px;
+        height: 210px;
+    }
+
+    .shop-div-alls .col-xl-3 {
+        padding: 0;
+        margin-top: 10px;
+    }
+
+    .shop-div-all {
+        width: 158px;
+        height: 98px;
+        /* White */
+
+        background: #FFFFFF;
+        /* Shadow */
+
+        box-shadow: 0px 2px 8px rgba(47, 53, 66, 0.16);
+        border-radius: 13px;
+    }
+
+    .col-9_p_xidmet {
+        font-family: Kanit;
+        font-style: normal;
+        width: 93%;
+        margin: auto;
+        font-size: 15px !important;
+        line-height: 30px !important;
+        align-items: center;
+        color: #57606F;
+    }
+
+    .haqqinda-news {
+        width: 100%;
+    }
+
+    .xeber-daxili-images {
+        width: 100%;
+    }
+
+    .xeber-daxili-image {
+        /* width: 100%; */
+        margin-bottom: 10px;
+    }
+
+    .haqqinda-title {
+        font-size: 19px;
+    }
+
+    .imge_bird {
+        width: 30px;
+        height: 28px;
+        margin: auto;
+        margin-right: 0;
+    }
+
+    .image_orange {
+        width: 60px;
+        height: 1px;
+        margin: auto;
+        margin-right: 0;
+    }
+
+    .contact_form {
+        width: 100%;
+    }
+
+    .calc_text {
+
+        width: 346px;
+        height: 84px;
+        font-family: Kanit;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 24px;
+        margin: auto;
+        margin-top: 20px;
+
+        /* Second color */
+
+        color: #747D8C;
+    }
+
+    input[type=checkbox] {
+        background: #FFFFFF !important;
+        /* Second color */
+
+        border: 1px solid #555D69 !important;
+        box-sizing: border-box !important;
+        border-radius: 1px !important;
+        width: 16px !important;
+        height: 16px !important;
+    }
+
+    .checkk {
+        display: block;
+        margin-left: 5px;
+        margin-top: 20px;
+    }
+
+    .calc_form {
+        width: 95%;
+        margin: auto
+    }
+
+    .calc_title {
+
+        height: 12px;
+        margin-top: 40px;
+        font-family: Kanit;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 27px;
+        text-align: center;
+    }
+
+    .tarifler {
+        margin-top: 300px;
+    }
+
+    .tariflerr {
+        width: 324px;
+    }
+
+    .tariflerr_hr {
+        width: 298px;
+    }
+
+    .xeberler_title {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 27px;
+        justify-content: center;
+        margin: 20px 0;
+
+        /* Main color */
+
+        color: #57606F;
+    }
+
+    .tarifler_title {
+        font-family: Kanit;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 27px;
+
+        /* Main color */
+        width: 100%;
+        height: 12px;
+        margin: 20px 0;
+        color: #57606F;
+
+    }
+
+    .olkeler {
+        /* Group 223 */
+        width: 100%;
+        height: 48px;
+        margin: auto;
+        margin-top: 10px;
+        display: flex;
+
+    }
+
+    .turkiye {
+        margin-top: 20px;
+        width: 300px;
+    }
+
+    .olke {
+        margin-top: 20px;
+        width: 300px;
+    }
+
+    /* .container.navv {
+        padding-left: 0;
+        padding-right: 0;
+    } */
+
+
+
+    body {
+        overflow-x: hidden;
+    }
+
+    .main-image {
+        width: 346px;
+        padding-top: 25px;
+        /* text-align: center; */
+        margin: auto;
+    }
+
+    .select-magazins-item {
+        display: block;
+        margin-top: 10px;
+    }
+
+    .field-container {
+        width: 268px;
+    }
+
+    .list-magazine-items {
+        display: none;
+    }
+
+    .shop-category-all {
+        height: auto;
+        padding-bottom: 20px;
+        padding-left: 10%;
+        max-width: 90%;
+        margin: auto;
+        margin-top: 10%;
+    }
+
+    .shop-div-all {
+        margin: auto;
+        margin-top: 10px;
+    }
+
+    .shop_title {
+        display: block;
+    }
+
+    .xeber-daxili-title {
+        width: 346px;
+        margin: auto;
+        margin-top: 26px;
+        /* height: 88px; */
+        font-family: Kanit;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 36px;
+        /* display: flex; */
+        /* align-items: center; */
+        letter-spacing: 0.2px;
+        color: #57606F;
+
+    }
+
+    .xeber-daxili-text {
+        /* Что такое Lorem Ipsum? Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum. Откуда он появился? Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов, но это не совсем так. Его корни уходят в один фрагмент классической латыни 45 года н.э., то есть более двух тысячелетий назад. Ричард МакКлинток, профессор латыни из колледжа Hampden-Sydney, штат Вирджиния, взял одно из самых странных слов в Lorem Ipsum, "consectetur", и занялся его поисками в классической латинской литературе. В результате он нашёл неоспоримый первоисточник Lorem Ipsum в разделах 1.10.32 и 1.10.33 книги "de Finibus Bonorum et Malorum" ("О пределах добра и зла"), написанной Цицероном в 45 году н.э */
+        width: 346px;
+        font-family: Kanit;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.2px;
+
+        /* Main color */
+        color: #57606F;
+
+    }
+
+    .faq-div-alls {
+        margin-top: 235px;
+    }
+
+    .faq-div-all {
+        margin-left: 3px;
+        width: 336px;
+    }
+
+}
+
+@media only screen and (max-width: 375px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .faq-blog {
+        width: 350px;
+    }
+
+    .faq-div-all {
+        width: 330px;
+        margin-left: 0;
+    }
+
+    .xeberler_div {
+        width: 96%;
+        margin: auto;
+        margin-top: 20px;
+        height: 500px;
+        background: #FFFFFF;
+        /* Shadow */
+        box-shadow: 0px 2px 8px rgba(47, 53, 66, 0.16);
+        border-radius: 4px;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .faq-blog {
+        width: 330px;
+    }
+
+    .faq-div-all {
+        width: 313px;
+        margin-left: 0;
+    }
+
+    .xeberler_div {
+        margin-top: 40px;
+        width: auto;
+        height: 500px;
+        background: #FFFFFF;
+        /* Shadow */
+        box-shadow: 0px 2px 8px rgba(47, 53, 66, 0.16);
+        border-radius: 4px;
+    }
+}
+
+@media (min-width: 768px) {
+
+    .ml-md-5,
+    .mx-md-5 {
+        margin-left: 0 !important;
+    }
+
+    /* .container.navv {
+        padding-left: 0;
+        padding-right: 0;
+    } */
+
+
+}
+
+@media (max-width:767px) and (min-width:415px) {
+
+
+    .faq-blog {
+        margin-left: 50px;
+    }
+
+    .faq-div-alls {
+        margin-top: 250px;
+    }
+
+    .olkeler {
+        /* Group 223 */
+        width: 100%;
+        height: 48px;
+        margin: auto;
+        margin-top: 30px;
+        display: flex;
+    }
+
+    .turkiye {
+        margin-top: 20px;
+    }
+
+    .olke {
+        margin-top: 20px;
+
+    }
+
+    .faq-div-all {
+        width: 340px;
+        margin-left: 3px;
+    }
+
+    .faq-div-alls {
+        margin-top: 250px;
+    }
+}
+
+@media (max-width:767px) {
+    .xeberlerr_img {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+    }
+
+    .questionn-heading {
+        width: 100%;
+        height: 12px;
+        font-family: Kanit-semibold;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 27px;
+
+        /* Main color */
+
+        color: #57606F;
+    }
+
+    .questionn p {
+        width: 100%;
+        height: 12px;
+        font-family: Kanit;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 24px;
+        margin-top: 10px;
+        /* Second color */
+
+        color: #555D69;
+    }
+
+    .advantages-info__heading {
+
+        height: 10px;
+        font-family: Kanit-medium !important;
+        font-style: normal;
+        font-weight: 500;
+        margin-top: 5px;
+        font-size: 15px;
+        line-height: 22px;
+        margin-bottom: 25px;
+        /* Main color */
+
+        color: #57606F;
+
+    }
+
+    .advantages-info__description {
+        width: 158px;
+        height: 82px;
+        font-family: Kanit;
+        font-style: normal;
+        text-align: justify;
+        margin-top: 10px;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 18px;
+        /* or 129% */
+
+        /* Second color */
+
+        color: #555D69;
+    }
+
+    .advantages-info p {
+        width: 158px;
+        height: 82px;
+        left: 15px;
+        top: 2400px;
+
+        font-family: Kanit;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 18px;
+        /* or 129% *
+        /* Second color */
+
+        color: #555D69;
+    }
+
+    .info-headingg {
+
+        position: absolute;
+        width: 126px;
+        height: 60px;
+        top: 80px;
+        left: 14px;
+        text-align: start;
+        font-family: Kanit;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px;
+
+        /* White */
+
+        color: #FFFFFF;
+    }
+
+    .newsssss-image {
+        position: relative;
+        width: 158px;
+        height: 160px;
+        margin: auto;
+        margin-top: 20px;
+        background: rgba(0, 0, 0, 0.24);
+        border-radius: 8px;
+        font-family: Product Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 32px;
+        line-height: 39px;
+        padding-top: 60px;
+        text-align: center;
+        letter-spacing: 0.2px;
+
+        color: #747D8C;
+    }
+
+    .xeberler-yenilikler-title {
+        width: 345px;
+        height: 12px;
+        font-family: Kanit-medium !important;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 27px;
+
+        /* Main color */
+
+        color: #57606F;
+    }
+
+    .delivery-info {
+        width: 346px;
+        height: 28px;
+        font-family: Kanit;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 13px;
+        line-height: 19px;
+        margin-top: 20px;
+        text-align: center;
+
+        /* Main color */
+
+        color: #57606F;
+    }
+
+    .info img {
+        margin-top: 20px;
+    }
+
+    .title {
+        width: 346px;
+        height: 12px;
+        font-family: Kanit-medium;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        text-align: center;
+        margin-top: 20px;
+        letter-spacing: 0.2px;
+
+        /* Color */
+
+        color: #F16136;
+    }
+
+    .global-tracking {
+        width: 176px;
+        height: 56px;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid #F16136;
+        background: #FFFFFF;
+        border-radius: 0px 8px 0px 0px;
+        /* transform: matrix(1, 0, 0, -1, 0, 0); */
+    }
+
+    .colibri-tracking {
+        width: 170px;
+        height: 56px;
+        outline: none;
+        border: none;
+        background: #EAEAEA;
+        border-radius: 0px 8px 8px 0px;
+        /* transform: matrix(1, 0, 0, -1, 0, 0); */
+
+    }
+
+    .carousel-item {
+        height: auto;
+        background-size: cover;
+    }
+
+    .delivery-heading {
+        width: 346px;
+        height: 12px;
+        font-family: Kanit;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 27px;
+
+        /* Main color */
+
+        color: #57606F;
+    }
+
+    .location_img {
+        width: 350px;
+        height: 142px;
+
+    }
+
+
+
+    .tariflerr {
+        width: 100%;
+    }
+
+    .tariflerr_hr {
+        width: 90%;
+    }
+
+    .olkeler {
+        width: 100%;
+    }
+
+    .turkiye,
+    .olke {
+        margin-top: 20px;
+        width: 90% !important;
+    }
+
+    .faq-blog {
+        width: 346px;
+        height: 93px;
+        /* margin: auto; */
+        margin-left: 3%;
+        margin-top: 0;
+        top: 20px;
+    }
+
+    .faq-blog-text {
+        margin-top: 15px;
+    }
+
+    .faq-div-alls {
+        margin-top: 33%;
+    }
+}
+
+
+@media (max-width:1179px) and (min-width:1024px) {
+
+
+    .contact_form.form-control {
+        width: 60% !important;
+    }
+}
+
+@media (max-width: 320px) {
+
+    .faq-blog {
+        height: auto;
+    }
+
+    .faq-div-alls {
+        margin-top: 40%;
+    }
+
+    .menu,
+    .overlay {
+        height: 539px;
+    }
+
+    body {
+        width: 345px;
+    }
+
+    .faq-blog {
+        width: 300px;
+    }
+
+    .faq-div-all {
+        width: 300px;
+    }
+
+    .faq-blog-text {
+        margin-top: 60px;
+    }
+
+}
+
+
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    .tarifler {
+        margin-top: 90px;
+    }
+
+    .faq-div-all {
+        width: 100% !important;
+    }
+
+    .faq-div-alls {
+        margin-top: 250px !important;
+    }
+
+    .faq-blog {
+        margin-left: 180px !important;
+    }
+
+    .imge_bird {
+        width: 60px;
+        height: 28px;
+        margin: auto;
+        margin-right: 0;
+    }
+
+    .image_orange {
+        width: 87px;
+        height: 1px;
+        margin: auto;
+        margin-right: 0;
+    }
+
+    .haqqinda-news {
+        width: 100%;
+    }
+
+    .main-image {
+        width: 100%;
+    }
+
+    .xeber-daxili-text,
+    .xeber-daxili-title,
+    .xeber-daxili-images,
+    .xeber-daxili-image {
+        width: 100%;
+    }
+
+    .contact_form {
+        width: 100%;
+    }
+
+    .nav-logo {
+        height: 96px !important;
+        background-color: #F16136;
+        align-items: center;
+        margin: 0 !important;
+    }
+
+    .faq-div-all {
+        width: 100%;
+    }
+
+    .faq-div-alls {
+        margin-top: 220px;
+    }
+
+    .faq-blog {
+        margin-left: 180px;
+    }
+
+    /* 
+        .users {
+            display: none !important;
+        } */
+
+    .mobile-users {
+        display: flex !important;
+        color: white;
+
+    }
+}
+}

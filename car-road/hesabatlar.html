@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Car-road</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+<style>
+  
+
+p{
+  margin: 0 !important;
+}
+.mainLoginInput::-webkit-input-placeholder { 
+font-family: FontAwesome;
+font-weight: normal;
+overflow: visible;
+vertical-align: top;
+display: inline-block !important;
+padding-left: 5px;
+padding-top: 2px;
+color: #4200FF;
+}
+
+.mainLoginInput::-moz-placeholder  { 
+font-family: FontAwesome;
+font-weight: normal;
+overflow: visible;
+vertical-align: top;
+display: inline-block !important;
+padding-left: 5px;
+padding-top: 2px;
+color: #4200FF;
+}
+
+</style>
+
+</head>
+
+<body>
+
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <h1 class="logo"><a href="index.html"><img src="./assets/img/logo.png"></a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt=""></a>-->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="haqqimizda.html">Haqqımızda</a></li>
+          <li><a class="nav-link scrollto" href="qurumlar.html">Qurumlar</a></li>
+          <li><a class="nav-link scrollto" href="qaydalar.html">Qaydalar</a></li>
+          <li><a class="nav-link scrollto " href="hesabatlar.html">Hesabatlar</a></li>
+          <li><a class="nav-link scrollto" href="huquqimeslehet.html">Hüquqi məsləhət</a></li>
+          <li><a class="nav-link scrollto" href="qanunvericilik.html">Qanunvericilik</a></li>
+          <li><a href="login.html" id="registr">Dövlət orqanları</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header>
+  <section id="filter" style="background: linear-gradient(90deg, #E9E9E9 25%, #FFFF 25%);">
+        <div class="row">
+            <div class="col-12 col col-sm-4 col-xl-3">
+                <div class="filter2 contact">
+                    <h3 class="filter_heading">FİLTERLƏ</h3>
+                
+                <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                <div class="form-group">
+                    <select class="form-control">
+                      <option>Şəhər/Rayon:</option>
+                      <option>Şəhər/Rayon:</option>
+                      <option>Şəhər/Rayon:</option>
+                      <option>Şəhər/Rayon:</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <select class="form-control">
+                      <option>Qurum:</option>
+                      <option>Qurum:</option>
+                      <option>Qurum:</option>
+                      <option>Qurum:</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <!-- <input type="date" class="form-control" placeholder="Tarixden" name="tel" id="tel"> -->
+                    <input placeholder="&#xf073;  Tarixdən" class="mainLoginInput textbox-n" type="text" onfocus="(this.type='date')" id="date">
+
+                  </div>
+                  <div class="form-group">
+                    <!-- <input class="mainLoginInput" type="text" placeholder="&#61475;"/> <br/> -->
+                    <!-- <input type="date" class="form-control" placeholder="Tarixden" name="tel" id="tel"> -->
+                    <input placeholder="&#xf073;  Tarixə qədər" class="mainLoginInput textbox-n" type="text" onfocus="(this.type='date')" id="date">
+                  </div>
+                  <div class="form-group">
+                      <table>
+                          <tr>
+                              <td> <label for="male">Həll olunmuş</label></td>
+                              <td>  <input type="checkbox" id="yes" name="yes" value="Bəli"></td>
+                          </tr>
+                          <tr>
+                            <td> <label for="male">Həll olunmamış</label></td>
+                            <td>  <input type="checkbox" id="yes" name="yes" value="Bəli"></td>
+                        </tr>
+                      </table>
+                     
+                    
+                    
+                   </div>
+                   <button class="hesabat_axtar">Axtar <i class="bi bi-search"></i></button>
+                  <div class="download_div">
+                    <div class="download">
+                      <p>May – iyul ayları üzrə Rüblük hesabatı</p>
+                     <a href="./images.png" download  class="hesabat_axtar">
+                         Endir
+                     </a>
+                    </div>
+ 
+                    <div class="download">
+                     <p>Avqust – oktyabr ayları üzrə Rüblük hesabatı</p>
+                    <a href="./images.png" download  class="hesabat_axtar">
+                        Endir
+                    </a>
+                   </div>
+                  </div>
+                
+                  </form>
+                </div>
+                <section id="skills" class="skills p-0">
+                  <div class="container" data-aos="fade-up">
+              
+                    <div class="row skills-content">
+              
+                      <div class="col-lg-12">
+                        <h5>Reyting cədvəli</h5>
+                         <p>1.Qurum adı</p>
+                        <div class="progress">
+                          <span class="skill" ><p>100%</p></span>
+                          <div class="progress-bar-wrap">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                        </div>
+                        <p>2.Qurum adı</p>
+                        <div class="progress">
+                          <span class="skill" ><p>80%</p></span>
+                          <div class="progress-bar-wrap">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="80"></div>
+                          </div>
+                        </div>
+                        <p>3.Qurum adı</p>
+                        <div class="progress">
+                          <span class="skill" ><p>60%</p></span>
+                          <div class="progress-bar-wrap">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="60"></div>
+                          </div>
+                        </div>
+                        <p>4.Qurum adı</p>
+                        <div class="progress">
+                          <span class="skill" ><p>40%</p></span>
+                          <div class="progress-bar-wrap">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="40"></div>
+                          </div>
+                        </div>
+                        <p>5.Qurum adı</p>
+                        <div class="progress">
+                          <span class="skill" ><p>20%</p></span>
+                          <div class="progress-bar-wrap">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="20"></div>
+                          </div>
+                        </div>
+                      </div>
+              
+                     
+                    </div>
+              
+                  </div>
+                </section>
+            </div>
+            <div class="col-12 col col-sm-8 col-xl-9">
+              <div class="row">
+                <div class="col-6  col-xl-4 width">
+                  <div class="problem-img">
+                    <img class="problem-img3" src="./assets/img/check-mark.png">
+                    <img class="problem-img2" src="./assets/img/qeza.png">
+                    <div class="overlay">
+                      <div class="text">
+                        <h6>Problemin adı</h6>
+                        <p>Ünvan ÜnvanÜnvanÜnvan</p>
+                          <a href="detail.html">Ətraflı Bax</a>
+                      </div>
+                    </div>
+        
+                  </div>
+                </div>
+                <div class="col-6  col-xl-4 width">
+                  <div class="problem-img">
+                    <img class="problem-img3" src="./assets/img/question.png">
+                    <img class="problem-img2" src="./assets/img/agac2.jfif">
+                    <div class="overlay">
+                      <div class="text">
+                        <h6>Problemin adı</h6>
+                        <p>Ünvan ÜnvanÜnvanÜnvan</p>
+                          <a href="detail-after.html">Ətraflı Bax</a>
+                      </div>
+                    </div>
+        
+                  </div>
+                </div>
+                <div class="col-6  col-xl-4 width">
+                  <div class="problem-img">
+                    <img class="problem-img3" src="./assets/img/check-mark.png">
+                    <img class="problem-img2" src="./assets/img/agax.jfif">
+                    <div class="overlay">
+                      <div class="text">
+                        <h6>Problemin adı</h6>
+                        <p>Ünvan ÜnvanÜnvanÜnvan</p>
+                          <a href="detail.html">Ətraflı Bax</a>
+                      </div>
+                    </div>
+        
+                  </div>
+                </div>
+                <div class="col-6  col-xl-4 width">
+                  <div class="problem-img">
+                    <img class="problem-img3" src="./assets/img/question.png">
+                    <img class="problem-img2" src="./assets/img/heyvan.jfif">
+                    <div class="overlay">
+                      <div class="text">
+                        <h6>Problemin adı</h6>
+                        <p>Ünvan ÜnvanÜnvanÜnvan</p>
+                          <a href="detail.html">Ətraflı Bax</a>
+                      </div>
+                    </div>
+        
+                  </div>
+                </div>
+                <div class="col-6  col-xl-4 width">
+                  <div class="problem-img">
+                    <img class="problem-img3" src="./assets/img/check-mark.png">
+                    <img class="problem-img2" src="./assets/img/heyvan2.jfif">
+                    <div class="overlay">
+                      <div class="text">
+                        <h6>Problemin adı</h6>
+                        <p>Ünvan ÜnvanÜnvanÜnvan</p>
+                          <a href="detail.html">Ətraflı Bax</a>
+                      </div>
+                    </div>
+        
+                  </div>
+                </div>
+                <div class="col-6  col-xl-4 width">
+                  <div class="problem-img">
+                    <img class="problem-img3" src="./assets/img/question.png">
+                    <img class="problem-img2" src="./assets/img/lift.jfif">
+                    <div class="overlay">
+                      <div class="text">
+                        <h6>Problemin adı</h6>
+                        <p>Ünvan ÜnvanÜnvanÜnvan</p>
+                          <a href="detail.html">Ətraflı Bax</a>
+                      </div>
+                    </div>
+        
+                  </div>
+                </div>
+                <div class="col-6  col-xl-4 width">
+                  <div class="problem-img">
+                    <img class="problem-img3" src="./assets/img/check-mark.png">
+                    <img class="problem-img2" src="./assets/img/lift2.jfif">
+                    <div class="overlay">
+                      <div class="text">
+                        <h6>Problemin adı</h6>
+                        <p>Ünvan ÜnvanÜnvanÜnvan</p>
+                          <a href="detail.html">Ətraflı Bax</a>
+                      </div>
+                    </div>
+        
+                  </div>
+                </div>
+                <div class="col-6  col-xl-4 width">
+                  <div class="problem-img">
+                    <img class="problem-img3" src="./assets/img/question.png">
+                    <img class="problem-img2" src="./assets/img/qazsizma.jfif">
+                    <div class="overlay">
+                      <div class="text">
+                        <h6>Problemin adı</h6>
+                        <p>Ünvan ÜnvanÜnvanÜnvan</p>
+                          <a href="detail.html">Ətraflı Bax</a>
+                      </div>
+                    </div>
+        
+                  </div>
+                </div>
+                <div class="col-6  col-xl-4 width">
+                  <div class="problem-img">
+                    <img class="problem-img3" src="./assets/img/check-mark.png">
+                    <img class="problem-img2" src="./assets/img/sizma.jfif">
+                    <div class="overlay">
+                      <div class="text">
+                        <h6>Problemin adı</h6>
+                        <p>Ünvan ÜnvanÜnvanÜnvan</p>
+                          <a href="detail.html">Ətraflı Bax</a>
+                      </div>
+                    </div>
+        
+                  </div>
+                </div>
+                <div class="col-6  col-xl-4 width">
+                  <div class="problem-img">
+                    <img class="problem-img3" src="./assets/img/question.png">
+                    <img class="problem-img2" src="./assets/img/tullanti.jfif">
+                    <div class="overlay">
+                      <div class="text">
+                        <h6>Problemin adı</h6>
+                        <p>Ünvan ÜnvanÜnvanÜnvan</p>
+                          <a href="detail.html">Ətraflı Bax</a>
+                      </div>
+                    </div>
+        
+                  </div>
+                </div>
+                <div class="col-6  col-xl-4 width">
+                  <div class="problem-img">
+                    <img class="problem-img3" src="./assets/img/check-mark.png">
+                    <img class="problem-img2" src="./assets/img/tullanti2.jpg">
+                    <div class="overlay">
+                      <div class="text">
+                        <h6>Problemin adı</h6>
+                        <p>Ünvan ÜnvanÜnvanÜnvan</p>
+                          <a href="detail.html">Ətraflı Bax</a>
+                      </div>
+                    </div>
+        
+                  </div>
+                </div>
+                <div class="col-6  col-xl-4 width">
+                  <div class="problem-img">
+                    <img class="problem-img3" src="./assets/img/question.png">
+                    <img class="problem-img2" src="./assets/img/vehsi.jfif">
+                    <div class="overlay">
+                      <div class="text">
+                        <h6>Problemin adı</h6>
+                        <p>Ünvan ÜnvanÜnvanÜnvan</p>
+                          <a href="detail.html">Ətraflı Bax</a>
+                      </div>
+                    </div>
+        
+                  </div>
+                </div>
+        
+        
+              </div>
+          </div>
+        </div>
+    </div>
+  </section>
+
+  <footer style="background-color: #E9E9E9;text-align: center;">
+   
+    <div class="row">
+    
+     <div class="col-12 col-sm-7">
+       <img class="footer-logo" src="./assets/img/foot-logo.png">
+       <div class="social-media d-flex">
+           <img src="./assets/img/twitter.svg">
+           <img src="./assets/img/fb.svg">
+           <img src="./assets/img/insta.svg">
+           <img src="./assets/img/whatsap.svg">
+       </div>
+         <div style="padding-bottom: 50px;">
+           <span class="teklif-gonder">Təklif göndər</span>
+           <div class="footer-div">office@mgc.az</div>
+           <div class="footer-div">+994 55 4502013</div>
+         </div>
+     </div>
+     <div  class="col-12 col-sm-5 emekdas">
+        <h3 class="terefdas_title">Tərəfdaşlarımız</h3>
+       <div>
+        <img src="./assets/img/qurum1.png">
+        <img src="./assets/img/qurum3.png">
+        <img src="./assets/img/qurum4.png">
+        <img src="./assets/img/qurum5.png">
+       </div>
+     </div>
+    
+    </div>
+     
+
+ </footer>
+  <section class="footer_div" style="background: #4200FF;">
+    <p>Copyright 2019 © <b>JUGAAD</b></p>
+  </section>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+      <script src="assets/vendor/aos/aos.js"></script>
+      <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+      <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+      <script src="assets/vendor/php-email-form/validate.js"></script>
+      <script src="assets/vendor/purecounter/purecounter.js"></script>
+      <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+      <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+    
+      <!-- Template Main JS File -->
+      <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+
+      <script src="assets/js/main.js"></script>
+      <script>
+    
+        var cw = $('.width').width();
+        console.log(cw)
+    $('.problem-img').css({
+        'height': cw-cw*0.1 + 'px'
+    });
+      </script>
+      
+    
+    <script>
+      var cw = $('.width').width();
+    $('.problem-img2').css({
+        'height':cw-cw*0.1 + 'px'
+    });
+    </script>
+</body>
+
+</html>

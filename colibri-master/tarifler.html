@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Colibri</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./style/font_awesome/css/all.min.css">
+    <link rel="stylesheet" href="./style/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./style/mystyle/css/my_style.css">
+    <link rel="stylesheet" href="./style/mystyle/css/responsiv.css">
+    <link rel="stylesheet" href="./style/mystyle/css/foryou.css">
+    <link rel="stylesheet" href="https://use.typekit.net/dfw0poo.css">
+    <link rel="stylesheet" href="./style/materialize/css/materializee.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <style>
+        .nav-tabs-outer>ul>li {
+            display: block;
+
+        }
+
+        .tab-pane:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .dropdown-menu.xidmet.show{
+            display: block !important;
+        }
+        .show {
+            display: flex !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="overlay"></div>
+    <div class="containernav d-flex">
+        <nav class="navbar navbar-expand-lg navbar-light  pt-0">
+            <button class="navbar-toggler col-auto" type="button" data-toggle="collapse" id="mobile-toggle"
+                data-target="navbarSupportedContent2" aria-controls="navbarSupportedContent2" aria-expanded="false"
+                aria-label="Toggle navigation" style="outline: none;">
+                <span><i id="nav-button" class="fas fa-bars ml-1"></i></span>
+            </button>
+            <div class="nav-logo mt-auto ml-md-5 d-none d-lg-flex d-sm-flex">
+                <a class="navbar-brand" href="index.html">
+                    <img class="logo pl-3" src="./style/mystyle/img/Logo.png" alt="Colibri">
+                </a>
+            </div>
+            <div class="collapse navbar-collapse col-auto " id="navbarTogglerDemo03">
+                <div class="phone m-auto col-auto ">
+                    <div class=" mr-2">
+                        <img src="./style/mystyle/img/telefon.png">
+                    </div>
+                    <div class="phone-numbers ml-2">
+                        <span>(+994) 12 310 39 39</span>
+                        <span>(+994) 51 500 39 39</span>
+                    </div>
+                </div>
+                <div class="menu mr-auto mt-lg-0 ">
+                    <div class="menu-top">
+                        <ul class="navbar-nav beShow">
+                            <li class="nav-item  ">
+                                <a class="nav-link activeee" href="f.a.q.html">F.A.Q</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="magazalar.html">Mağazalar</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="xeberler.html">Xəbərlər</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="istifadeqaydalari.html">İstifadə qaydaları</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <hr>
+
+                    <div class="menu-bottom ">
+                        <ul class="navbar-nav beShow">
+                            <li class="nav-item">
+                                <a class="nav-link" href="haqqinda.html">Haqqımızda</a>
+                            </li>
+                            <li class="nav-item nav-item-drop">
+                                <a class="nav-link hover-item">Xidmətlər</a>
+                                <div class="dropdown-content">
+                                    <a href="xidmetlerimiz.html">Təhlükəli yüklərin daşınması</a>
+                                    <a href="#">Maye məhsulların daşınması</a>
+                                    <a href="#">Gömrük sənədləşməsi</a>
+                                    <a href="#">Təhlükəli yüklərin daşınması</a>
+                                    <a href="#">Maye məhsulların daşınması</a>
+                                    <a href="#">Gömrük sənədləşməsi</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="tarifler.html">Tariflər</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="kalkulyator.html">Kalkulyator</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="elaqe.html">Əlaqə</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="social-networks col-auto ml-4">
+                    <ul class="social-networks_list beShow pl-2">
+                        <li class="social-networks_list--facebook">
+                            <a href="#"><img src="style/mystyle/img/nav-fb.png"></i></a>
+                        </li>
+                        <li class="social-networks_list--instagram">
+                            <a href="#"><img src="style/mystyle/img/nav-insta.png"></a>
+                        </li>
+                        <li class="social-networks_list--youtube">
+                            <a href="#"><img src="style/mystyle/img/nav-youtube.png"></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="languages  ">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                            aria-haspopup="true" aria-expanded="false">AZ</a>
+                        <div class="dropdown-menu ">
+                            <a class="dropdown-item" href="#">EN</a>
+                            <a class="dropdown-item" href="#">RU</a>
+                        </div>
+                    </li>
+                </div>
+            </div>
+            <button class="users  d-none d-sm-flex d-lg-flex " href="#costumModal15" role="button"
+                class="btn btn-default" data-toggle="modal">
+                <img src="style/mystyle/img/giris.png"> <span>GİRİŞ/QEYDİYYAT</span>
+            </button>
+
+        </nav>
+        <div id="logo2" class="logo-mobile d-flex d-sm-none" style="width: 55%;">
+            <a class="navbar-brand" href="index.html">
+                <img id="" class="" src="./style/mystyle/img/logorenpons.png" alt="Colibri">
+            </a>
+        </div>
+
+        <div class="mobile-users d-flex d-sm-none ">
+            <button class=" navbar-toggler" href="#costumModal15" role="button" data-toggle="modal"> <img
+                    style="width: 18px;" src="style/mystyle/img/user.png"></button>
+        </div>
+    </div>
+
+    <div class=" mobile-navbar ">
+        <ul class="pl-0 beShow " id="mobile-ul">
+            <li><a href="haqqinda.html">Haqqımızda</a></li>
+            <li class="nav-item dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                    aria-expanded="false">Xidmətlər</a>
+                <div class="dropdown-menu xidmet  ">
+                    <a class="xidmet-a" href="xidmetlerimiz.html">Təhlükəli yüklərin daşınması</a>
+                    <a class="xidmet-a" href="#">Maye məhsulların daşınması</a>
+                    <a class="xidmet-a" href="#">Gömrük sənədləşməsi</a>
+                    <a class="xidmet-a" href="#">Təhlükəli yüklərin daşınması</a>
+                    <a class="xidmet-a" href="#">Maye məhsulların daşınması</a>
+                    <a class="xidmet-a" href="#">Gömrük sənədləşməsi</a>
+
+
+                </div>
+            </li>          
+             <li><a href="tarifler.html">Tariflər</a></li>
+            <li><a href="kalkulyator.html">Kalkulyator</a></li>
+            <li><a href="f.a.q.html">F.A.Q</a></li>
+            <li><a href="magazalar.html">Mağazalar</a></li>
+            <li><a href="istifadeqaydalari.html">İstifadə qaydaları</a></li>
+            <li><a href="elaqe.html">Əlaqə</a></li>
+            <li class="nav-item dropdown p-0">
+                <div class="d-flex justify-content-center">
+                    <img class="mr-3" src="style/mystyle/img/lang-az.png">
+                    <img class="mr-3" src="style/mystyle/img/lang-eng.png">
+                    <img src="style/mystyle/img/lang-ru.png">
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- <div class="nav-tabs-outer">
+        <ul class="nav nav-tabs js-tabs">
+            <li class="active text-center"><a href="#tab1" data-toggle="tab">TAB1</a></li>
+            <li class="text-center"><a href="#tab2" data-toggle="tab">TAB2</a></li>
+            <li class="text-center"><a href="#tab3" data-toggle="tab">TAB3</a></li>
+        </ul>
+        <div class="tab-content">
+            <div id="tab1" role="tabpanel" class="tab-pane active fade in">
+                <img src="https://placehold.jp/150x150.png">
+                <p>text text text text text text text text text text text</p>
+            </div>
+            <div id="tab2" role="tabpanel" class="tab-pane fade in">
+                <img src="https://placehold.jp/150x150.png">
+                <p>text text text text text text text text text text text text text text text text text text</p>
+            </div>
+            <div id="tab3" role="tabpanel" class="tab-pane fade in">
+                <img src="https://placehold.jp/150x150.png">
+                <p>text text text text text text text text text text text text text text text text text text text text
+                    text text text text text</p>
+            </div>
+        </div>
+    </div> -->
+    <div class="nav-tabs-outer">
+        <div class="container-olkelerr ">
+            <h3 class="tarifler_title">ÖLKƏLƏR ÜZRƏ TARİFLƏRİMİZ</h3>
+            <div class="row olkeler nav nav-tabs js-tabs">
+                <div class="active show olke" style="object-fit: cover;background:url(style/mystyle/img/turkey.png )no-repeat;background-size: 24px 24px;
+                    background-position: 20px 13px;" href="#tab1" data-toggle="tab">
+                    <p class="">Türkiyə</p>
+                </div>
+                <div class="olke " style="object-fit: cover;background:url(style/mystyle/img/abs.png)no-repeat;background-size: 24px 24px;
+                background-position: 30px 13px;" href="#tab2" data-toggle="tab">
+
+                    <p>ABŞ</p>
+                </div>
+
+                <div class="olke" style="object-fit: cover;background:url(style/mystyle/img/almaniya.png)no-repeat;background-size: 24px 24px;
+                background-position: 20px 13px;" href="#tab3" data-toggle="tab">
+
+                    <p>Almaniya</p>
+                </div>
+                <div class="olke" style="object-fit: cover;background:url(style/mystyle/img/bee.png)no-repeat;background-size: 24px 24px;
+                background-position: 30px 13px;" href="#tab4" data-toggle="tab">
+
+                    <p>BƏƏ</p>
+                </div>
+                <div class="olke" style="object-fit: cover;background:url(style/mystyle/img/ingiltere.png)no-repeat;background-size: 24px 24px;
+                background-position: 12px 13px;" href="#tab5" data-toggle="tab">
+
+                    <p>İngiltərə</p>
+                </div>
+            </div>
+        </div>
+        <div class="container tab-content">
+            <div class="row tarifler tab-pane fade show active in" id="tab1" role="tabpanel">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6 ">
+                    <div class="tariflerr">
+                        <h4 class="tariflerr_h4">Standart tarifler</h4>
+                        <hr class="tariflerr_hr">
+                        <table>
+
+                            <tr>
+                                <td>0.01 k1 dan .025 kqq qeder</td>
+                                <td style="  text-align: right">$100</td>
+                            </tr>
+                            <tr>
+                                <td>0.01 k1 dan .025 kqq qeder</td>
+                                <td style="  text-align: right">$100</td>
+                            </tr>
+                            <tr>
+                                <td>0.01 k1 dan .025 kqq qeder</td>
+                                <td style="  text-align: right">$100</td>
+                            </tr>
+                            <tr>
+                                <td>0.01 k1 dan .025 kqq qeder</td>
+                                <td style="  text-align: right">$100</td>
+                            </tr>
+                            <tr>
+                                <td>0.01 k1 dan .025 kqq qeder</td>
+                                <td style="  text-align: right">$100</td>
+                            </tr>
+
+
+                        </table>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6 pb-5 m-auto">
+                    <div class="tariflerr">
+                        <h4 class="tariflerr_h4">Xüsusi tarifler<span class="iconify" data-inline="false"
+                                data-icon="bi:question" style="color: #f16136; font-size: 16px;"></span></h4>
+                        <hr class="tariflerr_hr">
+                        <table>
+
+                            <tr>
+                                <td>0.01 k1 dan .025 kqq qeder</td>
+                                <td style="  text-align: right">$100</td>
+                            </tr>
+                          
+                            <tr>
+                                <td>0.01 k1 dan .025 kqq qeder</td>
+                                <td style="  text-align: right">$100</td>
+                            </tr>
+                            <tr>
+                                <td>0.01 k1 dan .025 kqq qeder</td>
+                                <td style="  text-align: right">$100</td>
+                            </tr>
+                            <tr>
+                                <td>0.01 k1 dan .025 kqq qeder</td>
+                                <td style="  text-align: right">$100</td>
+                            </tr>
+                            <tr>
+                                <td>0.01 k1 dan .025 kqq qeder</td>
+                                <td style="  text-align: right">$100</td>
+                            </tr>
+
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row tarifler tab-pane  fade in" id="tab2" role="tabpanel">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6 pb-5 m-auto">
+                    <div class="tariflerr">
+                        <h4 class="tariflerr_h4">Standart tarifler</h4>
+                        <hr class="tariflerr_hr">
+                        <table>
+
+                            <tr>
+                                <td>0.01 k1 dan .025 kqq qeder</td>
+                                <td style="  text-align: right">$100</td>
+                            </tr>
+                            <tr>
+                                <td>0.01 k1 dan .025 kqq qeder</td>
+                                <td style="  text-align: right">$100</td>
+                            </tr>
+                            <tr>
+                                <td>0.01 k1 dan .025 kqq qeder</td>
+                                <td style="  text-align: right">$100</td>
+                            </tr>
+                            <tr>
+                                <td>0.01 k1 dan .025 kqq qeder</td>
+                                <td style="  text-align: right">$100</td>
+                            </tr>
+                            <tr>
+                                <td>0.01 k1 dan .025 kqq qeder</td>
+                                <td style="  text-align: right">$100</td>
+                            </tr>
+
+
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row tarifler tab-pane  fade in" id="tab3" role="tabpanel">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6 pb-5 m-auto">
+                    <div class="tariflerr">
+                        <h4 class="tariflerr_h4">Standart tarifler</h4>
+                        <hr class="tariflerr_hr">
+                        <table>
+
+                            <tr>
+                                <td>0.01 k1 dan .025 kqq qeder</td>
+                                <td style="  text-align: right">$100</td>
+                            </tr>
+                            <tr>
+                                <td>0.01 k1 dan .025 kqq qeder</td>
+                                <td style="  text-align: right">$100</td>
+                            </tr>
+                            <tr>
+                                <td>0.01 k1 dan .025 kqq qeder</td>
+                                <td style="  text-align: right">$100</td>
+                            </tr>
+                            <tr>
+                                <td>0.01 k1 dan .025 kqq qeder</td>
+                                <td style="  text-align: right">$100</td>
+                            </tr>
+                            <tr>
+                                <td>0.01 k1 dan .025 kqq qeder</td>
+                                <td style="  text-align: right">$100</td>
+                            </tr>
+
+
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row tarifler tab-pane  fade in" id="tab4" role="tabpanel">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6 pb-5 m-auto">
+                    <div class="tariflerr">
+                        <h4 class="tariflerr_h4">Standart tarifler</h4>
+                        <hr class="tariflerr_hr">
+                        <table>
+
+                            <tr>
+                                <td>0.01 k1 dan .025 kqq qeder</td>
+                                <td style="  text-align: right">$100</td>
+                            </tr>
+                            <tr>
+                                <td>0.01 k1 dan .025 kqq qeder</td>
+                                <td style="  text-align: right">$100</td>
+                            </tr>
+                            <tr>
+                                <td>0.01 k1 dan .025 kqq qeder</td>
+                                <td style="  text-align: right">$100</td>
+                            </tr>
+                            <tr>
+                                <td>0.01 k1 dan .025 kqq qeder</td>
+                                <td style="  text-align: right">$100</td>
+                            </tr>
+                            <tr>
+                                <td>0.01 k1 dan .025 kqq qeder</td>
+                                <td style="  text-align: right">$100</td>
+                            </tr>
+
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row tarifler tab-pane  fade in" id="tab5" role="tabpanel">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6 pb-5 m-auto">
+                    <div class="tariflerr">
+                        <h4 class="tariflerr_h4">Standart tarifler</h4>
+                        <hr class="tariflerr_hr">
+                        <table>
+
+                            <tr>
+                                <td>0.01 k1 dan .025 kqq qeder</td>
+                                <td style="  text-align: right">$100</td>
+                            </tr>
+                            <tr>
+                                <td>0.01 k1 dan .025 kqq qeder</td>
+                                <td style="  text-align: right">$100</td>
+                            </tr>
+                            <tr>
+                                <td>0.01 k1 dan .025 kqq qeder</td>
+                                <td style="  text-align: right">$100</td>
+                            </tr>
+                            <tr>
+                                <td>0.01 k1 dan .025 kqq qeder</td>
+                                <td style="  text-align: right">$100</td>
+                            </tr>
+                            <tr>
+                                <td>0.01 k1 dan .025 kqq qeder</td>
+                                <td style="  text-align: right">$100</td>
+                            </tr>
+
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="container">
+            <div class="row footer-info pt-3">
+                <div class=" col-sm-4 col-12 mt-5 p-0">
+                    <div class="info-logo">
+                        <img class="logo-footer" src="./style/mystyle/img/footerlogo.png" alt="">
+                    </div>
+                    <div class="description mt-3">
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                            galley of type and scrambled it to make a type specimen book. It has survived not only five
+                            centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-12 mt-5 p-0">
+                    <span class="contact-heading">Əlaqə vasitələri</span>
+                    <hr class="heading-line">
+                    <div class="mt-3 contact-info">
+                        <p>Ünvan: Azərbaycan, Bakı, Dilarə Əliyeva küç., 251, AZ 1014</p>
+                        <p>Telefon: (+99412) 310 39 39</p>
+                        <p>Mobil: (+99451) 500 39 39</p>
+                        <p>E-poçt: info@colibri.az</p>
+                        <p>Sos. şəbəkələr: <span><img src="style/mystyle/img/fb_foot.png"></span> <span><img
+                                    src="style/mystyle/img/insta_foot.png"></span><span><img
+                                    src="style/mystyle/img/youtube_foot.png"></span></p>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-12 mt-5 p-0">
+                    <span class="contact-heading">Müraciət forması</span>
+                    <hr class="heading-line">
+                    <form class="footer_form">
+                        <div class="form-row mt-3">
+                            <div class="form-group col-md-6">
+                                <input style="width:100% !important; max-width: 100%" type="text" class="form-control"
+                                    id="name" placeholder="Adınız">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input style="width:100% !important; max-width: 100%" type="email" class="form-control"
+                                    id="email" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <input style="width:100% !important; max-width: 100%" type="text" class="form-control"
+                                id="subject" placeholder="Mövzu">
+                        </div>
+                        <div class="form-group">
+                            <textarea style="width:100%; max-width: 100%" name="message" id="message" rows="5"
+                                placeholder="Mesaj"></textarea>
+                            <button type="submit" class="send-message">GÖNDƏR</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row footer-info-mobile d-flex d-sm-none " style="position: relative;">
+            <div class="up-circle" style="width: 48px;
+            height: 48px;
+        
+            border-radius: 50%;
+            background: #374C3F;
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            box-sizing: border-box;
+            position: absolute;
+            left: 43%;
+            top: -26%;">
+                <a href="#" class="circle_a" style="color: white !important" href="#"><img
+                        src="style/mystyle/img/up.png"></a>
+            </div>
+            <div class="col-12 text-center mt-3 ">
+
+                <p class="" style="margin-top: 40px;"><span class="mr-4"><img
+                            src="style/mystyle/img/fb_foot.png"></span> <span class="mr-4"><img
+                            src="style/mystyle/img/insta_foot.png"></span><span><img
+                            src="style/mystyle/img/youtube_foot.png"></span>
+            </div>
+        </div>
+        <div class="row footer-bottom-mobile d-flex d-sm-none">
+            <div class="col-12 d-flex justify-content-center align-items-center">
+                <button class="condition">Daşınma şərtləri</button>
+                <button class="rules">İstifadə qaydaları</button>
+            </div>
+            <div class="col-12 d-flex justify-content-center align-items-center">
+                <p style="font-family: San Francisco;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 17px;
+                display: flex;
+                align-items: center;
+                padding: 13px 5px;
+                text-align: center;
+                ">Copyright © 2020 Colibri Express. Bütün hüquqlar qorunur.</p>
+            </div>
+
+        </div>
+        <div class="upscrool d-none d-sm-flex">
+            <div class="up-circle" style="position:absolute; width: 48px;
+            height: 48px;
+            left: 50%;
+    margin-top: -25px;
+            border-radius: 50%;
+            background: #374C3F;
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            box-sizing: border-box;">
+                <a href="#" class="circle_a" style="color: white !important" href="#"><img
+                        src="style/mystyle/img/up.png"></a>
+            </div>
+            <hr class="foot_hr">
+        </div>
+        <div class="container">
+
+            <div class="row footer-bottom d-none d-sm-flex ">
+
+                <div class="col-6 p-0 mt-3 mb-2">
+
+                    <p style="
+                        font-family: San Francisco;
+                        font-style: normal;
+                        font-weight: normal;
+                        font-size: 14px;
+                        line-height: 17px;
+                        display: flex;
+                        align-items: center;
+                        
+                        /* White */
+                        
+                        color: #FFFFFF;">Copyright © 2020 Colibri Express. Bütün hüquqlar qorunur.</p>
+                </div>
+                <div class="col-6 d-flex  justify-content-lg-end align-items-center   mb-1">
+                    <button class="condition">Daşınma şərtləri</button>
+                    <button class="rules">İstifadə qaydaları</button>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+
+
+    <div class="container text-center">
+        <div class="costumModal">
+            <div id="costumModal15" class="modal" data-easein="bounceRightIn" tabindex="-1" role="dialog"
+                aria-labelledby="costumModalLabel" aria-hidden="true">
+                <div class="modal-dialog centered">
+                    <div class="modal-content giris_modal"id="giris_modal">
+                        <div class="modal-header" style="justify-content: center !important;">
+                            <h5 class="giris_title">GİRİŞ</h5>
+                            <img  data-toggle="modal" data-dismiss="modal" src="style/mystyle/img/back-green.png">
+                            <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button> -->
+                        </div>
+                        <div class="modal-body">
+                            <form class="d-flex flex-column giris_form">
+                                <div class="form-group" style="margin-top: 80px !important">
+                                   
+                                    <button class="cixis" data-toggle="modal" data-dismiss="modal"></button>
+                                  <a onclick="margintop()" data-toggle="modal" 
+                                  data-target="#qeydiyyat">  <button class="qeydiyyat" ><img
+                                        src="style/mystyle/img/qeydiyat.png">Qeydiyyat</button></a>
+                                            <div class="input-field ">
+                                                <input id="s" type="text" class="validate">
+                                                <label for="s">Elektron poçt</label>
+                                            </div>
+                                </div>
+                                <div class="input-field ">
+                                    <input id="sifre" type="text" class="validate">
+                                    <label for="sifre">Şifrə</label>
+                                </div>
+                                <button type="button" class=" giris_btn" data-dismiss="modal">DAXİL OL</button>
+                                <a data-toggle="modal" onclick="margintop2()"
+                                data-target="#sifreberpa"><button class="sifreberpa" >Şifrənizi
+                                    unutmusunuz?</button></a>
+                            </form>
+                        </div>
+                        <div class="">
+                            <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="modal fade p-0" id="qeydiyyat" tabindex="-1" role="dialog" data-easein="flipXIn" 
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered d-flex" role="document">
+            <div class="modal-content qeydiyyat_modal">
+                <div class="modal-header" style="justify-content: center !important;">
+                    <h5 class="qeydiyyat_title">QEYDİYYAT</h5>
+                    <img onclick="marginbottom()"  data-toggle="modal" data-dismiss="modal" data-easeout="flipXIn" src="style/mystyle/img/back-white.png">
+                    
+                </div>
+                <div class="modal-body">
+                    <form class="d-flex form_qeydiyyat ">
+                        <div class="row">
+                            <button onclick="marginbottom()" class="cixis_qeydiyat" data-toggle="modal" data-dismiss="modal"></button>
+                            
+                                <div class="input-field  col-6 col-sm-3">
+                                    <input class="qeydiyat_input" id="recipient-name" type="text" class="validate">
+                                    <label for="recipient-name">Ad</label>
+                                </div>
+                                <!-- <div class="form-group  col-3">
+                                    <input type="text" class="form-control qeydiyat_input" id="recipient-name"
+                                        placeholder="Ad">
+                                </div> -->
+                                <!-- <div class="form-group col-3">
+                                    <input  type="text" class="form-control qeydiyat_input" id="recipient-name"
+                                        placeholder="Soyad">
+                                </div> -->
+                                <div class="input-field  col-6 col-sm-3 ">
+                                    <input class="qeydiyat_input" id="Soyad" type="text" class="validate">
+                                    <label for="Soyad">Soyad</label>
+                                </div>
+                                <!-- <div class="form-group col-3">
+                                    <input type="text" class="form-control qeydiyat_input" id="recipient-name"
+                                        placeholder="Email">
+                                </div> -->
+                                <div class="input-field col-6 col-sm-3 ">
+                                    <input class="qeydiyat_input" id="Email" type="text" class="validate">
+                                    <label for="Email">Email</label>
+                                </div>
+                                <div class="col-6 col-sm-3">
+                                    <div class="input-field d-flex flex-row sekilli"
+                                        style="justify-content: space-between;width: 192px;">
+                                        <input type="text" class="form-control qeydiyat_input"  class="validate" id="tarix"
+                                            style="width: 180px;">
+                                            <label for="tarix">Doğum tarixi</label>
+                                        <img src="style/mystyle/img/teqvim.png" style="    width: 20px;
+                                        position: absolute;
+                                        height: 20px;
+                                        margin-top: 4%;
+                                        margin-left: 77%;">
+                                    </div>
+
+                                </div>
+
+                            
+                          
+                                <div class="input-field  col-6 col-sm-3 ">
+                                    <input class="qeydiyat_input" id="Telefon" type="text" class="validate">
+                                    <label for="Telefon">Telefon nömrəsi</label>
+                                </div>
+                                <!-- <div class="form-group col-3">
+                                   
+                                    <input type="text" class="form-control qeydiyat_input" id="recipient-name"
+                                        placeholder="Telefon nömrəsi">
+                                </div> -->
+                                <!-- <div class="form-group col-3">
+                                    <input type="text" class="form-control qeydiyat_input" id="recipient-name"
+                                        placeholder="Əlavə Telefon
+                            nömrəsi">
+                                </div> -->
+                                <div class="input-field  col-6 col-sm-3">
+                                    <input class="qeydiyat_input" id="Telefon2" type="text" class="validate">
+                                    <label for="Telefon2">Əlavə Telefon nömrəsi</label>
+                                </div>
+                                <div class="form-group col-6 col-sm-3">
+                                    <!-- <label for="message-text" class="col-form-label  qeydiyat_label">Dil Seçimi</label> -->
+                                    <select type="text" class="form-control qeydiyat_input w-100 p-0" id="recipient-name">
+                                        <option selected>Dil Seçimi</option>
+                                        <option>AZ</option>
+                                        <option>EN</option>
+                                    </select>
+                                </div>
+                                <!-- <div class="form-group col-3">
+                                    <input type="text" class="form-control qeydiyat_input" id="recipient-name"
+                                        placeholder="Şəhər">
+                                </div> -->
+                                <div class="input-field col-6 col-sm-3">
+                                    <input class="qeydiyat_input" id="seher" type="text" class="validate">
+                                    <label for="seher">Şəhər</label>
+                                </div>
+                           
+                            <div class=" input-field col-12">
+                                <input style="width: 100%;" type="text" class="validate qeydiyat_input"
+                                    id="unvan" >
+                                    <label for="unvan">Qeydiyyatda olduğunuz ünvan</label>
+                            </div>
+                            
+                                <div class="form-group col-6 col-sm-3">
+                                    <!-- <label for="message-text" class="col-form-label  qeydiyat_label">Sənədin
+                                seriası</label> -->
+                                    <select type="text" class="form-control qeydiyat_input w-100 p-0" id="recipient-name">
+                                        <option>Sənədin seriası</option>
+                                    </select>
+                                </div>
+                                <div class="input-field col-6 col-sm-9">
+                                    <input type="text" class="validate qeydiyat_input_col9" id="senednomre">
+                                        <label for="senednomre">Sənədin nömrəsi</label>
+                                </div>
+
+                            
+                       
+
+                                <div class="input-field col-12 col-sm-6">
+                                    <input type="text" class="validate qeydiyat_input_col6" id="fin">
+                                        <label for="fin">Şəxsiyyət Vəsiqəsinin FİN kodu</label>
+                                </div>
+                                <div class="form-group col-12 col-sm-6">
+                                    <!-- <label for="message-text" class="col-form-label  qeydiyat_label">Cinsiyyət</label> -->
+                                    <select type="text" class="form-control qeydiyat_input_col6 selectt p-0"
+                                        id="recipient-name">
+                                        <option>Cinsiyyət</option>
+                                        <option>Xanim</option>
+                                    </select>
+                                </div>
+                        
+
+                                <div class="input-field col-6">
+                                    <input type="text" class="validate qeydiyat_input_col6" id="customer">
+                                        <label for="customer">Referral customer code</label>
+                                </div>
+                                <div class=" col-6">
+                                    <div class=" input-field d-flex flex-row sekilli"
+                                        >
+                                        <input type="password" class="validate qeydiyat_input_col6" id="sifre">
+                                            <label for="sifre">Şifrə</label>
+                                        <img src="style/mystyle/img/unvisible.png" style="  position: absolute;
+                                        height: 14px;
+                                        margin-top: 4%;
+                                        margin-left: 95%;">
+                                    </div>
+                               
+                            </div>
+                        </div>
+
+
+                    </form>
+                    <p class="qeydiyat_infor">Qeydiyyat düyməsini sıxmaqla Siz saytın qaydaları və şərtləri ilə
+                        razılaşırsınız.</p>
+                    <button  type="button" class=" qeydiyyat_btn" data-dismiss="modal">QEYDİYYATDAN KEÇ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="sifreberpa" tabindex="-1" role="dialog" data-easein="flipXIn"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered d-flex" role="document">
+            <div class="modal-content berpa_modal">
+                <div class="modal-header" style="justify-content: center !important;">
+                    <h5 class="berpa_title">ŞİFRƏ BƏRPASI</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span><img src="style/mystyle/img/back-white.png"></span>
+                    </button>
+                </div>
+                <div class="modal-body" style="border: none;">
+                    <button onclick="marginbottom2()" class="cixis_qeydiyat" data-toggle="modal" data-dismiss="modal"></button>
+                    <form class="d-flex flex-column berpa_form">
+                        <div class="input-field col-12" style="width: 90%;
+                        margin: auto;margin-top: 40px!important">
+                            <input type="email" class="validate" id="epoct">
+                                <label for="e-poct">Epoçt</label>
+                        </div>
+                       
+                        <button onclick="marginbottom2()" type="button" class=" berpa_btn" data-dismiss="modal">E-mail Göndər</button>
+                    </form>
+                </div>
+                <div class="">
+                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+    <script src="./style/materialize/js/materialize.js"></script>
+    <script src="./style/bootstrap/jquery/jquery-3.4.1.min.js"></script>
+    <script src="./style/bootstrap/jquery/popper.min.js"></script>
+    <script src="./style/slick/slick.min.js"></script>
+    <script src="./style/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./style/font_awesome/js/all.min.js"></script>
+    <script src="./style/mystyle/js/my_style.js"></script>
+    <script src="./style/mystyle/js/nav.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.ui.min.js'></script>
+ 
+    <script>
+        $(".modal").each(function (l) {
+            $(this).on("show.bs.modal", function (l) {
+                var o = $(this).attr("data-easein");
+                "shake" == o ? $(".modal-dialog").velocity("callout." + o) : "pulse" == o ? $(
+                        ".modal-dialog").velocity("callout." + o) : "tada" == o ? $(".modal-dialog")
+                    .velocity("callout." + o) : "flash" == o ? $(".modal-dialog").velocity("callout." +
+                        o) :
+                    "bounce" == o ? $(".modal-dialog").velocity("callout." + o) : "swing" == o ? $(
+                        ".modal-dialog").velocity("callout." + o) : $(".modal-dialog").velocity(
+                        "transition." + o)
+            })
+        });
+        function margintop(){
+            document.getElementById("giris_modal").style.marginTop="11%";
+        }
+        function marginbottom(){
+            document.getElementById("giris_modal").style.marginTop="15%";
+        }
+        function margintop2(){
+            document.getElementById("giris_modal").style.marginTop="22%";
+        }
+        function marginbottom2(){
+            document.getElementById("giris_modal").style.marginTop="15%";
+        }
+    </script>
+    
+</body>
+
+</html>
