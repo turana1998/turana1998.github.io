@@ -1,0 +1,221 @@
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>JS</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <audio class="audio" src="./Mahmut Orhan - Game Of Thrones (Extended Original Mix).mp3" controls>
+    </audio>
+    <form id="Form" action="#">
+        <label>TIK TAK TOE </label>
+        <br />
+        <input class="p1" placeholder="Player-1" required="required" />
+        <input class="p2" placeholder="Player-2" required="required" />
+        <button onclick="Start()">Start</button>
+
+    </form>
+    <div id="Tbl">
+        <!--<label>Game</label>-->
+        <section>
+            <p id="p1">user1</p>
+            <p id="say1"></p>
+        </section>
+        <section>
+            <p id="p2">user1</p>
+            <p id="say2"></p>
+        </section>
+
+        <table>
+
+        </table>
+
+    </div>
+    <div id="Finish">
+        <img src="img/gameover.png"/>
+        <button onclick="Startt()">AGAIN</button>
+    </div>
+
+
+    <script>
+
+        let ply1;
+        let ply2;
+        let say1 = 0;
+        let say2 = 0;
+        let X = "<img src='img/x.png' >";
+        let O = "<img src='img/o.png' >";
+        /* let X="X";
+         let O="O";*/
+        let say = 1;
+        let M = [];
+        Massiv();
+        Qur();
+        function Start() {
+            document.getElementById("Tbl").style.display = "block";
+            document.getElementsByTagName("form")[0].style.display = "none";
+            ply1 = document.getElementsByTagName("input")[0].value;
+            ply2 = document.getElementsByTagName("input")[1].value;
+            document.getElementById("p1").innerHTML = `${ply1}`;
+            document.getElementById("p2").innerHTML = `${ply2}`;
+            document.getElementById("say1").innerHTML = say1;
+            document.getElementById("say2").innerHTML = say2;
+
+
+        }
+        function Startt(){
+            document.getElementById("Finish").style.display = "none";
+            document.getElementsByTagName("form")[0].style.display = "block";
+
+        }
+        function Massiv() {
+            for (let i = 0; i < 3; i++) {
+                M[i] = [];
+            }
+        }
+
+        function Qur() {
+            let tbl = "";
+            for (let i = 0; i < 3; i++) {
+                tbl += `<tr>`;
+                for (let j = 0; j < 3; j++) {
+                    M[i][j] = M[i][j] == undefined ? "" : M[i][j];
+                    tbl += `<td id="row_` + i + j + `" onclick="Tikla(${i},${j})">${M[i][j]}</td>`;
+                }
+                tbl += `</tr>`;
+            }
+            document.getElementsByTagName("table")[0].innerHTML = tbl;
+        }
+        function sil() {
+
+            for (let i = 0; i < 3; i++) {
+                for (let j = 0; j < 3; j++) {
+                    M[i][j] = "";
+
+                    document.getElementById("row_" + i + j).innerHTML = "";
+                }
+            }
+            say=1;
+            console.log(say);
+        }
+        function Tikla(i, j) {
+            if (M[i][j] == "") {
+                if (say % 2 == 1) {
+                    M[i][j] = X;
+
+                } else {
+                    M[i][j] = O;
+                }
+                say++;
+                setTimeout(Yoxla, 200);
+                Qur();
+            }
+        }
+
+        function Yoxla() {
+            for (let i = 0; i < 3; i++) {
+                if (M[i][0] == M[i][1] && M[i][1] == M[i][2] && M[i][0] != "") {
+                    if (M[i][0] == X) {
+                        alert(`${ply1}   you get 1 point`);
+                        say1++;
+                        document.getElementById("say1").innerHTML=say1;
+                        sil();
+                        
+                    }
+                    else {
+                        alert(`${ply2}  you get 1 point`);
+                        say2++;
+                        document.getElementById("say2").innerHTML=say2;
+                        sil();
+                    }
+                }
+            }
+
+            for (let i = 0; i < 3; i++) {
+                if (M[0][i] == M[1][i] && M[1][i] == M[2][i] && M[0][i] != "") {
+                    if (M[0][i] == X) {
+                        alert(`${ply1}   you get 1 point`);
+                        say1++;
+                        document.getElementById("say1").innerHTML=say1;
+                        sil();
+                    }
+                    else {
+                        alert(`${ply2}   you get 1 point`);
+                        say2++;
+                        document.getElementById("say2").innerHTML=say2;
+                        sil();
+                    }
+                }
+            }
+
+            if (M[0][0] == M[1][1] && M[1][1] == M[2][2] && M[0][0] != "") {
+                if (M[0][0] == X) {
+                    alert(`${ply1}   you get 1 point`);
+                    say1++;
+                    document.getElementById("say1").innerHTML=say1;
+                    sil();
+                }
+                else {
+                    alert(`${ply2}   you get 1 point`);
+                    say2++;
+                    document.getElementById("say2").innerHTML=say2;
+                    sil();
+                }
+            }
+            if (M[0][2] == M[1][1] && M[1][1] == M[2][0] && M[0][2] != "") {
+                if (M[0][2] == X) {
+                    alert(`${ply1}   you get 1 point`);
+                    say1++;
+                    document.getElementById("say1").innerHTML=say1;
+                    sil();
+                }
+                else {
+                    alert(`${ply2}  you get 1 point`);
+                    say2++;
+                    document.getElementById("say2").innerHTML=say2;
+                    sil();
+                }
+            }
+            for (let i = 0; i < 3; i++) {
+                for (let j = 0; j < 3; j++) {
+                    if (M[0][0] != "" && M[0][1] != "" && M[0][2] != "" && M[1][0] != "" && M[1][1] != "" && M[1][2] != "" && M[2][0] != "" && M[2][1] != "" && M[2][2] != "") {
+                        alert("None gets point!!");
+                        sil();
+                        
+                    }
+
+                }
+            }
+            if(say1==3 )
+            {
+                say1==3;
+                alert(`${ply1}  you are winner!`);                
+
+                setTimeout(200);
+               // setTimeout(alert("OYUN BITDI"), 400);
+                document.getElementById("Tbl").style.display="none";
+                document.getElementById("Finish").style.display="flex";
+                document.getElementById("Finish").style.flexDirection="column";
+                
+            }
+            else if(say2==3)
+            {
+                say2==3;
+                alert(`${ply2}  you are winner!`);                
+
+                setTimeout(200);
+               // setTimeout(alert("OYUN BITDI"), 400);
+                document.getElementById("Tbl").style.display="none";
+                document.getElementById("Finish").style.display="flex";
+                document.getElementById("Finish").style.flexDirection="column";
+                
+                  
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>
