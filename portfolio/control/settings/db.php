@@ -1,10 +1,10 @@
 <?php
 
   class DBConnection extends PDO{
-      const host="localhost";
-      const dbname="testt";
-      const user="root";
-      const pass="";
+      const host="us-cdbr-east-05.cleardb.net";
+      const dbname="heroku_22880bc0fe1d4de";
+      const user="b6c206e410f3fa";
+      const pass="edff1b8d";
       const port="";
 
       public function __construct()

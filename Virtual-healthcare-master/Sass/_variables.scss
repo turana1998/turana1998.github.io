@@ -1,0 +1,236 @@
+//..................Adjust of Colors
+
+$txt-color-blck : rgba(31, 21, 52, 1);
+$txt-color-gry :rgba(125, 121, 135, 1);
+$txt-color-wht : rgba(255, 255, 255, 1);
+$txt-color-blue : rgba(69, 143, 246, 1);
+$brd-color-blue :#458FF6;
+$back-color-btn-blue : rgba(69, 143, 246, 1);
+
+//...................Fonts 
+$font: 'Mulish',
+sans-serif;
+
+//..................Text Size Adjust
+
+//Size-48px ,height-56px,weight-700
+.h1-size {
+
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 56px;
+    letter-spacing: 0em;
+}
+
+//Size-36px ,height-56px,weight-700
+.h2-size-max {
+    font-size: 2.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 56px;
+}
+
+//Size-36px ,height-48px,weight-700
+.h2-size-min {
+    font-size: 2.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 48px;
+
+}
+
+//Size-24px ,height-56px,weight-700
+.h3-size-max {
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 56px;
+}
+
+//Size-22,height-48,weight-700
+.h3-size-min {
+
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 48px;
+}
+
+//Size-21px ,height-32px,weight-300
+.h4-size-max {
+
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 32px;
+}
+
+//Size-20px ,height-60px,weight-700
+.h4-size-min {
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 60px;
+}
+
+//Size-19px height-30px weight-400
+.h5-size-max {
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+}
+
+//Size-18px ,height-48px,weight-400
+.h5-size-med {
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 48px;
+}
+
+//Size-18px ,height-23px,weight-400
+.h5-size-min {
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 23px;
+}
+
+//Size-16px ,height-28px,weight-300
+.h6-size-max {
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 28px;
+}
+
+//Size-18px height-30px weight-300
+.h6-size-med {
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 30px;
+}
+
+//Size-18px height-38 weight-300
+.h6-size-min {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 38px;
+}
+
+// Button text size// size:18px weight:400 height:60px
+.btn-txt-size {
+
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 60px;
+}
+
+// Header navBar text size // size:18px weight:400 height:22.59px
+.headerNav-txt-size {
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22.59px;
+
+}
+
+//Crads Title size size-24px height-56px weight-700
+.card-tt-size {
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 56px;
+}
+
+//................................... Responsive design Variables
+
+// Mobile Menu NavBar Responsive design
+
+//......... Mobile design
+@media only screen and (max-width: 767px) {
+    
+//-------Txt size adjust------//
+
+///Size-32px ,height-56px,weight-700
+.h1-size {
+ font-size: 2rem;
+}
+
+//Size-32px ,height-56px,weight-700
+.h2-size-max {
+    font-size: 2rem;
+
+}
+
+//Size-32px ,height-48px,weight-700
+.h2-size-min {
+    font-size: 2rem;
+
+}
+
+//Size-16px ,height-56px,weight-700
+.h3-size-max {
+    font-size: 1rem;
+}
+
+//Size-14,height-48,weight-700
+.h3-size-min {
+font-size: 14px;
+   
+}
+
+///Size-16px ,height-32px,weight-300
+.h4-size-max {
+ font-size: 1rem;
+
+}
+
+//Size-14px ,height-60px,weight-700
+.h4-size-min {
+    font-size: 14px;
+    
+}
+
+//Size-14px height-30px weight-400
+.h5-size-max {
+    font-size: 14px;
+   
+}
+
+//Size-18px ,height-48px,weight-400
+.h5-size-med {
+    font-size: 18px;
+}
+//Size-16px ,height-48px,weight-400
+.h6-size-med{
+    font-size: 1rem;
+}
+
+
+
+
+// Button text size// size:18px weight:400 height:60px
+.btn-txt-size {
+ font-size: 14px;
+
+}
+
+// Header navBar text size // size:16px weight:400 height:22.59px
+.headerNav-txt-size {
+    font-size: 1rem;
+
+
+}
+
+//Crads Title size size-18px height-56px weight-700
+.card-tt-size {
+    font-size: 1.125rem;
+}
+
+}

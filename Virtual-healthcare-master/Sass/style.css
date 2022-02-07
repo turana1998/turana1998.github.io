@@ -1,0 +1,908 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,700&display=swap");
+.h1-size, #virtual-health .virtual-layout-left .virtual-tt, #costumer .costum-item h1 {
+  font-size: 3rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 56px;
+  letter-spacing: 0em;
+}
+
+.h2-size-max, #services .services-content .services-tt, #leading .leading-layout-right .leading-tt, #article .article-header {
+  font-size: 2.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 56px;
+}
+
+.h2-size-min, #download-apps .download-apps-left .download-apps-tt {
+  font-size: 2.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 48px;
+}
+
+.h3-size-max {
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 56px;
+}
+
+.h3-size-min, #costumer .costum-item h4 {
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 48px;
+}
+
+.h4-size-max, #virtual-health .virtual-layout-left .virtual-description, #article .cards-article .card-article .card-article-content h4 {
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 32px;
+}
+
+.h4-size-min, #footerOfPage .footer-navigation .first-li-foot {
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 60px;
+}
+
+.h5-size-max {
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+}
+
+.h5-size-med, #costumer .costum-item .costum-human-profession {
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 48px;
+}
+
+.h5-size-min {
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 23px;
+}
+
+.h6-size-max, #services .services-cards .card-service .card-text-services, #article .cards-article .card-article .card-article-content p, #article .cards-article .card-article .card-article-content .card-article-footer, #footerOfPage .footer-about .about-txt-footer {
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 28px;
+}
+
+.h6-size-med, #services .services-content .services-desc, #leading .leading-layout-right .leading-description, #download-apps .download-apps-left .download-apps-desc {
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 30px;
+}
+
+.h6-size-min, #footerOfPage .footer-navigation a {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 38px;
+}
+
+.btn-txt-size, #virtual-health .virtual-layout-left .virtual-btn, #services .services-footer, #leading .leading-layout-right .leading-btn, #download-apps .download-apps-left .download-apps-button, #article .article-btn {
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 60px;
+}
+
+.headerNav-txt-size, .header-navBar .nav-menu li a {
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22.59px;
+}
+
+.card-tt-size, #services .services-cards .card-service .card-title-services {
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 56px;
+}
+
+@media only screen and (max-width: 767px) {
+  .h1-size, #virtual-health .virtual-layout-left .virtual-tt, #costumer .costum-item h1 {
+    font-size: 2rem;
+  }
+  .h2-size-max, #services .services-content .services-tt, #leading .leading-layout-right .leading-tt, #article .article-header {
+    font-size: 2rem;
+  }
+  .h2-size-min, #download-apps .download-apps-left .download-apps-tt {
+    font-size: 2rem;
+  }
+  .h3-size-max {
+    font-size: 1rem;
+  }
+  .h3-size-min, #costumer .costum-item h4 {
+    font-size: 14px;
+  }
+  .h4-size-max, #virtual-health .virtual-layout-left .virtual-description, #article .cards-article .card-article .card-article-content h4 {
+    font-size: 1rem;
+  }
+  .h4-size-min, #footerOfPage .footer-navigation .first-li-foot {
+    font-size: 14px;
+  }
+  .h5-size-max {
+    font-size: 14px;
+  }
+  .h5-size-med, #costumer .costum-item .costum-human-profession {
+    font-size: 18px;
+  }
+  .h6-size-med, #services .services-content .services-desc, #leading .leading-layout-right .leading-description, #download-apps .download-apps-left .download-apps-desc {
+    font-size: 1rem;
+  }
+  .btn-txt-size, #virtual-health .virtual-layout-left .virtual-btn, #services .services-footer, #leading .leading-layout-right .leading-btn, #download-apps .download-apps-left .download-apps-button, #article .article-btn {
+    font-size: 14px;
+  }
+  .headerNav-txt-size, .header-navBar .nav-menu li a {
+    font-size: 1rem;
+  }
+  .card-tt-size, #services .services-cards .card-service .card-title-services {
+    font-size: 1.125rem;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 16px;
+  letter-spacing: 0em;
+  font-family: "Mulish", sans-serif;
+}
+
+hr {
+  width: 3.5rem;
+  border: 1px solid black;
+  opacity: unset;
+}
+
+button {
+  background-color: transparent;
+}
+
+body {
+  overflow-x: unset;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.h1-size, #virtual-health .virtual-layout-left .virtual-tt, #costumer .costum-item h1 {
+  font-size: 3rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 56px;
+  letter-spacing: 0em;
+}
+
+.h2-size-max, #services .services-content .services-tt, #leading .leading-layout-right .leading-tt, #article .article-header {
+  font-size: 2.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 56px;
+}
+
+.h2-size-min, #download-apps .download-apps-left .download-apps-tt {
+  font-size: 2.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 48px;
+}
+
+.h3-size-max {
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 56px;
+}
+
+.h3-size-min, #costumer .costum-item h4 {
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 48px;
+}
+
+.h4-size-max, #virtual-health .virtual-layout-left .virtual-description, #article .cards-article .card-article .card-article-content h4 {
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 32px;
+}
+
+.h4-size-min, #footerOfPage .footer-navigation .first-li-foot {
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 60px;
+}
+
+.h5-size-max {
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+}
+
+.h5-size-med, #costumer .costum-item .costum-human-profession {
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 48px;
+}
+
+.h5-size-min {
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 23px;
+}
+
+.h6-size-max, #services .services-cards .card-service .card-text-services, #article .cards-article .card-article .card-article-content p, #article .cards-article .card-article .card-article-content .card-article-footer, #footerOfPage .footer-about .about-txt-footer {
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 28px;
+}
+
+.h6-size-med, #services .services-content .services-desc, #leading .leading-layout-right .leading-description, #download-apps .download-apps-left .download-apps-desc {
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 30px;
+}
+
+.h6-size-min, #footerOfPage .footer-navigation a {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 38px;
+}
+
+.btn-txt-size, #virtual-health .virtual-layout-left .virtual-btn, #services .services-footer, #leading .leading-layout-right .leading-btn, #download-apps .download-apps-left .download-apps-button, #article .article-btn {
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 60px;
+}
+
+.headerNav-txt-size, .header-navBar .nav-menu li a {
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22.59px;
+}
+
+.card-tt-size, #services .services-cards .card-service .card-title-services {
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 56px;
+}
+
+@media only screen and (max-width: 767px) {
+  .h1-size, #virtual-health .virtual-layout-left .virtual-tt, #costumer .costum-item h1 {
+    font-size: 2rem;
+  }
+  .h2-size-max, #services .services-content .services-tt, #leading .leading-layout-right .leading-tt, #article .article-header {
+    font-size: 2rem;
+  }
+  .h2-size-min, #download-apps .download-apps-left .download-apps-tt {
+    font-size: 2rem;
+  }
+  .h3-size-max {
+    font-size: 1rem;
+  }
+  .h3-size-min, #costumer .costum-item h4 {
+    font-size: 14px;
+  }
+  .h4-size-max, #virtual-health .virtual-layout-left .virtual-description, #article .cards-article .card-article .card-article-content h4 {
+    font-size: 1rem;
+  }
+  .h4-size-min, #footerOfPage .footer-navigation .first-li-foot {
+    font-size: 14px;
+  }
+  .h5-size-max {
+    font-size: 14px;
+  }
+  .h5-size-med, #costumer .costum-item .costum-human-profession {
+    font-size: 18px;
+  }
+  .h6-size-med, #services .services-content .services-desc, #leading .leading-layout-right .leading-description, #download-apps .download-apps-left .download-apps-desc {
+    font-size: 1rem;
+  }
+  .btn-txt-size, #virtual-health .virtual-layout-left .virtual-btn, #services .services-footer, #leading .leading-layout-right .leading-btn, #download-apps .download-apps-left .download-apps-button, #article .article-btn {
+    font-size: 14px;
+  }
+  .headerNav-txt-size, .header-navBar .nav-menu li a {
+    font-size: 1rem;
+  }
+  .card-tt-size, #services .services-cards .card-service .card-title-services {
+    font-size: 1.125rem;
+  }
+}
+
+.header-navBar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-top: 3.5rem;
+}
+
+.header-navBar #logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header-navBar #logo .logo-tt {
+  width: 41px;
+  height: 41px;
+  border-radius: 50%;
+  background-color: #458ff6;
+  color: white;
+  font: normal 700 1.625rem/32.63px "Mulish", sans-serif;
+  padding-top: 5px;
+}
+
+.header-navBar #logo .logo-explain {
+  font: normal 700 1.5rem/30px "Mulish", sans-serif;
+  padding-left: 0.5rem !important;
+}
+
+.header-navBar .nav-menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.header-navBar .nav-menu li {
+  list-style: none;
+  padding: 14px 2.5rem 0px 0px;
+}
+
+.header-navBar .nav-menu li a {
+  color: #7d7987;
+}
+
+.header-navBar .nav-menu li a:focus {
+  color: #1f1534;
+  font-weight: 700;
+}
+
+.blue-dots-header {
+  width: 115px;
+  height: 131.58px;
+  opacity: 0.3px;
+  position: absolute;
+  top: 100px;
+  left: 10px;
+}
+
+#virtual-health {
+  padding-top: 5.25rem;
+}
+
+#virtual-health .virtual-layout-left .virtual-tt {
+  width: 75%;
+  padding: 4rem 0rem 2rem;
+}
+
+#virtual-health .virtual-layout-left .virtual-description {
+  width: 81%;
+}
+
+#virtual-health .virtual-layout-left .virtual-btn {
+  margin-top: 3rem;
+  display: block;
+  padding: 3px 40px 1px;
+  border-radius: 55px;
+  border: 1.4px solid #458FF6;
+  background-color: #458ff6;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+#virtual-health .virtual-layout-left .virtual-btn a {
+  color: white;
+}
+
+#virtual-health .virtual-layout-left .virtual-btn:hover {
+  background-color: transparent;
+}
+
+#virtual-health .virtual-layout-left .virtual-btn:hover a {
+  color: #458ff6;
+}
+
+#services {
+  padding-top: 12rem;
+}
+
+#services .services-content {
+  text-align: center;
+}
+
+#services .services-content .services-tt {
+  margin-bottom: 26px;
+}
+
+#services .services-content .services-line {
+  margin: 0px auto;
+}
+
+#services .services-content .services-desc {
+  width: 73%;
+  margin: 33px auto;
+}
+
+#services .services-cards {
+  position: relative;
+}
+
+#services .services-cards .bck-img-services-card {
+  position: absolute;
+  left: -15.5rem;
+  top: 1.5rem;
+  opacity: 0.8;
+  z-index: -1;
+}
+
+#services .services-cards .card-service {
+  border-radius: 20px;
+  padding: 3.5rem 2.5rem;
+  border: 2px solid #ffff;
+  margin-top: 4.5rem;
+  background-color: #ffff;
+  -webkit-box-shadow: 10px 40px 50px 0px rgba(229, 233, 246, 0.4);
+          box-shadow: 10px 40px 50px 0px rgba(229, 233, 246, 0.4);
+}
+
+#services .services-cards .card-service .card-title-services {
+  margin-top: 1rem;
+}
+
+#services .services-cards .card-service .card-text-services {
+  width: 80%;
+}
+
+#services .services-cards .card-service:hover {
+  border: 2px solid #458ff6;
+}
+
+#services .services-cards .blue-dots-services {
+  width: 115px;
+  height: 131.58px;
+  opacity: 0.3px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  position: absolute;
+  right: -3%;
+  bottom: 44%;
+  z-index: -1;
+}
+
+#services .services-footer {
+  display: block;
+  padding: 3px 40px 1px;
+  border-radius: 55px;
+  border: 1.4px solid #458FF6;
+  margin: 9rem auto;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+#services .services-footer:hover {
+  background-color: #458ff6;
+}
+
+#services .services-footer:hover a {
+  color: white;
+}
+
+#leading .leading-layout-right {
+  width: 72%;
+  margin-left: 8.875%;
+}
+
+#leading .leading-layout-right .leading-tt {
+  color: #1f1534;
+  margin-bottom: 26px;
+}
+
+#leading .leading-layout-right .leading-description {
+  color: #7d7987;
+  margin-top: 31px;
+}
+
+#leading .leading-layout-right .leading-btn {
+  display: block;
+  padding: 3px 40px 1px;
+  border-radius: 55px;
+  border: 1.4px solid #458FF6;
+  -webkit-transition: 1s;
+  transition: 1s;
+  margin-top: 37px;
+}
+
+#leading .leading-layout-right .leading-btn:hover {
+  background-color: #458ff6;
+}
+
+#leading .leading-layout-right .leading-btn:hover a {
+  color: white;
+}
+
+#leading .blue-dots-leading {
+  width: 115px;
+  height: 131.58px;
+  opacity: 0.3px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  position: absolute;
+  right: 0;
+}
+
+#download-apps {
+  padding-top: 12rem;
+}
+
+#download-apps .download-apps-left {
+  width: 60%;
+  margin-left: 11%;
+}
+
+#download-apps .download-apps-left .download-apps-tt {
+  margin-bottom: 30px;
+}
+
+#download-apps .download-apps-left .download-apps-desc {
+  margin-top: 31px;
+}
+
+#download-apps .download-apps-left .download-apps-button {
+  display: block;
+  padding: 3px 40px 1px;
+  border-radius: 55px;
+  border: 1.4px solid #458FF6;
+  margin-top: 40px;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+#download-apps .download-apps-left .download-apps-button:hover {
+  background-color: #458ff6;
+}
+
+#download-apps .download-apps-left .download-apps-button:hover a {
+  color: white;
+}
+
+#costumer {
+  margin-top: 16.625rem;
+}
+
+#costumer .costum-item {
+  background-image: url(../Images/Costumer/elementgrey.png);
+  background: linear-gradient(208.18deg, #67C3F3 9.05%, #5A98F2 76.74%);
+  border-radius: 24px;
+  padding: 64px 118px 89px 120px;
+  color: white;
+}
+
+#costumer .costum-item h1 {
+  text-align: center;
+}
+
+#costumer .costum-item hr {
+  margin: 1.5rem auto;
+  border-color: white;
+}
+
+#costumer .costum-item img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  border: 5px solid white;
+}
+
+#costumer .regular .slick-prev,
+#costumer .regular .slick-next {
+  bottom: -65px;
+  top: unset;
+  z-index: 2;
+}
+
+#costumer .regular .slick-prev:before,
+#costumer .regular .slick-next:before {
+  display: none;
+}
+
+#costumer .regular .slick-prev i,
+#costumer .regular .slick-next i {
+  color: #458ff6;
+  opacity: 0.4;
+  font-size: 2rem;
+}
+
+#costumer .regular .slick-prev {
+  left: 40%;
+}
+
+#costumer .regular .slick-next {
+  right: 40%;
+}
+
+#costumer .regular .slick-dots {
+  bottom: -60px;
+}
+
+#costumer .regular .slick-dots .slick-active button:before {
+  color: #5b9bf3;
+  opacity: 1;
+  font-size: 12px;
+}
+
+#costumer .regular .slick-dots .slick-active button:before i {
+  color: #458ff6;
+  opacity: 1;
+}
+
+#costumer .regular .slick-dots li button:before {
+  font-size: 10px;
+  color: #5b9bf3;
+  opacity: 0.3;
+}
+
+#costumer .blue-dots-costumer {
+  width: 115px;
+  height: 131.58px;
+  opacity: 0.3px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  position: relative;
+  right: 6%;
+  bottom: 190px;
+  z-index: -1;
+}
+
+#article {
+  padding-top: 10rem;
+}
+
+#article .article-header {
+  text-align: center;
+}
+
+#article .article-line {
+  margin: 1.8rem auto 4.5rem;
+}
+
+#article .cards-article .card-article {
+  border: 1px solid white;
+  background-color: #ffff;
+  border-radius: 20px;
+  -webkit-box-shadow: 10px 40px 50px 0px rgba(229, 233, 246, 0.4);
+          box-shadow: 10px 40px 50px 0px rgba(229, 233, 246, 0.4);
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+#article .cards-article .card-article img {
+  border-radius: 20px 20px 0px 0px;
+  width: 100%;
+}
+
+#article .cards-article .card-article .card-article-content {
+  width: 73%;
+  height: 53%;
+  margin-left: 10%;
+}
+
+#article .cards-article .card-article .card-article-content h4 {
+  font-weight: 700;
+  margin-top: 21px;
+}
+
+#article .cards-article .card-article .card-article-content p {
+  margin-top: 12px;
+}
+
+#article .cards-article .card-article .card-article-content .card-article-footer {
+  font-weight: 600;
+  margin: 25px 0px;
+}
+
+#article .cards-article .card-article .card-article-content .card-article-footer i {
+  margin-left: 1rem;
+}
+
+#article .cards-article .card-article:hover {
+  border-color: #458FF6;
+}
+
+#article .article-btn {
+  display: block;
+  padding: 3px 40px 1px;
+  border-radius: 55px;
+  border: 1.4px solid #458FF6;
+  margin: 4rem auto;
+  border: 1px solid #458FF6;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+#article .article-btn:hover {
+  background-color: #458ff6;
+}
+
+#article .article-btn:hover a {
+  color: white;
+}
+
+#footerOfPage {
+  background: linear-gradient(183.41deg, #67C3F3 -8.57%, #5A98F2 82.96%);
+  padding-top: 9rem;
+  color: white;
+}
+
+#footerOfPage .footer-about .logo-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#footerOfPage .footer-about .logo-footer .logo-tt-foot {
+  width: 41px;
+  height: 41px;
+  border-radius: 50%;
+  background-color: #458ff6;
+  color: white;
+  font: normal 700 1.625rem/32.63px "Mulish", sans-serif;
+  padding-top: 5px;
+}
+
+#footerOfPage .footer-about .logo-footer .logo-explain-foot {
+  font: normal 700 1.5rem/30px "Mulish", sans-serif;
+  padding-left: 0.5rem !important;
+}
+
+#footerOfPage .footer-about .about-txt-footer {
+  font-size: 18px;
+  padding-top: 1rem;
+}
+
+#footerOfPage .footer-navigation a {
+  color: white;
+  margin-top: 2rem;
+}
+
+#footerOfPage .grey-dots-footer {
+  margin-left: 1px;
+  position: absolute;
+}
+
+@media only screen and (max-width: 992px) {
+  .nav-mob-menu {
+    background-color: #458ff6;
+    border: 1px solid blue;
+    border-radius: 4px;
+  }
+  .nav-mob-menu i {
+    font-size: 30px;
+    color: #fff;
+    border: 2px solid white;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  #virtual-health {
+    padding-top: 3rem;
+  }
+  #virtual-health .virtual-layout-left {
+    text-align: center;
+  }
+  #virtual-health .virtual-layout-left .virtual-tt {
+    width: 100%;
+  }
+  #virtual-health .virtual-layout-left .virtual-description {
+    width: 100%;
+  }
+  #virtual-health .virtual-layout-left .virtual-btn {
+    margin: 45px auto 3rem;
+  }
+  #services {
+    padding-top: 5rem;
+  }
+  #services .services-desc {
+    width: 100%;
+  }
+  #services .services-cards .card-service {
+    text-align: center;
+  }
+  #services .services-cards .card-service .card-text-services {
+    width: 100%;
+  }
+  #leading {
+    text-align: center;
+  }
+  #leading .leading-layout-right {
+    margin-top: 3rem;
+    width: 100%;
+    margin-left: 0;
+  }
+  #leading .leading-layout-right .leading-line {
+    margin: 0px auto;
+  }
+  #leading .leading-layout-right .leading-btn {
+    margin: 3rem auto;
+  }
+  #download-apps {
+    padding-top: 4rem;
+  }
+  #download-apps .download-apps-left {
+    margin-left: 0%;
+    width: 100%;
+    text-align: center;
+  }
+  #download-apps .download-apps-left .download-apps-line {
+    margin: 0px auto;
+  }
+  #download-apps .download-apps-left .download-apps-button {
+    margin: 3rem auto;
+  }
+  #costumer .regular .slick-prev {
+    left: 27%;
+  }
+  #costumer .regular .slick-next {
+    right: 29%;
+  }
+  #costumer .regular .slick-dots .slick-active button:before {
+    font-size: 10px;
+  }
+  #costumer .regular .slick-dots li button:before {
+    font-size: 8px;
+  }
+  #costumer .costum-item {
+    text-align: center;
+  }
+  #article .cards-article {
+    padding: 20px;
+  }
+  #article .cards-article .card-article {
+    margin-bottom: 2rem;
+  }
+}
+
+/* Medium devices   */
+/*# sourceMappingURL=style.css.map */

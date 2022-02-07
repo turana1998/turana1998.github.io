@@ -8,7 +8,7 @@
     <title><?=$Title?></title>
     <meta name="description" content="<?=$Desc?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/x-icon" href="">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/beauty.png">
     <!-- CSS here -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
@@ -30,11 +30,14 @@
 
     <!-- header_area_start -->
     <header class="transparent_header header_area">
+        <label id="switch" class="switch">
+            <input type="checkbox" onchange="toggleTheme()" id="slider">
+            <span class="sliders round"></span>
+        </label>
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-xxl-3 col-md-2 col-6">
                     <div class="header_logo">
-                        <i class="fas fa-code"></i>
                         <span>Turana</span>
                         <i class="fas fa-code"></i>
                     </div>
@@ -71,9 +74,8 @@
         <div class="side-info">
             <div class="offset-widget offset-logo mb-30 pb-20">
                 <div class="row align-items-center">
-                    <div class="col-8"><a href="index.html" class="mobile_logo">
+                    <div class="col-8"><a href="#" class="mobile_logo">
                             <div class="header_logo">
-                                <i class="fas fa-code"></i>
                                 <span>Turana</span>
                                 <i class="fas fa-code"></i>
                             </div>
@@ -103,7 +105,7 @@
                     <a href="<?=$İns?>" target="_blank" class="twitter"><i class="fab fa-twitter"></i></a>
                     <a href="https://www.linkedin.com/in/turana-ismayilova-51965818b/" target="_blank"
                         class="linkedin"><i class="fab fa-linkedin"></i></a>
-                    <a href="<?=$Github?>" target="_blank" class="youtube"><i class="fab fa-youtube"></i></a>
+                    <a href="<?=$Github?>" target="_blank" class="youtube"><i class="fab fa-github"></i></a>
                 </div>
             </div>
 
@@ -117,9 +119,8 @@
 
             <div class="offset-widget offset-logo mb-30 pb-20">
                 <div class="row align-items-center">
-                    <div class="col-8"><a href="index.html">
+                    <div class="col-8"><a href="#">
                             <div class="header_logo">
-                                <i class="fas fa-code"></i>
                                 <span>Turana</span>
                                 <i class="fas fa-code"></i>
                             </div>
@@ -148,7 +149,7 @@
                     <a href="<?=$İns?>" target="_blank" class="twitter"><i class="fab fa-twitter"></i></a>
                     <a href="https://www.linkedin.com/in/turana-ismayilova-51965818b/" target="_blank"
                         class="linkedin"><i class="fab fa-linkedin"></i></a>
-                    <a href="<?=$Github?>" target="_blank" class="youtube"><i class="fab fa-youtube"></i></a>
+                    <a href="<?=$Github?>" target="_blank" class="youtube"><i class="fab fa-github"></i></a>
                 </div>
             </div>
         </div>
@@ -230,27 +231,27 @@
                                 <i class="fab fa-html5"></i>
 
                             </span>
-                            <h5 class="feature_title"><a href="feature-details.html">HTML</a></h5>
+                            <h5 class="feature_title"><a href="">HTML</a></h5>
                         </div>
                         <div class="single_feature text-center mb-40">
                             <span class="feature_icon"><i class="fab fa-css3-alt"></i></span>
-                            <h5 class="feature_title"><a href="feature-details.html">CSS</a></h5>
+                            <h5 class="feature_title"><a href="">CSS</a></h5>
                         </div>
                         <div class="single_feature text-center mb-40">
                             <span class="feature_icon"><i class="fab fa-js-square"></i></span>
-                            <h5 class="feature_title"><a href="feature-details.html">JAVASCRİPT</a></h5>
+                            <h5 class="feature_title"><a href="">JAVASCRİPT</a></h5>
                         </div>
                         <div class="single_feature text-center mb-40">
                             <span class="feature_icon"><i class="fab fa-react"></i></span>
-                            <h5 class="feature_title"><a href="feature-details.html">REACT</a></h5>
+                            <h5 class="feature_title"><a href="">REACT</a></h5>
                         </div>
                         <div class="single_feature text-center mb-40">
                             <span class="feature_icon"><i class="fab fa-php"></i></span>
-                            <h5 class="feature_title"><a href="feature-details.html">PHP</a></h5>
+                            <h5 class="feature_title"><a href="">PHP</a></h5>
                         </div>
                         <div class="single_feature text-center mb-40">
                             <span class="feature_icon"><i class="fab fa-github"></i></span>
-                            <h5 class="feature_title"><a href="feature-details.html">GİTHUB</a></h5>
+                            <h5 class="feature_title"><a href="">GİTHUB</a></h5>
                         </div>
                     </div>
                 </div>
@@ -259,7 +260,7 @@
                     <div class="row align-items-center">
                         <div class="col-xxl-7 col-lg-5">
                             <div class="person_image_wrapper p-rel mb-30">
-                                <img  src="assets/img/me3.jpg" alt="img" class="rounded-circle feature_woman">
+                                <img src="<?=$About_img?>" alt="img" class="rounded-circle feature_woman">
                                 <div class="person_image_wrap">
                                     <div class="person_image_wrap_inner rotate_hr_image">
                                         <img src="assets/img/feature_illustration.png" alt="img"
@@ -348,10 +349,11 @@
                                     </div>
                                     <p>
                                     <h5 class="title_text">SERTİFİKATLAR </h5>
-                                    Coders Azerbaijan- Front end Developer (02/2021)<br>
-                                    Yup Technology-Full Stack Developer (05/2020)<br>
-                                    LİB Language Centre -English language (Upper - intermediate) (07/2019)<br>
-                                    Upper Education -General English (intermadiate level ) (04/2019)<br>
+                                    <p>
+                                        Coders Azerbaijan- Front end Developer (02/2021)<br>
+                                        Yup Technology-Full Stack Developer (05/2020)<br>
+                                        LİB Language Centre -English language (Upper - intermediate) (07/2019)<br>
+                                        Upper Education -General English (intermadiate level ) (04/2019)<br>
 
 
                                     </p>
@@ -449,7 +451,8 @@
                                     </div>
                                     <div class="blog_content_wrapper_default">
                                         <div class="blog_content">
-                                            <span class="blog_cat">Design</span>
+                                            <span
+                                                class="blog_cat"><?=$CRUD->Select("blogkat",0,"where id=".$Blog[$i]['Kat_id'])['name']?></span>
                                             <h4 class="blog_title"><a href="<?=$Blog[$i]["slug"] ?>">
                                                     <?=$Blog[$i]["title"] ?> </a></h4>
                                             <div class="blog_meta">
@@ -458,7 +461,7 @@
                                             </div>
                                         </div>
                                         <div class="blog_button blog_button_has_pos_default">
-                                            <a href="<?=$Blog[$i]["slug"] ?>" class="blog_btn is_hide i_right">Read More
+                                            <a href="<?=$Blog[$i]["slug"] ?>" class="blog_btn is_hide i_right">Daha çox
                                                 <i class="fal fa-long-arrow-right"></i></a>
                                         </div>
                                     </div>
@@ -473,7 +476,7 @@
 
             <!-- contact_area-start -->
             <div id="contact" class="contact_area pt-120 pb-100" data-overlay="soft" data-opacity="9"
-                data-background="assets/img/contact/contact_bg.jpg">
+                data-background="assets/img/c_bg.jpg">
                 <div class="contact_content_wrapper p-rel">
                     <div class="container">
                         <div class="row">
@@ -519,7 +522,6 @@
                 </div>
             </div>
             <!-- contact_area-end -->
-            <!-- testimonial area start -->
 
     </main>
     <!-- main_area_start -->
@@ -530,13 +532,12 @@
         <div class="footer_top_area pt-80 pb-50">
             <div class="container">
                 <div class="row">
-                  
+
                     <div class="col-lg-4 col-sm-6">
                         <div class="footer_widget mb-30">
                             <div class="footer_logo mb-40">
-                                <a href="index.html">
+                                <a href="#">
                                     <div class="header_logo">
-                                        <i class="fas fa-code"></i>
                                         <span>Turana</span>
                                         <i class="fas fa-code"></i>
                                     </div>
@@ -564,8 +565,7 @@
                                 <a href="<?=$İns?>" target="_blank" class="twitter"><i class="fab fa-twitter"></i></a>
                                 <a href="https://www.linkedin.com/in/turana-ismayilova-51965818b/" target="_blank"
                                     class="linkedin"><i class="fab fa-linkedin"></i></a>
-                                <a href="<?=$Github?>" target="_blank" class="youtube"><i
-                                        class="fab fa-youtube"></i></a>
+                                <a href="<?=$Github?>" target="_blank" class="youtube"><i class="fab fa-github"></i></a>
                             </div>
                         </div>
                     </div>
@@ -576,7 +576,7 @@
                             </div>
                             <div class="footer_widget_content">
                                 <ul class="footer_links">
-                                <?php for($i=0 ; $i<count($Blog);$i++) { ?>
+                                    <?php for($i=0 ; $i<count($Blog);$i++) { ?>
                                     <li><a href="<?=$Blog[$i]["slug"] ?>"><?=$Blog[$i]["title"] ?> </a></li>
                                     <?php }?>
                                 </ul>
@@ -600,7 +600,7 @@
                             </div>
                         </div>
                     </div>
-                  
+
 
                 </div>
             </div>
@@ -610,7 +610,7 @@
                 <div class="copyright_border">
                     <div class="row align-items-center">
                         <div class="col-xxl-4 col-lg-4 text-center text-lg-start order-1 order-lg-0">
-                            <p>&copy; <a href="index.html">Turana İsmail</a></p>
+                            <p>&copy; <a href="#">Turana İsmail</a></p>
                         </div>
                         <div class="col-xxl-8 col-lg-8 text-center text-lg-end order-0 order-lg-1">
                             <nav>
@@ -653,6 +653,12 @@
     <script src="assets/js/appair.min.js"></script>
     <script src="assets/js/back-to-top.min.js"></script>
     <script src="assets/js/main.js"></script>
+    <script>
+    function toggleTheme() {
+        document.location.href = "./dark.php";
+
+    }
+    </script>
 </body>
 
 </html>
