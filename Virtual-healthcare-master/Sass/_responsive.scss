@@ -1,0 +1,170 @@
+@media only screen and (max-width: 992px) {
+
+    // Header Navbar menu mobile version
+    .nav-mob-menu {
+        background-color: $back-color-btn-blue;
+        border: 1px solid blue;
+        border-radius: 4px;
+
+        i {
+            font-size: 30px;
+            color: #fff;
+            border: 2px solid white;
+
+        }
+    }
+
+
+}
+
+// * small devices (phones 767px  and down) */
+@media only screen and (max-width: 767px) {
+
+    //  Virtual HealtCare
+    #virtual-health {
+        padding-top: 3rem;
+
+        //  Virtual HealthCare Content
+        .virtual-layout-left {
+            text-align: center;
+
+            //  Virtual HealtCare Title 
+            .virtual-tt {
+                width: 100%;
+
+            }
+
+            //  Virtual HealtCare Description
+            .virtual-description {
+                width: 100%;
+
+            }
+
+            //  Virtual HealtCare Description
+            .virtual-btn {
+                margin: 45px auto 3rem;
+            }
+        }
+    }
+
+    // // Services Section
+    #services {
+        padding-top: 5rem;
+
+        //  Services Description
+        .services-desc {
+            width: 100%;
+
+        }
+
+        // Services Cards
+        .services-cards {
+
+            // Card in Services
+            .card-service {
+                text-align: center;
+
+                //   Card Content in Services 
+                .card-text-services {
+                    width: 100%;
+                }
+
+            }
+
+        }
+    }
+
+    // Leading Section
+    #leading {
+        text-align: center;
+
+        .leading-layout-right {
+            margin-top: 3rem;
+            width: 100%;
+            margin-left: 0;
+
+            //    Leading section Line
+            .leading-line {
+                margin: 0px auto;
+            }
+
+            // Leading button
+            .leading-btn {
+                margin: 3rem auto;
+            }
+        }
+    }
+
+    // Download Section
+    #download-apps {
+        padding-top: 4rem;
+
+        // Download Apps in left of section
+        .download-apps-left {
+            margin-left: 0%;
+            width: 100%;
+            text-align: center;
+
+            // Download Apps Line
+            .download-apps-line {
+                margin: 0px auto;
+            }
+
+            //   Download Section button
+            .download-apps-button {
+                margin: 3rem auto;
+            }
+        }
+    }
+// Costumer Section
+   #costumer{
+        // Costumer section  variables of  default slick regular slider
+        .regular {
+
+           // Costum Slider Before Button
+            .slick-prev {
+                left: 27%;
+
+            }
+
+            // Costum Slider Next Button
+            .slick-next {
+                right: 29%;
+            }
+
+            // Costum Slider dots
+            .slick-dots {
+
+                // Costum Slider active dots
+                .slick-active button:before {
+                    font-size: 10px;
+                }
+
+                // Costum Slider none active dots
+                li button:before {
+                    font-size: 8px;
+                }
+            }
+        }
+.costum-item{
+    text-align: center;
+      
+    }
+    }
+// Article section
+#article{
+
+    .cards-article{
+      padding: 20px;
+     
+        .card-article{
+           
+            margin-bottom: 2rem;
+        }
+    }
+}
+
+
+    }
+    /* Medium devices   */
+    @media screen and (min-width: 769px) and (max-width: 992px) {}

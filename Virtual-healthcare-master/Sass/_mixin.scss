@@ -1,0 +1,23 @@
+// Reset file 
+@import '_variables.scss';
+
+// Button Mixin
+@mixin button {
+  
+  display: block;
+    padding: 3px 40px 1px;
+    border-radius: 55px;
+    border       : 1.4px solid $brd-color-blue;
+    @extend .btn-txt-size;
+}
+
+// Blue dots design image quick properties
+@mixin blue-dots{
+  width: 115px;
+  height: 131.58px;
+  opacity: 0.3px;
+  
+ 
+}
+// Responsive design mobile menu
+
