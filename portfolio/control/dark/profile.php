@@ -20,7 +20,7 @@ require_once "../settings/code/adminSet.php";
                             '<div>Adminstrator<div>'
                             : 
                             '<div>Moderator</div>'?></h6>
-                           
+
                         </center>
                     </div>
 
@@ -30,38 +30,39 @@ require_once "../settings/code/adminSet.php";
             <!-- Column -->
             <div class="col-lg-8 col-xlg-9 col-md-7">
                 <div class="card mt-3">
-                   
+
                     <div class="tab-content ">
 
                         <div class="tab-pane active" id="settings" role="tabpanel">
                             <div class="card-body">
-                                <form class="form-horizontal form-material"
-                                 enctype="multipart/form-data" action="#"  method="POST">
-                                 <input type="hidden" name="ksekil" value="<?=$_SESSION["user_sekil"]?>">
-                                 <input type="hidden" name="email" value="<?=$_SESSION["user_email"]?>">
-                                 <div class="input-group mb-3">
-                                       <div class="input-group-prepend">
-                                         <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-                                       </div>
-                                       <div class="custom-file">
-                                       <input name="sekil" type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-                                       <label class="custom-file-label form-control" for="inputGroupFile01">png ,jpg,gif ,jfif</label>
-                                      </div>
+                                <form class="form-horizontal form-material" enctype="multipart/form-data" action="#"
+                                    method="POST">
+                                    <input type="hidden" name="ksekil" value="<?=$_SESSION["user_sekil"]?>">
+                                    <input type="hidden" name="email" value="<?=$_SESSION["user_email"]?>">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                                        </div>
+                                        <div class="custom-file">
+                                            <input name="sekil" type="file" class="custom-file-input"
+                                                id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                                            <label class="custom-file-label form-control" for="inputGroupFile01">png
+                                                ,jpg,gif ,jfif</label>
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12"> Kohne Parol</label>
                                         <div class="col-md-12">
-                                            <input type="password"  id="kohnesifre"
+                                            <input type="password" id="kohnesifre"
                                                 class="form-control form-control-line"
                                                 onkeyup="KohneParol(this.value,'<?=$_SESSION['user_email']?>')">
-                                        
+
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Yeni Parol</label>
                                         <div class="col-md-12">
-                                            <input type="password" id="yenisifre"
-                                                class="form-control form-control-line"
+                                            <input type="password" id="yenisifre" class="form-control form-control-line"
                                                 onkeyup="SifreGucu()" name="">
                                         </div>
                                     </div>
@@ -69,13 +70,13 @@ require_once "../settings/code/adminSet.php";
                                         <label class="col-md-12">Yeni Parol Yoxla</label>
                                         <div class="col-md-12">
                                             <input type="password" id="tekrarsifre"
-                                                class="form-control form-control-line"
-                                                onkeyup="SifreYoxla()" name="sifre">
+                                                class="form-control form-control-line" onkeyup="SifreYoxla()"
+                                                name="sifre">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button disabled name="user"  class="btn btn-success pass" >Update </button>
+                                            <button disabled name="user" class="btn btn-success pass">Update </button>
                                         </div>
                                     </div>
                                 </form>
