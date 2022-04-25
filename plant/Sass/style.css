@@ -1,0 +1,663 @@
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans:wght@200;300;400;500;600;700;800;900&display=swap");
+.card-user-txt-size, #users .user-card .user-card-impression {
+  font: normal 200 1.125rem/1.31rem 'Public Sans', sans-serif;
+}
+
+.card-user-tt-size, #users .user-card .user-card-tt, #users .user-card .user-card-tt b {
+  font: normal 400 1.75rem/2.06rem 'Public Sans', sans-serif;
+}
+
+.card-plant-txt-size, #assortments .assortments-left-card .assortments-left-content .assortments-left-plants-name li {
+  font: normal 200 1.31rem/2.84rem 'Public Sans', sans-serif;
+}
+
+.card-plant-tt-size, #assortments .assortments-left-card .assortments-left-content h4, #assortments .assortments-left-card .assortments-left-content h4 span {
+  font: normal 300 2.81rem/3.3rem 'Public Sans', sans-serif;
+}
+
+.card-plant-txt-size-sm, #assortments .assortments-item-card .assortments-right-content .assortments-right-plants-name li {
+  font: normal 400 1rem/1.47rem 'Public Sans', sans-serif;
+}
+
+.card-plant-tt-size-sm, #assortments .assortments-item-card .assortments-right-content h4, #assortments .assortments-item-card .assortments-right-content h4 span {
+  font: normal 300 2.19rem/2.57rem 'Public Sans', sans-serif;
+}
+
+.page-section-titles, #assortments .assortments-title, #important .important-tt, #users .users-tt {
+  font: normal 400 2.5rem/2.94rem 'Public Sans', sans-serif;
+}
+
+.page-big-titles, #header #header-main .header-main-content .header-main-content-tt, #header #header-main .header-main-content .header-main-content-tt span, #green-image .green-image-content .green-image-tt {
+  font: normal 600 6.25rem/10.13rem 'Public Sans', sans-serif;
+}
+
+.page-txt-size, #header #header-main .header-main-content p, #important .important-descrip p {
+  font: normal 200 1.75rem/2.06rem "Public Sans", sans-serif;
+}
+
+.product-price-size {
+  font: normal 300 1rem/1.175rem 'Public Sans', sans-serif;
+}
+
+.product-name-size {
+  font: normal 400 1.25rem/1.47rem 'Public Sans', sans-serif;
+}
+
+.btn-txt-size, #header #header-main .header-main-content .header-main-content-buttons button, #header #header-main .header-main-content .header-main-content-buttons button a {
+  font: normal 400 1.125rem/1.44rem 'Public Sans', sans-serif;
+}
+
+ul li {
+  list-style: none;
+}
+
+button {
+  background-color: unset;
+  border: unset;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  letter-spacing: 0em;
+  font-size: 16px;
+  font-family: 'Public Sans', sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+a {
+  text-decoration: none;
+  color: #ffff;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #ffff;
+}
+
+.card-user-txt-size, #users .user-card .user-card-impression {
+  font: normal 200 1.125rem/1.31rem 'Public Sans', sans-serif;
+}
+
+.card-user-tt-size, #users .user-card .user-card-tt, #users .user-card .user-card-tt b {
+  font: normal 400 1.75rem/2.06rem 'Public Sans', sans-serif;
+}
+
+.card-plant-txt-size, #assortments .assortments-left-card .assortments-left-content .assortments-left-plants-name li {
+  font: normal 200 1.31rem/2.84rem 'Public Sans', sans-serif;
+}
+
+.card-plant-tt-size, #assortments .assortments-left-card .assortments-left-content h4, #assortments .assortments-left-card .assortments-left-content h4 span {
+  font: normal 300 2.81rem/3.3rem 'Public Sans', sans-serif;
+}
+
+.card-plant-txt-size-sm, #assortments .assortments-item-card .assortments-right-content .assortments-right-plants-name li {
+  font: normal 400 1rem/1.47rem 'Public Sans', sans-serif;
+}
+
+.card-plant-tt-size-sm, #assortments .assortments-item-card .assortments-right-content h4, #assortments .assortments-item-card .assortments-right-content h4 span {
+  font: normal 300 2.19rem/2.57rem 'Public Sans', sans-serif;
+}
+
+.page-section-titles, #assortments .assortments-title, #important .important-tt, #users .users-tt {
+  font: normal 400 2.5rem/2.94rem 'Public Sans', sans-serif;
+}
+
+.page-big-titles, #header #header-main .header-main-content .header-main-content-tt, #header #header-main .header-main-content .header-main-content-tt span, #green-image .green-image-content .green-image-tt {
+  font: normal 600 6.25rem/10.13rem 'Public Sans', sans-serif;
+}
+
+.page-txt-size, #header #header-main .header-main-content p, #important .important-descrip p {
+  font: normal 200 1.75rem/2.06rem "Public Sans", sans-serif;
+}
+
+.product-price-size {
+  font: normal 300 1rem/1.175rem 'Public Sans', sans-serif;
+}
+
+.product-name-size {
+  font: normal 400 1.25rem/1.47rem 'Public Sans', sans-serif;
+}
+
+.btn-txt-size, #header #header-main .header-main-content .header-main-content-buttons button, #header #header-main .header-main-content .header-main-content-buttons button a {
+  font: normal 400 1.125rem/1.44rem 'Public Sans', sans-serif;
+}
+
+#header {
+  background-color: teal;
+}
+
+#header #header-navbar {
+  padding: 1.31rem 0px 1.38rem 0px;
+  margin-bottom: 2px solid;
+}
+
+#header #header-navbar .header-navbar-logo {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+#header #header-navbar .header-navbar-menu {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+#header #header-navbar .header-navbar-menu li {
+  margin-right: 2.875rem;
+}
+
+#header #header-navbar .header-navbar-menu li a {
+  font: normal 600 1.38rem/1.56rem 'Public Sans', sans-serif;
+}
+
+#header #header-main {
+  color: white;
+  padding-top: 3rem;
+}
+
+#header #header-main .header-main-content .header-main-content-mini-tt {
+  text-transform: uppercase;
+  font: normal 800 1.56rem/1.25rem 'Public Sans', sans-serif;
+  position: absolute;
+  top: 0.5rem;
+}
+
+#header #header-main .header-main-content .header-main-content-tt {
+  font-weight: 200;
+}
+
+#header #header-main .header-main-content p {
+  margin-top: 3rem;
+}
+
+#header #header-main .header-main-content .header-main-content-buttons {
+  margin-top: 3.5rem;
+}
+
+#header #header-main .header-main-content .header-main-content-buttons button {
+  padding: 15px calc(3rem + 22px);
+  border: 1px solid white;
+  border-radius: 70px;
+  margin-right: 1.38rem;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+#header #header-main .header-main-content .header-main-content-buttons button:nth-child(1) {
+  background-color: white;
+}
+
+#header #header-main .header-main-content .header-main-content-buttons button:nth-child(1) a {
+  color: teal;
+}
+
+#header #header-main .header-main-content .header-main-content-buttons button:nth-child(1):hover {
+  background-color: transparent;
+}
+
+#header #header-main .header-main-content .header-main-content-buttons button:nth-child(1):hover a {
+  color: white;
+}
+
+#header #header-main .header-main-content .header-main-content-buttons button:nth-child(2):hover {
+  background-color: white;
+}
+
+#header #header-main .header-main-content .header-main-content-buttons button:nth-child(2):hover a {
+  color: teal;
+}
+
+#header #header-main .header-main-image {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+#assortments {
+  padding-top: 4rem;
+  text-align: center;
+  color: #5c5c5c;
+}
+
+#assortments .assortments-title {
+  padding-bottom: 5.5rem;
+}
+
+#assortments .assortments-item-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+#assortments .assortments-item-card button {
+  position: relative;
+  z-index: 2;
+}
+
+#assortments .assortments-item-card .assortments-right-content {
+  text-align: left;
+  padding: 1.81rem 0px 1.94rem 1.31rem;
+}
+
+#assortments .assortments-item-card .assortments-right-content h4 {
+  padding-bottom: 0.5rem;
+}
+
+#assortments .assortments-item-card .assortments-right-content h4 span {
+  font-weight: 700;
+}
+
+#assortments .assortments-item-card .assortments-right-content .assortments-right-plants-name li:last-child {
+  opacity: 0.5;
+}
+
+#assortments .assortments-item-card .assortments-right-content .assortments-right-button {
+  color: #5c5c5c;
+  border: 1px solid #5c5c5c;
+  border-radius: 70px;
+  padding: 0.689rem 2rem;
+  font: normal 500 0.875rem/1rem "Public Sans", sans-serif;
+  margin-top: 1.75rem;
+}
+
+#assortments .assortments-left-card {
+  height: 30.44rem;
+  border-radius: 2.5rem 0px 0px 2.5rem;
+  background-color: rgba(3, 135, 0, 0.3);
+}
+
+#assortments .assortments-left-card .assortments-left-content {
+  text-align: left;
+  padding: 1.81rem 0px 1.875rem 2.5rem;
+}
+
+#assortments .assortments-left-card .assortments-left-content h4 {
+  padding-bottom: 1.3rem;
+}
+
+#assortments .assortments-left-card .assortments-left-content h4 span {
+  font-weight: 700;
+}
+
+#assortments .assortments-left-card .assortments-left-content .assortments-left-plants-name li:last-child {
+  opacity: 0.5;
+}
+
+#assortments .assortments-left-card .assortments-left-content .assortments-left-button {
+  font: normal 500 1.25rem/1.47rem 'Public Sans', sans-serif;
+  color: #5c5c5c;
+  border: 1px solid #5c5c5c;
+  border-radius: 70px;
+  padding: 0.689rem 2rem;
+  margin-top: 4.875rem;
+}
+
+#assortments .assortments-left-card .assortments-item-image-left {
+  position: absolute;
+  bottom: 0px;
+  right: -12px;
+  height: 35rem;
+}
+
+#assortments .assortments-right-first-card {
+  height: 14.25rem;
+  border-radius: 0px 2.5rem 0px 0px;
+  background-color: rgba(115, 195, 0, 0.35);
+}
+
+#assortments .assortments-right-first-card .assortments-right-image-first {
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: absolute;
+  right: -3rem;
+  bottom: 1rem;
+  height: 16rem;
+}
+
+#assortments .assortments-right-second-card {
+  height: 14.25rem;
+  border-radius: 0px 0px 40px 0px;
+  background-color: rgba(139, 176, 92, 0.35);
+  margin-top: 31px;
+}
+
+#assortments .assortments-right-second-card .assortments-right-image-second {
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: absolute;
+  right: 5px;
+  bottom: 3px;
+  height: 13rem;
+}
+
+#plantSlider {
+  padding-top: 5rem;
+}
+
+#plantSlider .plantSlider-card {
+  height: 15.2rem;
+  position: relative;
+  border-radius: 2.5rem;
+  background-color: #c4e2e2;
+}
+
+#plantSlider .plantSlider-card img {
+  position: absolute;
+  bottom: -3px;
+}
+
+#plantSlider .slick-prev:before,
+#plantSlider .slick-next:before {
+  display: none;
+}
+
+#plantSlider .button-plantSlider::before {
+  color: teal;
+  font-size: 3rem;
+}
+
+#important {
+  color: #5c5c5c;
+  text-align: center;
+  padding-top: 5.875rem;
+}
+
+#important .important-descrip {
+  margin-top: 2.25rem;
+}
+
+#important .important-images {
+  margin-top: 2rem;
+}
+
+#important .important-images img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+}
+
+#important .important-images .important-images-rb {
+  margin-top: 1.5rem;
+}
+
+#green-image {
+  padding-top: 7.44rem;
+}
+
+#green-image .green-image-content {
+  background: url(../../Images/Feelgreen/feelgreenback.png) no-repeat center;
+  height: 39.125rem;
+  width: 100%;
+  background-size: cover;
+  position: relative;
+}
+
+#green-image .green-image-content:before {
+  content: '';
+  background-color: rgba(0, 128, 128, 0.54);
+  mix-blend-mode: normal;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+#green-image .green-image-content .green-image-tt {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+  position: relative;
+}
+
+#users {
+  padding-top: 6.5rem;
+  color: #5c5c5c;
+}
+
+#users .users-tt {
+  text-align: center;
+  padding-bottom: 4rem;
+}
+
+#users .user-card {
+  height: 16.06rem;
+  padding: 1.5rem 1.625rem 2.3125rem 2.625rem;
+  background-color: #c4e2e2;
+  border-radius: 40px 40px 0px 40px;
+  position: relative;
+  margin-right: 1.5rem;
+}
+
+#users .user-card .user-img {
+  height: 7.1rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: absolute;
+  top: -2rem;
+  left: -2.5rem;
+}
+
+#users .user-card .user-card-tt {
+  margin-left: 15%;
+  text-transform: capitalize;
+}
+
+#users .user-card .user-card-tt b {
+  font-weight: 700;
+}
+
+#users .user-card .user-card-impression {
+  margin-top: 2.75rem;
+}
+
+#footer {
+  background-color: teal;
+  margin-top: 8.69rem;
+  color: white;
+}
+
+#footer .footer-top {
+  text-align: left;
+  padding: 6.93rem 0px 4rem;
+  border-bottom: 1px solid white;
+}
+
+#footer .footer-top .footer-logo-top {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 3.875rem;
+}
+
+#footer .footer-top .footer-top-num {
+  font: normal 500 1.25rem/2rem 'Public Sans', sans-serif;
+  padding: 1.5rem 0px 0.8rem;
+}
+
+#footer .footer-top a {
+  font: normal 400 1rem/2rem 'Public Sans', sans-serif;
+}
+
+#footer .footer-top .footer-top-links-tt {
+  font: normal 500 1.5rem/1.5rem 'Public Sans', sans-serif;
+  margin-bottom: 2rem;
+}
+
+#footer .footer-top .footer-top-links li {
+  margin-bottom: 2.95rem;
+  font: normal 300 1rem/1.2rem 'Public Sans', sans-serif;
+}
+
+#footer .footer-top .footer-top-links-s {
+  margin-top: 3.5rem;
+}
+
+#footer .footer-top .footer-top-input label {
+  font: normal 400 1.2rem/2.8rem 'Public Sans', sans-serif;
+  margin-bottom: 1.5rem;
+}
+
+#footer .footer-top .footer-top-input input {
+  font: normal 400 1rem/0.875rem 'Public Sans', sans-serif;
+  padding: 1.21rem 2rem 1.11rem 0.97rem;
+}
+
+#footer .footer-top .footer-top-input input:focus {
+  outline: unset;
+  border: 1px solid #E5E5E5;
+}
+
+#footer .footer-top .footer-top-input i {
+  margin-left: 8px;
+  font-size: 1.3rem;
+}
+
+#footer .footer-bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 3rem 0px;
+}
+
+#footer .footer-bottom .footer-socials {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#footer .footer-bottom .footer-socials li {
+  margin-right: 0.5rem;
+}
+
+#footer .footer-bottom .footer-socials li i {
+  width: 2.3rem;
+  height: 2.3rem;
+  border: 1px solid rgba(255, 255, 255, 0.589);
+  border-radius: 50%;
+  font-size: 1rem;
+  padding: 0.6rem 0.625rem;
+}
+
+#footer .footer-bottom .footer-bottom-product {
+  font: normal 400 1rem/1.175rem 'Public Sans', sans-serif;
+}
+
+#footer .footer-bottom .footer-bottom-product .footer-logo-bottom {
+  height: 1.625rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+/*  for Resposive  */
+@media only screen and (max-width: 992px) {
+  #header #header-navbar {
+    padding: 2px 5px;
+  }
+  #header #header-main button {
+    margin-top: 1rem;
+  }
+  #header #header-main .header-main-image {
+    margin-top: 2rem;
+  }
+  #assortments .assortments-item-card {
+    border-radius: 1rem;
+    margin-top: 1.2rem;
+  }
+  #plantSlider .slick-prev {
+    left: -10px;
+  }
+  #plantSlider .slick-next {
+    right: -10px;
+  }
+  #important .important-images img {
+    margin-top: 1rem;
+  }
+  #users {
+    padding: 2rem;
+  }
+  #users .user-card {
+    margin-top: 3rem;
+  }
+  #footer .footer-top .footer-top-links-tt {
+    margin-top: 2rem;
+  }
+  #footer .footer-top .footer-top-links-s {
+    position: relative;
+    bottom: 3.5rem;
+  }
+}
+
+/* Small devices ( phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  * {
+    font-size: 12px;
+  }
+  #green-image .green-image-content {
+    background: url(../Images/Feelgreen/feelgreen-image-mobile.jpg) no-repeat center;
+    height: 39.125rem;
+    width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  #footer .footer-bottom {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  #footer .footer-bottom div {
+    margin-top: 1.5rem;
+  }
+}
+
+@media only screen and (max-width: 767px) and (min-width: 601px) {
+  * {
+    font-size: 14px;
+  }
+  #footer .footer-bottom div {
+    padding-left: 2rem;
+  }
+}
+
+@media only screen and (max-width: 992px) and (min-width: 768px) {
+  * {
+    font-size: 14px;
+  }
+  #header {
+    padding-top: 1rem;
+  }
+}
+
+@media only screen and (max-width: 1199px) and (min-width: 993px) {
+  * {
+    font-size: 14px;
+  }
+  #header button {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: 1rem;
+  }
+}
+/*# sourceMappingURL=style.css.map */
