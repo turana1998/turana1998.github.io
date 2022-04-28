@@ -42,9 +42,9 @@
             width: 100%;
         }
 
-        .slick-list {
-            overflow: hidden unset;
-        }
+        /* .slick-list {
+            overflow:unset;
+        } */
     </style>
 
     <title>Mastero</title>
@@ -58,11 +58,13 @@
 
         <div class="container p-0">
             <!-- Header NavBar of Page -->
-            <div class="header-navBar">
+            <div class="header-navBar d-none d-lg-flex">
 
                 <!-- Logo on Header -->
                 <div id="logo">
-                    <img src="./Images/logo.png" alt="logo-img" />
+                    <a href="index.html">
+                        <img src="./Images/logo.png" alt="logo-img" />
+                    </a>
                 </div>
 
                 <!-- Navigation Menu on Header -->
@@ -70,42 +72,105 @@
 
                     <!-- Home -->
                     <li>
-                        <a href="#" class="w-500">Why us?</a>
+                        <a href="about.html" class="w-500 active">Why us?</a>
                     </li>
                     <!-- Find a doctor -->
                     <li>
-                        <a href="#" class="w-500">Services</a>
+                        <a href="services.html" class="w-500">Services</a>
                     </li>
                     <!-- Testimonials -->
                     <li>
-                        <a href="" class="w-500"> Testimonials</a>
+                        <a href="#testimonials" class="w-500"> Testimonials</a>
                     </li>
                     <!-- About us -->
                     <li>
-                        <a href="#" class="w-500">Contact</a>
+                        <a href="contact.html" class="w-500">Contact</a>
                     </li>
                 </ul>
                 <div class="contact d-flex">
                     <a href="#">
                         <img src="./Images/user.png" alt="login" />
-                        <button>
-                            <a href="#" class="w-600">JOIN US</a>
-                        </button>
                     </a>
+                    <button class="green-hover">
+                        <a href="joun_us.html" class="w-600">JOIN US</a>
+                    </button>
+
                 </div>
                 <!-- Mobile Menu Button navbar -->
             </div>
+            <div class="mobile-menu d-block d-lg-none">
+                <nav class="navbar navbar-light">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#">Offcanvas navbar</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                            aria-labelledby="offcanvasNavbarLabel">
+                            <div class="offcanvas-header">
+                                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+                                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Link</a>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown"
+                                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Dropdown
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
+                                            <li><a class="dropdown-item" href="#">Action</a></li>
+                                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <form class="d-flex">
+                                    <input class="form-control me-2" type="search" placeholder="Search"
+                                        aria-label="Search">
+                                    <button class="btn btn-outline-success" type="submit">Search</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
         </div>
-        <div class="banner"
+        <div class="banner d-none d-lg-block"
             style="background-image:linear-gradient(0deg, rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url(./Images/banner2.png);">
-            <h1 class="m-0 w-700">Why Us?</h1>
+            <h1 class="m-0 w-700">Lorem ipsum dolor sit amet</h1>
             <div class="banner-btn">
-                <button class="m-30">
+                <button class="m-30 green-hover">
                     <a href="#" class="w-600">Call now</a>
                 </button>
-                <button>
+                <button class="main-hover">
                     <a href="#" class="w-600">Call me back</a>
                 </button>
+            </div>
+        </div>
+        <div class="banner d-block d-lg-none"
+            style="background-image:linear-gradient(0deg, rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url(./Images/banner2.png);">
+            <div class="container">
+                <h1 class="m-0 w-700">Lorem ipsum dolor sit amet</h1>
+            <div class="banner-btn">
+                <button class="w-100 mb-2 green-hover">
+                    <a href="#" class="w-600">Call now</a>
+                </button>
+                <button class="w-100 main-button main-hover">
+                    <a href="#" class="w-600">Call me back</a>
+                </button>
+            </div>
             </div>
         </div>
     </header>

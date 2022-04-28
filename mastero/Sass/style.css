@@ -378,7 +378,7 @@ header .banner .banner-btn button a {
 }
 
 #why_us {
-  padding: 70px 0 90px 0;
+  padding: 85px 0 55px 0;
 }
 #why_us .about_us {
   display: flex;
@@ -594,12 +594,13 @@ header .banner .banner-btn button a {
 
 #services_page {
   text-align: center;
+  padding-bottom: 28px;
 }
 #services_page .services_detail {
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  width: 90%;
+  width: 65%;
   margin: 0 auto;
   padding: 55px 0;
 }
@@ -839,6 +840,8 @@ footer .list .list-item ul li a {
   background: #FFFFFF;
   box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.15);
   border-radius: 12px;
+  width: 65%;
+  margin: auto;
   padding: 40px 40px 35px 40px;
 }
 #join_form form h2 {
@@ -978,6 +981,8 @@ footer .list .list-item ul li a {
 
 #text_ {
   padding: 50px 0 70px 0;
+  width: 70%;
+  margin: auto;
 }
 #text_ p {
   font-size: 16px;
@@ -1171,6 +1176,10 @@ footer .list .list-item ul li a {
   }
   #lottery .slick-active .lottery {
     margin: 0;
+  }
+
+  #lottery .slick-list {
+    overflow: hidden;
   }
 
   #testimonials {
