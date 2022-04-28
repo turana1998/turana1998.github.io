@@ -1,0 +1,586 @@
+//....................................Header..................................//
+
+//navBar on Header
+.header-navBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 3.5rem;
+
+    //    Logo on Header
+    #logo {
+        display: flex;
+        align-items: center;
+
+        // Logo Title
+        .logo-tt {
+            width: 41px;
+            height: 41px;
+            border-radius: 50%;
+            background-color: $back-color-btn-blue;
+            color: $txt-color-wht;
+            font: normal 700 1.625rem/32.63px $font;
+            padding-top: 5px;
+        }
+
+        // Logo Title Explain
+        .logo-explain {
+            font: normal 700 1.5rem/30px $font;
+            padding-left: 0.5rem !important;
+        }
+    }
+
+    //  Navigation Menu on Header
+    .nav-menu {
+        display: flex;
+
+        // Navigation List
+        & li {
+            list-style: none;
+            padding: 14px 2.5rem 0px 0px;
+
+            a {
+                @extend .headerNav-txt-size;
+                color: $txt-color-gry;
+
+                &:focus {
+                    color: $txt-color-blck;
+                    font-weight: 700;
+                }
+            }
+        }
+
+    }
+
+
+}
+
+// Background image blue dots
+.blue-dots-header {
+    @include blue-dots;
+    position: absolute;
+    left: 0px;
+    top: 8rem;
+
+}
+
+
+//......Vitual HealtCare....//
+#virtual-health {
+    padding-top: 5.25rem;
+
+    // Content of Virtual HealtCare in Left  
+    .virtual-layout-left {
+
+
+        //  Virtual HealtCare Title 
+        .virtual-tt {
+            @extend .h1-size;
+            width: 75%;
+            padding: 4rem 0rem 2rem;
+        }
+
+        //  Virtual HealtCare Description
+        .virtual-description {
+            width: 81%;
+            @extend .h4-size-max;
+        }
+
+        //  Virtual HealtCare Button Error
+        .virtual-btn {
+            margin-top: 3rem;
+            @include button;
+            background-color: $back-color-btn-blue;
+            transition: 0.5s;
+
+
+            // margin-top: 3rem -3px !important;
+            a {
+                color: $txt-color-wht;
+            }
+
+            // // Virtual Button Hover
+            &:hover {
+                background-color: transparent;
+
+                a {
+                    color: $txt-color-blue;
+                }
+            }
+
+
+
+        }
+
+    }
+
+}
+
+// .........................................Main..................................//
+// ........Services Section ...//
+#services {
+    padding-top: 12rem;
+
+    //Content of Services
+    .services-content {
+        text-align: center;
+
+        // Title of Services
+        .services-tt {
+            @extend .h2-size-max;
+            margin-bottom: 26px;
+        }
+
+        // <!-- Line under title of Services -->
+        .services-line {
+            margin: 0px auto;
+        }
+
+        // Description of Services
+        .services-desc {
+            @extend .h6-size-med;
+            width: 73%;
+            margin: 33px auto;
+
+        }
+
+
+    }
+
+    // Services Cards
+    .services-cards {
+        position: relative;
+
+        //  Blue  Color image background of Services Card  
+        .bck-img-services-card {
+            position: absolute;
+            left: -15.5rem;
+            top: 1.5rem;
+            opacity: 0.8;
+            z-index: -1;
+        }
+
+        // Card in Services
+        .card-service {
+            border-radius: 20px;
+            padding: 3.5rem 2.5rem;
+            border: 2px solid #ffff;
+            margin-top: 4.5rem;
+            background-color: #ffff;
+            box-shadow: 10px 40px 50px 0px rgba(229, 233, 246, 0.4);
+            transition: 2s;
+
+            //   Card Title in Services 
+            .card-title-services {
+                margin-top: 1rem;
+                @extend .card-tt-size;
+            }
+
+            //   Card Content in Services 
+            .card-text-services {
+                @extend .h6-size-max;
+                width: 80%;
+            }
+
+            // Card hover in Services
+            &:hover {
+                border: 2px solid $back-color-btn-blue;
+            }
+        }
+
+        //  Blue  Dots  background of Services Card  
+        .blue-dots-services {
+            @include blue-dots;
+            object-fit: contain;
+            position: absolute;
+            right: -3%;
+            bottom: 44%;
+            z-index: -1;
+        }
+    }
+
+    // Services Footer 
+    .services-footer {
+        @include button;
+        margin: 4rem+5 auto;
+        transition: 1s;
+
+        // Services Footer hover
+        &:hover {
+            background-color: $txt-color-blue;
+
+            a {
+                color: $txt-color-wht;
+            }
+        }
+    }
+}
+
+//.....................Leading Section 
+#leading {
+
+    // Content right of Leading
+    .leading-layout-right {
+        width: 72%;
+        margin-left: 8.875%;
+
+        // Leading Title
+        .leading-tt {
+            @extend .h2-size-max;
+            color: $txt-color-blck;
+            margin-bottom: 26px;
+
+        }
+
+        // Leading Description
+        .leading-description {
+            @extend .h6-size-med;
+            color: $txt-color-gry;
+            margin-top: 31px;
+        }
+
+        // Leading Botton
+        .leading-btn {
+            @include button;
+            transition: 1s;
+            margin-top: 37px;
+
+            // Leading Button Hover
+            &:hover {
+                background-color: $txt-color-blue;
+
+                a {
+                    color: $txt-color-wht;
+                }
+            }
+
+        }
+    }
+
+    // Blue dots image leading section
+    .blue-dots-leading {
+        @include blue-dots;
+        object-fit: contain;
+        position: absolute;
+        right: -3.3%;
+    }
+
+}
+
+//.....................Download Apps section
+#download-apps {
+    padding-top: 12rem;
+
+    // Download Apps in left of section
+    .download-apps-left {
+        width: 60%;
+        margin-left: 11%;
+
+        // Download Mobile Apps Title
+        .download-apps-tt {
+            @extend .h2-size-min;
+            margin-bottom: 30px
+        }
+
+        // Download apps description
+        .download-apps-desc {
+            @extend .h6-size-med;
+            margin-top: 31px;
+        }
+
+        // Download Mobile Apps Button
+        .download-apps-button {
+            @include button;
+            margin-top: 40px;
+            transition: 1s;
+
+            &:hover {
+                background-color: $back-color-btn-blue;
+
+                a {
+                    color: $txt-color-wht;
+                }
+            }
+        }
+
+    }
+}
+
+//.......................Costumer Section
+#costumer {
+    margin-top: 16.625rem;
+
+    // Costumer Slider
+    .costum-item {
+        background-image: url(../Images/Costumer/elementgrey.png);
+        background: linear-gradient(208.18deg, #67C3F3 9.05%, #5A98F2 76.74%);
+        border-radius: 24px;
+        padding: 64px 118px 89px 120px;
+        color: $txt-color-wht;
+
+        //Costumer Item Header //   
+        h1 {
+            @extend .h1-size;
+            text-align: center;
+        }
+
+        // Costumer Item Header line
+        hr {
+            margin: 1.5rem auto;
+            border-color: white;
+        }
+
+        //  Costumer Content Left
+        img {
+            object-fit: cover;
+            border: 5px solid white;
+
+        }
+
+        // Costum Human Name
+        h4 {
+            @extend .h3-size-min;
+        }
+
+        //Costum Human Profession
+        .costum-human-profession {
+            @extend .h5-size-med;
+        }
+
+    }
+
+
+    // Costumer section  variables of  default slick regular slider
+    .regular {
+
+        // Costumer section  slider before-after buttons
+        .slick-prev,
+        .slick-next {
+            bottom: -65px;
+            top: unset;
+            z-index: 2;
+
+            // Costumer section slider Headen default buttons
+            &:before {
+                display: none;
+            }
+
+            // Costumer section slider New buttons properties
+            i {
+                color: rgba(69, 143, 246, 1);
+                opacity: 0.4;
+                font-size: 2rem;
+            }
+        }
+
+        // Costum Slider Before Button
+        .slick-prev {
+            left: 40%;
+
+        }
+
+        // Costum Slider Next Button
+        .slick-next {
+            right: 40%;
+        }
+
+        // Costum Slider dots
+        .slick-dots {
+            bottom: -60px;
+
+            // Costum Slider active dots
+            .slick-active button:before {
+                color: rgba(91, 155, 243, 1);
+                opacity: 1;
+                font-size: 12px;
+
+                i {
+                    color: rgba(69, 143, 246, 1);
+                    opacity: 1;
+                }
+
+            }
+
+            // Costum Slider none active dots
+            li button:before {
+                font-size: 10px;
+                color: rgba(91, 155, 243, 1);
+                opacity: 0.3;
+            }
+        }
+
+
+    }
+
+    // Costumer section blue dots back image
+    .blue-dots-costumer {
+        @include blue-dots;
+        object-fit: contain;
+        position: relative;
+        right: 6%;
+        bottom: 190px;
+        z-index: -1;
+    }
+}
+
+//.............Article Section..........//
+#article {
+    padding-top: 10rem;
+
+
+    //..Article Title
+    .article-header {
+        text-align: center;
+        @extend .h2-size-max;
+
+    }
+
+    //.Article Line
+    .article-line {
+        margin: 1.8rem auto 4.5rem;
+    }
+
+    //.....Cards of Article section
+    .cards-article {
+
+        .card-article {
+            border: 1px solid white;
+            background-color: #ffff;
+            border-radius: 20px;
+            box-shadow: 10px 40px 50px 0px rgba(229, 233, 246, 0.4);
+            transition: 1s;
+
+            // Card image of Article
+            img {
+                border-radius: 20px 20px 0px 0px;
+                width: 100%;
+                object-fit: cover;
+            }
+
+            // Card content of article
+            .card-article-content {
+              display: flex;
+              flex-direction: column;
+              padding: 18px;
+                // // Card title of Article
+                h4 {
+                    @extend .h4-size-max;
+                    font-weight: 700;
+                    margin-top: 21px;
+                }
+
+                // // Card description of Article
+                p {
+                    @extend .h6-size-max;
+                    margin-top: 12px;
+                }
+
+                // //Card  Klik footer of  Article
+                .card-article-footer {
+                    @extend .h6-size-max;
+                    font-weight: 600;
+                    margin: 25px 0px;
+
+                    // Icon of Article Card klik
+                    i {
+                        margin-left: 1rem;
+                    }
+                }
+
+
+            }
+
+            &:hover {
+                border-color: $brd-color-blue;
+            }
+        }
+
+    }
+
+    // Article Button
+    .article-btn {
+        @include button;
+        margin: 4rem auto;
+        border: 1px solid $brd-color-blue;
+        transition: 1s;
+
+        // Article btn hover
+        &:hover {
+            background-color: $back-color-btn-blue;
+
+            a {
+                color: $txt-color-wht;
+            }
+        }
+    }
+}
+
+
+//....................................Footer..................................//
+
+#footerOfPage {
+    background: linear-gradient(183.41deg, #67C3F3 -8.57%, #5A98F2 82.96%);
+    padding-top: 6rem;
+    color: $txt-color-wht;
+    position: relative;
+
+    // Footer About Section
+    .footer-about {
+
+        // Logo in Footer
+        .logo-footer {
+            display: flex;
+            align-items: center;
+
+
+            // Logo Title in Foot
+            .logo-tt-foot {
+                width: 41px;
+                height: 41px;
+                border-radius: 50%;
+                background-color: $back-color-btn-blue;
+                color: $txt-color-wht;
+                font: normal 700 1.625rem/32.63px $font;
+                padding-top: 5px;
+            }
+
+            // Logo Title Explain in Footer
+            .logo-explain-foot {
+                font: normal 700 1.5rem/30px $font;
+                padding-left: 0.5rem !important;
+            }
+        }
+
+        // About of Page in Footer
+        .about-txt-footer {
+            @extend .h6-size-max;
+            font-size: 18px;
+            padding-top: 1rem;
+        }
+
+    }
+
+    // Footer Navigation
+    .footer-navigation {
+
+
+        .first-li-foot {
+            @extend .h4-size-min;
+        }
+
+        a {
+            color: $txt-color-wht;
+            margin-top: 2rem;
+            @extend .h6-size-min;
+        }
+    }
+
+    // Grey dots image footer
+    .grey-dots-footer {
+        position: absolute;
+        left: 0px;
+        bottom: -7px;
+
+    }
+
+}

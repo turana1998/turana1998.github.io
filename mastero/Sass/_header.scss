@@ -1,0 +1,100 @@
+//....................................Header..................................//
+
+//navBar on Header
+header {
+    .header-navBar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 21px 0;
+
+        //    Logo on Header
+        #logo {
+            display: flex;
+            align-items: center;
+        }
+
+        //  Navigation Menu on Header
+        .nav-menu {
+            display: flex;
+
+            // Navigation List
+            li {
+                list-style: none;
+                margin-left: 3rem;
+
+                a {
+                    color: $txt-color-gry;
+                    font-size: 1.125rem;
+                    line-height: 1.5rem;
+                    transition: 1.5s;
+
+                    &:focus {
+                        color: $txt-color-blck;
+                    }
+                    &:hover{
+                        color: #222B45;
+                    }
+                }
+                .active{
+                    color: #222B45;
+                }
+            }
+
+        }
+
+        .contact {
+            align-items: center;
+
+            button {
+                @include button;
+                margin-left: 1.875rem;
+                transition: 1.5s;
+
+                a {
+                    color: $btn-txt;
+                    font-size: 0.75rem;
+                    line-height: 1.5rem;
+                }
+                
+            }
+        }
+
+
+
+    }
+
+    .banner {
+        text-align: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        h1 {
+            color: $txt-color-wht;
+            font-size: 3.75rem;
+            line-height: 4.375rem;
+            padding: 7.5rem 0 6.25rem 0;
+        }
+
+        .banner-btn {
+            padding-bottom: 36px;
+
+            button {
+                @include button;
+                width: 275px;
+                padding: 10px 0;
+                border: none;
+                background-color: #fff;
+                border: 1px solid #fff;
+
+                a {
+                    color: $btn-txt;
+                    font-size: 1rem;
+                    line-height: 1.5rem;
+                }
+            }
+        }
+
+    }
+
+}

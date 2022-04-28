@@ -1,0 +1,207 @@
+// Fonts url link for Sass
+@import '_variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+    letter-spacing: 0em;
+    font-family: $font;
+    outline: none !important;
+
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden !important;
+}
+
+//.......Hr Line
+hr {
+    width: 3.5rem;
+    border: 1px solid black;
+    opacity: unset;
+}
+
+// Button background
+button {
+    background-color: transparent;
+    transition: 1.5s;
+}
+
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+@for $i from 1 through 9 {
+    .w-#{$i*100} {
+        font-weight: 100*$i;
+    }
+}
+
+.m-30 {
+    margin-right: 30px;
+}
+
+main {
+    background: linear-gradient(90deg, #F8F8F8 0%, #FFEBEC 71.35%, #F2F7FF 100%);
+}
+
+.green-hover:hover {
+    background-color: $hover-green !important;
+    border: 1px solid $hover-green !important;
+    color: $txt-color-wht !important;
+
+    a {
+        color: $txt-color-wht !important;
+    }
+}
+
+.white-hover:hover {
+    background-color: $txt-color-wht !important;
+    border: 1px solid $txt-color-wht !important;
+    color: $about_title !important;
+
+    a {
+        color: $about_title !important;
+    }
+
+    i {
+        color: $about_title !important;
+    }
+}
+.white-hover_:hover {
+    background-color: $txt-color-wht !important;
+    border: 1px solid $txt-color-wht !important;
+    color: $main-color !important;
+
+    a {
+        color: $main-color !important;
+    }
+
+    i {
+        color: $main-color !important;
+    }
+}
+.main-hover:hover {
+    background-color: $main-color !important;
+    border: 1px solid $main-color !important;
+    color: $txt-color-wht !important;
+
+    a {
+        color: $txt-color-wht !important;
+    }
+}
+.main-button{
+    background-color: $main-color !important;
+    color: $txt-color-wht !important;
+    border-color: $main-color !important;
+    a{
+        color: $txt-color-wht !important;
+    }
+}
+/* cursor end */
+
+/* scrollbar start */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 0.5rem $txt-color-wht;
+    border-radius: 1rem;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: $main-color;
+    border-radius: 1rem;
+}
+
+.regular .next {
+    position: absolute;
+    top: 50%;
+    color: #f15757;
+    background-color: transparent !important;
+    right: -40px;
+    margin: 0 !important;
+    border: none !important;
+    z-index: 1;
+    width: auto;
+    padding: 0 !important;
+    background: transparent;
+    padding: 5px 12px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    outline: none;
+
+}
+
+.regular .prev {
+    position: absolute;
+    top: 50%;
+    color: #f15757;
+    background-color: transparent !important;
+    left: -40px;
+    margin: 0 !important;
+    border: none !important;
+    z-index: 1;
+    width: auto;
+    padding: 0 !important;
+    background: transparent;
+    padding: 5px 12px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    outline: none;
+
+}
+.regular .next , .regular .prev{
+    &::before{
+        font-size: 30px;
+        color: $main-color;
+    }
+}
+.slick-dots {
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    margin: auto;
+
+    .slick-active button {
+        &::before {
+            color: $main-color;
+            opacity: 1;
+            font-size: 10px;
+        }
+    }
+
+    li button {
+        &::before {
+            color: $txt-color-wht;
+            opacity: 1;
+            font-size: 10px;
+        }
+    }
+
+
+}
+
+#services .regular .next , #services .regular .prev{
+    &::before{
+        font-size: 30px;
+        color: $txt-color-wht;
+    }
+}

@@ -1,0 +1,12 @@
+// Reset file 
+@import '_variables.scss';
+
+// Button Mixin
+@mixin button {
+  padding: 6px 21px;
+  text-transform: uppercase;
+  border-radius: 6px;
+  border: 1px solid $brd-color-grey;
+}
+
+// Responsive design mobile menu

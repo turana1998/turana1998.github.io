@@ -1,0 +1,108 @@
+#subscribes {
+    padding: 80px 0;
+    background-color: #283036;
+
+    h1 {
+        font-size: 30px;
+        line-height: 35px;
+        color: #FFFFFF;
+        margin-bottom: 10px;
+    }
+
+    input {
+        background: rgba(243, 243, 243, 0.16);
+        border-radius: 6px 0 0 6px;
+        border: none;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 18px;
+        color: #E2E2E2;
+        margin: 0;
+        padding: 17px 25px;
+
+        &::placeholder {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 18px;
+            color: #E2E2E2;
+        }
+    }
+
+    span {
+        background: #FFFFFF;
+        border-radius: 6px;
+        padding:0 20px;
+        margin-left: -5px;
+    }
+}
+
+footer {
+    background-color: #20272C;
+    border-top: 4px solid #fff;
+    padding: 50px 0 70px 0;
+
+    .social {
+        h1 {
+            font-size: 30px;
+            line-height: 16px;
+            color: #FDFCFC;
+            margin: 0;
+            padding: 0;
+            margin-bottom: 25px;
+        }
+
+        .social-network {
+            margin-top: 80px;
+            display: flex;
+
+            a {
+                margin-right: 45px;
+                color: #fff;
+            }
+        }
+    }
+
+    .list {
+        display: flex;
+
+        .list-item {
+            margin-right: 50px;
+
+            h4 {
+                font-weight: 600;
+                font-size: 20px;
+                line-height: 23px;
+                color: #FFFFFF;
+            }
+
+            ul {
+                margin: 0;
+                padding: 0;
+
+                li {
+                    margin-top: 15px;
+
+                    a {
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 19px;
+                        color: #FFFFFF;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.footer-text {
+    background-color: #283036;
+    padding: 30px 0;
+    text-align: center;
+
+    p {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        color: #8D8D8D;
+    }
+}
