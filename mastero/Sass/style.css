@@ -1413,6 +1413,7 @@ footer .list .list-item ul li a span {
     border-radius: 12px;
     padding: 30px 23px 23px 28px;
     margin: 0 10px;
+    margin-bottom: 100px;
   }
   #testimonials .item img {
     width: 80px;
@@ -1748,6 +1749,11 @@ footer .list .list-item ul li a span {
     height: 50px;
     margin: auto;
     border-radius: 50%;
+  }
+
+  #servicec {
+    margin: 20px;
+    border-radius: 8px;
   }
 
   #services_page {
