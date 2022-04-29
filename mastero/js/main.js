@@ -28,12 +28,22 @@ $("#lottery .regular").slick({
 
 
 });
+$("#mobile-lottery .regular").slick({
+  dots: false,
+  arrows: false,
+  infinite: false,
+  centerMode: false,
+  centerPadding: '20px',
+  slidesToShow: 1.1,
+
+
+});
 $("#testimonials .regular").slick({
     dots: false,
     infinite: true,
     slidesToShow: 3,
-    prevArrow: "<button type='button' class='prev slick-prev pull-left'></button>",
-    nextArrow: "<button type='button' class='next slick-next pull-right'></button>",
+    prevArrow: "<button type='button' class='prev slick-prev pull-left'><img src='../Images/m-before.png'/></button>",
+    nextArrow: "<button type='button' class='next slick-next pull-right'><img src='../Images/m-next.png'/></button>",
     slidesToScroll: 3,
     responsive: [
         {

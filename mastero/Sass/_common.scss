@@ -166,38 +166,44 @@ main {
 
 .regular .next {
     position: absolute;
-    top: 50%;
+    top: 40%;
     color: #f15757;
-    background-color: transparent !important;
+    background-color: #FCFAFA !important;
     right: -40px;
     margin: 0 !important;
     border: none !important;
     z-index: 1;
-    width: auto;
-    padding: 0 !important;
+    height: 30px;
+    width: 30px;
+    border-radius: 50% !important;
+    align-items: center;
+     padding: 0px !important;
     background: transparent;
     padding: 5px 12px;
     border-radius: 50%;
-    border: 1px solid #fff;
+    border: 1px solid #231F20 !important;
     outline: none;
 
 }
 
 .regular .prev {
     position: absolute;
-    top: 50%;
+    top: 40%;
     color: #f15757;
-    background-color: transparent !important;
+    background-color: #FCFAFA !important;
     left: -40px;
     margin: 0 !important;
     border: none !important;
     z-index: 1;
-    width: auto;
-    padding: 0 !important;
+    height: 30px;
+    width: 30px;
+    border-radius: 50% !important;
+    align-items: center;
+    padding: 0px !important; 
     background: transparent;
     padding: 5px 12px;
     border-radius: 50%;
-    border: 1px solid #fff;
+    border: 1px solid #231F20 !important;
     outline: none;
 
 }
@@ -205,8 +211,7 @@ main {
 .regular .next,
 .regular .prev {
     &::before {
-        font-size: 30px;
-        color: $main-color;
+        content: none;
     }
 }
 

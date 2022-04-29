@@ -108,8 +108,8 @@
             border-radius: 12px;
             padding: 10px 20px;
             display: flex;
-            margin-left: 40px;
-            margin-right: 40px;
+            margin-left: 15px;
+            margin-right: 15px;
             justify-content: space-between;
             align-items: center;
             box-shadow: rgb(241 87 87 / 50%) 15px 16px 20px 0px;
@@ -135,6 +135,42 @@
     #lottery .slick-list {
         overflow: hidden;
     }
+    #mobile-lottery {
+        padding-bottom: 55px;
+
+        .lottery {
+            background: #F15757;
+            border-radius: 12px;
+            padding: 10px 20px;
+            display: flex;
+            margin-left: 15px;
+            margin-right: 15px;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: rgb(241 87 87 / 50%) 15px 16px 20px 0px;
+
+            h1 {
+                font-size: 22px;
+                line-height: 28px;
+                color: $txt-color-wht;
+                width: 65%;
+            }
+
+            button {
+                display: none;
+
+            }
+        }
+
+        .slick-active .lottery {
+            margin: 0;
+        }
+    }
+
+    // #mobile-lottery .slick-list {
+    //     overflow: hidden;
+    // }
+
 
     #testimonials {
         text-align: center;
@@ -198,41 +234,50 @@
         }
     }
 
-    .regular .next {
-        position: absolute;
-        top: 30px;
-        color: #f15757;
-        background-color: transparent !important;
-        right: 10%;
-        margin: 0 !important;
-        border: none !important;
-        z-index: 1;
-        width: auto;
-        padding: 0 !important;
-        background: transparent;
-        padding: 5px 12px;
-        border-radius: 50%;
-        border: 1px solid #fff;
-        outline: none;
-    }
+ 
+.regular .next {
+    position: absolute;
+    top: 30px;
+    color: #f15757;
+    background-color: #FCFAFA !important;
+    right: 10%;
+    margin: 0 !important;
+    border: none !important;
+    z-index: 1;
+    height: 30px;
+    width: 30px;
+    border-radius: 50% !important;
+    align-items: center;
+    /* padding: 22px !important; */
+    background: transparent;
+    padding: 5px 12px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    outline: none;
 
-    .regular .prev {
-        position: absolute;
-        top: 30px;
-        color: #f15757;
-        background-color: transparent !important;
-        left: 10%;
-        margin: 0 !important;
-        border: none !important;
-        z-index: 1;
-        width: auto;
-        padding: 0 !important;
-        background: transparent;
-        padding: 5px 12px;
-        border-radius: 50%;
-        border: 1px solid #fff;
-        outline: none;
-    }
+}
+
+.regular .prev {
+    position: absolute;
+    top: 30px;
+    color: #f15757;
+    background-color: #FCFAFA !important;
+    left: 10%;
+    margin: 0 !important;
+    border: none !important;
+    z-index: 1;
+    height: 30px;
+    width: 30px;
+    border-radius: 50% !important;
+    align-items: center;
+    /* padding: 22px !important; */
+    background: transparent;
+    padding: 5px 12px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    outline: none;
+
+}
 
     #text {
         padding: 50px 0 70px 0;
