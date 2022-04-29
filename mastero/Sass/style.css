@@ -94,6 +94,30 @@ main {
   color: rgb(255, 255, 255) !important;
 }
 
+.white-button {
+  background-color: rgb(255, 255, 255) !important;
+  border: 1px solid rgb(255, 255, 255) !important;
+  color: #F15757 !important;
+}
+.white-button a {
+  color: #F15757 !important;
+}
+.white-button i {
+  color: #F15757 !important;
+}
+
+.white-button:hover {
+  background-color: #F15757 !important;
+  border: 1px solid #F15757 !important;
+  color: rgb(255, 255, 255) !important;
+}
+.white-button:hover a {
+  color: rgb(255, 255, 255) !important;
+}
+.white-button:hover i {
+  color: rgb(255, 255, 255) !important;
+}
+
 .white-hover:hover {
   background-color: rgb(255, 255, 255) !important;
   border: 1px solid rgb(255, 255, 255) !important;
@@ -304,6 +328,75 @@ header .banner .banner-btn button a {
   color: #545454;
   font-size: 1rem;
   line-height: 1.5rem;
+}
+header .mobile-menu-tab {
+  background-color: #F15757;
+  width: 100%;
+  padding: 20px 22px 62px 36px;
+}
+header .mobile-menu-tab .nav-item {
+  width: 150px;
+  margin-left: auto;
+}
+header .mobile-menu-tab .nav-item .nav-link {
+  border-bottom: 1px solid #fff;
+  margin-top: 30px;
+  font-weight: 700;
+  font-size: 32px;
+  color: #FFFFFF;
+  opacity: 1;
+}
+header .mobile-menu-tab .call-now {
+  border-radius: 6px;
+  margin-top: 100px;
+  padding: 13px 30px;
+}
+header .mobile-menu-tab .call-now a {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 16px;
+  /* or 100% */
+  display: flex;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+}
+header .mobile-menu-tab .social {
+  margin-top: 32px;
+  display: flex;
+  justify-content: end;
+}
+header .mobile-menu-tab .social li a {
+  background: #FFFFFF;
+  border-radius: 50%;
+  padding: 12px;
+  margin-left: 20px;
+}
+header .mobile-menu-tab .bottom-menu {
+  display: flex;
+  justify-content: end;
+  margin-top: 30px;
+}
+header .mobile-menu-tab .bottom-menu li a {
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 24px;
+  color: #F2F2F2;
+  margin-left: 18px;
+}
+header .mobile-menu-tab .bottom {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: -0.02em;
+  margin-top: 115px;
+  text-align: center;
+  color: #FFFFFF;
+}
+header .offcanvas-header .btn-close {
+  color: #fff;
+  background: transparent url(../Images/close.png) center/1em auto no-repeat;
+  opacity: 1;
 }
 
 #about_us {

@@ -32,11 +32,13 @@ header {
                     &:focus {
                         color: $txt-color-blck;
                     }
-                    &:hover{
+
+                    &:hover {
                         color: #222B45;
                     }
                 }
-                .active{
+
+                .active {
                     color: #222B45;
                 }
             }
@@ -56,7 +58,7 @@ header {
                     font-size: 0.75rem;
                     line-height: 1.5rem;
                 }
-                
+
             }
         }
 
@@ -95,6 +97,91 @@ header {
             }
         }
 
+    }
+
+    .mobile-menu-tab {
+        background-color: $main-color;
+        width: 100%;
+        padding: 20px 22px 62px 36px;
+
+        .nav-item {
+            width: 150px;
+            margin-left: auto;
+
+            .nav-link {
+                border-bottom: 1px solid #fff;
+                margin-top: 30px;
+                font-weight: 700;
+                font-size: 32px;
+                color: #FFFFFF;
+                opacity: 1;
+            }
+        }
+
+        .call-now {
+            border-radius: 6px;
+            margin-top: 100px;
+            padding: 13px 30px;
+
+            a {
+                font-weight: 600;
+                font-size: 16px;
+                line-height: 16px;
+                /* or 100% */
+
+                display: flex;
+                align-items: center;
+                text-align: center;
+                text-transform: uppercase;
+            }
+        }
+
+        .social {
+            margin-top: 32px;
+            display: flex;
+            justify-content: end;
+
+            li {
+                a {
+                    background: #FFFFFF;
+                    border-radius: 50%;
+                    padding: 12px;
+                    margin-left: 20px;
+                }
+            }
+        }
+
+        .bottom-menu {
+            display: flex;
+            justify-content: end;
+            margin-top: 30px;
+
+            li {
+                a {
+                    font-weight: 500;
+                    font-size: 13px;
+                    line-height: 24px;
+                    color: #F2F2F2;
+                    margin-left: 18px;
+                }
+            }
+        }
+
+        .bottom {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 19px;
+            letter-spacing: -0.02em;
+            margin-top: 115px;
+            text-align: center;
+            color: #FFFFFF;
+        }
+    }
+
+    .offcanvas-header .btn-close {
+        color: #fff;
+        background: transparent url(../Images/close.png) center/1em auto no-repeat;
+        opacity: 1;
     }
 
 }

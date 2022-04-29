@@ -70,7 +70,32 @@ main {
         color: $txt-color-wht !important;
     }
 }
+.white-button {
+    background-color: $txt-color-wht !important;
+    border: 1px solid $txt-color-wht !important;
+    color: $main-color !important;
 
+    a {
+        color: $main-color !important;
+    }
+
+    i {
+        color: $main-color !important;
+    }
+}
+.white-button:hover{
+    background-color: $main-color !important;
+    border: 1px solid $main-color !important;
+    color: $txt-color-wht !important;
+
+    a {
+        color: $txt-color-wht !important;
+    }
+
+    i {
+        color: $txt-color-wht !important;
+    }
+}
 .white-hover:hover {
     background-color: $txt-color-wht !important;
     border: 1px solid $txt-color-wht !important;

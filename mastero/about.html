@@ -101,46 +101,89 @@
             <div class="mobile-menu d-block d-lg-none">
                 <nav class="navbar navbar-light">
                     <div class="container-fluid">
-                        <a class="navbar-brand" href="#">Offcanvas navbar</a>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                        <a class="navbar-brand" href="#">
+                            <img src="./Images/logo.png"/>
+                        </a>
+                        <div class="d-flex align-items-center">
+                            <a href="#" class="me-2">
+                                <img src="./Images/user.png" alt="login" />
+                            </a>
+                            <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
                             data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                            <span class="navbar-toggler-icon"></span>
+                              <img src="./Images/menu.png"/>
                         </button>
-                        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                        </div>
+                       
+                        <div class="offcanvas offcanvas-end mobile-menu-tab" tabindex="-1" id="offcanvasNavbar"
                             aria-labelledby="offcanvasNavbarLabel">
-                            <div class="offcanvas-header">
-                                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
-                                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                            <div class="offcanvas-header p-0 m-0">
+                                <button class="border-0 bg-transparent">
+                                    <img src="./Images/search.png"/>
+                                </button>
+                                <div class="d-flex align-items-center">
+                                    <a href="#" class="me-2">
+                                        <img src="./Images/tel.png"/>
+                                    </a>
+                                    <a href="#" class="me-2">
+                                        <img src="./Images/user-white.png"/>
+                                    </a>
+                                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                                     aria-label="Close"></button>
+                                </div>
                             </div>
-                            <div class="offcanvas-body">
-                                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            <div class="offcanvas-body p-0  pe-3 text-end">
+                                <ul class="navbar-nav justify-content-end flex-grow-1">
                                     <li class="nav-item">
-                                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                        <a class="nav-link" aria-current="page" href="#">Why us?</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">Link</a>
+                                        <a class="nav-link" href="#">Services</a>
                                     </li>
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown"
-                                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Dropdown
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Join us</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Contact</a>
+                                    </li>
+                                   
+                                </ul>
+                                <button class="w-auto call-now mb-2 white-button">
+                                    <a href="#" class="w-600">Call now</a>
+                                </button>
+                                <ul class="social p-0 ">
+                                    <li>
+                                        <a href="#">
+                                            <img src="./Images/fb.png"/>
                                         </a>
-                                        <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
-                                            <li><a class="dropdown-item" href="#">Action</a></li>
-                                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                                            <li>
-                                                <hr class="dropdown-divider">
-                                            </li>
-                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <img src="./Images/insta.png"/>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <img src="./Images/tg.png"/>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <img src="./Images/youtube.png"/>
+                                        </a>
                                     </li>
                                 </ul>
-                                <form class="d-flex">
-                                    <input class="form-control me-2" type="search" placeholder="Search"
-                                        aria-label="Search">
-                                    <button class="btn btn-outline-success" type="submit">Search</button>
-                                </form>
+                                <ul class="bottom-menu">
+                                    <li>
+                                        <a href="#">Terms&Conditions</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Privacy Policy</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">FAQ</a>
+                                    </li>
+                                </ul>
+                                <p class="bottom">2022 Mastero | All rights reserved.</p>
                             </div>
                         </div>
                     </div>
@@ -164,7 +207,7 @@
             <div class="container">
                 <h1 class="m-0 w-700">Lorem ipsum dolor sit amet</h1>
             <div class="banner-btn">
-                <button class="w-100 mb-2 green-hover">
+                <button class="w-100 mb-2 white-button">
                     <a href="#" class="w-600">Call now</a>
                 </button>
                 <button class="w-100 main-button main-hover">
