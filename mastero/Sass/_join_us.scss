@@ -7,7 +7,7 @@
         border-radius: 12px;
         width: 65%;
         margin: auto;
-        padding: 40px 40px 35px 40px;
+        padding: 47px 30px 42px 30px;
 
         h2 {
             font-weight: 500;
@@ -170,7 +170,7 @@
         letter-spacing: -0.02em;
         color: #4F4F4F;
         margin: 0 auto;
-        max-width: 90%;
+        max-width: 85%;
 
     }
 }
@@ -181,15 +181,16 @@
         border: 1.5px solid #BDBDBD;
         box-sizing: border-box;
         border-radius: 12px;
-        padding: 42px 50px;
+        padding: 42px 50px 26px 50px;
         text-align: center;
-        min-height: 200px;
+        min-height: 210px;
 
         img {
             margin-bottom: 20px;
             display: block;
             margin: auto;
-           
+            margin-bottom: 20px;
+
         }
 
         a {
@@ -208,5 +209,52 @@
             text-decoration-line: underline;
             color: #40A3FF;
         }
+    }
+}
+
+#term {
+    padding: 110px 0;
+
+    h2 {
+        font-weight: 600;
+        font-size: 40px;
+        line-height: 47px;
+        display: flex;
+        align-items: center;
+        letter-spacing: -0.02em;
+        color: #333333;
+        margin: 0;
+        margin-bottom: 15px;
+
+    }
+
+    .date {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 21px;
+        letter-spacing: -0.02em;
+        color: #5C5C5C;
+    }
+
+    hr {
+        width: 100%;
+        border: 1px solid #BDBDBD;
+    }
+
+    p {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 26px;
+        /* or 162% */
+
+        text-align: justify;
+
+        /* Gray 2 */
+
+        color: #4F4F4F;
+        margin: 0;
+        margin-top: 40px;
+
     }
 }

@@ -31,7 +31,7 @@
     span {
         background: #FFFFFF;
         border-radius: 6px;
-        padding:0 20px;
+        padding:0 15px;
         margin-left: -5px;
     }
 }
@@ -87,7 +87,12 @@ footer {
                         font-size: 16px;
                         line-height: 19px;
                         color: #FFFFFF;
+                        display: flex;
+                        span{
+                            margin-left: 5px;
+                        }
                     }
+                    
                 }
             }
         }

@@ -9,7 +9,15 @@ $(".show-more").click(function () {
         $(this).text("Show More");
     }
 });
-
+$(".call-me-click").click(function () {
+  if ($(".call-me-modal").hasClass("d-none")) {
+      $(".call-me-modal").removeClass("d-none");
+      $(".call-me-modal").addClass("d-block");
+  } else {
+      $(".call-me-modal").removeClass("d-block");
+      $(".call-me-modal").addClass("d-none");
+  }
+});
 $("#lottery .regular").slick({
     dots: false,
     arrows: false,
@@ -34,7 +42,7 @@ $("#testimonials .regular").slick({
             slidesToShow: 3,
             slidesToScroll: 3,
             infinite: true,
-            dots: true
+            dots: false
           }
         },
         {
@@ -69,7 +77,7 @@ $("#services .regular").slick({
             slidesToShow: 3,
             slidesToScroll: 3,
             infinite: true,
-            dots: true
+            dots: false
           }
         },
         {
@@ -91,46 +99,22 @@ $("#services .regular").slick({
 
 });
 $("#sertificates .regular").slick({
-    dots: true,
+    dots: false,
     infinite: true,
     slidesToShow: 4,
     prevArrow: "<button type='button' class='prev slick-prev pull-left'></button>",
     nextArrow: "<button type='button' class='next slick-next pull-right'></button>",
     slidesToScroll: 4,
-    responsive: [
-        {
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 3,
-            infinite: true,
-            dots: true
-          }
-        },
-        {
-          breakpoint: 600,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 2
-          }
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1
-          }
-        }
-      ]
+   
 
 
 });
 $("#utilities .regular").slick({
-    dots: true,
+    dots: false,
     infinite: true,
     slidesToShow: 4,
-    prevArrow: "<button type='button' class='prev slick-prev pull-left'></button>",
-    nextArrow: "<button type='button' class='next slick-next pull-right'></button>",
+    prevArrow: false,
+    nextArrow:false,
     slidesToScroll: 4,
     responsive: [
         {
@@ -139,7 +123,7 @@ $("#utilities .regular").slick({
             slidesToShow: 3,
             slidesToScroll: 3,
             infinite: true,
-            dots: true
+            dots: false
           }
         },
         {
@@ -161,17 +145,28 @@ $("#utilities .regular").slick({
 
 });
 $("#partners .regular").slick({
-    dots: true,
+    dots: false,
     infinite: true,
     slidesToShow: 6,
-    prevArrow: "<button type='button' class='prev slick-prev pull-left'></button>",
-    nextArrow: "<button type='button' class='next slick-next pull-right'></button>",
-    slidesToScroll: 6
+    prevArrow: false,
+    nextArrow: false,
+    slidesToScroll: 6,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 4,
+          infinite: true,
+          dots: false
+        }
+      }
+    ]
 
 
 });
 $("#premium_services .regular").slick({
-    dots: true,
+    dots: false,
     infinite: true,
     slidesToShow: 4,
     prevArrow: "<button type='button' class='prev slick-prev pull-left'></button>",
