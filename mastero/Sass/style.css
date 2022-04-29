@@ -611,6 +611,66 @@ header .offcanvas-header .btn-close {
   background-color: #F9F9F9;
 }
 
+#why__us {
+  padding: 85px 0 55px 0;
+}
+#why__us .about_us {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+#why__us .about_us .item {
+  background: #FFFFFF;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  margin: auto;
+  width: 100%;
+  padding: 30px 50px;
+  margin-bottom: 20px;
+}
+#why__us .about_us .item h2 {
+  font-weight: 600;
+  color: #464646;
+  font-size: 26px;
+  line-height: 28px;
+}
+#why__us .about_us .item p {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+#why__us .about_us .item:nth-of-type(odd) {
+  background-color: #F9F9F9;
+}
+#why__us .about__us {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+#why__us .about__us .item {
+  background: #FFFFFF;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  margin: auto;
+  width: 100%;
+  padding: 30px 50px;
+  margin-bottom: 20px;
+}
+#why__us .about__us .item h2 {
+  font-weight: 600;
+  color: #464646;
+  font-size: 26px;
+  line-height: 28px;
+}
+#why__us .about__us .item p {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+#why__us .about__us .item:nth-of-type(even) {
+  background-color: #F9F9F9;
+}
+
 #lottery {
   padding-bottom: 95px;
 }
@@ -1694,6 +1754,56 @@ footer .list .list-item ul li a span {
     background-color: transparent;
   }
 
+  #why__us {
+    padding: 30px 0;
+  }
+  #why__us .about_us {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  #why__us .about_us .item {
+    border-radius: 12px;
+    margin: auto;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+  #why__us .about_us .item h2 {
+    font-weight: 600;
+    color: #464646;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  #why__us .about_us .item p {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 20px;
+  }
+  #why__us .about__us {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  #why__us .about__us .item {
+    border-radius: 12px;
+    margin: auto;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+  #why__us .about__us .item h2 {
+    font-weight: 600;
+    color: #464646;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  #why__us .about__us .item p {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 20px;
+  }
+
   #sertificates {
     background-color: #F15757;
     text-align: center;
@@ -2036,16 +2146,21 @@ footer .list .list-item ul li a span {
   }
 
   #utilities {
+    margin: 20px;
+    border-radius: 8px;
     background-color: #4D7DF8;
     text-align: center;
     padding: 30px 0 45px 0;
-    margin-bottom: 0px;
+    margin-bottom: 50px;
   }
   #utilities h3 {
     font-size: 26px;
     line-height: 28px;
     color: #FFFFFF;
     margin-bottom: 50px;
+  }
+  #utilities .item {
+    margin-bottom: 30px;
   }
   #utilities .item img {
     width: 80px;

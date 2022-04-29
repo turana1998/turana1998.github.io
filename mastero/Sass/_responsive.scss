@@ -462,6 +462,69 @@
         }
         
     }
+    #why__us {
+        padding: 30px 0;
+    
+        .about_us {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+    
+           
+            .item {
+                
+                border-radius: 12px;
+                margin: auto;
+                width: 100%;
+                padding: 0;
+                margin-bottom: 20px;
+    
+                h2 {
+                    font-weight: 600;
+                    color: $about_title;
+                    font-size:16px;
+                    line-height: 24px;
+                }
+    
+                p {
+                    font-weight: 400;
+                    font-size: 13px;
+                    line-height: 20px;
+                }
+            }
+    
+        }
+        .about__us {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+    
+           
+            .item {
+                border-radius: 12px;
+                margin: auto;
+                width: 100%;
+                padding: 0;
+                margin-bottom: 20px;
+    
+                h2 {
+                    font-weight: 600;
+                    color: $about_title;
+                    font-size:16px;
+                    line-height: 24px;
+                }
+    
+                p {
+                    font-weight: 400;
+                    font-size: 13px;
+                    line-height: 20px;
+                }
+            }
+    
+          
+        }
+        
+    }
     #sertificates {
         background-color: #F15757;
         text-align: center;
@@ -848,10 +911,12 @@
         }
     }
     #utilities {
+        margin: 20px;
+        border-radius: 8px;
         background-color: #4D7DF8;
         text-align: center;
         padding: 30px 0 45px 0;
-        margin-bottom: 0px;
+        margin-bottom: 50px;
     
         h3 {
             font-size: 26px;
@@ -862,6 +927,7 @@
         }
     
         .item {
+            margin-bottom: 30px;
             img {
                 width: 80px;
                 height: 80px;
