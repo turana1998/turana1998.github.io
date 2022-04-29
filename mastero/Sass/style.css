@@ -329,6 +329,8 @@ header .header-navBar #logo {
 }
 header .header-navBar .nav-menu {
   display: flex;
+  width: 50%;
+  justify-content: space-evenly;
 }
 header .header-navBar .nav-menu li {
   list-style: none;
@@ -1751,7 +1753,7 @@ footer .list .list-item ul li a span {
     border-radius: 50%;
   }
 
-  #servicec {
+  #services {
     margin: 20px;
     border-radius: 8px;
   }

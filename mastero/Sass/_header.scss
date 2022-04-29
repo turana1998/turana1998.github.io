@@ -17,6 +17,8 @@ header {
         //  Navigation Menu on Header
         .nav-menu {
             display: flex;
+            width: 50%;
+            justify-content: space-evenly;
 
             // Navigation List
             li {
@@ -103,9 +105,11 @@ header {
         background-color: $main-color;
         width: 100%;
         padding: 20px 22px 62px 36px;
-        .navbar-nav{
+
+        .navbar-nav {
             margin-top: 30px;
         }
+
         .nav-item {
             width: 150px;
             margin-left: auto;
