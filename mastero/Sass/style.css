@@ -178,7 +178,7 @@ main {
 
 .regular .next {
   position: absolute;
-  top: 40%;
+  top: 50%;
   color: #f15757;
   background-color: #FCFAFA !important;
   right: -40px;
@@ -193,13 +193,12 @@ main {
   background: transparent;
   padding: 5px 12px;
   border-radius: 50%;
-  border: 1px solid #231F20 !important;
   outline: none;
 }
 
 .regular .prev {
   position: absolute;
-  top: 40%;
+  top: 50%;
   color: #f15757;
   background-color: #FCFAFA !important;
   left: -40px;
@@ -214,7 +213,6 @@ main {
   background: transparent;
   padding: 5px 12px;
   border-radius: 50%;
-  border: 1px solid #231F20 !important;
   outline: none;
 }
 
@@ -489,7 +487,7 @@ header .offcanvas-header .btn-close {
   border-radius: 0 0 12px 12px;
   width: 100%;
   margin: auto;
-  padding: 0px 50px 25px 50px;
+  padding: 20px 50px 30px 50px;
 }
 #about_us .about_us .item-btn button {
   padding: 6px 21px;
@@ -507,7 +505,7 @@ header .offcanvas-header .btn-close {
   border-radius: 0;
   margin: auto;
   width: 100%;
-  padding: 25px 50px;
+  padding: 10px 50px;
 }
 #about_us .about_us .item h2 {
   font-weight: 600;
@@ -552,8 +550,8 @@ header .offcanvas-header .btn-close {
   text-transform: uppercase;
   line-height: 2.2rem;
 }
-#about_us .about_us .item:nth-of-type(even) {
-  background-color: #F9F9F9;
+#about_us .about_us .item:nth-of-type(odd) {
+  background: #F2F2F2;
 }
 
 #why_us {
@@ -574,7 +572,7 @@ header .offcanvas-header .btn-close {
   margin-bottom: 20px;
 }
 #why_us .about_us .item h2 {
-  font-weight: 600;
+  font-weight: 500;
   color: #464646;
   font-size: 26px;
   line-height: 28px;
@@ -602,7 +600,7 @@ header .offcanvas-header .btn-close {
   margin-bottom: 20px;
 }
 #why_us .about__us .item h2 {
-  font-weight: 600;
+  font-weight: 500;
   color: #464646;
   font-size: 26px;
   line-height: 28px;
@@ -706,6 +704,7 @@ header .offcanvas-header .btn-close {
   line-height: 16px;
   color: white;
   padding: 12px 36px;
+  margin-top: 35px;
   text-transform: uppercase;
 }
 #lottery .lottery button i {
@@ -723,6 +722,7 @@ header .offcanvas-header .btn-close {
 
 #testimonials {
   text-align: center;
+  padding-bottom: 130px;
 }
 #testimonials h3 {
   font-size: 26px;
@@ -736,7 +736,7 @@ header .offcanvas-header .btn-close {
   border-radius: 12px;
   padding: 30px 56px 56px 56px;
   margin: 0 10px;
-  margin-bottom: 130px;
+  min-height: 350px;
 }
 #testimonials .item img {
   width: 80px;

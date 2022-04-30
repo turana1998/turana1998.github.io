@@ -12,7 +12,7 @@
             border-radius: 0 0 12px 12px;
             width: 100%;
             margin: auto;
-            padding: 0px 50px 25px 50px;
+            padding: 20px 50px 30px 50px;
 
             button {
                 @include button;
@@ -30,7 +30,7 @@
             border-radius: 0;
             margin: auto;
             width: 100%;
-            padding: 25px 50px;
+            padding: 10px 50px;
 
             h2 {
                 font-weight: 600;
@@ -77,8 +77,8 @@
             }
         }
 
-        .item:nth-of-type(even) {
-            background-color: #F9F9F9;
+        .item:nth-of-type(odd) {
+            background: #F2F2F2;
         }
     }
 }
@@ -101,7 +101,7 @@
             margin-bottom: 20px;
 
             h2 {
-                font-weight: 600;
+                font-weight: 500;
                 color: $about_title;
                 font-size:26px;
                 line-height: 28px;
@@ -134,7 +134,7 @@
             margin-bottom: 20px;
 
             h2 {
-                font-weight: 600;
+                font-weight: 500;
                 color: $about_title;
                 font-size:26px;
                 line-height: 28px;

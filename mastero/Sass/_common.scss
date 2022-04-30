@@ -166,7 +166,7 @@ main {
 
 .regular .next {
     position: absolute;
-    top: 40%;
+    top: 50%;
     color: #f15757;
     background-color: #FCFAFA !important;
     right: -40px;
@@ -181,14 +181,13 @@ main {
     background: transparent;
     padding: 5px 12px;
     border-radius: 50%;
-    border: 1px solid #231F20 !important;
     outline: none;
 
 }
 
 .regular .prev {
     position: absolute;
-    top: 40%;
+    top: 50%;
     color: #f15757;
     background-color: #FCFAFA !important;
     left: -40px;
@@ -203,7 +202,6 @@ main {
     background: transparent;
     padding: 5px 12px;
     border-radius: 50%;
-    border: 1px solid #231F20 !important;
     outline: none;
 
 }

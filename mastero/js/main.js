@@ -2,7 +2,7 @@ $(".show-more").click(function () {
     if ($(".more").hasClass("d-none")) {
         $(".more").removeClass("d-none");
         $(".more").addClass("d-block");
-        $(this).text("Show Less");
+        $(this).text("Less");
     } else {
         $(".more").removeClass("d-block");
         $(".more").addClass("d-none");
@@ -18,6 +18,7 @@ $(".call-me-click").click(function () {
       $(".call-me-modal").addClass("d-none");
   }
 });
+
 $("#lottery .regular").slick({
     dots: false,
     arrows: false,
