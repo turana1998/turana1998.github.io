@@ -13,12 +13,22 @@ $(".call-me-click").click(function () {
   if ($(".call-me-modal").hasClass("d-none")) {
       $(".call-me-modal").removeClass("d-none");
       $(".call-me-modal").addClass("d-block");
-  } else {
+  } 
+  // else {
+  //     $(".call-me-modal").removeClass("d-block");
+  //     $(".call-me-modal").addClass("d-none");
+  // }
+});
+$("main").click(function () {
+  if ($(".call-me-modal").hasClass("d-block")) {
       $(".call-me-modal").removeClass("d-block");
       $(".call-me-modal").addClass("d-none");
-  }
+  } 
+  // else {
+  //     $(".call-me-modal").removeClass("d-block");
+  //     $(".call-me-modal").addClass("d-none");
+  // }
 });
-
 $("#lottery .regular").slick({
     dots: false,
     arrows: false,
