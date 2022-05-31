@@ -1,0 +1,26 @@
+@mixin img-responsive {
+  width: 100%;
+  height: auto;
+}
+
+@mixin box-shadow($shadow...) {
+  -webkit-box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
+
+@mixin scale($ratio) {
+  -webkit-transform: scale($ratio);
+  -moz-transform: scale($ratio);
+  -ms-transform: scale($ratio);
+  -o-transform: scale($ratio);
+  transform: scale($ratio);
+}
+
+@mixin transition($property, $duration, $timing-function) {
+  -webkit-transition: $property $duration $timing-function;
+  -moz-transition: $property $duration $timing-function;
+  -ms-transition: $property $duration $timing-function;
+  -o-transition: $property $duration $timing-function;
+  transition: $property $duration $timing-function;
+}
