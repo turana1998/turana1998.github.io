@@ -35,7 +35,7 @@ button:active {
 
 /* scrollbar */
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 3px;
 }
 
 ::-webkit-scrollbar-track {
@@ -43,7 +43,7 @@ button:active {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: $secondary-clr;
+  background-color: #b1b5c7;
 }
 @font-face {
   font-family: Palatino;

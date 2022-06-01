@@ -52,7 +52,7 @@ button:active {
 
 /* scrollbar */
 ::-webkit-scrollbar {
-  width: 3px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-track {
@@ -60,7 +60,7 @@ button:active {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #b1b5c7;
+  background-color: #458ff6;
 }
 
 @font-face {
@@ -184,7 +184,7 @@ main {
 
 .main .wrapper .desktop-menu .bottom_menu .menu .menu_ .logo_ a {
   font-size: 31px;
-  color: #fff;
+  color: #ffffff;
   font-family: Palatino;
   text-decoration: none;
 }
@@ -234,9 +234,6 @@ main {
 .main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category .menuitem:hover > menu > .menuitem,
 .main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category menu:hover > .menuitem {
   opacity: 1;
-}
-
-.main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category menu:hover #demo1 {
   background-color: #e45353;
 }
 
@@ -247,12 +244,13 @@ main {
 }
 
 .main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category nav a {
-  background: #fff;
+  background: #f8f9fd;
   font-size: 15px;
   color: #000;
   font-family: "Arial";
   transition: background 0.5s, color 0.5s, transform 0.5s;
   margin: 0;
+  padding: 20px;
   box-sizing: border-box;
   border-radius: 0;
   box-shadow: none;
@@ -289,8 +287,8 @@ main {
   border: none;
   border-left: none;
   position: absolute;
-  top: 18px;
-  left: -45px;
+  top: 30px;
+  left: -23px;
   transition: opacity 0.6, transform 0s;
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
@@ -302,38 +300,16 @@ main {
   transform: translateY(150%);
   opacity: 0;
   height: auto;
-  padding: 0 20px;
-}
-
-.main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category nav > menu > .menuitem > menu > .menuitem:first-child {
-  padding-top: 20px;
-}
-
-.main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category nav > menu > .menuitem > menu > .menuitem:last-child {
-  padding-bottom: 40px;
 }
 
 .main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category nav > menu > .menuitem > menu > .menuitem a {
   min-width: 300px;
-  padding: 10px 5px;
-  border-radius: 5px;
-  margin-bottom: 10px;
-}
-
-.main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category nav > menu > .menuitem > menu > .menuitem a:hover {
-  background-color: #e4e4e4;
-  color: #bb0000;
-}
-
-.main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category nav > menu > .menuitem > menu > .menuitem a:hover + menu:after {
-  color: #bb0000;
 }
 
 .main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category nav > menu > .menuitem:hover > menu > .menuitem,
 .main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category nav > menu > .menuitem.hover > menu > .menuitem {
   transform: translateY(0%);
   opacity: 1;
-  background-color: #fff;
 }
 
 .main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category .menuitem > menu > .menuitem > menu > .menuitem {
