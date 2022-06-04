@@ -1,3 +1,11 @@
+$('#demo1').mouseover(function() {
+     console.log($('#demo1 #hover-icon'));
+     $('#demo1 #hover-icon').attr("src","../img/xmark.svg");
+});
+$('#demo1').mouseout(function() {
+  console.log($('#demo1 #hover-icon'));
+  $('#demo1 #hover-icon').attr("src","../img/icon.svg");
+});
 $(document).on('ready', function () {
   $("#banner .regular").slick({
     dots: false,

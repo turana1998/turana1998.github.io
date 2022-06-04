@@ -1,5 +1,6 @@
 main {
     background-color: #f6f6f6;
+    padding: 0 8px;
 }
 
 .main {
@@ -239,7 +240,7 @@ main {
                                 transform: translateY(150%);
                                 opacity: 0;
                                 height: auto;
-                                padding: 0 20px;
+                                padding: 0 10px;
                                 &:first-child{
                                     padding-top: 20px;
                                 }
@@ -250,7 +251,6 @@ main {
                                     min-width: 300px;
                                     padding: 10px 5px;
                                     border-radius: 5px;
-                                    margin-bottom: 10px;
                                     &:hover{
                                         background-color: #e4e4e4;
                                         color: $main-red;
@@ -415,9 +415,13 @@ main {
 
         #advertisement {
             .m-40 {
-                margin-bottom: 40px;
+                margin-bottom: 30px;
+                a{
+                    color: #000;
+                    text-decoration: none;
+                }
             }
-
+          
             .title {
                 display: flex;
                 justify-content: space-between;
@@ -583,9 +587,19 @@ main {
                         font-family: "Arial";
                         padding-right: 5px;
                         text-decoration: none;
+                        &::after {
+                            content: "/";
+                            display: inline-block;
+                            margin-left: 8px;
+                        }
+                        
+                        
                     }
                     .active{
                         color: #000;
+                        &::after{
+                            content: "";
+                        }
                     }
                 }
             }
@@ -622,8 +636,12 @@ main {
             }
 
             #mainCarousel .carousel__button.is-prev {
-                left: -1.5rem;
-                display: none;
+                left: 30px;
+                background: rgba(30, 30, 30, 0.444);
+                color: #fff;
+                opacity: 0.6;
+                width: 45px;
+                height: 45px;
             }
 
             #mainCarousel .carousel__button.is-next {
@@ -684,16 +702,14 @@ main {
                     font-weight: bold;
                     font-family: "Arial";
                     margin: 0;
-                    margin-top: 20px;
+                    margin-top: 15px;
                 }
             }
         }
 
         .detail-table {
             margin-top: 20px;
-            .spacer{
-                height: 8px;
-            }
+           
             table {
                 width: 90%;
 
@@ -705,25 +721,28 @@ main {
                     }
                 }
             }
-
+            .spacer{
+                height: 8px;
+                border: none;
+            }
 
         }
 
         .operations {
             margin-top: 20px;
-            display: flex;
 
             button {
                 border: 1px solid #b2b2b2;
                 padding: 10px 15px;
                 color: #b2b2b2;
                 background-color: #fff;
-                margin-right: 25px;
+                width: 100%;
 
                 a {
 
                     text-decoration: none;
                     color: rgb(36, 35, 35);
+                    font-size: 15px;
 
                     i {
                         color: #b2b2b2;
@@ -838,12 +857,13 @@ main {
                 h2 {
                     font-weight: bold;
                     margin: 0;
-                    margin-bottom: 15px;
+                    margin-bottom: 5px;
                 }
 
                 span {
                     color: #85dbfb;
                     font-size: 15px;
+                    margin-bottom: 8px;
                 }
 
                 p {
@@ -952,6 +972,9 @@ main {
     }
 }
 @media only screen and (max-width: 768px) {
+    .bg-md-white{
+        padding-top: 20px;
+    }
     main {
         padding: 0 15px;
     }
@@ -959,6 +982,7 @@ main {
     .main {
         .wrapper {
             #advertisement {
+                padding-top: 20px;
                 .title {
                     background-color: #fff;
                     padding: 13px 10px;
@@ -971,6 +995,17 @@ main {
 
                     a {
                         font-size: 14px;
+                    }
+                }
+                .title_{
+                    p{
+                        font-size: 15px;
+                    color: #000000;
+                    padding: 8px 0px;
+                    text-align: center;
+                    background-color: #fff;
+                    font-weight: normal;
+                    text-transform: capitalize;
                     }
                 }
 
@@ -1015,7 +1050,7 @@ main {
                     }
 
                     background-color: #dbdbdb;
-                    padding: 5px 25px !important;
+                    padding: 10px 25px !important;
 
                     .menu {
                         .menu_social {
@@ -1134,6 +1169,7 @@ main {
                 }
             }
             .mobile-banner{
+                padding: 15px 15px 30px 15px;
                 .slick-initialized .slick-slide{
                     padding-right: 10px;
                 }
@@ -1157,8 +1193,11 @@ main {
             .menu-link{
                
                     padding: 15px 10px;
-                    margin: 20px 0;
+                    margin-bottom: 20px;
                     background-color: #fff;
+                    a{
+                        font-size: 12px !important;
+                    }
                 
             }
             #mobile-detail-slider{
@@ -1168,9 +1207,12 @@ main {
                 }
             }
             #detail-info {
+                .spacer{
+                    display: none;
+                }
                 .info-title {
                     background-color: #fbfbfb;
-                    padding: 20px 10px 20px 10px;
+                    padding: 20px 0;
     
                     h2 {
                         font-size: 20px;
@@ -1186,9 +1228,117 @@ main {
                         font-weight: bold;
                         font-family: "Arial";
                         margin: 0;
-                        margin-top: 20px;
+                        margin-top: 0px;
                     }
                 }
+                .detail-table {
+                    margin-top: 0px;
+                   
+                    table {
+                        width: 100%;
+        
+                        tr {
+                            border:none;
+        
+                            th {
+                                padding: 2px 0;
+                                font-weight: 500;
+                                font-size: 12px;
+                                &:first-child{
+                                    color: rgb(106, 106, 106);
+                                    
+                                }
+                            }
+                        }
+                    }
+                    .spacer{
+                        height: 8px;
+                        border: none;
+                    }
+        
+                }
+        
+                
+                .social {
+                    margin-top: 12px;
+                    display: flex;
+                    justify-content: space-between;
+        
+                    .social_network {
+                        display: flex;
+        
+                        a {
+                            width: 62px;
+                            height: 48px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            color: #fff;
+                            text-decoration: none;
+                            font-size: 18px;
+                            margin-right: 5px;
+                        }
+        
+                        .fb {
+                            background-color: #1877f2;
+                        }
+        
+                        .twt {
+                            background-color: #1da1f2;
+                        }
+        
+                        .tg {
+                            background-color: #0088cc;
+                        }
+        
+                        .wp {
+                            background-color: #25d366;
+                        }
+                    }
+        
+                    .view {
+                        a {
+                            width: 80px;
+                            height: 48px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            color: #acacac;
+                            text-decoration: none;
+                            font-size: 18px;
+                            margin-right: 5px;
+                            background-color: #e4e4e4;
+        
+                            span {
+                                color: #000;
+                                font-size: 14px;
+                                margin-left: 5px;
+                            }
+                        }
+                    }
+                }
+        
+               
+                .desc {
+                    margin-top: 25px;
+        
+                    p {
+                        margin: 0;
+                        font-size: 15px;
+                        line-height: 29px;
+                        color: #606060;
+                        font-family: "Arial";
+                    }
+                }
+        
+                .operations_mobile{
+                    margin: 25px 0;
+                    a{
+                        font-size: 16px;
+                        margin-right: 20px;
+                    }
+                }
+        
             }
             
 

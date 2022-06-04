@@ -23,11 +23,12 @@ button {
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
-
-button:active {
-  transform: scale(0.95);
+button:focus{
+  box-shadow: none !important;
 }
-
+input:focus{
+  box-shadow: none !important;
+}
 ::selection {
   color: $white-clr;
   background-color: darken($secondary-clr, 20%);
