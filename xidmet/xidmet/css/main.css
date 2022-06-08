@@ -310,7 +310,7 @@ main {
   background-color: transparent;
   box-shadow: none;
   display: flex;
-  padding: 0;
+  padding: 0 5px;
   font-size: 16px;
   letter-spacing: 0px;
   color: #ffffff;
@@ -610,13 +610,12 @@ main {
 
 .main .wrapper #advertisement .card {
   border: none;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  border: 1px solid #2125291f;
-  transition: 1.5s;
+  box-shadow: rgba(149, 157, 165, 0.101) 0px 8px 15px;
+  transition: 1.1s;
 }
 
 .main .wrapper #advertisement .card:hover {
-  border: 1px solid #fff;
+  box-shadow: rgba(149, 157, 165, 0.488) 0px 8px 24px;
 }
 
 .main .wrapper #advertisement .card .card-top-img {
@@ -821,6 +820,10 @@ main {
   height: 100%;
   object-fit: cover;
   border-radius: 0px;
+}
+
+.main .wrapper #detail-slider #thumbCarousel .carousel__slide img:hover {
+  cursor: pointer;
 }
 
 .main .wrapper #detail-slider #thumbCarousel .carousel__track {
