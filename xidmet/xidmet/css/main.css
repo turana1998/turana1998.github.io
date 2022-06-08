@@ -126,6 +126,11 @@ main {
   border-radius: 5px;
   display: block;
   margin: auto;
+  transition: 1.5s;
+}
+
+.main .wrapper .show_all:hover {
+  background-color: #8a0000;
 }
 
 .main .wrapper .show_all a {
@@ -172,10 +177,19 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: 1.5s;
 }
 
 .main .wrapper .desktop-menu .top_menu .menu .menu_social li a {
   color: #2e2b2c;
+}
+
+.main .wrapper .desktop-menu .top_menu .menu .menu_social li:hover {
+  background-color: #2e2b2c;
+}
+
+.main .wrapper .desktop-menu .top_menu .menu .menu_social li:hover a {
+  color: #fff;
 }
 
 .main .wrapper .desktop-menu .bottom_menu .menu {
@@ -199,6 +213,34 @@ main {
   /* User Styles Below Not Required */
   /* User Styles Below Not Required */
   /* User Styles Below Not Required */
+}
+
+.main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category .main-menu::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+.main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category .main-menu::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category .main-menu::-webkit-scrollbar {
+  width: 0px;
+}
+
+.main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category .height {
+  max-height: 500px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  min-width: 650px;
+}
+
+.main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category .height .menuitem {
+  border-right: 4px solid #b3b0b0;
+  max-width: 320px;
+}
+
+.main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category .height .menuitem .menuitem {
+  border: none;
 }
 
 .main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category nav .menuitem {
@@ -304,7 +346,7 @@ main {
 
 .main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category nav > menu > .menuitem > menu > .menuitem {
   transition: transform 0.6s, opacity 0.6s;
-  transform: translateY(150%);
+  transform: translateY(10%);
   opacity: 0;
   height: auto;
   padding: 0 10px;
@@ -338,11 +380,12 @@ main {
   transform: translateY(0%);
   opacity: 1;
   background-color: #fff;
+  max-width: 320px;
 }
 
 .main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category .menuitem > menu > .menuitem > menu > .menuitem {
   transition: transform 0.6s, opacity 0.6s;
-  transform: translateX(195px) translateY(0%);
+  transform: translateX(25px) translateY(0%);
   opacity: 0;
 }
 
@@ -350,6 +393,7 @@ main {
 .main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category .menuitem > menu > .menuitem.hover > menu > .menuitem {
   transform: translateX(0) translateY(0%);
   opacity: 1;
+  left: 4px;
 }
 
 .main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category .dropdown .dropdown-toggle {
@@ -367,18 +411,30 @@ main {
 
 .main .wrapper .desktop-menu .bottom_menu .menu .menu_ .search .dropdown-toggle {
   background-color: transparent;
-  font-size: 16px;
+  font-size: 14px;
   letter-spacing: 0px;
-  color: #2e2b2c;
+  color: #a49e9e;
   font-family: "Nokia Large Az";
   text-align: center;
-  padding: 6px;
-  border-radius: 3px;
-  border: 1px solid #bb0000;
+  padding: 6px 20px 6px 10px;
+  border: 1px solid white;
+  border-right: 1px solid #a49e9e;
+  background-image: url(../img/down.svg);
+  background-repeat: no-repeat;
+  background-position: right 5px center;
 }
 
 .main .wrapper .desktop-menu .bottom_menu .menu .menu_ .search .dropdown-toggle::after {
   content: none;
+}
+
+.main .wrapper .desktop-menu .bottom_menu .menu .menu_ .search ul li {
+  padding: 10px;
+}
+
+.main .wrapper .desktop-menu .bottom_menu .menu .menu_ .search ul li a:hover {
+  background-color: transparent;
+  color: #bb0000;
 }
 
 .main .wrapper .desktop-menu .bottom_menu .menu .menu_ .search .input-group {
@@ -400,14 +456,23 @@ main {
   color: #ffffff;
   font-family: "Nokia Large Az";
   text-align: center;
-  padding: 6px 10px;
+  border: 1px solid #bb0000;
+  padding: 5px 9px;
   border-radius: 3px;
+  transition: 1.5s;
+}
+
+.main .wrapper .desktop-menu .bottom_menu .menu .menu_ .search .input-group .searchbtn:hover {
+  background-color: #fff;
+  color: #bb0000;
 }
 
 .main .wrapper .desktop-menu .bottom_menu .add {
   background-color: #fff;
-  padding: 9px 10px;
+  padding: 8px 9px;
   border-radius: 5px;
+  transition: 1.5s;
+  border: 1px solid #fff;
 }
 
 .main .wrapper .desktop-menu .bottom_menu .add a {
@@ -417,6 +482,14 @@ main {
   font-family: "Nokia Large Az";
   text-align: center;
   text-decoration: none;
+}
+
+.main .wrapper .desktop-menu .bottom_menu .add:hover {
+  background-color: #bb0000;
+}
+
+.main .wrapper .desktop-menu .bottom_menu .add:hover a {
+  color: #fff;
 }
 
 .main .wrapper #banner .banner {
@@ -433,8 +506,17 @@ main {
 }
 
 .main .wrapper #banner .banner .categories .category_item {
+  transition: 1.5s;
   margin-top: 40px;
   margin-bottom: 20px;
+}
+
+.main .wrapper #banner .banner .categories .category_item:hover {
+  transform: scale(1.2);
+}
+
+.main .wrapper #banner .banner .categories .category_item:hover h2 {
+  color: #bb0000;
 }
 
 .main .wrapper #banner .banner .categories .category_item a {
@@ -503,6 +585,10 @@ main {
   text-align: center;
 }
 
+.main .wrapper #advertisement .title a:hover {
+  text-decoration: underline;
+}
+
 .main .wrapper #advertisement .title_ {
   padding: 20px 0 25px 0;
 }
@@ -525,6 +611,12 @@ main {
 .main .wrapper #advertisement .card {
   border: none;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border: 1px solid #2125291f;
+  transition: 1.5s;
+}
+
+.main .wrapper #advertisement .card:hover {
+  border: 1px solid #fff;
 }
 
 .main .wrapper #advertisement .card .card-top-img {
@@ -570,6 +662,11 @@ main {
   font-weight: bold;
   font-size: 18px;
   margin-bottom: 20px;
+  transition: 1.2s;
+}
+
+.main .wrapper #advertisement .card .card-body .card-title:hover {
+  color: #bb0000;
 }
 
 .main .wrapper #advertisement .card .card-body .card-text {
@@ -967,10 +1064,19 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: 1.5s;
 }
 
 .main .wrapper #footer-section .top_menu .menu .menu_social li a {
   color: #2e2b2c;
+}
+
+.main .wrapper #footer-section .top_menu .menu .menu_social li:hover {
+  background-color: #2e2b2c;
+}
+
+.main .wrapper #footer-section .top_menu .menu .menu_social li:hover a {
+  color: #fff;
 }
 
 .main .wrapper #footer-section .bottom_menu {
@@ -1127,10 +1233,7 @@ main {
     text-align: center;
     padding: 6px;
     border-radius: 3px;
-    border: 1px solid #bb0000;
-  }
-  .main .wrapper .mobile-menu .search .dropdown-toggle::after {
-    content: none;
+    border: 1px solid white;
   }
   .main .wrapper .mobile-menu .search .input-group {
     background-color: #fff;

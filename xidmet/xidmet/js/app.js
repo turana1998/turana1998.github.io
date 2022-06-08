@@ -1,11 +1,18 @@
 $('#demo1').mouseover(function() {
      console.log($('#demo1 #hover-icon'));
-     $('#demo1 #hover-icon').attr("src","../img/xmark.svg");
+     $('#demo1 #hover-icon').attr("src","./img/xmark.svg");
 });
 $('#demo1').mouseout(function() {
   console.log($('#demo1 #hover-icon'));
-  $('#demo1 #hover-icon').attr("src","../img/icon.svg");
+  $('#demo1 #hover-icon').attr("src","./img/icon.svg");
 });
+$(document).ready(function() {
+  var height = $(".main-menu").height();
+  if(height>450){
+    $(".main-menu").addClass("height");
+  }
+});
+
 $(document).on('ready', function () {
   $("#banner .regular").slick({
     dots: false,

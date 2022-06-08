@@ -41,8 +41,12 @@ button {
   -webkit-tap-highlight-color: transparent;
 }
 
-button:active {
-  transform: scale(0.95);
+button:focus {
+  box-shadow: none !important;
+}
+
+input:focus {
+  box-shadow: none !important;
 }
 
 ::selection {
@@ -88,7 +92,7 @@ button:active {
 
 main {
   background-color: #f6f6f6;
-  padding: 0 5px;
+  padding: 0 8px;
 }
 
 .main {
@@ -303,7 +307,7 @@ main {
   transform: translateY(150%);
   opacity: 0;
   height: auto;
-  padding: 0 20px;
+  padding: 0 10px;
 }
 
 .main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category nav > menu > .menuitem > menu > .menuitem:first-child {
@@ -318,7 +322,6 @@ main {
   min-width: 300px;
   padding: 10px 5px;
   border-radius: 5px;
-  margin-bottom: 10px;
 }
 
 .main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category nav > menu > .menuitem > menu > .menuitem a:hover {
@@ -371,7 +374,7 @@ main {
   text-align: center;
   padding: 6px;
   border-radius: 3px;
-  border: 1px solid #bb0000;
+  border: 1px solid white;
 }
 
 .main .wrapper .desktop-menu .bottom_menu .menu .menu_ .search .dropdown-toggle::after {
@@ -470,7 +473,12 @@ main {
 }
 
 .main .wrapper #advertisement .m-40 {
-  margin-bottom: 40px;
+  margin-bottom: 30px;
+}
+
+.main .wrapper #advertisement .m-40 a {
+  color: #000;
+  text-decoration: none;
 }
 
 .main .wrapper #advertisement .title {
@@ -636,8 +644,18 @@ main {
   text-decoration: none;
 }
 
+.main .wrapper .menu-link ul li a::after {
+  content: "/";
+  display: inline-block;
+  margin-left: 8px;
+}
+
 .main .wrapper .menu-link ul li .active {
   color: #000;
+}
+
+.main .wrapper .menu-link ul li .active::after {
+  content: "";
 }
 
 .main .wrapper .menu-link .number {
@@ -672,8 +690,12 @@ main {
 }
 
 .main .wrapper #detail-slider #mainCarousel .carousel__button.is-prev {
-  left: -1.5rem;
-  display: none;
+  left: 30px;
+  background: rgba(30, 30, 30, 0.444);
+  color: #fff;
+  opacity: 0.6;
+  width: 45px;
+  height: 45px;
 }
 
 .main .wrapper #detail-slider #mainCarousel .carousel__button.is-next {
@@ -733,15 +755,11 @@ main {
   font-weight: bold;
   font-family: "Arial";
   margin: 0;
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 .main .wrapper .detail-table {
   margin-top: 20px;
-}
-
-.main .wrapper .detail-table .spacer {
-  height: 8px;
 }
 
 .main .wrapper .detail-table table {
@@ -756,9 +774,13 @@ main {
   padding: 10px;
 }
 
+.main .wrapper .detail-table .spacer {
+  height: 8px;
+  border: none;
+}
+
 .main .wrapper .operations {
   margin-top: 20px;
-  display: flex;
 }
 
 .main .wrapper .operations button {
@@ -766,12 +788,13 @@ main {
   padding: 10px 15px;
   color: #b2b2b2;
   background-color: #fff;
-  margin-right: 25px;
+  width: 100%;
 }
 
 .main .wrapper .operations button a {
   text-decoration: none;
   color: #242323;
+  font-size: 15px;
 }
 
 .main .wrapper .operations button a i {
@@ -883,12 +906,13 @@ main {
 .main .wrapper .map .text h2 {
   font-weight: bold;
   margin: 0;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 }
 
 .main .wrapper .map .text span {
   color: #85dbfb;
   font-size: 15px;
+  margin-bottom: 8px;
 }
 
 .main .wrapper .map .text p {
@@ -988,8 +1012,14 @@ main {
 }
 
 @media only screen and (max-width: 768px) {
+  .bg-md-white {
+    padding-top: 20px;
+  }
   main {
     padding: 0 15px;
+  }
+  .main .wrapper #advertisement {
+    padding-top: 20px;
   }
   .main .wrapper #advertisement .title {
     background-color: #fff;
@@ -1002,6 +1032,15 @@ main {
   }
   .main .wrapper #advertisement .title a {
     font-size: 14px;
+  }
+  .main .wrapper #advertisement .title_ p {
+    font-size: 15px;
+    color: #000000;
+    padding: 8px 0px;
+    text-align: center;
+    background-color: #fff;
+    font-weight: normal;
+    text-transform: capitalize;
   }
   .main .wrapper #advertisement .card .card-body {
     padding: 7px 10px;
@@ -1018,7 +1057,7 @@ main {
   }
   .main .wrapper #footer-section .top_menu {
     background-color: #dbdbdb;
-    padding: 5px 25px !important;
+    padding: 10px 25px !important;
   }
   .main .wrapper #footer-section .top_menu .end p {
     margin-top: 50px;
@@ -1088,10 +1127,7 @@ main {
     text-align: center;
     padding: 6px;
     border-radius: 3px;
-    border: 1px solid #bb0000;
-  }
-  .main .wrapper .mobile-menu .search .dropdown-toggle::after {
-    content: none;
+    border: 1px solid white;
   }
   .main .wrapper .mobile-menu .search .input-group {
     background-color: #fff;
@@ -1126,6 +1162,9 @@ main {
     text-align: center;
     text-decoration: none;
   }
+  .main .wrapper .mobile-banner {
+    padding: 15px 15px 30px 15px;
+  }
   .main .wrapper .mobile-banner .slick-initialized .slick-slide {
     padding-right: 10px;
   }
@@ -1147,8 +1186,11 @@ main {
   }
   .main .wrapper .menu-link {
     padding: 15px 10px;
-    margin: 20px 0;
+    margin-bottom: 20px;
     background-color: #fff;
+  }
+  .main .wrapper .menu-link a {
+    font-size: 12px !important;
   }
   .main .wrapper #mobile-detail-slider {
     background-color: #535353;
@@ -1156,9 +1198,12 @@ main {
   .main .wrapper #mobile-detail-slider .item {
     padding: 20px;
   }
+  .main .wrapper #detail-info .spacer {
+    display: none;
+  }
   .main .wrapper #detail-info .info-title {
     background-color: #fbfbfb;
-    padding: 20px 10px 20px 10px;
+    padding: 20px 0;
   }
   .main .wrapper #detail-info .info-title h2 {
     font-size: 20px;
@@ -1173,6 +1218,92 @@ main {
     font-weight: bold;
     font-family: "Arial";
     margin: 0;
-    margin-top: 20px;
+    margin-top: 0px;
+  }
+  .main .wrapper #detail-info .detail-table {
+    margin-top: 0px;
+  }
+  .main .wrapper #detail-info .detail-table table {
+    width: 100%;
+  }
+  .main .wrapper #detail-info .detail-table table tr {
+    border: none;
+  }
+  .main .wrapper #detail-info .detail-table table tr th {
+    padding: 2px 0;
+    font-weight: 500;
+    font-size: 12px;
+  }
+  .main .wrapper #detail-info .detail-table table tr th:first-child {
+    color: #6a6a6a;
+  }
+  .main .wrapper #detail-info .detail-table .spacer {
+    height: 8px;
+    border: none;
+  }
+  .main .wrapper #detail-info .social {
+    margin-top: 12px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .main .wrapper #detail-info .social .social_network {
+    display: flex;
+  }
+  .main .wrapper #detail-info .social .social_network a {
+    width: 62px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    margin-right: 5px;
+  }
+  .main .wrapper #detail-info .social .social_network .fb {
+    background-color: #1877f2;
+  }
+  .main .wrapper #detail-info .social .social_network .twt {
+    background-color: #1da1f2;
+  }
+  .main .wrapper #detail-info .social .social_network .tg {
+    background-color: #0088cc;
+  }
+  .main .wrapper #detail-info .social .social_network .wp {
+    background-color: #25d366;
+  }
+  .main .wrapper #detail-info .social .view a {
+    width: 80px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #acacac;
+    text-decoration: none;
+    font-size: 18px;
+    margin-right: 5px;
+    background-color: #e4e4e4;
+  }
+  .main .wrapper #detail-info .social .view a span {
+    color: #000;
+    font-size: 14px;
+    margin-left: 5px;
+  }
+  .main .wrapper #detail-info .desc {
+    margin-top: 25px;
+  }
+  .main .wrapper #detail-info .desc p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 29px;
+    color: #606060;
+    font-family: "Arial";
+  }
+  .main .wrapper #detail-info .operations_mobile {
+    margin: 25px 0;
+  }
+  .main .wrapper #detail-info .operations_mobile a {
+    font-size: 16px;
+    margin-right: 20px;
   }
 }
