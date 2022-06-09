@@ -1114,6 +1114,58 @@ main {
   top: 0;
 }
 
+#edit .btn-close {
+  padding: 10px;
+  color: #000;
+  font-size: 16px;
+  opacity: 1;
+}
+
+#edit .main-modal {
+  padding: 0 35px;
+}
+
+#edit .modal-header {
+  border: none;
+  margin-bottom: 20px;
+}
+
+#edit .modal-title {
+  font-size: 22px;
+  color: #6e6e6e;
+  font-family: "Arial";
+}
+
+#edit input, #edit textarea {
+  display: block;
+  background-color: #fff;
+  border: 1px solid #dfdfdf;
+  width: 100%;
+  padding: 15px 10px 10px 10px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: #6e6e6e;
+  font-family: "Arial";
+  resize: none;
+}
+
+#edit input::placeholder, #edit textarea::placeholder {
+  font-size: 14px;
+  color: #6e6e6e;
+  font-family: "Arial";
+}
+
+#edit .modal-footer button {
+  background-color: #d90000;
+  font-size: 16px;
+  letter-spacing: 0px;
+  color: #ffffff;
+  font-family: "Arial";
+  text-align: center;
+  padding: 12px 9px;
+  min-width: 150px;
+}
+
 @media only screen and (min-width: 768px) {
   .bg-md-white {
     background-color: #fff;
