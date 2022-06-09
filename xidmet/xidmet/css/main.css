@@ -256,7 +256,7 @@ main {
   position: absolute;
   pointer-events: none;
   z-index: 2;
-  top: 45px;
+  top: 43px;
   left: -100px;
 }
 
@@ -346,7 +346,7 @@ main {
 
 .main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category nav > menu > .menuitem > menu > .menuitem {
   transition: transform 0.6s, opacity 0.6s;
-  transform: translateY(10%);
+  transform: translateY(0%);
   opacity: 0;
   height: auto;
   padding: 0 10px;
@@ -492,6 +492,10 @@ main {
   color: #fff;
 }
 
+.main .wrapper #banner {
+  position: relative;
+}
+
 .main .wrapper #banner .banner {
   min-height: 340px;
   background-repeat: no-repeat;
@@ -499,35 +503,38 @@ main {
   background-blend-mode: multiply;
 }
 
-.main .wrapper #banner .banner .categories {
+.main .wrapper #banner .categories {
   display: flex;
   flex-wrap: wrap;
+  position: absolute;
+  top: 0;
   justify-content: space-between;
 }
 
-.main .wrapper #banner .banner .categories .category_item {
+.main .wrapper #banner .categories .category_item {
   transition: 1.5s;
+  text-align: center;
   margin-top: 40px;
   margin-bottom: 20px;
 }
 
-.main .wrapper #banner .banner .categories .category_item:hover {
+.main .wrapper #banner .categories .category_item:hover {
   transform: scale(1.2);
 }
 
-.main .wrapper #banner .banner .categories .category_item:hover h2 {
+.main .wrapper #banner .categories .category_item:hover h2 {
   color: #bb0000;
 }
 
-.main .wrapper #banner .banner .categories .category_item a {
+.main .wrapper #banner .categories .category_item a {
   text-decoration: none;
 }
 
-.main .wrapper #banner .banner .categories .category_item img {
+.main .wrapper #banner .categories .category_item img {
   margin: auto;
 }
 
-.main .wrapper #banner .banner .categories .category_item h2 {
+.main .wrapper #banner .categories .category_item h2 {
   font-size: 14px;
   color: #ffffff;
   font-family: "Arial";
@@ -538,6 +545,7 @@ main {
 
 .main .wrapper #banner .footer_banner {
   padding: 13px 0;
+  margin-top: -2px;
   text-align: center;
   background: linear-gradient(45deg, #c45dc5, #ff567b, #ff8567);
 }

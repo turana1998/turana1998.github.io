@@ -157,7 +157,7 @@ main {
                                 position: absolute;
                                 pointer-events: none;
                                 z-index: 2;
-                                top: 45px;
+                                top: 43px;
                                 left: -100px;
                             
                                 // max-height: 600px;
@@ -273,7 +273,7 @@ main {
 
                             nav>menu>.menuitem>menu>.menuitem {
                                 transition: transform 0.6s, opacity 0.6s;
-                                transform: translateY(10%);
+                                transform: translateY(0%);
                                 opacity: 0;
                                 height: auto;
                                 padding: 0 10px;
@@ -423,51 +423,56 @@ main {
         }
 
         #banner {
+            position: relative;
             .banner {
                 min-height: 340px;
                 background-repeat: no-repeat;
                 background-size: cover;
                 background-blend-mode: multiply;
 
-                .categories {
-                    display: flex;
-                    flex-wrap: wrap;
-                    justify-content: space-between;
+               
+            }
+            .categories {
+                display: flex;
+                flex-wrap: wrap;
+                position: absolute;
+                top: 0;
+                justify-content: space-between;
 
-                    .category_item {
-                        transition: 1.5s;
-                        margin-top: 40px;
-                        margin-bottom: 20px;
-                        &:hover{
-                            transform: scale(1.2);
-                            h2{
-                                color: $main-red;
-                            }
+                .category_item {
+                    transition: 1.5s;
+                    text-align: center;
+                    margin-top: 40px;
+                    margin-bottom: 20px;
+                    &:hover{
+                        transform: scale(1.2);
+                        h2{
+                            color: $main-red;
                         }
-                        a {
-                            text-decoration: none;
-                        }
+                    }
+                    a {
+                        text-decoration: none;
+                    }
 
-                       
+                   
 
-                        img {
-                            margin: auto;
-                        }
+                    img {
+                        margin: auto;
+                    }
 
-                        h2 {
-                            font-size: 14px;
-                            color: #ffffff;
-                            font-family: "Arial";
-                            text-align: center;
-                            width: 80%;
-                            margin: auto;
-                        }
+                    h2 {
+                        font-size: 14px;
+                        color: #ffffff;
+                        font-family: "Arial";
+                        text-align: center;
+                        width: 80%;
+                        margin: auto;
                     }
                 }
             }
-
             .footer_banner {
                 padding: 13px 0;
+                margin-top: -2px;
                 text-align: center;
                 background: linear-gradient(45deg, #c45dc5, #ff567b, #ff8567);
 

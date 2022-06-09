@@ -16,6 +16,8 @@ $(document).ready(function() {
 $(document).on('ready', function () {
   $("#banner .regular").slick({
     dots: false,
+    autoplay: true,
+    autoplaySpeed: 5000,
     slidesToShow: 1,
     slidesToScroll: 1
   });
