@@ -1,10 +1,17 @@
-$('#demo1').mouseover(function() {
-     console.log($('#demo1 #hover-icon'));
-     $('#demo1 #hover-icon').attr("src","./img/xmark.svg");
-});
-$('#demo1').mouseout(function() {
-  console.log($('#demo1 #hover-icon'));
-  $('#demo1 #hover-icon').attr("src","./img/icon.svg");
+$('#demo1').click(function() {
+   
+   let elms=$(".main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category nav > menu > .menuitem:hover > menu > .menuitem");
+   if (elms.hasClass("opacity-100")) {
+    $(this).css("background-color","#bb0000");
+   elms.removeClass("opacity-100");
+   elms.addClass("opacity-0");
+   }
+   else{
+    $(this).css("background-color","#e45353");
+    elms.removeClass("opacity-0");
+    elms.addClass("opacity-100");
+   }
+   console.log(elms);
 });
 $(document).ready(function() {
   var height = $(".main-menu").height();

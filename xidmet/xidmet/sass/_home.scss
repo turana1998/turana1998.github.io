@@ -155,9 +155,9 @@ main {
 
                             nav .menuitem>menu {
                                 position: absolute;
-                                pointer-events: none;
+                                pointer-events: initial;
                                 z-index: 2;
-                                top: 43px;
+                                top: 53px;
                                 left: -100px;
                             
                                 // max-height: 600px;
@@ -175,6 +175,7 @@ main {
                             menu .menuitem a {
                                 white-space: nowrap;
                                 display: block;
+                                text-decoration: none;
                             }
                             // .menuitem:hover{
                             //     .main-menu{
@@ -187,19 +188,18 @@ main {
                                 
                             }
 
-                            .menuitem:hover>menu>.menuitem,
-                            menu:hover>.menuitem {
-                                opacity: 1;
-                                
-                            }
                             menu:hover #demo1{
-                                background-color: #e45353;
+                               
+                                border-radius: 5px;
                             }
 
                             nav>menu>.menuitem .menuitem menu {
                                 transform: translateX(100%);
                                 top: 0;
                                 right: 0;
+                                max-height: 400px;
+                                overflow-y: scroll;
+}
                             }
 
                             /* User Styles Below Not Required */
@@ -217,11 +217,14 @@ main {
                                 margin: 0;
                                 box-sizing: border-box;
                                 border-radius: 0;
+                                background-color: #fff;
+                                height: 50px;
                                 box-shadow: none;
                                 position: relative;
                             }
 
                             #demo1 {
+                                padding: 5px;
                                 .main-link {
                                     background-color: transparent;
                                     box-shadow: none;
@@ -235,6 +238,7 @@ main {
                                     text-transform: uppercase;
                                     width: auto !important;
                                     margin: 0;
+                                    height: auto !important;
 
                                 }
                             }
@@ -257,19 +261,24 @@ main {
                             //     left:12px;
                             //     top: -40px;  
                             //  }
-                            nav .menuitem>menu>.menuitem>a+menu:after {
-                                content: "\f105";
-                                border: none;
-                                border-left: none;
-                                position: absolute;
-                                top: 18px;
-                                left: -45px;
-                                transition: opacity 0.6, transform 0s;
-                                font-family: "Font Awesome 5 Free";
-                                font-weight: 900;
-                                font-size: 16px;
-
+                            .mega >a{
+                                background-image: url(../img/mega.svg);
+                                background-repeat: no-repeat;
+                                background-position: right center;
                             }
+                            // nav .menuitem>menu>.menuitem>a+menu:after {
+                            //     content: "\f105";
+                            //     border: none;
+                            //     border-left: none;
+                            //     position: absolute;
+                            //     top: 18px;
+                            //     left: -45px;
+                            //     transition: opacity 0.6, transform 0s;
+                            //     font-family: "Font Awesome 5 Free";
+                            //     font-weight: 900;
+                            //     font-size: 16px;
+
+                            // }
 
                             nav>menu>.menuitem>menu>.menuitem {
                                 transition: transform 0.6s, opacity 0.6s;
@@ -277,6 +286,9 @@ main {
                                 opacity: 0;
                                 height: auto;
                                 padding: 0 10px;
+                                transform: translateY(0%);
+                                background-color: #fff;
+                                max-width: 320px;
                                 &:first-child{
                                     padding-top: 20px;
                                 }
@@ -300,7 +312,7 @@ main {
                             nav>menu>.menuitem:hover>menu>.menuitem,
                             nav>menu>.menuitem.hover>menu>.menuitem {
                                 transform: translateY(0%);
-                                opacity: 1;
+                                // opacity: 1;
                                 background-color: #fff;
                                 max-width: 320px;
                             }
@@ -437,7 +449,7 @@ main {
                 flex-wrap: wrap;
                 position: absolute;
                 top: 0;
-                justify-content: space-between;
+                justify-content: start;
 
                 .category_item {
                     transition: 1.5s;
@@ -465,7 +477,7 @@ main {
                         color: #ffffff;
                         font-family: "Arial";
                         text-align: center;
-                        width: 80%;
+                        width: 80px;
                         margin: auto;
                     }
                 }
@@ -1064,7 +1076,6 @@ main {
             top: 0;
         }
     }
-}
 #edit{
     .btn-close{
         padding: 10px;

@@ -197,6 +197,12 @@ main {
   padding: 14px 0 9px 0;
 }
 
+.main .wrapper .desktop-menu .bottom_menu .menu .menu_ {
+  /* User Styles Below Not Required */
+  /* User Styles Below Not Required */
+  /* User Styles Below Not Required */
+}
+
 .main .wrapper .desktop-menu .bottom_menu .menu .menu_ .logo_ {
   margin-right: 25px;
 }
@@ -210,9 +216,6 @@ main {
 
 .main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category {
   margin-right: 55px;
-  /* User Styles Below Not Required */
-  /* User Styles Below Not Required */
-  /* User Styles Below Not Required */
 }
 
 .main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category .main-menu::-webkit-scrollbar-thumb {
@@ -254,9 +257,9 @@ main {
 
 .main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category nav .menuitem > menu {
   position: absolute;
-  pointer-events: none;
+  pointer-events: initial;
   z-index: 2;
-  top: 43px;
+  top: 53px;
   left: -100px;
 }
 
@@ -272,28 +275,26 @@ main {
 .main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category menu .menuitem a {
   white-space: nowrap;
   display: block;
+  text-decoration: none;
 }
 
 .main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category .menuitem:hover > menu {
   pointer-events: initial;
 }
 
-.main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category .menuitem:hover > menu > .menuitem,
-.main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category menu:hover > .menuitem {
-  opacity: 1;
-}
-
 .main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category menu:hover #demo1 {
-  background-color: #e45353;
+  border-radius: 5px;
 }
 
 .main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category nav > menu > .menuitem .menuitem menu {
   transform: translateX(100%);
   top: 0;
   right: 0;
+  max-height: 400px;
+  overflow-y: scroll;
 }
 
-.main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category nav a {
+.main .wrapper .desktop-menu .bottom_menu .menu .menu_ nav a {
   background: #fff;
   font-size: 15px;
   color: #000;
@@ -302,11 +303,17 @@ main {
   margin: 0;
   box-sizing: border-box;
   border-radius: 0;
+  background-color: #fff;
+  height: 50px;
   box-shadow: none;
   position: relative;
 }
 
-.main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category #demo1 .main-link {
+.main .wrapper .desktop-menu .bottom_menu .menu .menu_ #demo1 {
+  padding: 5px;
+}
+
+.main .wrapper .desktop-menu .bottom_menu .menu .menu_ #demo1 .main-link {
   background-color: transparent;
   box-shadow: none;
   display: flex;
@@ -319,9 +326,10 @@ main {
   text-transform: uppercase;
   width: auto !important;
   margin: 0;
+  height: auto !important;
 }
 
-.main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category nav a:hover:before {
+.main .wrapper .desktop-menu .bottom_menu .menu .menu_ nav a:hover:before {
   content: '';
   top: 0;
   left: 0;
@@ -331,72 +339,67 @@ main {
   height: 100%;
 }
 
-.main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category nav .menuitem > menu > .menuitem > a + menu:after {
-  content: "\f105";
-  border: none;
-  border-left: none;
-  position: absolute;
-  top: 18px;
-  left: -45px;
-  transition: opacity 0.6, transform 0s;
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-  font-size: 16px;
+.main .wrapper .desktop-menu .bottom_menu .menu .menu_ .mega > a {
+  background-image: url(../img/mega.svg);
+  background-repeat: no-repeat;
+  background-position: right center;
 }
 
-.main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category nav > menu > .menuitem > menu > .menuitem {
+.main .wrapper .desktop-menu .bottom_menu .menu .menu_ nav > menu > .menuitem > menu > .menuitem {
   transition: transform 0.6s, opacity 0.6s;
   transform: translateY(0%);
   opacity: 0;
   height: auto;
   padding: 0 10px;
+  transform: translateY(0%);
+  background-color: #fff;
+  max-width: 320px;
 }
 
-.main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category nav > menu > .menuitem > menu > .menuitem:first-child {
+.main .wrapper .desktop-menu .bottom_menu .menu .menu_ nav > menu > .menuitem > menu > .menuitem:first-child {
   padding-top: 20px;
 }
 
-.main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category nav > menu > .menuitem > menu > .menuitem:last-child {
+.main .wrapper .desktop-menu .bottom_menu .menu .menu_ nav > menu > .menuitem > menu > .menuitem:last-child {
   padding-bottom: 40px;
 }
 
-.main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category nav > menu > .menuitem > menu > .menuitem a {
+.main .wrapper .desktop-menu .bottom_menu .menu .menu_ nav > menu > .menuitem > menu > .menuitem a {
   min-width: 300px;
   padding: 10px 5px;
   border-radius: 5px;
 }
 
-.main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category nav > menu > .menuitem > menu > .menuitem a:hover {
+.main .wrapper .desktop-menu .bottom_menu .menu .menu_ nav > menu > .menuitem > menu > .menuitem a:hover {
   background-color: #e4e4e4;
   color: #bb0000;
 }
 
-.main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category nav > menu > .menuitem > menu > .menuitem a:hover + menu:after {
+.main .wrapper .desktop-menu .bottom_menu .menu .menu_ nav > menu > .menuitem > menu > .menuitem a:hover + menu:after {
   color: #bb0000;
 }
 
-.main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category nav > menu > .menuitem:hover > menu > .menuitem,
-.main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category nav > menu > .menuitem.hover > menu > .menuitem {
+.main .wrapper .desktop-menu .bottom_menu .menu .menu_ nav > menu > .menuitem:hover > menu > .menuitem,
+.main .wrapper .desktop-menu .bottom_menu .menu .menu_ nav > menu > .menuitem.hover > menu > .menuitem {
   transform: translateY(0%);
-  opacity: 1;
   background-color: #fff;
   max-width: 320px;
 }
 
-.main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category .menuitem > menu > .menuitem > menu > .menuitem {
+.main .wrapper .desktop-menu .bottom_menu .menu .menu_ .menuitem > menu > .menuitem > menu > .menuitem {
   transition: transform 0.6s, opacity 0.6s;
   transform: translateX(25px) translateY(0%);
   opacity: 0;
 }
 
-.main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category .menuitem > menu > .menuitem:hover > menu > .menuitem,
-.main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category .menuitem > menu > .menuitem.hover > menu > .menuitem {
+.main .wrapper .desktop-menu .bottom_menu .menu .menu_ .menuitem > menu > .menuitem:hover > menu > .menuitem,
+.main .wrapper .desktop-menu .bottom_menu .menu .menu_ .menuitem > menu > .menuitem.hover > menu > .menuitem {
   transform: translateX(0) translateY(0%);
   opacity: 1;
   left: 4px;
 }
 
-.main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category .dropdown .dropdown-toggle {
+.main .wrapper .desktop-menu .bottom_menu .menu .menu_ .dropdown .dropdown-toggle {
   font-size: 16px;
   letter-spacing: 0px;
   color: #ffffff;
@@ -405,11 +408,11 @@ main {
   text-transform: uppercase;
 }
 
-.main .wrapper .desktop-menu .bottom_menu .menu .menu_ .category .dropdown .dropdown-toggle::after {
+.main .wrapper .desktop-menu .bottom_menu .menu .menu_ .dropdown .dropdown-toggle::after {
   content: none;
 }
 
-.main .wrapper .desktop-menu .bottom_menu .menu .menu_ .search .dropdown-toggle {
+.main .wrapper .desktop-menu .bottom_menu .menu .search .dropdown-toggle {
   background-color: transparent;
   font-size: 14px;
   letter-spacing: 0px;
@@ -424,32 +427,32 @@ main {
   background-position: right 5px center;
 }
 
-.main .wrapper .desktop-menu .bottom_menu .menu .menu_ .search .dropdown-toggle::after {
+.main .wrapper .desktop-menu .bottom_menu .menu .search .dropdown-toggle::after {
   content: none;
 }
 
-.main .wrapper .desktop-menu .bottom_menu .menu .menu_ .search ul li {
+.main .wrapper .desktop-menu .bottom_menu .menu .search ul li {
   padding: 10px;
 }
 
-.main .wrapper .desktop-menu .bottom_menu .menu .menu_ .search ul li a:hover {
+.main .wrapper .desktop-menu .bottom_menu .menu .search ul li a:hover {
   background-color: transparent;
   color: #bb0000;
 }
 
-.main .wrapper .desktop-menu .bottom_menu .menu .menu_ .search .input-group {
+.main .wrapper .desktop-menu .bottom_menu .menu .search .input-group {
   background-color: #fff;
   border-radius: 5px;
   padding: 2px;
 }
 
-.main .wrapper .desktop-menu .bottom_menu .menu .menu_ .search .input-group input[type="text"] {
+.main .wrapper .desktop-menu .bottom_menu .menu .search .input-group input[type="text"] {
   border: none;
   min-width: 250px;
   background-color: transparent;
 }
 
-.main .wrapper .desktop-menu .bottom_menu .menu .menu_ .search .input-group .searchbtn {
+.main .wrapper .desktop-menu .bottom_menu .menu .search .input-group .searchbtn {
   background-color: #bb0000;
   font-size: 16px;
   letter-spacing: 0px;
@@ -462,12 +465,12 @@ main {
   transition: 1.5s;
 }
 
-.main .wrapper .desktop-menu .bottom_menu .menu .menu_ .search .input-group .searchbtn:hover {
+.main .wrapper .desktop-menu .bottom_menu .menu .search .input-group .searchbtn:hover {
   background-color: #fff;
   color: #bb0000;
 }
 
-.main .wrapper .desktop-menu .bottom_menu .add {
+.main .wrapper .desktop-menu .add {
   background-color: #fff;
   padding: 8px 9px;
   border-radius: 5px;
@@ -475,7 +478,7 @@ main {
   border: 1px solid #fff;
 }
 
-.main .wrapper .desktop-menu .bottom_menu .add a {
+.main .wrapper .desktop-menu .add a {
   font-size: 16px;
   letter-spacing: 0px;
   color: #bb0000;
@@ -484,77 +487,77 @@ main {
   text-decoration: none;
 }
 
-.main .wrapper .desktop-menu .bottom_menu .add:hover {
+.main .wrapper .desktop-menu .add:hover {
   background-color: #bb0000;
 }
 
-.main .wrapper .desktop-menu .bottom_menu .add:hover a {
+.main .wrapper .desktop-menu .add:hover a {
   color: #fff;
 }
 
-.main .wrapper #banner {
+.main #banner {
   position: relative;
 }
 
-.main .wrapper #banner .banner {
+.main #banner .banner {
   min-height: 340px;
   background-repeat: no-repeat;
   background-size: cover;
   background-blend-mode: multiply;
 }
 
-.main .wrapper #banner .categories {
+.main #banner .categories {
   display: flex;
   flex-wrap: wrap;
   position: absolute;
   top: 0;
-  justify-content: space-between;
+  justify-content: start;
 }
 
-.main .wrapper #banner .categories .category_item {
+.main #banner .categories .category_item {
   transition: 1.5s;
   text-align: center;
   margin-top: 40px;
   margin-bottom: 20px;
 }
 
-.main .wrapper #banner .categories .category_item:hover {
+.main #banner .categories .category_item:hover {
   transform: scale(1.2);
 }
 
-.main .wrapper #banner .categories .category_item:hover h2 {
+.main #banner .categories .category_item:hover h2 {
   color: #bb0000;
 }
 
-.main .wrapper #banner .categories .category_item a {
+.main #banner .categories .category_item a {
   text-decoration: none;
 }
 
-.main .wrapper #banner .categories .category_item img {
+.main #banner .categories .category_item img {
   margin: auto;
 }
 
-.main .wrapper #banner .categories .category_item h2 {
+.main #banner .categories .category_item h2 {
   font-size: 14px;
   color: #ffffff;
   font-family: "Arial";
   text-align: center;
-  width: 80%;
+  width: 80px;
   margin: auto;
 }
 
-.main .wrapper #banner .footer_banner {
+.main #banner .footer_banner {
   padding: 13px 0;
   margin-top: -2px;
   text-align: center;
   background: linear-gradient(45deg, #c45dc5, #ff567b, #ff8567);
 }
 
-.main .wrapper #banner .footer_banner a {
+.main #banner .footer_banner a {
   text-decoration: none;
 }
 
-.main .wrapper #banner .footer_banner a p {
+.main #banner .footer_banner a p {
   font-size: 16px;
   color: #ffffff;
   font-family: "Arial";
@@ -562,22 +565,22 @@ main {
   margin: 0;
 }
 
-.main .wrapper #advertisement .m-40 {
+.main #advertisement .m-40 {
   margin-bottom: 30px;
 }
 
-.main .wrapper #advertisement .m-40 a {
+.main #advertisement .m-40 a {
   color: #000;
   text-decoration: none;
 }
 
-.main .wrapper #advertisement .title {
+.main #advertisement .title {
   display: flex;
   justify-content: space-between;
   padding: 20px 0 25px 0;
 }
 
-.main .wrapper #advertisement .title p {
+.main #advertisement .title p {
   font-size: 22px;
   color: #8d94ad;
   font-family: "Arial";
@@ -585,7 +588,7 @@ main {
   text-transform: uppercase;
 }
 
-.main .wrapper #advertisement .title a {
+.main #advertisement .title a {
   text-decoration: none;
   font-size: 16px;
   color: #0028b9;
@@ -593,22 +596,22 @@ main {
   text-align: center;
 }
 
-.main .wrapper #advertisement .title a:hover {
+.main #advertisement .title a:hover {
   text-decoration: underline;
 }
 
-.main .wrapper #advertisement .title_ {
+.main #advertisement .title_ {
   padding: 20px 0 25px 0;
 }
 
-.main .wrapper #advertisement .title_ p {
+.main #advertisement .title_ p {
   font-size: 19px;
   color: #000000;
   font-weight: bold;
   text-transform: uppercase;
 }
 
-.main .wrapper #advertisement .title_ a {
+.main #advertisement .title_ a {
   text-decoration: none;
   font-size: 16px;
   color: #0028b9;
@@ -616,24 +619,24 @@ main {
   text-align: center;
 }
 
-.main .wrapper #advertisement .card {
+.main #advertisement .card {
   border: none;
   box-shadow: rgba(149, 157, 165, 0.101) 0px 8px 15px;
   transition: 1.1s;
 }
 
-.main .wrapper #advertisement .card:hover {
+.main #advertisement .card:hover {
   box-shadow: rgba(149, 157, 165, 0.488) 0px 8px 24px;
 }
 
-.main .wrapper #advertisement .card .card-top-img {
+.main #advertisement .card .card-top-img {
   height: 165px;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
 }
 
-.main .wrapper #advertisement .card .card-top-img .new {
+.main #advertisement .card .card-top-img .new {
   padding: 4px 8px;
   font-size: 13px;
   background-color: #ffd42a;
@@ -643,65 +646,65 @@ main {
   text-transform: uppercase;
 }
 
-.main .wrapper #advertisement .card .card-top-img .icons {
+.main #advertisement .card .card-top-img .icons {
   position: absolute;
   bottom: 15px;
   right: 15px;
 }
 
-.main .wrapper #advertisement .card .card-top-img .icons span {
+.main #advertisement .card .card-top-img .icons span {
   background-color: rgba(0, 0, 0, 0.366);
   padding: 5px 8px;
   border-radius: 3px;
   color: #fff;
 }
 
-.main .wrapper #advertisement .card .card-top-img .icons span i {
+.main #advertisement .card .card-top-img .icons span i {
   color: #fff;
 }
 
-.main .wrapper #advertisement .card .card-body {
+.main #advertisement .card .card-body {
   position: relative;
   padding: 15px 5px;
 }
 
-.main .wrapper #advertisement .card .card-body .card-title {
+.main #advertisement .card .card-body .card-title {
   font-weight: bold;
   font-size: 18px;
   margin-bottom: 20px;
   transition: 1.2s;
 }
 
-.main .wrapper #advertisement .card .card-body .card-title:hover {
+.main #advertisement .card .card-body .card-title:hover {
   color: #bb0000;
 }
 
-.main .wrapper #advertisement .card .card-body .card-text {
+.main #advertisement .card .card-body .card-text {
   font-size: 16px;
   margin-bottom: 50px;
 }
 
-.main .wrapper #advertisement .card .card-body .date {
+.main #advertisement .card .card-body .date {
   position: absolute;
   bottom: 15px;
   font-size: 12px;
   color: #878787;
 }
 
-.main .wrapper #advertisement2 a {
+.main #advertisement2 a {
   padding: 5px;
   position: relative;
   left: 0;
   text-align: center;
 }
 
-.main .wrapper #advertisement2 a img {
+.main #advertisement2 a img {
   border-radius: 5px;
   object-fit: cover;
 }
 
-.main .wrapper #advertisement2 .slick-prev,
-.main .wrapper #advertisement2 .slick-next {
+.main #advertisement2 .slick-prev,
+.main #advertisement2 .slick-next {
   width: 35px;
   height: 35px;
   border-radius: 50%;
@@ -709,38 +712,38 @@ main {
   z-index: 2;
 }
 
-.main .wrapper #advertisement2 .slick-prev:before,
-.main .wrapper #advertisement2 .slick-next:before {
+.main #advertisement2 .slick-prev:before,
+.main #advertisement2 .slick-next:before {
   display: none;
 }
 
-.main .wrapper #advertisement2 .slick-prev i,
-.main .wrapper #advertisement2 .slick-next i {
+.main #advertisement2 .slick-prev i,
+.main #advertisement2 .slick-next i {
   color: #535565;
   font-size: 1rem;
 }
 
-.main .wrapper #advertisement2 .slick-prev {
+.main #advertisement2 .slick-prev {
   left: 20px;
 }
 
-.main .wrapper #advertisement2 .slick-next {
+.main #advertisement2 .slick-next {
   right: 20px;
 }
 
-.main .wrapper .menu-link {
+.main .menu-link {
   padding: 15px 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.main .wrapper .menu-link ul li {
+.main .menu-link ul li {
   display: inline-block;
   margin-right: 5px;
 }
 
-.main .wrapper .menu-link ul li a {
+.main .menu-link ul li a {
   font-size: 14px;
   color: #929292;
   font-family: "Arial";
@@ -748,35 +751,35 @@ main {
   text-decoration: none;
 }
 
-.main .wrapper .menu-link ul li a::after {
+.main .menu-link ul li a::after {
   content: "/";
   display: inline-block;
   margin-left: 8px;
 }
 
-.main .wrapper .menu-link ul li .active {
+.main .menu-link ul li .active {
   color: #000;
 }
 
-.main .wrapper .menu-link ul li .active::after {
+.main .menu-link ul li .active::after {
   content: "";
 }
 
-.main .wrapper .menu-link .number {
+.main .menu-link .number {
   font-family: "Arial";
   font-size: 17px;
 }
 
-.main .wrapper .menu-link .number span {
+.main .menu-link .number span {
   color: #929292;
 }
 
-.main .wrapper #detail-slider {
+.main #detail-slider {
   padding: 7px;
   background-color: #313131;
 }
 
-.main .wrapper #detail-slider #mainCarousel {
+.main #detail-slider #mainCarousel {
   width: 50%;
   margin: 0 auto 1rem auto;
   --carousel-button-color: #170724;
@@ -788,12 +791,12 @@ main {
   --carousel-button-svg-stroke-width: 2.5;
 }
 
-.main .wrapper #detail-slider #mainCarousel .carousel__slide {
+.main #detail-slider #mainCarousel .carousel__slide {
   width: 100%;
   padding: 0;
 }
 
-.main .wrapper #detail-slider #mainCarousel .carousel__button.is-prev {
+.main #detail-slider #mainCarousel .carousel__button.is-prev {
   left: 30px;
   background: rgba(30, 30, 30, 0.444);
   color: #fff;
@@ -802,7 +805,7 @@ main {
   height: 45px;
 }
 
-.main .wrapper #detail-slider #mainCarousel .carousel__button.is-next {
+.main #detail-slider #mainCarousel .carousel__button.is-next {
   right: 30px;
   background: rgba(30, 30, 30, 0.444);
   color: #fff;
@@ -811,45 +814,45 @@ main {
   height: 45px;
 }
 
-.main .wrapper #detail-slider #mainCarousel .carousel__button:focus {
+.main #detail-slider #mainCarousel .carousel__button:focus {
   outline: none;
   box-shadow: 0 0 0 4px #A78BFA;
 }
 
-.main .wrapper #detail-slider #thumbCarousel .carousel__slide {
+.main #detail-slider #thumbCarousel .carousel__slide {
   padding: 0;
   margin: 0 10px 10px 0px;
   width: 110px;
   height: 85px;
 }
 
-.main .wrapper #detail-slider #thumbCarousel .carousel__slide img {
+.main #detail-slider #thumbCarousel .carousel__slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 0px;
 }
 
-.main .wrapper #detail-slider #thumbCarousel .carousel__slide img:hover {
+.main #detail-slider #thumbCarousel .carousel__slide img:hover {
   cursor: pointer;
 }
 
-.main .wrapper #detail-slider #thumbCarousel .carousel__track {
+.main #detail-slider #thumbCarousel .carousel__track {
   flex-wrap: wrap;
   padding: 5px;
   transform: unset !important;
 }
 
-.main .wrapper #detail-slider #thumbCarousel .carousel__slide.is-nav-selected {
+.main #detail-slider #thumbCarousel .carousel__slide.is-nav-selected {
   opacity: 1;
 }
 
-.main .wrapper #detail-info .info-title {
+.main #detail-info .info-title {
   background-color: #fbfbfb;
   padding: 20px 10px 30px 10px;
 }
 
-.main .wrapper #detail-info .info-title h2 {
+.main #detail-info .info-title h2 {
   font-size: 29px;
   color: #000000;
   font-weight: bold;
@@ -857,7 +860,7 @@ main {
   margin: 0;
 }
 
-.main .wrapper #detail-info .info-title p {
+.main #detail-info .info-title p {
   font-size: 22px;
   color: #bb0000;
   font-weight: bold;
@@ -866,32 +869,32 @@ main {
   margin-top: 15px;
 }
 
-.main .wrapper .detail-table {
+.main .detail-table {
   margin-top: 20px;
 }
 
-.main .wrapper .detail-table table {
+.main .detail-table table {
   width: 90%;
 }
 
-.main .wrapper .detail-table table tr {
+.main .detail-table table tr {
   border: 1px solid #41464b3b;
 }
 
-.main .wrapper .detail-table table tr th {
+.main .detail-table table tr th {
   padding: 10px;
 }
 
-.main .wrapper .detail-table .spacer {
+.main .detail-table .spacer {
   height: 8px;
   border: none;
 }
 
-.main .wrapper .operations {
+.main .operations {
   margin-top: 20px;
 }
 
-.main .wrapper .operations button {
+.main .operations button {
   border: 1px solid #b2b2b2;
   padding: 10px 15px;
   color: #b2b2b2;
@@ -899,28 +902,28 @@ main {
   width: 100%;
 }
 
-.main .wrapper .operations button a {
+.main .operations button a {
   text-decoration: none;
   color: #242323;
   font-size: 15px;
 }
 
-.main .wrapper .operations button a i {
+.main .operations button a i {
   color: #b2b2b2;
   margin-right: 8px;
 }
 
-.main .wrapper .social {
+.main .social {
   margin-top: 12px;
   display: flex;
   justify-content: space-between;
 }
 
-.main .wrapper .social .social_network {
+.main .social .social_network {
   display: flex;
 }
 
-.main .wrapper .social .social_network a {
+.main .social .social_network a {
   width: 62px;
   height: 48px;
   display: flex;
@@ -932,23 +935,23 @@ main {
   margin-right: 5px;
 }
 
-.main .wrapper .social .social_network .fb {
+.main .social .social_network .fb {
   background-color: #1877f2;
 }
 
-.main .wrapper .social .social_network .twt {
+.main .social .social_network .twt {
   background-color: #1da1f2;
 }
 
-.main .wrapper .social .social_network .tg {
+.main .social .social_network .tg {
   background-color: #0088cc;
 }
 
-.main .wrapper .social .social_network .wp {
+.main .social .social_network .wp {
   background-color: #25d366;
 }
 
-.main .wrapper .social .view a {
+.main .social .view a {
   width: 80px;
   height: 48px;
   display: flex;
@@ -961,19 +964,19 @@ main {
   background-color: #e4e4e4;
 }
 
-.main .wrapper .social .view a span {
+.main .social .view a span {
   color: #000;
   font-size: 14px;
   margin-left: 5px;
 }
 
-.main .wrapper .attention {
+.main .attention {
   margin-top: 15px;
   background-color: #fbfbfb;
   padding: 15px 10px;
 }
 
-.main .wrapper .attention h2 {
+.main .attention h2 {
   font-size: 21px;
   color: #bb0000;
   font-weight: bold;
@@ -981,7 +984,7 @@ main {
   margin: 0;
 }
 
-.main .wrapper .attention p {
+.main .attention p {
   font-size: 13px;
   line-height: 19px;
   color: #606060;
@@ -990,11 +993,11 @@ main {
   margin-top: 10px;
 }
 
-.main .wrapper .desc {
+.main .desc {
   margin-top: 25px;
 }
 
-.main .wrapper .desc p {
+.main .desc p {
   margin: 0;
   font-size: 15px;
   line-height: 29px;
@@ -1002,54 +1005,54 @@ main {
   font-family: "Arial";
 }
 
-.main .wrapper .map {
+.main .map {
   background-color: #fbfbfb;
 }
 
-.main .wrapper .map .text {
+.main .map .text {
   padding: 10px 20px;
   font-family: "Arial";
 }
 
-.main .wrapper .map .text h2 {
+.main .map .text h2 {
   font-weight: bold;
   margin: 0;
   margin-bottom: 5px;
 }
 
-.main .wrapper .map .text span {
+.main .map .text span {
   color: #85dbfb;
   font-size: 15px;
   margin-bottom: 8px;
 }
 
-.main .wrapper .map .text p {
+.main .map .text p {
   color: #858282;
   font-size: 15px;
 }
 
-.main .wrapper .map .text .tel {
+.main .map .text .tel {
   text-transform: uppercase;
   font-size: 28px;
   margin-top: 10px;
 }
 
-.main .wrapper .map .text .tel span {
+.main .map .text .tel span {
   color: #bb0000;
   font-size: 28px;
 }
 
-.main .wrapper #footer-section .top_menu {
+.main #footer-section .top_menu {
   background-color: #eceff6;
 }
 
-.main .wrapper #footer-section .top_menu .menu .menu_ li {
+.main #footer-section .top_menu .menu .menu_ li {
   display: inline-block;
   margin-right: 40px;
   padding: 7px 0;
 }
 
-.main .wrapper #footer-section .top_menu .menu .menu_ li a {
+.main #footer-section .top_menu .menu .menu_ li a {
   font-size: 15px;
   color: #000000;
   font-family: "Arial";
@@ -1057,15 +1060,15 @@ main {
   line-height: 10px;
 }
 
-.main .wrapper #footer-section .top_menu .menu .menu_ li a:hover {
+.main #footer-section .top_menu .menu .menu_ li a:hover {
   color: #000;
 }
 
-.main .wrapper #footer-section .top_menu .menu .menu_social {
+.main #footer-section .top_menu .menu .menu_social {
   display: flex;
 }
 
-.main .wrapper #footer-section .top_menu .menu .menu_social li {
+.main #footer-section .top_menu .menu .menu_social li {
   display: inline-block;
   margin-left: 10px;
   border: 1px solid #2e2b2c;
@@ -1078,45 +1081,45 @@ main {
   transition: 1.5s;
 }
 
-.main .wrapper #footer-section .top_menu .menu .menu_social li a {
+.main #footer-section .top_menu .menu .menu_social li a {
   color: #2e2b2c;
 }
 
-.main .wrapper #footer-section .top_menu .menu .menu_social li:hover {
+.main #footer-section .top_menu .menu .menu_social li:hover {
   background-color: #2e2b2c;
 }
 
-.main .wrapper #footer-section .top_menu .menu .menu_social li:hover a {
+.main #footer-section .top_menu .menu .menu_social li:hover a {
   color: #fff;
 }
 
-.main .wrapper #footer-section .bottom_menu {
+.main #footer-section .bottom_menu {
   background-color: #bb0000;
   padding: 20px 8px 15px 8px;
 }
 
-.main .wrapper #footer-section .bottom_menu p {
+.main #footer-section .bottom_menu p {
   font-size: 15px;
   color: #ffffff;
   font-family: "Arial";
   margin: 0;
 }
 
-.main .wrapper #footer-section .bottom_menu p a {
+.main #footer-section .bottom_menu p a {
   font-size: 15px;
   color: #ffffff;
   font-family: "Arial";
   text-decoration: none;
 }
 
-.main .advertisement_second {
+.advertisement_second {
   position: absolute;
   height: 100%;
   top: 0px;
   right: 0;
 }
 
-.main .advertisement_second a {
+.advertisement_second a {
   display: block;
   position: sticky;
   top: 0;
