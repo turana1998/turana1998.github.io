@@ -1,0 +1,1638 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <style type="text/css">
+    .tippy-iOS {
+      cursor: pointer !important
+    }
+
+    .tippy-notransition {
+      transition: none !important
+    }
+
+    .tippy-popper {
+      -webkit-perspective: 700px;
+      perspective: 700px;
+      z-index: 9999;
+      outline: 0;
+      transition-timing-function: cubic-bezier(.165, .84, .44, 1);
+      pointer-events: none;
+      line-height: 1.4
+    }
+
+    .tippy-popper[x-placement^=top] .tippy-backdrop {
+      border-radius: 40% 40% 0 0
+    }
+
+    .tippy-popper[x-placement^=top] .tippy-roundarrow {
+      bottom: -8px;
+      -webkit-transform-origin: 50% 0;
+      transform-origin: 50% 0
+    }
+
+    .tippy-popper[x-placement^=top] .tippy-roundarrow svg {
+      position: absolute;
+      left: 0;
+      -webkit-transform: rotate(180deg);
+      transform: rotate(180deg)
+    }
+
+    .tippy-popper[x-placement^=top] .tippy-arrow {
+      border-top: 8px solid #333;
+      border-right: 8px solid transparent;
+      border-left: 8px solid transparent;
+      bottom: -7px;
+      margin: 0 6px;
+      -webkit-transform-origin: 50% 0;
+      transform-origin: 50% 0
+    }
+
+    .tippy-popper[x-placement^=top] .tippy-backdrop {
+      -webkit-transform-origin: 0 25%;
+      transform-origin: 0 25%
+    }
+
+    .tippy-popper[x-placement^=top] .tippy-backdrop[data-state=visible] {
+      -webkit-transform: scale(1) translate(-50%, -55%);
+      transform: scale(1) translate(-50%, -55%)
+    }
+
+    .tippy-popper[x-placement^=top] .tippy-backdrop[data-state=hidden] {
+      -webkit-transform: scale(.2) translate(-50%, -45%);
+      transform: scale(.2) translate(-50%, -45%);
+      opacity: 0
+    }
+
+    .tippy-popper[x-placement^=top] [data-animation=shift-toward][data-state=visible] {
+      -webkit-transform: translateY(-10px);
+      transform: translateY(-10px)
+    }
+
+    .tippy-popper[x-placement^=top] [data-animation=shift-toward][data-state=hidden] {
+      opacity: 0;
+      -webkit-transform: translateY(-20px);
+      transform: translateY(-20px)
+    }
+
+    .tippy-popper[x-placement^=top] [data-animation=perspective] {
+      -webkit-transform-origin: bottom;
+      transform-origin: bottom
+    }
+
+    .tippy-popper[x-placement^=top] [data-animation=perspective][data-state=visible] {
+      -webkit-transform: translateY(-10px) rotateX(0);
+      transform: translateY(-10px) rotateX(0)
+    }
+
+    .tippy-popper[x-placement^=top] [data-animation=perspective][data-state=hidden] {
+      opacity: 0;
+      -webkit-transform: translateY(0) rotateX(60deg);
+      transform: translateY(0) rotateX(60deg)
+    }
+
+    .tippy-popper[x-placement^=top] [data-animation=fade][data-state=visible] {
+      -webkit-transform: translateY(-10px);
+      transform: translateY(-10px)
+    }
+
+    .tippy-popper[x-placement^=top] [data-animation=fade][data-state=hidden] {
+      opacity: 0;
+      -webkit-transform: translateY(-10px);
+      transform: translateY(-10px)
+    }
+
+    .tippy-popper[x-placement^=top] [data-animation=shift-away][data-state=visible] {
+      -webkit-transform: translateY(-10px);
+      transform: translateY(-10px)
+    }
+
+    .tippy-popper[x-placement^=top] [data-animation=shift-away][data-state=hidden] {
+      opacity: 0;
+      -webkit-transform: translateY(0);
+      transform: translateY(0)
+    }
+
+    .tippy-popper[x-placement^=top] [data-animation=scale][data-state=visible] {
+      -webkit-transform: translateY(-10px) scale(1);
+      transform: translateY(-10px) scale(1)
+    }
+
+    .tippy-popper[x-placement^=top] [data-animation=scale][data-state=hidden] {
+      opacity: 0;
+      -webkit-transform: translateY(0) scale(.5);
+      transform: translateY(0) scale(.5)
+    }
+
+    .tippy-popper[x-placement^=bottom] .tippy-backdrop {
+      border-radius: 0 0 30% 30%
+    }
+
+    .tippy-popper[x-placement^=bottom] .tippy-roundarrow {
+      top: -8px;
+      -webkit-transform-origin: 50% 100%;
+      transform-origin: 50% 100%
+    }
+
+    .tippy-popper[x-placement^=bottom] .tippy-roundarrow svg {
+      position: absolute;
+      left: 0;
+      -webkit-transform: rotate(0);
+      transform: rotate(0)
+    }
+
+    .tippy-popper[x-placement^=bottom] .tippy-arrow {
+      border-bottom: 8px solid #333;
+      border-right: 8px solid transparent;
+      border-left: 8px solid transparent;
+      top: -7px;
+      margin: 0 6px;
+      -webkit-transform-origin: 50% 100%;
+      transform-origin: 50% 100%
+    }
+
+    .tippy-popper[x-placement^=bottom] .tippy-backdrop {
+      -webkit-transform-origin: 0 -50%;
+      transform-origin: 0 -50%
+    }
+
+    .tippy-popper[x-placement^=bottom] .tippy-backdrop[data-state=visible] {
+      -webkit-transform: scale(1) translate(-50%, -45%);
+      transform: scale(1) translate(-50%, -45%)
+    }
+
+    .tippy-popper[x-placement^=bottom] .tippy-backdrop[data-state=hidden] {
+      -webkit-transform: scale(.2) translate(-50%);
+      transform: scale(.2) translate(-50%);
+      opacity: 0
+    }
+
+    .tippy-popper[x-placement^=bottom] [data-animation=shift-toward][data-state=visible] {
+      -webkit-transform: translateY(10px);
+      transform: translateY(10px)
+    }
+
+    .tippy-popper[x-placement^=bottom] [data-animation=shift-toward][data-state=hidden] {
+      opacity: 0;
+      -webkit-transform: translateY(20px);
+      transform: translateY(20px)
+    }
+
+    .tippy-popper[x-placement^=bottom] [data-animation=perspective] {
+      -webkit-transform-origin: top;
+      transform-origin: top
+    }
+
+    .tippy-popper[x-placement^=bottom] [data-animation=perspective][data-state=visible] {
+      -webkit-transform: translateY(10px) rotateX(0);
+      transform: translateY(10px) rotateX(0)
+    }
+
+    .tippy-popper[x-placement^=bottom] [data-animation=perspective][data-state=hidden] {
+      opacity: 0;
+      -webkit-transform: translateY(0) rotateX(-60deg);
+      transform: translateY(0) rotateX(-60deg)
+    }
+
+    .tippy-popper[x-placement^=bottom] [data-animation=fade][data-state=visible] {
+      -webkit-transform: translateY(10px);
+      transform: translateY(10px)
+    }
+
+    .tippy-popper[x-placement^=bottom] [data-animation=fade][data-state=hidden] {
+      opacity: 0;
+      -webkit-transform: translateY(10px);
+      transform: translateY(10px)
+    }
+
+    .tippy-popper[x-placement^=bottom] [data-animation=shift-away][data-state=visible] {
+      -webkit-transform: translateY(10px);
+      transform: translateY(10px)
+    }
+
+    .tippy-popper[x-placement^=bottom] [data-animation=shift-away][data-state=hidden] {
+      opacity: 0;
+      -webkit-transform: translateY(0);
+      transform: translateY(0)
+    }
+
+    .tippy-popper[x-placement^=bottom] [data-animation=scale][data-state=visible] {
+      -webkit-transform: translateY(10px) scale(1);
+      transform: translateY(10px) scale(1)
+    }
+
+    .tippy-popper[x-placement^=bottom] [data-animation=scale][data-state=hidden] {
+      opacity: 0;
+      -webkit-transform: translateY(0) scale(.5);
+      transform: translateY(0) scale(.5)
+    }
+
+    .tippy-popper[x-placement^=left] .tippy-backdrop {
+      border-radius: 50% 0 0 50%
+    }
+
+    .tippy-popper[x-placement^=left] .tippy-roundarrow {
+      right: -16px;
+      -webkit-transform-origin: 33.33333333% 50%;
+      transform-origin: 33.33333333% 50%
+    }
+
+    .tippy-popper[x-placement^=left] .tippy-roundarrow svg {
+      position: absolute;
+      left: 0;
+      -webkit-transform: rotate(90deg);
+      transform: rotate(90deg)
+    }
+
+    .tippy-popper[x-placement^=left] .tippy-arrow {
+      border-left: 8px solid #333;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      right: -7px;
+      margin: 3px 0;
+      -webkit-transform-origin: 0 50%;
+      transform-origin: 0 50%
+    }
+
+    .tippy-popper[x-placement^=left] .tippy-backdrop {
+      -webkit-transform-origin: 50% 0;
+      transform-origin: 50% 0
+    }
+
+    .tippy-popper[x-placement^=left] .tippy-backdrop[data-state=visible] {
+      -webkit-transform: scale(1) translate(-50%, -50%);
+      transform: scale(1) translate(-50%, -50%)
+    }
+
+    .tippy-popper[x-placement^=left] .tippy-backdrop[data-state=hidden] {
+      -webkit-transform: scale(.2) translate(-75%, -50%);
+      transform: scale(.2) translate(-75%, -50%);
+      opacity: 0
+    }
+
+    .tippy-popper[x-placement^=left] [data-animation=shift-toward][data-state=visible] {
+      -webkit-transform: translateX(-10px);
+      transform: translateX(-10px)
+    }
+
+    .tippy-popper[x-placement^=left] [data-animation=shift-toward][data-state=hidden] {
+      opacity: 0;
+      -webkit-transform: translateX(-20px);
+      transform: translateX(-20px)
+    }
+
+    .tippy-popper[x-placement^=left] [data-animation=perspective] {
+      -webkit-transform-origin: right;
+      transform-origin: right
+    }
+
+    .tippy-popper[x-placement^=left] [data-animation=perspective][data-state=visible] {
+      -webkit-transform: translateX(-10px) rotateY(0);
+      transform: translateX(-10px) rotateY(0)
+    }
+
+    .tippy-popper[x-placement^=left] [data-animation=perspective][data-state=hidden] {
+      opacity: 0;
+      -webkit-transform: translateX(0) rotateY(-60deg);
+      transform: translateX(0) rotateY(-60deg)
+    }
+
+    .tippy-popper[x-placement^=left] [data-animation=fade][data-state=visible] {
+      -webkit-transform: translateX(-10px);
+      transform: translateX(-10px)
+    }
+
+    .tippy-popper[x-placement^=left] [data-animation=fade][data-state=hidden] {
+      opacity: 0;
+      -webkit-transform: translateX(-10px);
+      transform: translateX(-10px)
+    }
+
+    .tippy-popper[x-placement^=left] [data-animation=shift-away][data-state=visible] {
+      -webkit-transform: translateX(-10px);
+      transform: translateX(-10px)
+    }
+
+    .tippy-popper[x-placement^=left] [data-animation=shift-away][data-state=hidden] {
+      opacity: 0;
+      -webkit-transform: translateX(0);
+      transform: translateX(0)
+    }
+
+    .tippy-popper[x-placement^=left] [data-animation=scale][data-state=visible] {
+      -webkit-transform: translateX(-10px) scale(1);
+      transform: translateX(-10px) scale(1)
+    }
+
+    .tippy-popper[x-placement^=left] [data-animation=scale][data-state=hidden] {
+      opacity: 0;
+      -webkit-transform: translateX(0) scale(.5);
+      transform: translateX(0) scale(.5)
+    }
+
+    .tippy-popper[x-placement^=right] .tippy-backdrop {
+      border-radius: 0 50% 50% 0
+    }
+
+    .tippy-popper[x-placement^=right] .tippy-roundarrow {
+      left: -16px;
+      -webkit-transform-origin: 66.66666666% 50%;
+      transform-origin: 66.66666666% 50%
+    }
+
+    .tippy-popper[x-placement^=right] .tippy-roundarrow svg {
+      position: absolute;
+      left: 0;
+      -webkit-transform: rotate(-90deg);
+      transform: rotate(-90deg)
+    }
+
+    .tippy-popper[x-placement^=right] .tippy-arrow {
+      border-right: 8px solid #333;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      left: -7px;
+      margin: 3px 0;
+      -webkit-transform-origin: 100% 50%;
+      transform-origin: 100% 50%
+    }
+
+    .tippy-popper[x-placement^=right] .tippy-backdrop {
+      -webkit-transform-origin: -50% 0;
+      transform-origin: -50% 0
+    }
+
+    .tippy-popper[x-placement^=right] .tippy-backdrop[data-state=visible] {
+      -webkit-transform: scale(1) translate(-50%, -50%);
+      transform: scale(1) translate(-50%, -50%)
+    }
+
+    .tippy-popper[x-placement^=right] .tippy-backdrop[data-state=hidden] {
+      -webkit-transform: scale(.2) translate(-25%, -50%);
+      transform: scale(.2) translate(-25%, -50%);
+      opacity: 0
+    }
+
+    .tippy-popper[x-placement^=right] [data-animation=shift-toward][data-state=visible] {
+      -webkit-transform: translateX(10px);
+      transform: translateX(10px)
+    }
+
+    .tippy-popper[x-placement^=right] [data-animation=shift-toward][data-state=hidden] {
+      opacity: 0;
+      -webkit-transform: translateX(20px);
+      transform: translateX(20px)
+    }
+
+    .tippy-popper[x-placement^=right] [data-animation=perspective] {
+      -webkit-transform-origin: left;
+      transform-origin: left
+    }
+
+    .tippy-popper[x-placement^=right] [data-animation=perspective][data-state=visible] {
+      -webkit-transform: translateX(10px) rotateY(0);
+      transform: translateX(10px) rotateY(0)
+    }
+
+    .tippy-popper[x-placement^=right] [data-animation=perspective][data-state=hidden] {
+      opacity: 0;
+      -webkit-transform: translateX(0) rotateY(60deg);
+      transform: translateX(0) rotateY(60deg)
+    }
+
+    .tippy-popper[x-placement^=right] [data-animation=fade][data-state=visible] {
+      -webkit-transform: translateX(10px);
+      transform: translateX(10px)
+    }
+
+    .tippy-popper[x-placement^=right] [data-animation=fade][data-state=hidden] {
+      opacity: 0;
+      -webkit-transform: translateX(10px);
+      transform: translateX(10px)
+    }
+
+    .tippy-popper[x-placement^=right] [data-animation=shift-away][data-state=visible] {
+      -webkit-transform: translateX(10px);
+      transform: translateX(10px)
+    }
+
+    .tippy-popper[x-placement^=right] [data-animation=shift-away][data-state=hidden] {
+      opacity: 0;
+      -webkit-transform: translateX(0);
+      transform: translateX(0)
+    }
+
+    .tippy-popper[x-placement^=right] [data-animation=scale][data-state=visible] {
+      -webkit-transform: translateX(10px) scale(1);
+      transform: translateX(10px) scale(1)
+    }
+
+    .tippy-popper[x-placement^=right] [data-animation=scale][data-state=hidden] {
+      opacity: 0;
+      -webkit-transform: translateX(0) scale(.5);
+      transform: translateX(0) scale(.5)
+    }
+
+    .tippy-tooltip {
+      position: relative;
+      color: #fff;
+      border-radius: 4px;
+      font-size: .9rem;
+      padding: .3rem .6rem;
+      max-width: 350px;
+      text-align: center;
+      will-change: transform;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      background-color: #333
+    }
+
+    .tippy-tooltip[data-size=small] {
+      padding: .2rem .4rem;
+      font-size: .75rem
+    }
+
+    .tippy-tooltip[data-size=large] {
+      padding: .4rem .8rem;
+      font-size: 1rem
+    }
+
+    .tippy-tooltip[data-animatefill] {
+      overflow: hidden;
+      background-color: transparent
+    }
+
+    .tippy-tooltip[data-interactive],
+    .tippy-tooltip[data-interactive] path {
+      pointer-events: auto
+    }
+
+    .tippy-tooltip[data-inertia][data-state=visible] {
+      transition-timing-function: cubic-bezier(.53, 2, .36, .85)
+    }
+
+    .tippy-tooltip[data-inertia][data-state=hidden] {
+      transition-timing-function: ease
+    }
+
+    .tippy-arrow,
+    .tippy-roundarrow {
+      position: absolute;
+      width: 0;
+      height: 0
+    }
+
+    .tippy-roundarrow {
+      width: 24px;
+      height: 8px;
+      fill: #333;
+      pointer-events: none
+    }
+
+    .tippy-backdrop {
+      position: absolute;
+      will-change: transform;
+      background-color: #333;
+      border-radius: 50%;
+      width: calc(110% + 2rem);
+      left: 50%;
+      top: 50%;
+      z-index: -1;
+      transition: all cubic-bezier(.46, .1, .52, .98);
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden
+    }
+
+    .tippy-backdrop:after {
+      content: "";
+      float: left;
+      padding-top: 100%
+    }
+
+    .tippy-backdrop+.tippy-content {
+      transition-property: opacity
+    }
+
+    .tippy-backdrop+.tippy-content[data-state=visible] {
+      opacity: 1
+    }
+
+    .tippy-backdrop+.tippy-content[data-state=hidden] {
+      opacity: 0
+    }
+
+    @media (max-width:360px) {
+      .tippy-popper {
+        max-width: 96%;
+        max-width: calc(100% - 20px)
+      }
+    }
+  </style>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#00bfc5">
+  <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+  <title>ABİTURENT</title>
+  <link href="./assests/timber.scss.css" rel="stylesheet" type="text/css" media="all">
+  <link href="./assests/vendors.css" rel="stylesheet" type="text/css" media="all">
+  <link href="./assests/style.css" rel="stylesheet" type="text/css" media="all">
+  <link href="./assests/responsive.css" rel="stylesheet" type="text/css" media="all">
+  <link href="./assests/theme-default.css" rel="stylesheet" type="text/css" media="all">
+  <link href="./assests/theme-custom.css" rel="stylesheet" type="text/css" media="all">
+  <link href="./assests/theme-responsive.css" rel="stylesheet" type="text/css" media="all">
+
+  <link href="./assests/skin-and-color.css" rel="stylesheet" type="text/css" media="all">
+
+  <script src="./assests/option_selection-fe6b72c2bbdd3369ac0bfefe8648e3c889efca213baefd4cfb0dd9363563831f.js"></script>
+  <script src="./assests/api.jquery-e94e010e92e659b566dbc436fdfe5242764380e00398907a14955ba301a4749f.js"></script>
+  <script src="./assests/cart.api.js"></script>
+  <script src="./assests/theme.js"></script>
+
+  <script type="text/javascript" src="./assests/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+</head>
+
+<body class="template-index ">
+  <div class="wrapper">
+      <div  class="header-area header-area--multi-row header-area--multi-row--separate-navigation header-sticky header-common-class is-sticky">
+        <!--=======  header top wrapper  =======-->
+        <div class="header-top-wrapper">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12">
+                <!--=======  header wrapper  =======-->
+                <div class="header-wrapper d-none d-lg-flex">
+
+                  <!-- logo -->
+                  <div class="logo">
+                    <a href="" class="theme-logo">
+                      <img src="https://www.abiturient.az/images/logo.png" alt="logo">
+                    </a>
+                  </div><!-- header icon -->
+                  <div class="header-icon-wrapper">
+                    <ul class="icon-list">
+                      <li>
+                        <a href="javascript:void(0)" id="search-overlay-trigger">
+                          <i class="bi bi-search"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <div class="header-cart-icon">
+                          <!-- mini cart  -->
+
+
+
+                          <a href="javascript:void(0)" id="minicart-trigger">
+                            <i class="bi bi-bag-check"></i>
+                            <span class="counter bigcounter">0</span>
+                          </a>
+
+                          <!-- mini cart  -->
+                          <div class="mini-cart" id="mini-cart">
+
+                            <div class="cart-empty-title" style="display:block;">
+                              <h3>Your cart is currently empty.</h3>
+                            </div>
+
+                            <div class="cart-items-wrapper ps-scroll single-product-cart single-cart-item-loop ps"
+                              style="display:none;">
+
+
+
+                              <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+                                <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+                              </div>
+                              <div class="ps__rail-y" style="top: 0px; right: 0px;">
+                                <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div>
+                              </div>
+                            </div>
+
+                            <div class="cart-calculation single-product-cart" style="display:none;">
+                              <table class="table">
+                                <tbody>
+
+                                  <tr>
+                                    <td class="text-left">Sub Total :</td>
+                                    <td class="text-right shopping-cart__total"><span class="money"
+                                        data-currency-usd="$0.00">$0.00</span></td>
+                                  </tr>
+
+                                  <tr>
+                                    <td class="text-left">Total :</td>
+                                    <td class="text-right shopping-cart__total"><span class="money"
+                                        data-currency-usd="$0.00">$0.00</span> </td>
+                                  </tr>
+
+                                </tbody>
+                              </table>
+                            </div>
+
+
+                            <div class="cart-buttons single-product-cart" style="display:none;">
+                              <a href="">View Cart</a>
+                              <a href="">Checkout</a>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <!--=======  End of header wrapper  =======-->
+
+                <!--=======  mobile navigation area  =======-->
+                <div class="header-mobile-navigation d-block d-lg-none">
+                  <div class="row align-items-center">
+                    <div class="col-6 col-md-6">
+                      <div class="header-logo">
+                        <a href="" class="theme-logo">
+                          <img src="https://www.abiturient.az/images/logo.png" alt="logo">
+                        </a>
+                      </div>
+                    </div>
+                    <div class="col-6 col-md-6">
+                      <div class="mobile-navigation text-right">
+                        <div class="header-icon-wrapper">
+                          <ul class="icon-list justify-content-end">
+
+                            <li>
+                              <div class="header-cart-icon">
+                                <a href="">
+                                  <i class="ion-bag"></i>
+                                  <span class="counter bigcounter">0</span>
+                                </a>
+                              </div>
+                            </li>
+
+                            <li>
+                              <a href="javascript:void(0)" class="mobile-menu-icon" id="mobile-menu-trigger"><i
+                                  class="fa fa-bars"></i></a>
+                            </li>
+
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--=======  End of mobile navigation area  =======-->
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--=======  End of header top wrapper  =======-->
+
+        <div class="navigation-menu-area d-none d-lg-block">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="navigation-menu-wrapper">
+                  <nav>
+                    <ul>
+
+                      <li><a href="">Ana Səhifə</a> </li>
+                      <li><a href="">Haqqımızda</a> </li>
+                      <li><a href="">Tədbirlər</a></li>
+                      <li><a href="">Jurnallar</a></li>
+                      <li><a href="">Rəy və təklif</a></li>
+                      <li><a href="">Əlaqə</a></li>
+
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="search-overlay" id="search-overlay">
+        <a href="javascript:void(0)" class="close-search-overlay" id="close-search-overlay">
+          <i class="ion-ios-close-empty"></i>
+        </a>
+        <!--=======  search form  =======-->
+
+        <div class="search-form">
+          <form action="" method="get" role="search" style="position: relative;">
+            <input type="search" id="search" name="q" value="" placeholder="Search our store" autocomplete="off">
+            <button type="submit"><i class="ion-android-search"></i></button>
+            <ul class="search-results home-two" style="position: absolute; left: 0px; top: 69px; display: none;"></ul>
+          </form>
+        </div>
+
+        <!--=======  End of search form  =======-->
+      </div>
+      <div class="offcanvas-mobile-menu header-common-class" id="offcanvas-mobile-menu">
+        <a href="javascript:void(0)" class="offcanvas-menu-close" id="offcanvas-menu-close-trigger">
+          <i class="ion-android-close"></i>
+        </a>
+
+        <div class="offcanvas-wrapper">
+
+          <div class="offcanvas-inner-content">
+            <div class="offcanvas-mobile-search-area">
+              <form action="" method="get" role="search"
+                style="position: relative;">
+                <input type="search" name="q" value="" placeholder="Search our store" autocomplete="off">
+                <button type="submit"><i class="fa fa-search"></i></button>
+                <ul class="search-results home-two" style="position: absolute; left: 0px; top: 40px; display: none;">
+                </ul>
+              </form>
+            </div>
+            <nav class="offcanvas-navigation">
+              <ul>
+                <li><a href="">Ana Səhifə</a> </li>
+                <li><a href="">Haqqımızda</a> </li>
+                <li><a href="">Tədbirlər</a></li>
+                <li><a href="">Jurnallar</a></li>
+                <li><a href="">Rəy və təklif</a></li>
+                <li><a href="">Əlaqə</a></li>
+              </ul>
+            </nav>
+
+
+
+
+            <div class="offcanvas-settings">
+              <nav class="offcanvas-navigation">
+                <ul>
+                  <li class="menu-item-has-children"><span class="menu-expand"><i></i></span><a
+                      href="">MY ACCOUNT </a>
+                    <ul class="sub-menu" style="display: none;">
+                      <li><a href="" id="customer_login_link">Log in</a>
+                      </li>
+                      <li><a href="" id="customer_register_link">Create
+                          account</a></li>
+                    </ul>
+                  </li>
+
+
+
+
+                  <li class="switcher-currency-trigger currency menu-item-has-children"><span
+                      class="menu-expand"><i></i></span>
+
+                    <span class="currency-trigger dropdown-toggle">
+                      <h4 class="current-currency title">USD</h4>
+                    </span>
+
+
+
+                    <ul class="sub-menu switcher-dropdown" id="currencies" style="display: none;">
+
+
+
+
+                      <li data-currency="USD" class="currency__item active"><a style="cursor: pointer">USD - US
+                          Dollar</a></li>
+
+
+
+
+                      <li data-currency="EUR" class="currency__item"><a style="cursor: pointer">EUR - Euro</a></li>
+
+
+
+
+                      <li data-currency="GBP" class="currency__item"><a style="cursor: pointer">GBP - British Pound</a>
+                      </li>
+
+
+
+
+                      <li data-currency="INR" class="currency__item"><a style="cursor: pointer">INR - Indian Rupee</a>
+                      </li>
+
+
+
+
+                      <li data-currency="BDT" class="currency__item"><a style="cursor: pointer">BDT - Bangladesh
+                          Taka</a></li>
+
+
+
+
+                      <li data-currency="JPY" class="currency__item"><a style="cursor: pointer">JPY - Japan Yen</a></li>
+
+
+
+
+                      <li data-currency="CAD" class="currency__item"><a style="cursor: pointer">CAD - Canada Dollar</a>
+                      </li>
+
+
+
+
+                      <li data-currency="AUD" class="currency__item"><a style="cursor: pointer">AUD - Australian
+                          Dollar</a></li>
+
+                    </ul>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+
+
+          </div>
+        </div>
+
+      </div>
+    <main>
+        <div class="hero-slider-area section-space common_class_slider">
+          <!--=======  hero slider wrapper  =======-->
+          <div class="hero-slider-item-wrapper hero-slider-item-wrapper--fullwidth--fixed-height  hero-slider-bg-4"
+            style="background-image: url(//cdn.shopify.com/s/files/1/0265/8933/1530/files/414.jpg?v=1643262539 )">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="hero-slider-content hero-slider-content--left-space text-left">
+
+
+
+                    <p class="slider-title slider-title--big-light">DİM nəşrlərinin PDF formatda satışı</p>
+
+
+
+                    <p class="slider-title slider-title--small">Bank kartı vasitəsilə ödəniş etməklə jurnalın bütün
+                      sayları və xüsusi buraxılışlarının elektron versiyasını (pdf formatda) əldə etmək mümkündür. </p>
+
+
+
+                    <a class="hero-slider-button" href="" tabindex="-1"> Ətraflı</a>
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="category-area section-space">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12">
+                <!--=======  category wrapper  =======-->
+                <div class="category-wrapper">
+                  <div class="row " >
+                    <div class="col-lg-4 col-sm-6 col-12 grid-item">
+                      <!--=======  single category item  =======-->
+                      <div class="single-category-item">
+                        <div class="single-category-item__image">
+                          <a href="">
+                            <img src="https://www.abiturient.az/images/jurnallar/N1_AZ_2009.jpg"
+                              alt="Collection Images">
+                          </a>
+                        </div>
+                        <div class="single-category-item__content">
+                          <h3 class="title"> Abituriyent jurnalı</h3>
+                          <a href="">Bax</a>
+                        </div>
+                      </div>
+                      <!--=======  End of single category item  =======-->
+                    </div>
+                    <div class="col-lg-4 col-sm-6 col-12 grid-item">
+                      <!--=======  single category item  =======-->
+                      <div class="single-category-item">
+                        <div class="single-category-item__image">
+                          <a href="">
+                            <img src="https://www.abiturient.az/images/jurnallar/N2_AZ_2009.jpg"
+                              alt="Collection Images">
+                          </a>
+                        </div>
+                        <div class="single-category-item__content">
+                          <h3 class="title"> Magistr jurnalı</h3>
+                          <a href="">Bax</a>
+                        </div>
+                      </div>
+                      <!--=======  End of single category item  =======-->
+                    </div>
+                    <div class="col-lg-4 col-sm-6 col-12 grid-item" >
+                      <!--=======  single category item  =======-->
+                      <div class="single-category-item">
+                        <div class="single-category-item__image">
+                          <a href="">
+                            <img src="https://www.abiturient.az/images/jurnallar/N4_AZ_2009.jpg"
+                              alt="Collection Images">
+                          </a>
+                        </div>
+                        <div class="single-category-item__content">
+                          <h3 class="title"> Dövlət qulluğu</h3>
+                          <a href="">Bax</a>
+                        </div>
+                      </div>
+                      <!--=======  End of single category item  =======-->
+                    </div>
+                  </div>
+                </div>
+                <!--=======  End of category wrapper  =======-->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="single-row-slider-tab-area section-space" >
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12">
+                <!--=======  section title  =======-->
+                <div class="section-title-wrapper text-center section-space--half">
+                  <h2 class="section-title">Jurnallar</h2>
+                  <p class="section-subtitle">Aşağıdakı jurnalları ofis və evinizə sifariş edə bilərsiniz</p>
+                </div>
+                <!--=======  End of section title  =======-->
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-md-6 col-lg-3">
+                <div class="col" style="width: 100%; display: inline-block;">
+                  <!--=======  single grid product  =======-->
+                  <div class="single-grid-product 29444811685962">
+                    <div class="single-grid-product__image">
+                      <div class="single-grid-product__label">
+
+
+
+                      </div>
+
+                      <a href="" tabindex="0">
+                        <img class="img-fluid popup_cart_image" alt=""
+                          src="	https://www.abiturient.az/images/jurnallar/N4_Magistr_AZ_2016.jpg">
+
+                        <img class="img-fluid popup_cart_image" alt=""
+                          src="	https://www.abiturient.az/images/jurnallar/N4_Magistr_AZ_2009.jpg">
+
+                      </a>
+
+                      <div class="hover-icons"><a href="javascript:void(0);" onclick='' class="" tabindex="0">
+                          <span>
+                            <span class="cart-title"><i class="bi bi-basket"></i></span>
+                          </span>
+                        </a>
+                      </div>
+                    </div>
+
+                    <div class="single-grid-product__content">
+                      <div class="single-grid-product__category-rating">
+
+                        <span class="category"><a
+                            href="" title="Vendor 9"
+                            tabindex="0">Vendor 9</a></span>
+
+                      </div>
+
+                      <h3 class="single-grid-product__title popup_cart_title"> <a
+                          href="" tabindex="0">Magistr
+                          jurnalı 2009</a> </h3>
+
+                      <p class="single-grid-product__price">
+
+                        <span class="discounted-price"><span class="money" data-currency-usd="$79.00">19.00
+                            AZN</span></span>
+                      </p>
+
+                    </div>
+                  </div>
+                  <!--=======  End of single grid product  =======-->
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-3">
+                <div class="col" style="width: 100%; display: inline-block;">
+                  <!--=======  single grid product  =======-->
+                  <div class="single-grid-product 29444811685962">
+                    <div class="single-grid-product__image">
+                      <div class="single-grid-product__label">
+
+
+
+                      </div>
+
+                      <a href="" tabindex="0">
+                        <img class="img-fluid popup_cart_image" alt=""
+                          src="	https://www.abiturient.az/images/jurnallar/N4_Magistr_AZ_2016.jpg">
+
+                        <img class="img-fluid popup_cart_image" alt=""
+                          src="	https://www.abiturient.az/images/jurnallar/N4_Magistr_AZ_2009.jpg">
+
+                      </a>
+
+                      <div class="hover-icons"><a href="javascript:void(0);" onclick='' class="" tabindex="0">
+                          <span>
+                            <span class="cart-title"><i class="bi bi-basket"></i></span>
+                          </span>
+                        </a>
+                      </div>
+                    </div>
+
+                    <div class="single-grid-product__content">
+                      <div class="single-grid-product__category-rating">
+
+                        <span class="category"><a
+                            href="" title="Vendor 9"
+                            tabindex="0">Vendor 9</a></span>
+
+                      </div>
+
+                      <h3 class="single-grid-product__title popup_cart_title"> <a
+                          href="" tabindex="0">Magistr
+                          jurnalı 2009</a> </h3>
+
+                      <p class="single-grid-product__price">
+
+                        <span class="discounted-price"><span class="money" data-currency-usd="$79.00">19.00
+                            AZN</span></span>
+                      </p>
+
+                    </div>
+                  </div>
+                  <!--=======  End of single grid product  =======-->
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-3">
+                <div class="col" style="width: 100%; display: inline-block;">
+                  <!--=======  single grid product  =======-->
+                  <div class="single-grid-product 29444811685962">
+                    <div class="single-grid-product__image">
+                      <div class="single-grid-product__label">
+
+
+
+                      </div>
+
+                      <a href="" tabindex="0">
+                        <img class="img-fluid popup_cart_image" alt=""
+                          src="	https://www.abiturient.az/images/jurnallar/N4_Magistr_AZ_2016.jpg">
+
+                        <img class="img-fluid popup_cart_image" alt=""
+                          src="	https://www.abiturient.az/images/jurnallar/N4_Magistr_AZ_2009.jpg">
+
+                      </a>
+
+                      <div class="hover-icons"><a href="javascript:void(0);" onclick='' class="" tabindex="0">
+                          <span>
+                            <span class="cart-title"><i class="bi bi-basket"></i></span>
+                          </span>
+                        </a>
+                      </div>
+                    </div>
+
+                    <div class="single-grid-product__content">
+                      <div class="single-grid-product__category-rating">
+
+                        <span class="category"><a
+                            href="" title="Vendor 9"
+                            tabindex="0">Vendor 9</a></span>
+
+                      </div>
+
+                      <h3 class="single-grid-product__title popup_cart_title"> <a
+                          href="" tabindex="0">Magistr
+                          jurnalı 2009</a> </h3>
+
+                      <p class="single-grid-product__price">
+
+                        <span class="discounted-price"><span class="money" data-currency-usd="$79.00">19.00
+                            AZN</span></span>
+                      </p>
+
+                    </div>
+                  </div>
+                  <!--=======  End of single grid product  =======-->
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-3">
+                <div class="col" style="width: 100%; display: inline-block;">
+                  <!--=======  single grid product  =======-->
+                  <div class="single-grid-product 29444811685962">
+                    <div class="single-grid-product__image">
+                      <div class="single-grid-product__label">
+                      </div>
+
+                      <a href="" tabindex="0">
+                        <img class="img-fluid popup_cart_image" alt=""
+                          src="	https://www.abiturient.az/images/jurnallar/N4_Magistr_AZ_2016.jpg">
+
+                        <img class="img-fluid popup_cart_image" alt=""
+                          src="	https://www.abiturient.az/images/jurnallar/N4_Magistr_AZ_2009.jpg">
+
+                      </a>
+
+                      <div class="hover-icons"><a href="javascript:void(0);" onclick='' class="" tabindex="0">
+                          <span>
+                            <span class="cart-title"><i class="bi bi-basket"></i></span>
+                          </span>
+                        </a>
+                      </div>
+                    </div>
+
+                    <div class="single-grid-product__content">
+                      <div class="single-grid-product__category-rating">
+
+                        <span class="category"><a
+                            href="" title="Vendor 9"
+                            tabindex="0">Vendor 9</a></span>
+
+                      </div>
+
+                      <h3 class="single-grid-product__title popup_cart_title"> <a
+                          href="" tabindex="0">Magistr
+                          jurnalı 2009</a> </h3>
+
+                      <p class="single-grid-product__price">
+
+                        <span class="discounted-price"><span class="money" data-currency-usd="$79.00">19.00
+                            AZN</span></span>
+                      </p>
+
+                    </div>
+                  </div>
+                  <!--=======  End of single grid product  =======-->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+       
+        <div class="banner-hover-area section-space" >
+          <div class="container ">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="banner-hover-wrapper">
+                  <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                      <div class="single-hover-banner single-hover-banner--middlesize-text">
+                        <div class="single-hover-banner__image">
+                          <a href=""><img src="./assests/Banner-1.png" alt="">
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                      <div class="single-hover-banner single-hover-banner--middlesize-text">
+                        <div class="single-hover-banner__image">
+                          <a href=""><img src="./assests/Banner-2.png" alt="">
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="feature-logo-area" >
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="feature-logo-wrapper section-space--inner-bottom">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <!--=======  single feature logo  =======-->
+                      <div class="single-feature-logo">
+
+
+                        <div class="single-feature-logo__image">
+                          <img src="./assests/001-shipped_small.png" class="img-fluid" alt="">
+                        </div>
+
+
+                        <div class="single-feature-logo__content">
+
+                          <h4 class="title">FREE SHIPPING WORLDWIDE</h4>
+
+
+                          <p class="short-desc">We offer free shipping via Standard Shipping on orders over $200.00
+                          </p>
+
+                        </div>
+                      </div>
+                      <!--=======  End of single feature logo  =======-->
+                    </div>
+                    <div class="col-md-4">
+                      <!--=======  single feature logo  =======-->
+                      <div class="single-feature-logo">
+
+
+                        <div class="single-feature-logo__image">
+                          <img src="./assests/002-money-back_small.png" class="img-fluid" alt="">
+                        </div>
+
+
+                        <div class="single-feature-logo__content">
+
+                          <h4 class="title">FREE SHIPPING WORLDWIDE</h4>
+
+
+                          <p class="short-desc">We offer free shipping via Standard Shipping on orders over $200.00
+                          </p>
+
+                        </div>
+                      </div>
+                      <!--=======  End of single feature logo  =======-->
+                    </div>
+                    <div class="col-md-4">
+                      <!--=======  single feature logo  =======-->
+                      <div class="single-feature-logo">
+
+
+                        <div class="single-feature-logo__image">
+                          <img src="./assests/003-support_small.png" class="img-fluid" alt="">
+                        </div>
+
+
+                        <div class="single-feature-logo__content">
+
+                          <h4 class="title">FREE SHIPPING WORLDWIDE</h4>
+
+
+                          <p class="short-desc">We offer free shipping via Standard Shipping on orders over $200.00
+                          </p>
+
+                        </div>
+                      </div>
+                      <!--=======  End of single feature logo  =======-->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="blog-post-slider-area" >
+          <div class="container">
+                <div class="blog-post-slider-border-wrapper section-space--inner">
+                  <div class="row">
+                      <div class="col-lg-12">
+                        <!--=======  section title  =======-->
+                        <div class="section-title-wrapper text-center section-space--half">
+
+                          <h2 class="section-title">Məqalələr</h2>
+                          <p class="section-subtitle">Littera gothica, quam nunc putamus parum claram anteposuerit
+                            litterarum formas.</p>
+                        </div>
+                        <!--=======  End of section title  =======-->
+                      </div>
+                  </div>
+                       <div class="blog-post-slider-wrapper">
+                          <div class="row">
+                            <div class="col-12 col-md-6 col-lg-3">
+                              <!--=======  single slider post  =======-->
+                              <div class="single-slider-post">
+
+
+                                <div class="single-slider-post__image">
+
+                                  <a href="blogs/news/the-london-book-fair-is-to-be-packed-with-exciting"
+                                    tabindex="-1"><img src="./assests/9_740x470_crop_center.jpg"
+                                      alt="The London Book Fair is to be packed with exciting"></a>
+
+                                  <div class="single-slider-post__date-sticker">
+                                    <span class="month">Jan</span>
+                                    <span class="day">25</span>
+                                  </div>
+                                </div>
+
+
+                                <div class="single-slider-post__content">
+                                  <h3 class="title"><a
+                                      href="blogs/news/the-london-book-fair-is-to-be-packed-with-exciting"
+                                      tabindex="-1">The London Book Fair is to be packed with exciting</a></h3>
+                                  <p class="post-meta">by:  Demo Admin</p>
+
+                                  <p class="short-desc">
+
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, ipsum...
+
+                                  </p>
+
+                                  <a class="blog-post-link"
+                                    href="blogs/news/the-london-book-fair-is-to-be-packed-with-exciting"
+                                    tabindex="-1">Read more</a>
+
+                                </div>
+                              </div>
+                              <!--=======  End of single slider post  =======-->
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-3">
+                              <!--=======  single slider post  =======-->
+                              <div class="single-slider-post">
+
+
+                                <div class="single-slider-post__image">
+
+                                  <a href="blogs/news/the-london-book-fair-is-to-be-packed-with-exciting"
+                                    tabindex="-1"><img src="./assests/9_740x470_crop_center.jpg"
+                                      alt="The London Book Fair is to be packed with exciting"></a>
+
+                                  <div class="single-slider-post__date-sticker">
+                                    <span class="month">Jan</span>
+                                    <span class="day">25</span>
+                                  </div>
+                                </div>
+
+
+                                <div class="single-slider-post__content">
+                                  <h3 class="title"><a
+                                      href="blogs/news/the-london-book-fair-is-to-be-packed-with-exciting"
+                                      tabindex="-1">The London Book Fair is to be packed with exciting</a></h3>
+                                  <p class="post-meta">by:  Demo Admin</p>
+
+                                  <p class="short-desc">
+
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, ipsum...
+
+                                  </p>
+
+                                  <a class="blog-post-link"
+                                    href="blogs/news/the-london-book-fair-is-to-be-packed-with-exciting"
+                                    tabindex="-1">Read more</a>
+
+                                </div>
+                              </div>
+                              <!--=======  End of single slider post  =======-->
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-3">
+                              <!--=======  single slider post  =======-->
+                              <div class="single-slider-post">
+
+
+                                <div class="single-slider-post__image">
+
+                                  <a href="blogs/news/the-london-book-fair-is-to-be-packed-with-exciting"
+                                    tabindex="-1"><img src="./assests/9_740x470_crop_center.jpg"
+                                      alt="The London Book Fair is to be packed with exciting"></a>
+
+                                  <div class="single-slider-post__date-sticker">
+                                    <span class="month">Jan</span>
+                                    <span class="day">25</span>
+                                  </div>
+                                </div>
+
+
+                                <div class="single-slider-post__content">
+                                  <h3 class="title"><a
+                                      href="blogs/news/the-london-book-fair-is-to-be-packed-with-exciting"
+                                      tabindex="-1">The London Book Fair is to be packed with exciting</a></h3>
+                                  <p class="post-meta">by:  Demo Admin</p>
+
+                                  <p class="short-desc">
+
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, ipsum...
+
+                                  </p>
+
+                                  <a class="blog-post-link"
+                                    href="blogs/news/the-london-book-fair-is-to-be-packed-with-exciting"
+                                    tabindex="-1">Read more</a>
+
+                                </div>
+                              </div>
+                              <!--=======  End of single slider post  =======-->
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-3">
+                              <!--=======  single slider post  =======-->
+                              <div class="single-slider-post">
+
+
+                                <div class="single-slider-post__image">
+
+                                  <a href="blogs/news/the-london-book-fair-is-to-be-packed-with-exciting"
+                                    tabindex="-1"><img src="./assests/9_740x470_crop_center.jpg"
+                                      alt="The London Book Fair is to be packed with exciting"></a>
+
+                                  <div class="single-slider-post__date-sticker">
+                                    <span class="month">Jan</span>
+                                    <span class="day">25</span>
+                                  </div>
+                                </div>
+
+
+                                <div class="single-slider-post__content">
+                                  <h3 class="title"><a
+                                      href="blogs/news/the-london-book-fair-is-to-be-packed-with-exciting"
+                                      tabindex="-1">The London Book Fair is to be packed with exciting</a></h3>
+                                  <p class="post-meta">by:  Demo Admin</p>
+
+                                  <p class="short-desc">
+
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, ipsum...
+
+                                  </p>
+
+                                  <a class="blog-post-link"
+                                    href="blogs/news/the-london-book-fair-is-to-be-packed-with-exciting"
+                                    tabindex="-1">Read more</a>
+
+                                </div>
+                              </div>
+                              <!--=======  End of single slider post  =======-->
+                            </div>
+                          </div>
+                       </div>
+                </div>
+                            
+          </div>
+        </div>          
+    </main>
+
+    <div class="footer-area footer-area--light-bg footer_wraper_common_class" id="section-footer">
+
+
+        <div class="footer-navigation section-space--inner footer_common">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12">
+                <!--=======  footer navigation wrapper  =======-->
+                <div class="footer-navigation-wrapper">
+                  <div class="row">
+                    <div class="col-lg-5 col-md-9 common_widget">
+                      <!--=======  footer short desc  =======-->
+                      <div class="footer-short-desc">
+                        <div class="image">
+                          <a href="#">
+                            <img src="https://www.abiturient.az/images/logo.png" class="img-fluid" alt="">
+                          </a>
+                        </div>
+                        <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel
+                          illum dolore eu feugiat nulla facilisis.</p>
+
+                        <p>Hesen Aliyev </p>
+
+                        <p>Tel 055 555 55 55</p>
+
+                        <p>Email : test@mail.ru</p>
+                      </div>
+                      <!--=======  End of footer short desc  =======-->
+                    </div>
+
+
+
+
+
+                    <div class="col-lg-2 offset-lg-1 col-sm-4 common_widget">
+                      <!--=======  single footer widget  =======-->
+                      <div class="single-footer-widget">
+
+
+                        <h3 class="single-footer-widget__title">Business Hours</h3>
+
+
+                        <div class="single-footer-widget__content">
+
+                          <p class="time">Mon - Fri: 8AM - 10PM</p>
+                          <p class="time">Sat: 9AM-8PM</p>
+                          <p class="time">Sun: Closed</p>
+
+                        </div>
+                      </div>
+                      <!--=======  End of single footer widget  =======-->
+                    </div>
+
+
+
+
+                    <div class="col-lg-2 col-sm-4 common_widget">
+                      <!--=======  single footer widget  =======-->
+                      <div class="single-footer-widget">
+
+
+                        <h3 class="single-footer-widget__title">Footer Menu</h3>
+
+
+                        <div class="single-footer-widget__content">
+                          <ul class="footer-navigation">
+
+
+
+
+                            <li><a href="">Home</a></li>
+
+                            <li><a href="collections/all">Shop</a></li>
+
+                            <li><a href="blogs/news">Blog</a></li>
+
+                            <li><a href="pages/about-us">About</a></li>
+
+                            <li><a href="pages/contact-us">Contact</a></li>
+
+                          </ul>
+
+                        </div>
+                      </div>
+                      <!--=======  End of single footer widget  =======-->
+                    </div>
+
+
+
+
+                    <div class="col-lg-2 col-sm-4 common_widget">
+                      <!--=======  single footer widget  =======-->
+                      <div class="single-footer-widget">
+
+
+                        <h3 class="single-footer-widget__title">Extras Menu</h3>
+
+
+                        <div class="single-footer-widget__content">
+                          <ul class="footer-navigation">
+
+
+
+
+                            <li><a href="">About Us</a></li>
+
+                            <li><a href="">Our Office</a></li>
+
+                            <li><a href="">Delivery</a></li>
+
+                            <li><a href="">Our Store</a></li>
+
+                            <li><a href="">Guarantee</a></li>
+
+                          </ul>
+
+                        </div>
+                      </div>
+                      <!--=======  End of single footer widget  =======-->
+                    </div>
+
+
+
+
+
+
+
+
+
+                  </div>
+                </div>
+                <!--=======  End of footer navigation wrapper  =======-->
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+        <div class="footer-copyright footer_common">
+          <div class="container wide">
+            <div class="row">
+
+              <div class="col-lg-12">
+                <div class="footer-copyright-wrapper">
+                  <div class="container">
+                    <div class="row align-items-center no-gutters">
+
+
+
+
+
+
+
+
+
+
+
+
+                      <div class="col-xl-6 col-lg-5 col-md-5 common_widget">
+                        <div class="copyright-text">
+                          <p>Copyright Dim.gov.az</a>
+                            All Rights Reserved.</p>
+                        </div>
+                      </div>
+
+
+
+
+                      <div class="col-xl-6 col-lg-5 col-md-5 common_widget">
+                        <div class="copyright-social-wrapper">
+                          <ul class="copyright-social">
+                            <li><a href="" target="_blank"><i class="bi bi-twitter"></i> </a></li>
+                            <li><a href="" target="_blank"><i class="bi bi-facebook"></i></a></li>
+                            <li><a href="" target="_blank"><i class="bi bi-google"></i></a></li>
+                            <li><a href="" target="_blank"><i class="bi bi-linkedin"></i></a></li>
+                            <li><a href="" target="_blank"><i class="bi bi-pinterest"></i></a></li>
+                          </ul>
+                        </div>
+                      </div>
+
+
+
+
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+    </div>
+  </div>
+</body>
+
+</html>
