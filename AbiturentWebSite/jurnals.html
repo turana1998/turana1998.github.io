@@ -1,0 +1,2306 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+        .tippy-iOS {
+            cursor: pointer !important
+        }
+
+        .tippy-notransition {
+            transition: none !important
+        }
+
+        .tippy-popper {
+            -webkit-perspective: 700px;
+            perspective: 700px;
+            z-index: 9999;
+            outline: 0;
+            transition-timing-function: cubic-bezier(.165, .84, .44, 1);
+            pointer-events: none;
+            line-height: 1.4
+        }
+
+        .tippy-popper[x-placement^=top] .tippy-backdrop {
+            border-radius: 40% 40% 0 0
+        }
+
+        .tippy-popper[x-placement^=top] .tippy-roundarrow {
+            bottom: -8px;
+            -webkit-transform-origin: 50% 0;
+            transform-origin: 50% 0
+        }
+
+        .tippy-popper[x-placement^=top] .tippy-roundarrow svg {
+            position: absolute;
+            left: 0;
+            -webkit-transform: rotate(180deg);
+            transform: rotate(180deg)
+        }
+
+        .tippy-popper[x-placement^=top] .tippy-arrow {
+            border-top: 8px solid #333;
+            border-right: 8px solid transparent;
+            border-left: 8px solid transparent;
+            bottom: -7px;
+            margin: 0 6px;
+            -webkit-transform-origin: 50% 0;
+            transform-origin: 50% 0
+        }
+
+        .tippy-popper[x-placement^=top] .tippy-backdrop {
+            -webkit-transform-origin: 0 25%;
+            transform-origin: 0 25%
+        }
+
+        .tippy-popper[x-placement^=top] .tippy-backdrop[data-state=visible] {
+            -webkit-transform: scale(1) translate(-50%, -55%);
+            transform: scale(1) translate(-50%, -55%)
+        }
+
+        .tippy-popper[x-placement^=top] .tippy-backdrop[data-state=hidden] {
+            -webkit-transform: scale(.2) translate(-50%, -45%);
+            transform: scale(.2) translate(-50%, -45%);
+            opacity: 0
+        }
+
+        .tippy-popper[x-placement^=top] [data-animation=shift-toward][data-state=visible] {
+            -webkit-transform: translateY(-10px);
+            transform: translateY(-10px)
+        }
+
+        .tippy-popper[x-placement^=top] [data-animation=shift-toward][data-state=hidden] {
+            opacity: 0;
+            -webkit-transform: translateY(-20px);
+            transform: translateY(-20px)
+        }
+
+        .tippy-popper[x-placement^=top] [data-animation=perspective] {
+            -webkit-transform-origin: bottom;
+            transform-origin: bottom
+        }
+
+        .tippy-popper[x-placement^=top] [data-animation=perspective][data-state=visible] {
+            -webkit-transform: translateY(-10px) rotateX(0);
+            transform: translateY(-10px) rotateX(0)
+        }
+
+        .tippy-popper[x-placement^=top] [data-animation=perspective][data-state=hidden] {
+            opacity: 0;
+            -webkit-transform: translateY(0) rotateX(60deg);
+            transform: translateY(0) rotateX(60deg)
+        }
+
+        .tippy-popper[x-placement^=top] [data-animation=fade][data-state=visible] {
+            -webkit-transform: translateY(-10px);
+            transform: translateY(-10px)
+        }
+
+        .tippy-popper[x-placement^=top] [data-animation=fade][data-state=hidden] {
+            opacity: 0;
+            -webkit-transform: translateY(-10px);
+            transform: translateY(-10px)
+        }
+
+        .tippy-popper[x-placement^=top] [data-animation=shift-away][data-state=visible] {
+            -webkit-transform: translateY(-10px);
+            transform: translateY(-10px)
+        }
+
+        .tippy-popper[x-placement^=top] [data-animation=shift-away][data-state=hidden] {
+            opacity: 0;
+            -webkit-transform: translateY(0);
+            transform: translateY(0)
+        }
+
+        .tippy-popper[x-placement^=top] [data-animation=scale][data-state=visible] {
+            -webkit-transform: translateY(-10px) scale(1);
+            transform: translateY(-10px) scale(1)
+        }
+
+        .tippy-popper[x-placement^=top] [data-animation=scale][data-state=hidden] {
+            opacity: 0;
+            -webkit-transform: translateY(0) scale(.5);
+            transform: translateY(0) scale(.5)
+        }
+
+        .tippy-popper[x-placement^=bottom] .tippy-backdrop {
+            border-radius: 0 0 30% 30%
+        }
+
+        .tippy-popper[x-placement^=bottom] .tippy-roundarrow {
+            top: -8px;
+            -webkit-transform-origin: 50% 100%;
+            transform-origin: 50% 100%
+        }
+
+        .tippy-popper[x-placement^=bottom] .tippy-roundarrow svg {
+            position: absolute;
+            left: 0;
+            -webkit-transform: rotate(0);
+            transform: rotate(0)
+        }
+
+        .tippy-popper[x-placement^=bottom] .tippy-arrow {
+            border-bottom: 8px solid #333;
+            border-right: 8px solid transparent;
+            border-left: 8px solid transparent;
+            top: -7px;
+            margin: 0 6px;
+            -webkit-transform-origin: 50% 100%;
+            transform-origin: 50% 100%
+        }
+
+        .tippy-popper[x-placement^=bottom] .tippy-backdrop {
+            -webkit-transform-origin: 0 -50%;
+            transform-origin: 0 -50%
+        }
+
+        .tippy-popper[x-placement^=bottom] .tippy-backdrop[data-state=visible] {
+            -webkit-transform: scale(1) translate(-50%, -45%);
+            transform: scale(1) translate(-50%, -45%)
+        }
+
+        .tippy-popper[x-placement^=bottom] .tippy-backdrop[data-state=hidden] {
+            -webkit-transform: scale(.2) translate(-50%);
+            transform: scale(.2) translate(-50%);
+            opacity: 0
+        }
+
+        .tippy-popper[x-placement^=bottom] [data-animation=shift-toward][data-state=visible] {
+            -webkit-transform: translateY(10px);
+            transform: translateY(10px)
+        }
+
+        .tippy-popper[x-placement^=bottom] [data-animation=shift-toward][data-state=hidden] {
+            opacity: 0;
+            -webkit-transform: translateY(20px);
+            transform: translateY(20px)
+        }
+
+        .tippy-popper[x-placement^=bottom] [data-animation=perspective] {
+            -webkit-transform-origin: top;
+            transform-origin: top
+        }
+
+        .tippy-popper[x-placement^=bottom] [data-animation=perspective][data-state=visible] {
+            -webkit-transform: translateY(10px) rotateX(0);
+            transform: translateY(10px) rotateX(0)
+        }
+
+        .tippy-popper[x-placement^=bottom] [data-animation=perspective][data-state=hidden] {
+            opacity: 0;
+            -webkit-transform: translateY(0) rotateX(-60deg);
+            transform: translateY(0) rotateX(-60deg)
+        }
+
+        .tippy-popper[x-placement^=bottom] [data-animation=fade][data-state=visible] {
+            -webkit-transform: translateY(10px);
+            transform: translateY(10px)
+        }
+
+        .tippy-popper[x-placement^=bottom] [data-animation=fade][data-state=hidden] {
+            opacity: 0;
+            -webkit-transform: translateY(10px);
+            transform: translateY(10px)
+        }
+
+        .tippy-popper[x-placement^=bottom] [data-animation=shift-away][data-state=visible] {
+            -webkit-transform: translateY(10px);
+            transform: translateY(10px)
+        }
+
+        .tippy-popper[x-placement^=bottom] [data-animation=shift-away][data-state=hidden] {
+            opacity: 0;
+            -webkit-transform: translateY(0);
+            transform: translateY(0)
+        }
+
+        .tippy-popper[x-placement^=bottom] [data-animation=scale][data-state=visible] {
+            -webkit-transform: translateY(10px) scale(1);
+            transform: translateY(10px) scale(1)
+        }
+
+        .tippy-popper[x-placement^=bottom] [data-animation=scale][data-state=hidden] {
+            opacity: 0;
+            -webkit-transform: translateY(0) scale(.5);
+            transform: translateY(0) scale(.5)
+        }
+
+        .tippy-popper[x-placement^=left] .tippy-backdrop {
+            border-radius: 50% 0 0 50%
+        }
+
+        .tippy-popper[x-placement^=left] .tippy-roundarrow {
+            right: -16px;
+            -webkit-transform-origin: 33.33333333% 50%;
+            transform-origin: 33.33333333% 50%
+        }
+
+        .tippy-popper[x-placement^=left] .tippy-roundarrow svg {
+            position: absolute;
+            left: 0;
+            -webkit-transform: rotate(90deg);
+            transform: rotate(90deg)
+        }
+
+        .tippy-popper[x-placement^=left] .tippy-arrow {
+            border-left: 8px solid #333;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            right: -7px;
+            margin: 3px 0;
+            -webkit-transform-origin: 0 50%;
+            transform-origin: 0 50%
+        }
+
+        .tippy-popper[x-placement^=left] .tippy-backdrop {
+            -webkit-transform-origin: 50% 0;
+            transform-origin: 50% 0
+        }
+
+        .tippy-popper[x-placement^=left] .tippy-backdrop[data-state=visible] {
+            -webkit-transform: scale(1) translate(-50%, -50%);
+            transform: scale(1) translate(-50%, -50%)
+        }
+
+        .tippy-popper[x-placement^=left] .tippy-backdrop[data-state=hidden] {
+            -webkit-transform: scale(.2) translate(-75%, -50%);
+            transform: scale(.2) translate(-75%, -50%);
+            opacity: 0
+        }
+
+        .tippy-popper[x-placement^=left] [data-animation=shift-toward][data-state=visible] {
+            -webkit-transform: translateX(-10px);
+            transform: translateX(-10px)
+        }
+
+        .tippy-popper[x-placement^=left] [data-animation=shift-toward][data-state=hidden] {
+            opacity: 0;
+            -webkit-transform: translateX(-20px);
+            transform: translateX(-20px)
+        }
+
+        .tippy-popper[x-placement^=left] [data-animation=perspective] {
+            -webkit-transform-origin: right;
+            transform-origin: right
+        }
+
+        .tippy-popper[x-placement^=left] [data-animation=perspective][data-state=visible] {
+            -webkit-transform: translateX(-10px) rotateY(0);
+            transform: translateX(-10px) rotateY(0)
+        }
+
+        .tippy-popper[x-placement^=left] [data-animation=perspective][data-state=hidden] {
+            opacity: 0;
+            -webkit-transform: translateX(0) rotateY(-60deg);
+            transform: translateX(0) rotateY(-60deg)
+        }
+
+        .tippy-popper[x-placement^=left] [data-animation=fade][data-state=visible] {
+            -webkit-transform: translateX(-10px);
+            transform: translateX(-10px)
+        }
+
+        .tippy-popper[x-placement^=left] [data-animation=fade][data-state=hidden] {
+            opacity: 0;
+            -webkit-transform: translateX(-10px);
+            transform: translateX(-10px)
+        }
+
+        .tippy-popper[x-placement^=left] [data-animation=shift-away][data-state=visible] {
+            -webkit-transform: translateX(-10px);
+            transform: translateX(-10px)
+        }
+
+        .tippy-popper[x-placement^=left] [data-animation=shift-away][data-state=hidden] {
+            opacity: 0;
+            -webkit-transform: translateX(0);
+            transform: translateX(0)
+        }
+
+        .tippy-popper[x-placement^=left] [data-animation=scale][data-state=visible] {
+            -webkit-transform: translateX(-10px) scale(1);
+            transform: translateX(-10px) scale(1)
+        }
+
+        .tippy-popper[x-placement^=left] [data-animation=scale][data-state=hidden] {
+            opacity: 0;
+            -webkit-transform: translateX(0) scale(.5);
+            transform: translateX(0) scale(.5)
+        }
+
+        .tippy-popper[x-placement^=right] .tippy-backdrop {
+            border-radius: 0 50% 50% 0
+        }
+
+        .tippy-popper[x-placement^=right] .tippy-roundarrow {
+            left: -16px;
+            -webkit-transform-origin: 66.66666666% 50%;
+            transform-origin: 66.66666666% 50%
+        }
+
+        .tippy-popper[x-placement^=right] .tippy-roundarrow svg {
+            position: absolute;
+            left: 0;
+            -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg)
+        }
+
+        .tippy-popper[x-placement^=right] .tippy-arrow {
+            border-right: 8px solid #333;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            left: -7px;
+            margin: 3px 0;
+            -webkit-transform-origin: 100% 50%;
+            transform-origin: 100% 50%
+        }
+
+        .tippy-popper[x-placement^=right] .tippy-backdrop {
+            -webkit-transform-origin: -50% 0;
+            transform-origin: -50% 0
+        }
+
+        .tippy-popper[x-placement^=right] .tippy-backdrop[data-state=visible] {
+            -webkit-transform: scale(1) translate(-50%, -50%);
+            transform: scale(1) translate(-50%, -50%)
+        }
+
+        .tippy-popper[x-placement^=right] .tippy-backdrop[data-state=hidden] {
+            -webkit-transform: scale(.2) translate(-25%, -50%);
+            transform: scale(.2) translate(-25%, -50%);
+            opacity: 0
+        }
+
+        .tippy-popper[x-placement^=right] [data-animation=shift-toward][data-state=visible] {
+            -webkit-transform: translateX(10px);
+            transform: translateX(10px)
+        }
+
+        .tippy-popper[x-placement^=right] [data-animation=shift-toward][data-state=hidden] {
+            opacity: 0;
+            -webkit-transform: translateX(20px);
+            transform: translateX(20px)
+        }
+
+        .tippy-popper[x-placement^=right] [data-animation=perspective] {
+            -webkit-transform-origin: left;
+            transform-origin: left
+        }
+
+        .tippy-popper[x-placement^=right] [data-animation=perspective][data-state=visible] {
+            -webkit-transform: translateX(10px) rotateY(0);
+            transform: translateX(10px) rotateY(0)
+        }
+
+        .tippy-popper[x-placement^=right] [data-animation=perspective][data-state=hidden] {
+            opacity: 0;
+            -webkit-transform: translateX(0) rotateY(60deg);
+            transform: translateX(0) rotateY(60deg)
+        }
+
+        .tippy-popper[x-placement^=right] [data-animation=fade][data-state=visible] {
+            -webkit-transform: translateX(10px);
+            transform: translateX(10px)
+        }
+
+        .tippy-popper[x-placement^=right] [data-animation=fade][data-state=hidden] {
+            opacity: 0;
+            -webkit-transform: translateX(10px);
+            transform: translateX(10px)
+        }
+
+        .tippy-popper[x-placement^=right] [data-animation=shift-away][data-state=visible] {
+            -webkit-transform: translateX(10px);
+            transform: translateX(10px)
+        }
+
+        .tippy-popper[x-placement^=right] [data-animation=shift-away][data-state=hidden] {
+            opacity: 0;
+            -webkit-transform: translateX(0);
+            transform: translateX(0)
+        }
+
+        .tippy-popper[x-placement^=right] [data-animation=scale][data-state=visible] {
+            -webkit-transform: translateX(10px) scale(1);
+            transform: translateX(10px) scale(1)
+        }
+
+        .tippy-popper[x-placement^=right] [data-animation=scale][data-state=hidden] {
+            opacity: 0;
+            -webkit-transform: translateX(0) scale(.5);
+            transform: translateX(0) scale(.5)
+        }
+
+        .tippy-tooltip {
+            position: relative;
+            color: #fff;
+            border-radius: 4px;
+            font-size: .9rem;
+            padding: .3rem .6rem;
+            max-width: 350px;
+            text-align: center;
+            will-change: transform;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background-color: #333
+        }
+
+        .tippy-tooltip[data-size=small] {
+            padding: .2rem .4rem;
+            font-size: .75rem
+        }
+
+        .tippy-tooltip[data-size=large] {
+            padding: .4rem .8rem;
+            font-size: 1rem
+        }
+
+        .tippy-tooltip[data-animatefill] {
+            overflow: hidden;
+            background-color: transparent
+        }
+
+        .tippy-tooltip[data-interactive],
+        .tippy-tooltip[data-interactive] path {
+            pointer-events: auto
+        }
+
+        .tippy-tooltip[data-inertia][data-state=visible] {
+            transition-timing-function: cubic-bezier(.53, 2, .36, .85)
+        }
+
+        .tippy-tooltip[data-inertia][data-state=hidden] {
+            transition-timing-function: ease
+        }
+
+        .tippy-arrow,
+        .tippy-roundarrow {
+            position: absolute;
+            width: 0;
+            height: 0
+        }
+
+        .tippy-roundarrow {
+            width: 24px;
+            height: 8px;
+            fill: #333;
+            pointer-events: none
+        }
+
+        .tippy-backdrop {
+            position: absolute;
+            will-change: transform;
+            background-color: #333;
+            border-radius: 50%;
+            width: calc(110% + 2rem);
+            left: 50%;
+            top: 50%;
+            z-index: -1;
+            transition: all cubic-bezier(.46, .1, .52, .98);
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden
+        }
+
+        .tippy-backdrop:after {
+            content: "";
+            float: left;
+            padding-top: 100%
+        }
+
+        .tippy-backdrop+.tippy-content {
+            transition-property: opacity
+        }
+
+        .tippy-backdrop+.tippy-content[data-state=visible] {
+            opacity: 1
+        }
+
+        .tippy-backdrop+.tippy-content[data-state=hidden] {
+            opacity: 0
+        }
+
+        @media (max-width:360px) {
+            .tippy-popper {
+                max-width: 96%;
+                max-width: calc(100% - 20px)
+            }
+        }
+    </style>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#00bfc5">
+    <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+    <title>ABİTURENT</title>
+    <link href="./assests/timber.scss.css" rel="stylesheet" type="text/css" media="all">
+    <link href="./assests/vendors.css" rel="stylesheet" type="text/css" media="all">
+    <link href="./assests/style.css" rel="stylesheet" type="text/css" media="all">
+    <link href="./assests/responsive.css" rel="stylesheet" type="text/css" media="all">
+    <link href="./assests/theme-default.css" rel="stylesheet" type="text/css" media="all">
+    <link href="./assests/theme-custom.css" rel="stylesheet" type="text/css" media="all">
+    <link href="./assests/theme-responsive.css" rel="stylesheet" type="text/css" media="all">
+
+    <link href="./assests/skin-and-color.css" rel="stylesheet" type="text/css" media="all">
+    <link rel="stylesheet" type="text/css" href="//use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <script
+        src="./assests/option_selection-fe6b72c2bbdd3369ac0bfefe8648e3c889efca213baefd4cfb0dd9363563831f.js"></script>
+    <script src="./assests/api.jquery-e94e010e92e659b566dbc436fdfe5242764380e00398907a14955ba301a4749f.js"></script>
+    <script src="./assests/cart.api.js"></script>
+    <script src="./assests/theme.js"></script>
+
+    <script type="text/javascript" src="./assests/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css" href="./slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="./slick/slick-theme.css">
+    <style type="text/css">
+        .slick-slide img {
+            width: 100%;
+        }
+
+        .slick-slide {
+            transition: all ease-in-out .3s;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+    <script src="./slick/slick.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        $(document).on('ready', function () {
+            $("#hero-slider .regular").slick({
+                dots: false,
+                infinite: true,
+                slidesToShow: 1,
+                slidesToScroll: 1
+            });
+        });
+    </script>
+</head>
+
+<body class="template-index ">
+    <div class="wrapper">
+        <div
+            class="header-area header-area--multi-row header-area--multi-row--separate-navigation header-sticky header-common-class is-sticky">
+            <!--=======  header top wrapper  =======-->
+            <div class="header-top-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <!--=======  header wrapper  =======-->
+                            <div class="header-wrapper d-none d-lg-flex">
+
+                                <!-- logo -->
+                                <div class="logo">
+                                    <a href="" class="theme-logo">
+                                        <img src="https://www.abiturient.az/images/logo.png" alt="logo">
+                                    </a>
+                                </div><!-- header icon -->
+                                <div class="header-icon-wrapper">
+                                    <ul class="icon-list">
+                                        <li>
+                                            <a href="javascript:void(0)" id="search-overlay-trigger">
+                                                <i class="bi bi-search"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <div class="header-cart-icon">
+                                                <!-- mini cart  -->
+
+
+
+                                                <a href="javascript:void(0)" id="minicart-trigger">
+                                                    <i class="bi bi-bag-check"></i>
+                                                    <span class="counter bigcounter">0</span>
+                                                </a>
+
+                                                <!-- mini cart  -->
+                                                <div class="mini-cart" id="mini-cart">
+
+                                                    <div class="cart-empty-title" style="display:block;">
+                                                        <h3>Your cart is currently empty.</h3>
+                                                    </div>
+
+                                                    <div class="cart-items-wrapper ps-scroll single-product-cart single-cart-item-loop ps"
+                                                        style="display:none;">
+
+
+
+                                                        <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+                                                            <div class="ps__thumb-x" tabindex="0"
+                                                                style="left: 0px; width: 0px;"></div>
+                                                        </div>
+                                                        <div class="ps__rail-y" style="top: 0px; right: 0px;">
+                                                            <div class="ps__thumb-y" tabindex="0"
+                                                                style="top: 0px; height: 0px;"></div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="cart-calculation single-product-cart"
+                                                        style="display:none;">
+                                                        <table class="table">
+                                                            <tbody>
+
+                                                                <tr>
+                                                                    <td class="text-left">Sub Total :</td>
+                                                                    <td class="text-right shopping-cart__total"><span
+                                                                            class="money"
+                                                                            data-currency-usd="$0.00">$0.00</span></td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td class="text-left">Total :</td>
+                                                                    <td class="text-right shopping-cart__total"><span
+                                                                            class="money"
+                                                                            data-currency-usd="$0.00">$0.00</span> </td>
+                                                                </tr>
+
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+
+
+                                                    <div class="cart-buttons single-product-cart" style="display:none;">
+                                                        <a href="">View Cart</a>
+                                                        <a href="">Checkout</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--=======  End of header wrapper  =======-->
+
+                            <!--=======  mobile navigation area  =======-->
+                            <div class="header-mobile-navigation d-block d-lg-none">
+                                <div class="row align-items-center">
+                                    <div class="col-6 col-md-6">
+                                        <div class="header-logo">
+                                            <a href="" class="theme-logo">
+                                                <img src="https://www.abiturient.az/images/logo.png" alt="logo">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-6">
+                                        <div class="mobile-navigation text-right">
+                                            <div class="header-icon-wrapper">
+                                                <ul class="icon-list justify-content-end">
+
+                                                    <li>
+                                                        <div class="header-cart-icon">
+                                                            <a href="">
+                                                                <i class="ion-bag"></i>
+                                                                <span class="counter bigcounter">0</span>
+                                                            </a>
+                                                        </div>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="javascript:void(0)" class="mobile-menu-icon"
+                                                            id="mobile-menu-trigger"><i class="fa fa-bars"></i></a>
+                                                    </li>
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--=======  End of mobile navigation area  =======-->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--=======  End of header top wrapper  =======-->
+
+            <div class="navigation-menu-area d-none d-lg-block">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="navigation-menu-wrapper">
+                                <nav>
+                                    <ul>
+
+                                        <li><a href="index.html">Ana Səhifə</a> </li>
+                                        <li><a href="about.html">Haqqımızda</a> </li>
+                                        <li><a href="news.html">Tədbirlər</a></li>
+                                        <li><a href="jurnals.html">Jurnallar</a></li>
+                                        <li><a href="contact.html">Əlaqə</a></li>
+
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="search-overlay" id="search-overlay">
+            <a href="javascript:void(0)" class="close-search-overlay" id="close-search-overlay">
+                <i class="ion-ios-close-empty"></i>
+            </a>
+            <!--=======  search form  =======-->
+
+            <div class="search-form">
+                <form action="" method="get" role="search" style="position: relative;">
+                    <input type="search" id="search" name="q" value="" placeholder="Search our store"
+                        autocomplete="off">
+                    <button type="submit"><i class="ion-android-search"></i></button>
+                    <ul class="search-results home-two"
+                        style="position: absolute; left: 0px; top: 69px; display: none;"></ul>
+                </form>
+            </div>
+
+            <!--=======  End of search form  =======-->
+        </div>
+        <div class="offcanvas-mobile-menu header-common-class" id="offcanvas-mobile-menu">
+            <a href="javascript:void(0)" class="offcanvas-menu-close" id="offcanvas-menu-close-trigger">
+                <i class="ion-android-close"></i>
+            </a>
+
+            <div class="offcanvas-wrapper">
+
+                <div class="offcanvas-inner-content">
+                    <div class="offcanvas-mobile-search-area">
+                        <form action="" method="get" role="search" style="position: relative;">
+                            <input type="search" name="q" value="" placeholder="Search our store" autocomplete="off">
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                            <ul class="search-results home-two"
+                                style="position: absolute; left: 0px; top: 40px; display: none;">
+                            </ul>
+                        </form>
+                    </div>
+                    <nav class="offcanvas-navigation">
+                        <ul>
+                            <li><a href="index.html">Ana Səhifə</a> </li>
+                            <li><a href="about.html">Haqqımızda</a> </li>
+                            <li><a href="news.html">Tədbirlər</a></li>
+                            <li><a href="jurnals.html">Jurnallar</a></li>
+                            <li><a href="contact.html">Əlaqə</a></li>
+                        </ul>
+                    </nav>
+
+
+
+
+                    <div class="offcanvas-settings">
+                        <nav class="offcanvas-navigation">
+                            <ul>
+                                <li class="menu-item-has-children"><span class="menu-expand"><i></i></span><a href="">MY
+                                        ACCOUNT </a>
+                                    <ul class="sub-menu" style="display: none;">
+                                        <li><a href="" id="customer_login_link">Log in</a>
+                                        </li>
+
+                                        <li><a href="" id="customer_register_link">Create
+                                                account</a></li>
+                                    </ul>
+                                </li>
+                                <li class="switcher-currency-trigger currency menu-item-has-children"><span
+                                        class="menu-expand"><i></i></span>
+
+                                    <span class="currency-trigger dropdown-toggle">
+                                        <h4 class="current-currency title">USD</h4>
+                                    </span>
+
+
+
+                                    <ul class="sub-menu switcher-dropdown" id="currencies" style="display: none;">
+
+
+
+
+                                        <li data-currency="USD" class="currency__item active"><a
+                                                style="cursor: pointer">USD - US
+                                                Dollar</a></li>
+
+
+
+
+                                        <li data-currency="EUR" class="currency__item"><a style="cursor: pointer">EUR -
+                                                Euro</a></li>
+
+
+
+
+                                        <li data-currency="GBP" class="currency__item"><a style="cursor: pointer">GBP -
+                                                British Pound</a>
+                                        </li>
+
+
+
+
+                                        <li data-currency="INR" class="currency__item"><a style="cursor: pointer">INR -
+                                                Indian Rupee</a>
+                                        </li>
+
+
+
+
+                                        <li data-currency="BDT" class="currency__item"><a style="cursor: pointer">BDT -
+                                                Bangladesh
+                                                Taka</a></li>
+
+
+
+
+                                        <li data-currency="JPY" class="currency__item"><a style="cursor: pointer">JPY -
+                                                Japan Yen</a></li>
+
+
+
+
+                                        <li data-currency="CAD" class="currency__item"><a style="cursor: pointer">CAD -
+                                                Canada Dollar</a>
+                                        </li>
+
+
+
+
+                                        <li data-currency="AUD" class="currency__item"><a style="cursor: pointer">AUD -
+                                                Australian
+                                                Dollar</a></li>
+
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+        <div class="breadcrumb-area section-space--half">
+            <div class="container wide">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="breadcrumb-bg">
+                            <div class="breadcrumb-content">
+                                <h2 class="breadcrumb-content__title">Jurnallar</h2>
+                                <nav class="" role="navigation" aria-label="breadcrumbs">
+                                    <ul class="breadcrumb-list breadcrumb-content__page-map">
+                                        <li>
+                                            <a href="index.html" title="home">Ana səhifə</a>
+                                        </li>
+                                        <li>
+                                            <span>Jurnallar</span>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <main>
+            <div id="shopify-section-template--14336701628490__main" class="shopify-section">
+                <div class="page-content-area">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="page-wrapper">
+                                    <div class="page-content-wrapper">
+                                        <div class="row ">
+                                            <div class="col-lg-3 order-2 order-lg-1">
+                                                <div class="sidebar-wrapper shop-sidebar storefront-filter icofont">
+                                                    <form class="filter-form" name="testform" id="myform">
+                                                        <div
+                                                            class="blog-sidebar sidebar-single widget-collapse sidebar-widget">
+                                                            <h5 class="title">
+                                                                Price
+                                                            </h5>
+                                                            <div class="sidebar-body widget-collapse-hide">
+                                                                <div
+                                                                    class="checkbox-container categories-list sidebar-price-filter">
+
+                                                                    <div class="filter-range-from">
+                                                                        <span>₼</span>
+                                                                        <input name="filter.v.price.gte"
+                                                                            id="Filter-price-1" type="number"
+                                                                            placeholder="0" min="0" max="100.00">
+                                                                        <label for="Filter-price-1">dan</label>
+                                                                    </div>
+                                                                    <div class="filter-price-range-to">
+                                                                        <span>₼</span>
+                                                                        <input name="filter.v.price.lte"
+                                                                            id="Filter-price-1" type="number"
+                                                                            placeholder="100.00" min="0" max="110.00">
+                                                                        <label for="Filter-price-1">kimi</label>
+                                                                    </div>
+
+                                                                </div>
+                                                                <input class="mt-20 theme-default-button" type="submit"
+                                                                    value="Filter">
+                                                            </div>
+                                                        </div>
+                                                        <div
+                                                            class="blog-sidebar sidebar-single widget-collapse sidebar-widget">
+                                                            <h5 class="title">
+                                                                Kateqoriya
+                                                            </h5>
+                                                            <div class="sidebar-body widget-collapse-hide">
+                                                                <ul class="checkbox-container categories-list">
+                                                                    <li>
+                                                                        <div class="custom-control custom-checkbox">
+
+
+                                                                            <input type="checkbox"
+                                                                                name="filter.v.availability" value="1"
+                                                                                id="Filter-availability-1"
+                                                                                class="custom-control-input">
+                                                                            <label for="Filter-availability-1"
+                                                                                class="custom-control-label">Abituriyent 
+                                                                                <span class="count_value">
+                                                                                    (33)</span></label>
+
+                                                                            <span class="checkmark"></span>
+
+                                                                        </div>
+                                                                    </li>
+                                                                    <li>
+                                                                        <div class="custom-control custom-checkbox">
+
+
+                                                                            <input type="checkbox"
+                                                                                name="filter.v.availability" value="0"
+                                                                                id="Filter-availability-2"
+                                                                                class="custom-control-input">
+                                                                            <label for="Filter-availability-2"
+                                                                                class="custom-control-label">Magistr <span class="count_value">
+                                                                                    (18)</span></label>
+
+                                                                            <span class="checkmark"></span>
+
+                                                                        </div>
+                                                                    </li>
+                                                                    <li>
+                                                                        <div class="custom-control custom-checkbox">
+
+
+                                                                            <input type="checkbox"
+                                                                                name="filter.v.availability" value="0"
+                                                                                id="Filter-availability-2"
+                                                                                class="custom-control-input">
+                                                                            <label for="Filter-availability-2"
+                                                                                class="custom-control-label">Dövlət qulluğu <span class="count_value">
+                                                                                    (38)</span></label>
+
+                                                                            <span class="checkmark"></span>
+
+                                                                        </div>
+                                                                    </li>
+                                                                    <li>
+                                                                        <div class="custom-control custom-checkbox">
+
+
+                                                                            <input type="checkbox"
+                                                                                name="filter.v.availability" value="0"
+                                                                                id="Filter-availability-2"
+                                                                                class="custom-control-input">
+                                                                            <label for="Filter-availability-2"
+                                                                                class="custom-control-label">Metodiki dərs vəsaitləri <span class="count_value">
+                                                                                    (16)</span></label>
+
+                                                                            <span class="checkmark"></span>
+
+                                                                        </div>
+                                                                    </li>
+                                                                    <li>
+                                                                        <div class="custom-control custom-checkbox">
+
+
+                                                                            <input type="checkbox"
+                                                                                name="filter.v.availability" value="0"
+                                                                                id="Filter-availability-2"
+                                                                                class="custom-control-input">
+                                                                            <label for="Filter-availability-2"
+                                                                                class="custom-control-label">Statistik məlumatlar
+                                                                                <span class="count_value">
+                                                                                    (4)</span></label>
+
+                                                                            <span class="checkmark"></span>
+
+                                                                        </div>
+                                                                    </li>
+                                                                    <li>
+                                                                        <div class="custom-control custom-checkbox">
+
+
+                                                                            <input type="checkbox"
+                                                                                name="filter.v.availability" value="0"
+                                                                                id="Filter-availability-2"
+                                                                                class="custom-control-input">
+                                                                            <label for="Filter-availability-2"
+                                                                                class="custom-control-label">Xüsusi qabiliyyət ixtisaslar<span class="count_value">
+                                                                                    (29)</span></label>
+
+                                                                            <span class="checkmark"></span>
+
+                                                                        </div>
+                                                                    </li>
+                                                                    <li>
+                                                                        <div class="custom-control custom-checkbox">
+
+
+                                                                            <input type="checkbox"
+                                                                                name="filter.v.availability" value="0"
+                                                                                id="Filter-availability-2"
+                                                                                class="custom-control-input">
+                                                                            <label for="Filter-availability-2"
+                                                                                class="custom-control-label">Xüsusi qabiliyyət imtahanları <span class="count_value">
+                                                                                    (20)</span></label>
+
+                                                                            <span class="checkmark"></span>
+
+                                                                        </div>
+                                                                    </li>
+                                                                    <li>
+                                                                        <div class="custom-control custom-checkbox">
+
+
+                                                                            <input type="checkbox"
+                                                                                name="filter.v.availability" value="0"
+                                                                                id="Filter-availability-2"
+                                                                                class="custom-control-input">
+                                                                            <label for="Filter-availability-2"
+                                                                                class="custom-control-label">Xüsusi buraxılışlar <span class="count_value">
+                                                                                    (4)</span></label>
+
+                                                                            <span class="checkmark"></span>
+
+                                                                        </div>
+                                                                    </li>
+                                                                    <li>
+                                                                        <div class="custom-control custom-checkbox">
+
+
+                                                                            <input type="checkbox"
+                                                                                name="filter.v.availability" value="0"
+                                                                                id="Filter-availability-2"
+                                                                                class="custom-control-input">
+                                                                            <label for="Filter-availability-2"
+                                                                                class="custom-control-label">Rezidentura <span class="count_value">
+                                                                                    (6)</span></label>
+
+                                                                            <span class="checkmark"></span>
+
+                                                                        </div>
+                                                                    </li>
+                                                                    <li>
+                                                                        <div class="custom-control custom-checkbox">
+
+
+                                                                            <input type="checkbox"
+                                                                                name="filter.v.availability" value="0"
+                                                                                id="Filter-availability-2"
+                                                                                class="custom-control-input">
+                                                                            <label for="Filter-availability-2"
+                                                                                class="custom-control-label">Test topluları <span class="count_value">
+                                                                                    (56)</span></label>
+
+                                                                            <span class="checkmark"></span>
+
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <div
+                                                            class="blog-sidebar sidebar-single widget-collapse sidebar-widget">
+                                                            <h5 class="title">
+                                                               Tarix (İl)
+                                                            </h5>
+                                                            <div class="sidebar-body widget-collapse-hide"
+                                                                style="display: none;">
+                                                                <ul class="checkbox-container categories-list">
+                                                                    <li>
+                                                                        <div class="custom-control custom-checkbox">
+
+
+                                                                            <input type="checkbox"
+                                                                                name="filter.p.product_type"
+                                                                                value="Type 10"
+                                                                                id="Filter-product-type-2"
+                                                                                class="custom-control-input">
+                                                                            <label for="Filter-product-type-2"
+                                                                                class="custom-control-label">2009
+                                                                                <span class="count_value">
+                                                                                    (4)</span></label>
+
+                                                                            <span class="checkmark"></span>
+
+                                                                        </div>
+                                                                    </li>
+                                                                    <li>
+                                                                        <div class="custom-control custom-checkbox">
+
+
+                                                                            <input type="checkbox"
+                                                                                name="filter.p.product_type"
+                                                                                value="Type 11"
+                                                                                id="Filter-product-type-3"
+                                                                                class="custom-control-input">
+                                                                            <label for="Filter-product-type-3"
+                                                                                class="custom-control-label">2010
+                                                                                <span class="count_value">
+                                                                                    (3)</span></label>
+
+                                                                            <span class="checkmark"></span>
+
+                                                                        </div>
+                                                                    </li>
+                                                                    <li>
+                                                                        <div class="custom-control custom-checkbox">
+
+
+                                                                            <input type="checkbox"
+                                                                                name="filter.p.product_type"
+                                                                                value="Type 12"
+                                                                                id="Filter-product-type-4"
+                                                                                class="custom-control-input">
+                                                                            <label for="Filter-product-type-4"
+                                                                                class="custom-control-label">2011
+                                                                                <span class="count_value">
+                                                                                    (1)</span></label>
+
+                                                                            <span class="checkmark"></span>
+
+                                                                        </div>
+                                                                    </li>
+                                                                    <li>
+                                                                        <div class="custom-control custom-checkbox">
+
+
+                                                                            <input type="checkbox"
+                                                                                name="filter.p.product_type"
+                                                                                value="Type 2"
+                                                                                id="Filter-product-type-5"
+                                                                                class="custom-control-input">
+                                                                            <label for="Filter-product-type-5"
+                                                                                class="custom-control-label">2012
+                                                                                <span class="count_value">
+                                                                                    (3)</span></label>
+
+                                                                            <span class="checkmark"></span>
+
+                                                                        </div>
+                                                                    </li>
+                                                                    <li>
+                                                                        <div class="custom-control custom-checkbox">
+
+
+                                                                            <input type="checkbox"
+                                                                                name="filter.p.product_type"
+                                                                                value="Type 3"
+                                                                                id="Filter-product-type-6"
+                                                                                class="custom-control-input">
+                                                                            <label for="Filter-product-type-6"
+                                                                                class="custom-control-label">2013
+                                                                                <span class="count_value">
+                                                                                    (3)</span></label>
+
+                                                                            <span class="checkmark"></span>
+
+                                                                        </div>
+                                                                    </li>
+                                                                    <li>
+                                                                        <div class="custom-control custom-checkbox">
+
+
+                                                                            <input type="checkbox"
+                                                                                name="filter.p.product_type"
+                                                                                value="Type 4"
+                                                                                id="Filter-product-type-7"
+                                                                                class="custom-control-input">
+                                                                            <label for="Filter-product-type-7"
+                                                                                class="custom-control-label">2014
+                                                                                <span class="count_value">
+                                                                                    (3)</span></label>
+
+                                                                            <span class="checkmark"></span>
+
+                                                                        </div>
+                                                                    </li>
+                                                                    <li>
+                                                                        <div class="custom-control custom-checkbox">
+
+
+                                                                            <input type="checkbox"
+                                                                                name="filter.p.product_type"
+                                                                                value="Type 5"
+                                                                                id="Filter-product-type-8"
+                                                                                class="custom-control-input">
+                                                                            <label for="Filter-product-type-8"
+                                                                                class="custom-control-label">2015
+                                                                                <span class="count_value">
+                                                                                    (3)</span></label>
+
+                                                                            <span class="checkmark"></span>
+
+                                                                        </div>
+                                                                    </li>
+                                                                    <li>
+                                                                        <div class="custom-control custom-checkbox">
+
+
+                                                                            <input type="checkbox"
+                                                                                name="filter.p.product_type"
+                                                                                value="Type 6"
+                                                                                id="Filter-product-type-9"
+                                                                                class="custom-control-input">
+                                                                            <label for="Filter-product-type-9"
+                                                                                class="custom-control-label">2016
+                                                                                <span class="count_value">
+                                                                                    (3)</span></label>
+
+                                                                            <span class="checkmark"></span>
+
+                                                                        </div>
+                                                                    </li>
+                                                                    <li>
+                                                                        <div class="custom-control custom-checkbox">
+
+
+                                                                            <input type="checkbox"
+                                                                                name="filter.p.product_type"
+                                                                                value="Type 7"
+                                                                                id="Filter-product-type-10"
+                                                                                class="custom-control-input">
+                                                                            <label for="Filter-product-type-10"
+                                                                                class="custom-control-label">2017
+                                                                                <span class="count_value">
+                                                                                    (3)</span></label>
+
+                                                                            <span class="checkmark"></span>
+
+                                                                        </div>
+                                                                    </li>
+                                                                    <li>
+                                                                        <div class="custom-control custom-checkbox">
+
+
+                                                                            <input type="checkbox"
+                                                                                name="filter.p.product_type"
+                                                                                value="Type 8"
+                                                                                id="Filter-product-type-11"
+                                                                                class="custom-control-input">
+                                                                            <label for="Filter-product-type-11"
+                                                                                class="custom-control-label">2018
+                                                                                <span class="count_value">
+                                                                                    (3)</span></label>
+
+                                                                            <span class="checkmark"></span>
+
+                                                                        </div>
+                                                                    </li>
+                                                                    <li>
+                                                                        <div class="custom-control custom-checkbox">
+
+
+                                                                            <input type="checkbox"
+                                                                                name="filter.p.product_type"
+                                                                                value="Type 9"
+                                                                                id="Filter-product-type-12"
+                                                                                class="custom-control-input">
+                                                                            <label for="Filter-product-type-12"
+                                                                                class="custom-control-label">2019
+                                                                                <span class="count_value">
+                                                                                    (3)</span></label>
+
+                                                                            <span class="checkmark"></span>
+
+                                                                        </div>
+                                                                    </li>
+                                                                    <li>
+                                                                        <div class="custom-control custom-checkbox">
+
+
+                                                                            <input type="checkbox"
+                                                                                name="filter.p.product_type"
+                                                                                value="Type 9"
+                                                                                id="Filter-product-type-12"
+                                                                                class="custom-control-input">
+                                                                            <label for="Filter-product-type-12"
+                                                                                class="custom-control-label">2020
+                                                                                <span class="count_value">
+                                                                                    (3)</span></label>
+
+                                                                            <span class="checkmark"></span>
+
+                                                                        </div>
+                                                                    </li>
+                                                                    <li>
+                                                                        <div class="custom-control custom-checkbox">
+
+
+                                                                            <input type="checkbox"
+                                                                                name="filter.p.product_type"
+                                                                                value="Type 9"
+                                                                                id="Filter-product-type-12"
+                                                                                class="custom-control-input">
+                                                                            <label for="Filter-product-type-12"
+                                                                                class="custom-control-label">2021
+                                                                                <span class="count_value">
+                                                                                    (3)</span></label>
+
+                                                                            <span class="checkmark"></span>
+
+                                                                        </div>
+                                                                    </li>
+                                                                    <li>
+                                                                        <div class="custom-control custom-checkbox">
+
+
+                                                                            <input type="checkbox"
+                                                                                name="filter.p.product_type"
+                                                                                value="Type 9"
+                                                                                id="Filter-product-type-12"
+                                                                                class="custom-control-input">
+                                                                            <label for="Filter-product-type-12"
+                                                                                class="custom-control-label">2022
+                                                                                <span class="count_value">
+                                                                                    (3)</span></label>
+
+                                                                            <span class="checkmark"></span>
+
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <div
+                                                            class="blog-sidebar sidebar-single widget-collapse sidebar-widget">
+                                                            <h5 class="title">
+                                                                Dil (Kitab dili)
+                                                            </h5>
+                                                            <div class="sidebar-body widget-collapse-hide"
+                                                                style="display: none;">
+                                                                <ul class="checkbox-container categories-list">
+                                                                    <li>
+                                                                        <div class="custom-control custom-checkbox">
+
+
+                                                                            <input type="checkbox"
+                                                                                name="filter.p.vendor"
+                                                                                value="Susan Demo" id="Filter-brand-1"
+                                                                                class="custom-control-input">
+                                                                            <label for="Filter-brand-1"
+                                                                                class="custom-control-label">Azərbaycan dili
+                                                                                <span class="count_value">
+                                                                                    (100)</span></label>
+
+                                                                            <span class="checkmark"></span>
+
+                                                                        </div>
+                                                                    </li>
+                                                                    <li>
+                                                                        <div class="custom-control custom-checkbox">
+
+
+                                                                            <input type="checkbox"
+                                                                                name="filter.p.vendor"
+                                                                                value="Susan Demo" id="Filter-brand-1"
+                                                                                class="custom-control-input">
+                                                                            <label for="Filter-brand-1"
+                                                                                class="custom-control-label">Rus dili
+                                                                                <span class="count_value">
+                                                                                    (100)</span></label>
+
+                                                                            <span class="checkmark"></span>
+
+                                                                        </div>
+                                                                    </li>
+                                                                    <li>
+                                                                        <div class="custom-control custom-checkbox">
+
+
+                                                                            <input type="checkbox"
+                                                                                name="filter.p.vendor"
+                                                                                value="Susan Demo" id="Filter-brand-1"
+                                                                                class="custom-control-input">
+                                                                            <label for="Filter-brand-1"
+                                                                                class="custom-control-label">İngilis dili
+                                                                                <span class="count_value">
+                                                                                    (100)</span></label>
+
+                                                                            <span class="checkmark"></span>
+
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+
+                                                <script>
+                                                    /* Slidebar collapse */
+                                                    $('.widget-collapse h5').on("click", function () {
+                                                        $(this).siblings('.widget-collapse-hide').slideToggle();
+                                                        $(this).toggleClass('widget-collapse-show');
+                                                    });
+
+                                                    $('input[type="checkbox"]').click(function () {
+                                                        setTimeout(function () {
+                                                            $('form[name="testform"]').submit();
+                                                        }, 500);
+                                                    });
+
+                                                </script>
+
+                                                <style>
+                                                    .widget-collapse {
+                                                        position: relative;
+                                                    }
+
+                                                    .widget-collapse .widget-collapse-hide {
+                                                        display: block;
+                                                        padding-top: 20px;
+                                                    }
+
+                                                    .widget-collapse h5:after {
+                                                        font-family: "Font Awesome 5 Free";
+                                                        content: "\f107";
+                                                        position: absolute;
+                                                        right: 0;
+                                                        top: 0;
+                                                        display: inline-block;
+                                                        padding-right: 3px;
+                                                        vertical-align: middle;
+                                                        font-weight: 900;
+                                                    }
+
+                                                    .widget-collapse h5.widget-collapse-show:after {
+                                                        content: "\f106";
+                                                    }
+
+                                                    .storefront-filter .custom-control-input {
+                                                        height: 25px;
+                                                    }
+
+                                                    .blog-sidebar.sidebar-single.widget-collapse.sidebar-widget {
+                                                        margin-bottom: 0;
+                                                    }
+
+                                                    .blog-sidebar.widget-collapse .title {
+                                                        cursor: pointer;
+                                                        padding-bottom: 20px;
+                                                        position: relative;
+                                                    }
+
+                                                    .storefront-filter .custom-checkbox {
+                                                        width: 100%;
+                                                    }
+
+                                                    .storefront-filter .custom-control-label {
+                                                        width: 100%;
+                                                        transition: .3s;
+                                                        color: #333
+                                                    }
+
+                                                    .storefront-filter .count_value {
+                                                        float: right;
+                                                    }
+
+                                                    .blog-sidebar.widget-collapse .title:before {
+                                                        bottom: 4px;
+                                                    }
+
+                                                    .blog-sidebar .title:before {
+                                                        width: 100%;
+                                                        height: 1px;
+                                                        bottom: -10px;
+                                                        left: 0;
+                                                        background-color: #eee;
+                                                        content: "";
+                                                        position: absolute;
+                                                    }
+
+
+                                                    .storefront-filter .sidebar-widget .custom-checkbox {
+                                                        position: relative;
+                                                    }
+
+                                                    .storefront-filter .sidebar-widget .custom-checkbox .checkmark {
+                                                        position: absolute;
+                                                        top: 2px;
+                                                        left: 0;
+                                                        height: 15px;
+                                                        width: 15px;
+                                                        background-color: #fff;
+                                                        border: 1px solid #ccc;
+                                                        border-radius: 3px;
+                                                    }
+
+                                                    .storefront-filter .sidebar-widget .custom-checkbox .checkmark::after {
+                                                        left: 4px;
+                                                        top: 1px;
+                                                        width: 5px;
+                                                        height: 8px;
+                                                        border: solid #fff;
+                                                        border-top-width: medium;
+                                                        border-right-width: medium;
+                                                        border-bottom-width: medium;
+                                                        border-left-width: medium;
+                                                        border-width: 0 2px 2px 0;
+                                                        -webkit-transform: rotate(45deg);
+                                                        -ms-transform: rotate(45deg);
+                                                        transform: rotate(45deg);
+                                                        position: absolute;
+                                                        content: "";
+                                                    }
+
+                                                    .storefront-filter .sidebar-widget .custom-checkbox input:checked~.checkmark,
+                                                    .storefront-filter .sidebar-widget .custom-checkbox:hover input:not([disabled])~.checkmark {
+                                                        background-color: #00bfc5;
+                                                        border: 1px solid #00bfc5;
+                                                    }
+
+                                                    .storefront-filter .sidebar-widget .custom-checkbox input:disabled~.custom-control-label,
+                                                    .storefront-filter .sidebar-widget .custom-checkbox input:disabled~.checkmark {
+                                                        opacity: .7;
+                                                    }
+
+                                                    .sidebar-wrapper.storefront-filter {
+                                                        padding-top: 10px;
+                                                    }
+
+                                                    .storefront-filter .sidebar-widget .custom-checkbox:hover input:not([disabled])~.custom-control-label {
+                                                        color: #00bfc5;
+                                                    }
+
+                                                    .selected-filter-value .blog-tags li {
+                                                        display: inline-block;
+                                                        margin-right: 5px;
+                                                        margin-bottom: 5px;
+                                                    }
+
+                                                    .storefront-filter .custom-control-label:before {
+                                                        border: none
+                                                    }
+
+                                                    .storefront-filter .custom-control-input:checked~.custom-control-label:before {
+                                                        display: none
+                                                    }
+
+                                                    .storefront-filter .custom-control-input:disabled~.custom-control-label {
+                                                        color: #222;
+                                                    }
+
+                                                    .storefront-filter .checkbox-container li {
+                                                        margin-bottom: 8px;
+                                                    }
+
+                                                    /* Collection Filter */
+                                                    .custom-control-input {
+                                                        position: absolute;
+                                                        z-index: 1;
+                                                        opacity: 0;
+                                                        left: 0;
+                                                    }
+
+                                                    .storefront-filter .widget-collapse .widget-collapse-hide {
+                                                        padding-top: 10px;
+                                                    }
+
+                                                    .filter-value-counter {
+                                                        display: flex;
+                                                        justify-content: space-between;
+                                                        margin-bottom: 15px;
+                                                    }
+
+                                                    .shop-sidebar .blog-sidebar {
+                                                        padding-bottom: 40px;
+                                                    }
+
+                                                    .sidebar-price-filter {
+                                                        display: flex;
+                                                        justify-content: space-between;
+                                                    }
+
+                                                    .sidebar-price-filter input {
+                                                        width: 80px;
+                                                        padding: 10px;
+                                                        border: 1px solid #333;
+                                                        background: transparent;
+                                                    }
+
+                                                    input.mt-20.theme-default-button {
+                                                        margin-top: 20px;
+                                                    }
+
+                                                    .shopify-app-block {
+                                                        margin-bottom: 10px;
+                                                    }
+
+                                                    span.filter-value-selected {
+                                                        border: 1px dashed #333;
+                                                        padding: 2px 10px;
+                                                        border-radius: 30px;
+                                                    }
+
+                                                    .selected-filter-value ul li.active {
+                                                        padding-bottom: 40px;
+                                                    }
+
+                                                    .selected-filter-value ul li:only-child {
+                                                        display: none;
+                                                    }
+
+                                                    .shop-sidebar .blog-sidebar.selected-filter-value {
+                                                        padding-bottom: 0;
+                                                    }
+
+                                                    a.filter-reset-selected-value {
+                                                        text-decoration: underline;
+                                                    }
+
+                                                    .blog-sidebar.selected-filter-value .blog-tags li.active a {
+                                                        border: none;
+                                                        background: transparent;
+                                                        color: #00bfc5;
+                                                        text-decoration: underline;
+                                                    }
+
+                                                    .blog-sidebar.selected-filter-value .blog-tags li a {
+                                                        border: 1px dashed #333;
+                                                        padding: 2px 7px;
+                                                        border-radius: 30px;
+                                                    }
+
+                                                    .blog-sidebar.selected-filter-value .blog-tags li a:hover {
+                                                        background: transparent;
+                                                        color: #333;
+                                                    }
+                                                </style>
+                                            </div>
+                                            <div class="col-lg-9 order-1 order-lg-2 col-12">
+                                                <!--=======  shop page content  =======-->
+                                                <div class="shop-page-content">
+
+                                                    <div class="row">
+                                                        <div class="col-12 col-md-6 col-lg-3">
+                                                          <div class="col" style="width: 100%; display: inline-block;">
+                                                            <!--=======  single grid product  =======-->
+                                                            <div class="single-grid-product 29444811685962">
+                                                              <div class="single-grid-product__image">
+                                                                <div class="single-grid-product__label">
+                                          
+                                          
+                                          
+                                                                </div>
+                                          
+                                                                <a href="jurnals-detail.html" tabindex="0">
+                                                                  <img class="img-fluid popup_cart_image" alt=""
+                                                                    src="	https://www.abiturient.az/images/jurnallar/N1_AZ_2009.jpg">
+                                          
+                                                                  <img class="img-fluid popup_cart_image" alt=""
+                                                                    src="https://www.abiturient.az/images/jurnallar/N1_AZ_2009.jpg">
+                                          
+                                                                </a>
+                                          
+                                                                <div class="hover-icons"><a href="javascript:void(0);" onclick='' class="" tabindex="0">
+                                                                    <span>
+                                                                      <span class="cart-title"><i class="bi bi-basket"></i></span>
+                                                                    </span>
+                                                                  </a>
+                                                                </div>
+                                                              </div>
+                                          
+                                                              <div class="single-grid-product__content">
+                                                                <div class="single-grid-product__category-rating">
+                                          
+                                                                  <span class="category"><a
+                                                                      href="jurnals-detail.html" title="Vendor 9"
+                                                                      tabindex="0">Abituriyent</a></span>
+                                          
+                                                                </div>
+                                          
+                                                                <h3 class="single-grid-product__title popup_cart_title"> <a
+                                                                    href="jurnals-detail.html" tabindex="0">Abituriyent N1 2009</a> </h3>
+                                          
+                                                                <p class="single-grid-product__price">
+                                          
+                                                                  <span class="discounted-price"><span class="money" data-currency-usd="$79.00">19.00
+                                                                      AZN</span></span>
+                                                                </p>
+                                          
+                                                              </div>
+                                                            </div>
+                                                            <!--=======  End of single grid product  =======-->
+                                                          </div>
+                                                        </div>
+                                                        <div class="col-12 col-md-6 col-lg-3">
+                                                          <div class="col" style="width: 100%; display: inline-block;">
+                                                            <!--=======  single grid product  =======-->
+                                                            <div class="single-grid-product 29444811685962">
+                                                              <div class="single-grid-product__image">
+                                                                <div class="single-grid-product__label">
+                                          
+                                          
+                                          
+                                                                </div>
+                                          
+                                                                <a href="jurnals-detail.html" tabindex="0">
+                                                                  <img class="img-fluid popup_cart_image" alt=""
+                                                                    src="	https://www.abiturient.az/images/jurnallar/N3_Magistr_AZ_2011.jpg">
+                                          
+                                                                  <img class="img-fluid popup_cart_image" alt=""
+                                                                    src="	https://www.abiturient.az/images/jurnallar/N3_Magistr_AZ_2011.jpg">
+                                          
+                                                                </a>
+                                          
+                                                                <div class="hover-icons"><a href="javascript:void(0);" onclick='' class="" tabindex="0">
+                                                                    <span>
+                                                                      <span class="cart-title"><i class="bi bi-basket"></i></span>
+                                                                    </span>
+                                                                  </a>
+                                                                </div>
+                                                              </div>
+                                          
+                                                              <div class="single-grid-product__content">
+                                                                <div class="single-grid-product__category-rating">
+                                          
+                                                                  <span class="category"><a
+                                                                      href="jurnals-detail.html" title="Vendor 9"
+                                                                      tabindex="0">Magistr jurnalı</a></span>
+                                          
+                                                                </div>
+                                          
+                                                                <h3 class="single-grid-product__title popup_cart_title"> <a
+                                                                    href="jurnals-detail.html" tabindex="0">Magistr N3
+                                                                     2011</a> </h3>
+                                          
+                                                                <p class="single-grid-product__price">
+                                          
+                                                                  <span class="discounted-price"><span class="money" data-currency-usd="$79.00">19.00
+                                                                      AZN</span></span>
+                                                                </p>
+                                          
+                                                              </div>
+                                                            </div>
+                                                            <!--=======  End of single grid product  =======-->
+                                                          </div>
+                                                        </div>
+                                                        <div class="col-12 col-md-6 col-lg-3">
+                                                          <div class="col" style="width: 100%; display: inline-block;">
+                                                            <!--=======  single grid product  =======-->
+                                                            <div class="single-grid-product 29444811685962">
+                                                              <div class="single-grid-product__image">
+                                                                <div class="single-grid-product__label">
+                                          
+                                          
+                                          
+                                                                </div>
+                                          
+                                                                <a href="jurnals-detail.html" tabindex="0">
+                                                                  <img class="img-fluid popup_cart_image" alt=""
+                                                                    src="https://www.abiturient.az/images/jurnallar/DG_N1_2019.jpg">
+                                          
+                                                                  <img class="img-fluid popup_cart_image" alt=""
+                                                                    src="https://www.abiturient.az/images/jurnallar/DG_N1_2019.jpg">
+                                          
+                                                                </a>
+                                          
+                                                                <div class="hover-icons"><a href="javascript:void(0);" onclick='' class="" tabindex="0">
+                                                                    <span>
+                                                                      <span class="cart-title"><i class="bi bi-basket"></i></span>
+                                                                    </span>
+                                                                  </a>
+                                                                </div>
+                                                              </div>
+                                          
+                                                              <div class="single-grid-product__content">
+                                                                <div class="single-grid-product__category-rating">
+                                          
+                                                                  <span class="category"><a
+                                                                      href="jurnals-detail.html" title="Vendor 9"
+                                                                      tabindex="0">Dövlət qulluğu</a></span>
+                                          
+                                                                </div>
+                                          
+                                                                <h3 class="single-grid-product__title popup_cart_title"> <a
+                                                                    href="jurnals-detail.html" tabindex="0">Dövlət qulluğu N1 2009</a> </h3>
+                                          
+                                                                <p class="single-grid-product__price">
+                                          
+                                                                  <span class="discounted-price"><span class="money" data-currency-usd="$79.00">19.00
+                                                                      AZN</span></span>
+                                                                </p>
+                                          
+                                                              </div>
+                                                            </div>
+                                                            <!--=======  End of single grid product  =======-->
+                                                          </div>
+                                                        </div>
+                                                        <div class="col-12 col-md-6 col-lg-3">
+                                                          <div class="col" style="width: 100%; display: inline-block;">
+                                                            <!--=======  single grid product  =======-->
+                                                            <div class="single-grid-product 29444811685962">
+                                                              <div class="single-grid-product__image">
+                                                                <div class="single-grid-product__label">
+                                                                </div>
+                                          
+                                                                <a href="jurnals-detail.html" tabindex="0">
+                                                                  <img class="img-fluid popup_cart_image" alt=""
+                                                                    src="https://www.abiturient.az/images/jurnallar/Vesait_Luget-orfografiya_2017.jpg">
+                                          
+                                                                  <img class="img-fluid popup_cart_image" alt=""
+                                                                    src="https://www.abiturient.az/images/jurnallar/Vesait_Luget-orfografiya_2017.jpg">
+                                          
+                                                                </a>
+                                          
+                                                                <div class="hover-icons"><a href="javascript:void(0);" onclick='' class="" tabindex="0">
+                                                                    <span>
+                                                                      <span class="cart-title"><i class="bi bi-basket"></i></span>
+                                                                    </span>
+                                                                  </a>
+                                                                </div>
+                                                              </div>
+                                          
+                                                              <div class="single-grid-product__content">
+                                                                <div class="single-grid-product__category-rating">
+                                          
+                                                                  <span class="category"><a
+                                                                      href="jurnals-detail.html" title="Vendor 9"
+                                                                      tabindex="0">Metodiki dərs vəsaitləri</a></span>
+                                          
+                                                                </div>
+                                          
+                                                                <h3 class="single-grid-product__title popup_cart_title"> <a
+                                                                    href="jurnals-detail.html" tabindex="0">Orfoqrafiya-orfoepiya lüğəti</a> </h3>
+                                          
+                                                                <p class="single-grid-product__price">
+                                          
+                                                                  <span class="discounted-price"><span class="money" data-currency-usd="$79.00">19.00
+                                                                      AZN</span></span>
+                                                                </p>
+                                          
+                                                              </div>
+                                                            </div>
+                                                            <!--=======  End of single grid product  =======-->
+                                                          </div>
+                                                        </div>
+                                                        <div class="col-12 col-md-6 col-lg-3">
+                                                          <div class="col" style="width: 100%; display: inline-block;">
+                                                            <!--=======  single grid product  =======-->
+                                                            <div class="single-grid-product 29444811685962">
+                                                              <div class="single-grid-product__image">
+                                                                <div class="single-grid-product__label">
+                                          
+                                          
+                                          
+                                                                </div>
+                                          
+                                                                <a href="jurnals-detail.html" tabindex="0">
+                                                                  <img class="img-fluid popup_cart_image" alt=""
+                                                                    src="https://www.abiturient.az/images/jurnallar/Statistika_Riyaziyyat.jpg">
+                                          
+                                                                  <img class="img-fluid popup_cart_image" alt=""
+                                                                    src="https://www.abiturient.az/images/jurnallar/Statistika_Riyaziyyat.jpg">
+                                          
+                                                                </a>
+                                          
+                                                                <div class="hover-icons"><a href="javascript:void(0);" onclick='' class="" tabindex="0">
+                                                                    <span>
+                                                                      <span class="cart-title"><i class="bi bi-basket"></i></span>
+                                                                    </span>
+                                                                  </a>
+                                                                </div>
+                                                              </div>
+                                          
+                                                              <div class="single-grid-product__content">
+                                                                <div class="single-grid-product__category-rating">
+                                          
+                                                                  <span class="category"><a
+                                                                      href="jurnals-detail.html" title="Vendor 9"
+                                                                      tabindex="0">Statistik məlumatlar</a></span>
+                                          
+                                                                </div>
+                                          
+                                                                <h3 class="single-grid-product__title popup_cart_title"> <a
+                                                                    href="jurnals-detail.html" tabindex="0">Riyaziyyat fənni</a> </h3>
+                                          
+                                                                <p class="single-grid-product__price">
+                                          
+                                                                  <span class="discounted-price"><span class="money" data-currency-usd="$79.00">19.00
+                                                                      AZN</span></span>
+                                                                </p>
+                                          
+                                                              </div>
+                                                            </div>
+                                                            <!--=======  End of single grid product  =======-->
+                                                          </div>
+                                                        </div>
+                                                        <div class="col-12 col-md-6 col-lg-3">
+                                                          <div class="col" style="width: 100%; display: inline-block;">
+                                                            <!--=======  single grid product  =======-->
+                                                            <div class="single-grid-product 29444811685962">
+                                                              <div class="single-grid-product__image">
+                                                                <div class="single-grid-product__label">
+                                          
+                                          
+                                          
+                                                                </div>
+                                          
+                                                                <a href="jurnals-detail.html" tabindex="0">
+                                                                  <img class="img-fluid popup_cart_image" alt=""
+                                                                    src="https://www.abiturient.az/images/jurnallar/Qabiliyyet_Tesvirisenet_2009.jpg">
+                                          
+                                                                  <img class="img-fluid popup_cart_image" alt=""
+                                                                    src="https://www.abiturient.az/images/jurnallar/Qabiliyyet_Tesvirisenet_2009.jpg">
+                                          
+                                                                </a>
+                                          
+                                                                <div class="hover-icons"><a href="javascript:void(0);" onclick='' class="" tabindex="0">
+                                                                    <span>
+                                                                      <span class="cart-title"><i class="bi bi-basket"></i></span>
+                                                                    </span>
+                                                                  </a>
+                                                                </div>
+                                                              </div>
+                                          
+                                                              <div class="single-grid-product__content">
+                                                                <div class="single-grid-product__category-rating">
+                                          
+                                                                  <span class="category"><a
+                                                                      href="jurnals-detail.html" title="Vendor 9"
+                                                                      tabindex="0">Xüsusi qabiliyyət tələb edən ixtisaslar üzrə vəsaitlər</a></span>
+                                          
+                                                                </div>
+                                          
+                                                                <h3 class="single-grid-product__title popup_cart_title"> <a
+                                                                    href="jurnals-detail.html" tabindex="0">Təsviri sənət</a> </h3>
+                                          
+                                                                <p class="single-grid-product__price">
+                                          
+                                                                  <span class="discounted-price"><span class="money" data-currency-usd="$79.00">19.00
+                                                                      AZN</span></span>
+                                                                </p>
+                                          
+                                                              </div>
+                                                            </div>
+                                                            <!--=======  End of single grid product  =======-->
+                                                          </div>
+                                                        </div>
+                                                        <div class="col-12 col-md-6 col-lg-3">
+                                                          <div class="col" style="width: 100%; display: inline-block;">
+                                                            <!--=======  single grid product  =======-->
+                                                            <div class="single-grid-product 29444811685962">
+                                                              <div class="single-grid-product__image">
+                                                                <div class="single-grid-product__label">
+                                          
+                                          
+                                          
+                                                                </div>
+                                          
+                                                                <a href="jurnals-detail.html" tabindex="0">
+                                                                  <img class="img-fluid popup_cart_image" alt=""
+                                                                    src="https://www.abiturient.az/images/jurnallar/Qabiliyyet_N1_2019.jpg">
+                                          
+                                                                  <img class="img-fluid popup_cart_image" alt=""
+                                                                    src="https://www.abiturient.az/images/jurnallar/Qabiliyyet_N1_2019.jpg">
+                                          
+                                                                </a>
+                                          
+                                                                <div class="hover-icons"><a href="javascript:void(0);" onclick='' class="" tabindex="0">
+                                                                    <span>
+                                                                      <span class="cart-title"><i class="bi bi-basket"></i></span>
+                                                                    </span>
+                                                                  </a>
+                                                                </div>
+                                                              </div>
+                                          
+                                                              <div class="single-grid-product__content">
+                                                                <div class="single-grid-product__category-rating">
+                                          
+                                                                  <span class="category"><a
+                                                                      href="jurnals-detail.html" title="Vendor 9"
+                                                                      tabindex="0">Xüsusi qabiliyyət imtahanları</a></span>
+                                          
+                                                                </div>
+                                          
+                                                                <h3 class="single-grid-product__title popup_cart_title"> <a
+                                                                    href="jurnals-detail.html" tabindex="0">Xüsusi qabiliyyət imtahanları N1 2019</a> </h3>
+                                          
+                                                                <p class="single-grid-product__price">
+                                          
+                                                                  <span class="discounted-price"><span class="money" data-currency-usd="$79.00">19.00
+                                                                      AZN</span></span>
+                                                                </p>
+                                          
+                                                              </div>
+                                                            </div>
+                                                            <!--=======  End of single grid product  =======-->
+                                                          </div>
+                                                        </div>
+                                                        <div class="col-12 col-md-6 col-lg-3">
+                                                          <div class="col" style="width: 100%; display: inline-block;">
+                                                            <!--=======  single grid product  =======-->
+                                                            <div class="single-grid-product 29444811685962">
+                                                              <div class="single-grid-product__image">
+                                                                <div class="single-grid-product__label">
+                                                                </div>
+                                          
+                                                                <a href="" tabindex="0">
+                                                                  <img class="img-fluid popup_cart_image" alt=""
+                                                                    src="https://www.abiturient.az/images/jurnallar/N2_Rezidentura_AZ_RUS_2012.jpg">
+                                          
+                                                                  <img class="img-fluid popup_cart_image" alt=""
+                                                                    src="https://www.abiturient.az/images/jurnallar/N2_Rezidentura_AZ_RUS_2012.jpg">
+                                          
+                                                                </a>
+                                          
+                                                                <div class="hover-icons"><a href="javascript:void(0);" onclick='' class="" tabindex="0">
+                                                                    <span>
+                                                                      <span class="cart-title"><i class="bi bi-basket"></i></span>
+                                                                    </span>
+                                                                  </a>
+                                                                </div>
+                                                              </div>
+                                          
+                                                              <div class="single-grid-product__content">
+                                                                <div class="single-grid-product__category-rating">
+                                          
+                                                                  <span class="category"><a
+                                                                      href="" title="Vendor 9"
+                                                                      tabindex="0">"Rezidentura" jurnalı</a></span>
+                                          
+                                                                </div>
+                                          
+                                                                <h3 class="single-grid-product__title popup_cart_title"> <a
+                                                                    href="" tabindex="0">Rezidentura N2 2012</a> </h3>
+                                          
+                                                                <p class="single-grid-product__price">
+                                          
+                                                                  <span class="discounted-price"><span class="money" data-currency-usd="$79.00">19.00
+                                                                      AZN</span></span>
+                                                                </p>
+                                          
+                                                              </div>
+                                                            </div>
+                                                            <!--=======  End of single grid product  =======-->
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <div class="footer-area footer-area--light-bg footer_wraper_common_class" id="section-footer">
+
+
+            <div class="footer-navigation section-space--inner footer_common">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <!--=======  footer navigation wrapper  =======-->
+                            <div class="footer-navigation-wrapper">
+                                <div class="row">
+                                    <div class="col-lg-5 col-md-9 common_widget">
+                                        <!--=======  footer short desc  =======-->
+                                        <div class="footer-short-desc">
+                                            <div class="image">
+                                                <a href="#">
+                                                    <img src="https://www.abiturient.az/images/logo.png"
+                                                        class="img-fluid" alt="">
+                                                </a>
+                                            </div>
+                                            <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse
+                                                molestie consequat, vel
+                                                illum dolore eu feugiat nulla facilisis.</p>
+
+                                            <p>Hesen Aliyev </p>
+
+                                            <p>Tel 055 555 55 55</p>
+
+                                            <p>Email : test@mail.ru</p>
+                                        </div>
+                                        <!--=======  End of footer short desc  =======-->
+                                    </div>
+
+
+
+
+
+                                    <div class="col-lg-2 offset-lg-1 col-sm-4 common_widget">
+                                        <!--=======  single footer widget  =======-->
+                                        <div class="single-footer-widget">
+
+
+                                            <h3 class="single-footer-widget__title">Business Hours</h3>
+
+
+                                            <div class="single-footer-widget__content">
+
+                                                <p class="time">Mon - Fri: 8AM - 10PM</p>
+                                                <p class="time">Sat: 9AM-8PM</p>
+                                                <p class="time">Sun: Closed</p>
+
+                                            </div>
+                                        </div>
+                                        <!--=======  End of single footer widget  =======-->
+                                    </div>
+
+
+
+
+                                    <div class="col-lg-2 col-sm-4 common_widget">
+                                        <!--=======  single footer widget  =======-->
+                                        <div class="single-footer-widget">
+
+
+                                            <h3 class="single-footer-widget__title">Footer Menu</h3>
+
+
+                                            <div class="single-footer-widget__content">
+                                                <ul class="footer-navigation">
+
+
+
+
+                                                    <li><a href="">Home</a></li>
+
+                                                    <li><a href="collections/all">Shop</a></li>
+
+                                                    <li><a href="blogs/news">Blog</a></li>
+
+                                                    <li><a href="pages/about-us">About</a></li>
+
+                                                    <li><a href="pages/contact-us">Contact</a></li>
+
+                                                </ul>
+
+                                            </div>
+                                        </div>
+                                        <!--=======  End of single footer widget  =======-->
+                                    </div>
+
+
+
+
+                                    <div class="col-lg-2 col-sm-4 common_widget">
+                                        <!--=======  single footer widget  =======-->
+                                        <div class="single-footer-widget">
+
+
+                                            <h3 class="single-footer-widget__title">Extras Menu</h3>
+
+
+                                            <div class="single-footer-widget__content">
+                                                <ul class="footer-navigation">
+
+
+
+
+                                                    <li><a href="">About Us</a></li>
+
+                                                    <li><a href="">Our Office</a></li>
+
+                                                    <li><a href="">Delivery</a></li>
+
+                                                    <li><a href="">Our Store</a></li>
+
+                                                    <li><a href="">Guarantee</a></li>
+
+                                                </ul>
+
+                                            </div>
+                                        </div>
+                                        <!--=======  End of single footer widget  =======-->
+                                    </div>
+
+
+
+
+
+
+
+
+
+                                </div>
+                            </div>
+                            <!--=======  End of footer navigation wrapper  =======-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="footer-copyright footer_common">
+                <div class="container wide">
+                    <div class="row">
+
+                        <div class="col-lg-12">
+                            <div class="footer-copyright-wrapper">
+                                <div class="container">
+                                    <div class="row align-items-center no-gutters">
+
+
+
+
+
+
+
+
+
+
+
+
+                                        <div class="col-xl-6 col-lg-5 col-md-5 common_widget">
+                                            <div class="copyright-text">
+                                                <p>Copyright Dim.gov.az</a>
+                                                    All Rights Reserved.</p>
+                                            </div>
+                                        </div>
+
+
+
+
+                                        <div class="col-xl-6 col-lg-5 col-md-5 common_widget">
+                                            <div class="copyright-social-wrapper">
+                                                <ul class="copyright-social">
+                                                    <li><a href="" target="_blank"><i class="bi bi-twitter"></i> </a>
+                                                    </li>
+                                                    <li><a href="" target="_blank"><i class="bi bi-facebook"></i></a>
+                                                    </li>
+                                                    <li><a href="" target="_blank"><i class="bi bi-google"></i></a></li>
+                                                    <li><a href="" target="_blank"><i class="bi bi-linkedin"></i></a>
+                                                    </li>
+                                                    <li><a href="" target="_blank"><i class="bi bi-pinterest"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</body>
+
+</html>

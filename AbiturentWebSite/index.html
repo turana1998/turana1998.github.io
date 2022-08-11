@@ -551,8 +551,29 @@
 
   <script type="text/javascript" src="./assests/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" type="text/css" href="./slick/slick.css">
+  <link rel="stylesheet" type="text/css" href="./slick/slick-theme.css">
+  <style type="text/css">
+    .slick-slide img {
+      width: 100%;
+    }
+    .slick-slide {
+      transition: all ease-in-out .3s;
+    }
+  </style>
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+    <script src="./slick/slick.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+      $(document).on('ready', function() {
+        $("#hero-slider .regular").slick({
+          dots: false,
+          infinite: true,
+          slidesToShow: 1,
+          slidesToScroll: 1
+        });
+      });
+  </script>
 </head>
-
 <body class="template-index ">
   <div class="wrapper">
       <div  class="header-area header-area--multi-row header-area--multi-row--separate-navigation header-sticky header-common-class is-sticky">
@@ -692,12 +713,11 @@
                   <nav>
                     <ul>
 
-                      <li><a href="">Ana Səhifə</a> </li>
-                      <li><a href="">Haqqımızda</a> </li>
-                      <li><a href="">Tədbirlər</a></li>
-                      <li><a href="">Jurnallar</a></li>
-                      <li><a href="">Rəy və təklif</a></li>
-                      <li><a href="">Əlaqə</a></li>
+                      <li><a href="index.html">Ana Səhifə</a> </li>
+                      <li><a href="about.html">Haqqımızda</a> </li>
+                      <li><a href="news.html">Tədbirlər</a></li>
+                      <li><a href="jurnals.html">Jurnallar</a></li>
+                      <li><a href="contact.html">Əlaqə</a></li>
 
                     </ul>
                   </nav>
@@ -742,14 +762,13 @@
             </div>
             <nav class="offcanvas-navigation">
               <ul>
-                <li><a href="">Ana Səhifə</a> </li>
-                <li><a href="">Haqqımızda</a> </li>
-                <li><a href="">Tədbirlər</a></li>
-                <li><a href="">Jurnallar</a></li>
-                <li><a href="">Rəy və təklif</a></li>
-                <li><a href="">Əlaqə</a></li>
+                      <li><a href="index.html">Ana Səhifə</a> </li>
+                      <li><a href="about.html">Haqqımızda</a> </li>
+                      <li><a href="news.html">Tədbirlər</a></li>
+                      <li><a href="jurnals.html">Jurnallar</a></li>
+                      <li><a href="contact.html">Əlaqə</a></li>
               </ul>
-            </nav>
+            </nav> 
 
 
 
@@ -762,14 +781,11 @@
                     <ul class="sub-menu" style="display: none;">
                       <li><a href="" id="customer_login_link">Log in</a>
                       </li>
+
                       <li><a href="" id="customer_register_link">Create
                           account</a></li>
                     </ul>
                   </li>
-
-
-
-
                   <li class="switcher-currency-trigger currency menu-item-has-children"><span
                       class="menu-expand"><i></i></span>
 
@@ -839,9 +855,10 @@
 
       </div>
     <main>
-        <div class="hero-slider-area section-space common_class_slider">
+        <div class="hero-slider-area section-space common_class_slider" id="hero-slider">
           <!--=======  hero slider wrapper  =======-->
-          <div class="hero-slider-item-wrapper hero-slider-item-wrapper--fullwidth--fixed-height  hero-slider-bg-4"
+          <section class="regular slider">
+            <div class="hero-slider-item-wrapper hero-slider-item-wrapper--fullwidth--fixed-height  hero-slider-bg-4 d-flex"
             style="background-image: url(//cdn.shopify.com/s/files/1/0265/8933/1530/files/414.jpg?v=1643262539 )">
             <div class="container">
               <div class="row">
@@ -866,7 +883,35 @@
                 </div>
               </div>
             </div>
+           </div>
+           <div class="hero-slider-item-wrapper hero-slider-item-wrapper--fullwidth--fixed-height  hero-slider-bg-4 d-flex"
+          style="background-image: url(//cdn.shopify.com/s/files/1/0265/8933/1530/files/414.jpg?v=1643262539 )">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="hero-slider-content hero-slider-content--left-space text-left">
+
+
+
+                  <p class="slider-title slider-title--big-light">DİM nəşrlərinin PDF formatda satışı</p>
+
+
+
+                  <p class="slider-title slider-title--small">Bank kartı vasitəsilə ödəniş etməklə jurnalın bütün
+                    sayları və xüsusi buraxılışlarının elektron versiyasını (pdf formatda) əldə etmək mümkündür. </p>
+
+
+
+                  <a class="hero-slider-button" href="" tabindex="-1"> Ətraflı</a>
+
+
+                </div>
+              </div>
+            </div>
           </div>
+           </div>
+          </section>
+         
         </div>
         <div class="category-area section-space">
           <div class="container">
@@ -875,50 +920,130 @@
                 <!--=======  category wrapper  =======-->
                 <div class="category-wrapper">
                   <div class="row " >
-                    <div class="col-lg-4 col-sm-6 col-12 grid-item">
+                    <div class="col-lg-3 col-sm-4 col-6 grid-item">
                       <!--=======  single category item  =======-->
                       <div class="single-category-item">
                         <div class="single-category-item__image">
-                          <a href="">
-                            <img src="https://www.abiturient.az/images/jurnallar/N1_AZ_2009.jpg"
+                          <a href="jurnals.html">
+                            <img src="https://sia.az/storage/2021/05/26/imtahanbitdi-22-may_1496554411.jpg"
                               alt="Collection Images">
                           </a>
                         </div>
                         <div class="single-category-item__content">
                           <h3 class="title"> Abituriyent jurnalı</h3>
-                          <a href="">Bax</a>
+                          <a href="jurnals.html">Bax</a>
                         </div>
                       </div>
                       <!--=======  End of single category item  =======-->
                     </div>
-                    <div class="col-lg-4 col-sm-6 col-12 grid-item">
+                    <div class="col-lg-3 col-sm-4 col-6 grid-item">
                       <!--=======  single category item  =======-->
                       <div class="single-category-item">
                         <div class="single-category-item__image">
-                          <a href="">
-                            <img src="https://www.abiturient.az/images/jurnallar/N2_AZ_2009.jpg"
+                          <a href="jurnals.html">
+                            <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBUWFRgVFhYZGRgaGBgcHBwaGRgaGhwYGhgZGhoYGBwcIS4lHB4rHxgYJjgmKy8xNTU1GiQ7QDszPy40NTEBDAwMEA8QHhISGjQkISExMTQ0NDE0NDU0MTQ0MTQ0NDQ0NDQ0NDE0NDQ0NDQ0NDQ0NEA0NDE/NDE0MTQxMTE0Mf/AABEIALEBHAMBIgACEQEDEQH/xAAbAAACAgMBAAAAAAAAAAAAAAADBAIFAAEGB//EAD4QAAIBAwMCBAQEBAQEBwEAAAECEQADIQQSMUFRBSJhcQYygZETQqGxFFJywQcz0eEVc7LxI0Nig5LC8Bb/xAAaAQEBAQEBAQEAAAAAAAAAAAAAAQIDBAUG/8QAIxEBAQACAgEEAgMAAAAAAAAAAAECEQMxIQQSQVEFMmFxgf/aAAwDAQACEQMRAD8A7hwtxSoMGRzyCDIkdpFAdHLAOSq/mEYMdBAyD61u1ZI2QG3BpZj2/MParEV37cC2iBgjO0Mdk87cf3kU0qelL666yI7qAzBSQCcfU9q5zQfFZ3bbhWZg4hR9Z4puQdM947mACgJEliQMicR6daGl5LgKMInjOD1BU/rn9am1tbg3DB4M+mQGHpyDQxpTG0Kq+ZWLbpPlM4x7j0mg02kO7cwZu5WMxxI5GQDAxNNaW2QDiAXYqvZT0x6yY6TRwKFqnZUYryBPf3MdcftTUijCuR8V+Jb1i+6lVNpWAEod3Ang8Zx3roHvMJ2OzwAxkKRBEiIg8dpoWu8Ot6lZYFXXBI5BGQG/mHUfpFS3Yl4X4ul4SpGe3fsQcqfQ/rRmtbBtRZnkmue0/wAMXEvI6uoRXBcqSNwHdTmT7murpJ9hQMFhSZPpyD6Uzbu9G+/9j2ob2dslRJNCRdslm9x0oOZ8f8JS47Myw0kLtAgjpI7+tA8G8N3EG0211BlLo3KY6p2rrntq4mJX9f8AetafRIHDhiSBA4wKxePG3aaF0BvbP/ECB+JUmPf0ppeAPSsmtA10k02kaiWody+B6mYipgq3Y0GKwYY4oLWyCY5J59K2lkg/NjoKKHFEZ71G4MYpHxS05h0MwMilNBq7waGXy02m1nvO6BRQgbNSKA5rAABRWwkVreK0LooN1DGOtDadzuM0O0WHNStKRAo+0URrYDW4gVp7gFAbVL1Ncsubjw/bKT/W5hleoY30NlNIPrVqP/ETEAV48/yvpsPHu3/Trj6fPL4WiGKn+IKon1bnrFC/FPc14c/zvHvxja6z0mXzVtNKve8z7mK7SIC8kEc/fFcenxRdRwHSIMGTzxxXWaS+l9A49RjkHqK+/MtvClptYThh5SQJ7E9G6HtSWs+GbbnchCNMwV3KD3A6VZfwpICs0qCDAAEwZH60yzheSB7mKSfYV8I0DWkKu/4jEgzEAQAAAPpTwNCvKWRgpyVMH/tSaEMYVApAHQ7t/wDKSOOOTzNN6VVfFWrvWnRxuNsrACkjziSePmMRAJ71rwP4iL4cgwAZ3Tj0JHI6jOOKvkO8NbuKG8qkgiQQ08juCCKS/wD5zT7w4Ugj8oPlPv1I9JqaosTpRO5TtPTAIzyQDx9Knas7dxncWIJPHAgAAelZcvKsbjE8DqfYCtb1dWAbkEY5EiOORV8QTV1JgMCewIn7UnqiFYsyhgVAWeAwJwZwJnn0iuC8TfU2L7FwRklTEqQOACcbYj19q7D4c8X/AIhDPIA3dYJwV9R2n+1Z3vwHLZdAW/KACRG0eoUHiMZprUWgw7Vr+FT+X6SYn2mKNWpAiwcnaPKF61K3dBYgHzdT+U+9NXLe4QaU1GnIUIgweT6UDa3ccGe3+lC/i4facCOvX29Kg7qoCn6RzUyASNw7Z4BjiagZZQaiqKg9P9TWneG2gSYn0isLg+VsVYu0w46iPegupAMdc1F7ZJG4mBz2NbS+omWETjNYy5Mcf2uiS3pJMQJmeaKUHalX8Rtjgz7Cl38V7L9zXk5PyXpsO85/nl2x4M8uosXaIqBuD5Tiqh9c7dY9qAzsckmvn8n53in6y12x9Jle7pa33UGCwio/8QReM1Uk1o3B3rw8n5zmy/WSOuPpMZ3Vk/iZ6LQG1znrFVz6lR1oLa9a8WfrvVcneV/zw648OGPUWD3CeSTUC1VbeIml31hPWuFw5M/2rpNTpctdA60J9Wo61StqD3oRvetanB9m1w/iFB/4gaqWv1H8U10nBPpPc7LW+B27nSP1prw3QJYTYvEliT3PNHa8oME5qGpTehCweD6GDMV+61I+IOl5TgMD9aXvNsdmIncoCk8Aj8p7TNBeXJUCIAjAwfXqKY0rE7kbzFSBPMgic1ezYRDIC4+WJYRtnOce3Bp17StkjPfg/cVEaZP5R7Zj7Uve8Wsq20v5pIiD05qdBu3bVZIHPJJJJ9yagurQ5kx32tt+hig6PX2rwOxww7DBj2NAcMu1GPlUQMlFaPlLMMiO2Kuw3eDSrp5vKQeuDBDL3gjjrSaSfOXEhWJYsJ3dAFxtXHHWi6I7XCK24FZaOAwPPpIPHpNPNbBMkAn2FZ1tUVCug3oCGUEqwBAkTEGs02kS3IREQEydqgSe5jmi1k1RutGag7GMUqNQVMHrS0Sv3mH0pixc3Ca2yg8ioX7mxRtHJCjsJPJoInSjdPOaIXRQZIjk0lqfFVTkq/TymAD2JOK57W+OM3JVBnyjv6nrXDPnwx/t0x48snQarXIsQ24x5Y5js3pVWniTM5VYURMYbg9D9ZrndRr29s5np2xSL6plht5kHDBQD6/9q8HPz8nJhZjdbenDixxu8vLtn1DtyxP1xUBVNoPFGZFLAbs57icH0qTeIGvzHJjy3KzK71/L24+2TxFsWobX1HUVSvqietBa9WZwfa7Xb61aA/iHaqc3ag18V0nBPo2s31zHrS76k96R/FJ4FQa4epArtjwfwlyONe9aG14d6r7urRfmb9aRu+OW14zXbH02WXUYuci8N6oFz7Vzd3x9vyrSw1eofgH6A16cPRZVi8sny6l7qjlqVueI216zSuk+GNVdAJBAPer7Q/4dscu5+lenD8fa5Zc+KgueNL+UUufFn6KYr0jRfA1hMlZPrmre34BYAjYPsK9WP4+TtyvqPoFiU3CPmaQefKefqK2gKEMDKsyiPfrHcUbQ3vxLasR8wmKMllQZjNfU08ek7lpTyBPfg/cVtFVQegGT/vQXvjdtgkjmOnvWw6uGX0IIPNVU/wCJHJDAd4Me/pVL8R+C/jD8S3G/aQY/MOhH/qB+9PXFaQrnAECZC+jY6+houkEMVU7l2iT03+nuKz2PONLcu6Zw0kchlht8jIbb0FemaDUi5bRx+ZQeO4zijMoOYE94zUlFJjoaAipCtFqi89KKJNKapnAoS3GDREmnwJ5p2A6K8WGRR2UDJgRyTGPeuW8T+KXQEafSXniZdkdUEdeJIrgPibxPXuR/EB0B/IRtT/4D+81Lloeh634w06PsR1chgvl8wnrJB6elIeI/EO4kbyBAIgEZ9QJmvLdl/MM3YgLHrGfpViNS0DfE9d2fvJNePmuWXVd+LU7dDqfGRiGMyeACCe8HrVbqfGDEKo9Jj9cVXv4ik/8Alj2QfrINL39dbPLDthY/YVwnF/DtcjdzxB2MgxMcUEXW/mPt9aWGts/zfoamPELPf9DW/Zr4Z3HSeF6wFApPmXEHqOh9acN/61ydvxKypDZJHAA/eiXPiRiPIkDua+dyejuWVsj0Y8msfLpy7do96BcvAcsBXJ3fE77/AJoB7UkdPfc5Dn6NW8Px9vdZvPI7C74nZXlppG78RIPkSa14H8JX752lNuJlu1dfov8ADZB89wn0URXox9Dj9bc7zuIu+M3W+URQktam5/MfYGvXtJ8J6W1B2Anu2auLWltgQqqPpXpw9JjPiRyy57enjOh+EtRcIlSPVpq903+HRB87yPSvRnWPLEetFtEjykzXpx4cY53kyrlvDPgzT2yCVDe+a6S14XaXhAPpTX4YqYrpMJj1GLd9tKgGAIqU1Emh3WMYqoIxxS38Q3apWrvQ0XZQJO6oB0GAAP2Fa/iAIBkTxNALi4gdDMEMKAy75DGM9eQOwolpjUowLMn5gJjkEdRQGUAFgfNA2gSTuB6z34prRNhhMgMQp7imKuk0mD3rK1W5qq3W5obz0pUXCD3JNTYJqCw64mp6ZycRjvRtsjIpHxTU3kRjatq0Dl32r7wATFS+PIsAo/1qi8V+JrVp2X8QSoU7VAdiWnkyAoEVTeK6HxB/nv2Qv8isyD6Rk/Wq4fBd64NyvbDDBBnB6qwjIrhlnl1jE2H4h8f3XlF2opxuWSTPRieJ9K4/V6ti24kvmfMfN7FvzD37V1b/AAFqdpQC2SZzvMZ91kAdBTtv/D65gF7fST5j/auVxzt3ZarzptU5YmCJj9O9DZXPevUk/wAPj1up9EP+tcb4h4a9q8bbOJ6eUhSZ4yI/71dZT4bmWnNtp2kDOZ+/aoCwxOASP1r1DwT4Zs30Ba4TM4VQMr8ynJhhz6jIq90vwTpkMiX/AK/77Yn61ccc78L768ZTw1miBM1a6L4R1Nwjbac+42j7mvbfDvCbNlAqIgjrtEkzMz9aerrOK/NPdXk2h/w4vY/EdEB6Eyf9Kv7f+HtpFksznsIUe9T+NhdRg4G5JBEzAjpj96j8NfE7bhbuGVJABOSpPA9RNT2Y71S55Lnwr4V09lFAtoWHLEST96s30CRGwbR0AyPanBWA11mMjO9gabSovmX2ozuBgmoFDMr9exoLuQSQMnv0Peqg1wSJGYpcyxngzWrQIlpx2702UBzREUaRnpU1UVpVjit0VImtTUTS4uMGM8UBL7MDjipJcnFaRwwrZgDFBIKKC90zUfxjzUd4OaI8++HtZdtOFUF1zuXsO4rv0AYAkfehaZE5VQCecUdaYwSFSBqINDvORxWgeKU1LsMmoafUEGDJp1lBGRU7A9Nd3Cj7RzFAvvsAgCSQB0Ge9Re8yfNtI9DB+x5qjf4rlmUFVCxkiZkT3wK0mqViUbaZxIMqZHynsSO9ae2H86wZEEHhh2b1H6UD8AhGRUbc3U7YB6GZ4GIrII+kgjy71B9A/orE/MMDr0FGsKxdnK7QQogkEkgnzGMDmKYX1rdXQw0vqnYFFDbQzQWETwSACcCTilTqG2b2ubcsAoVTwSNsck479anp9ULg2OBJxHQkQSPRhg8+oNS34AzrtrwrFxx5oEtMQjQCc44iazxLwuzqk8w56xkHgyOhH3o6aVkO5drc5eQwn1GD0zE0XS2SoMkFmYsYECT0HpU19ig8C+FW09zf+NKCTsCwSchdx9JrqK0BSmpADy4lSnl6jcCSR7nEVda6UfUqSjBeY++Rj68UqXUnyALiQcgz/L7iOtDt3HEMoEQSVDEgQJjPytH0xTuxWhxiQDIxIPeiIJDgo6g4EgxBB/8A0VUv8LWA6um5CCDAMgwZ4NXdu3BmSScSe3YdqxrqgwWFNfatvcAycVtLgPBoN5Z2sM7TMdx1+tL+Z2DTmfoB+80RYTUXSahYuSM8gx9utENFCAEwwj9jR6gyyIoRYr6j9qBiaHcJjFL6m+wAKiQa3a1Gdp59KIjb1RHz4PQUwYNQe2CZIzUXuEEAUE3baKG96Oaib4PlNDezkHkU2Jvb3ZFa2+lSsqZJ6UaaBG4mdy4P70RLsj1pRnaZOBRecjmiNHUndmnVMilERWPm5qPiPituwBvOTwKsDyIBmhpfZhIWRnrkxS2h8XtXflbPY1G/ZKgrJ25KkHgnMEDkTTf0bNlluKVyD26qRwaVbT+dWdTjJKgkMehPaO1Rtqq7AhlpyROQfmn0qymnag6QGXMEKTInGYyY6SaZFDZ4BPof0pUah9gcm2FIBAzMHgT1P0qhL4k8RvWQhthQDO5mE7Yqr8K+MwzbLu2ZjcoIz7cH6V0T7L6FDI/dScbh3rjNd8F3FJNva4nC4A988GsXfwO1uaYP50IznrDeoIypjrUVsN5FCKiowbDScDpjr3NL/DuiezYVLjbmknmQu4zsB6xVrV18jc0PUbtjbfm2nb7xiuO+M9fqrV5CjstopwsfMCZmR7VrwH4tLEJeMk5WYBYd1I5PWD96ly1dDo0ZCE2TuKk7i5UgiAQSeWnpFM6e8WGx1yQSJESAYMjoQf7GotpUc71wTBkAENjBIIgn15qaWTuDs24gEAABQJiT6nAFWTQl/D4gOwB6SD9iRNGUBQAMAD9BWmcDkge5ig6tCyEDJwR2O0gwfQ1fEBkvKeGB9JFK3mZNwAHmaQffkH17UvfcvO0ERwABO7sx/KBTdljJRskAEHup6H1BBqAVsMgLZ2yMGJIPJxxmnWtKeRQ/4dO37x9qMKCKIBgYFSmtTUHaI7ftRU5rVKJqiJZhCzjv7+1Mh5zREGTtx1FatbeRz1os0J7c5GDV0E/+KruYD8pzRkupcEqc1W63QSSVwx57Gg+H6R0aczNZ8i0W3BJIpixMZqQrTtAqgtJ3LhBiagdSQJmtDUg5im023cQNS0ENipNqgrBef7e9NAA5q9iOyfeqb4k8ON9BGHSY9RVrqLxXgVJHDDPNS+fA81sfiWXliRHSvSvCNUbllHPJFL39Dbcw6gnvTihbaADCjAFMZoMAUJ7x3FFWSACcwBPAqP8AFAfMpA70PUIcun5hBgwSOhU9xVpsW3q1LbGw3uCD9aXvaMjABKiYiNyg8gA8+nUUFLKAHcTMYWCCD37kzVjpi2xd3MCfeKkil7dvzJsVlC7txYRII49STmrCajXJ/E/xBesXlRCoWBO5ZknPParvUHVai4VRmAkhSQPalXdl2xcZ2InaEDCO8AAgfWqPwv4wR2VLihS0DcrSkniQcieKuX0rKwKGQPy7ipAmYVhyJHBqb30m23W3qUKOvSefcB0P3H6GuX1XwO4/yriRMjeCCPTy4j7V1SIxdXKhFVWAAMk7iJmOBj9abJp7d9qV8K07paRHIYqIkdR0pwildeW/DfYTMdOYkTHrE0jddBm35YXcXLsAQeAASd5PtzS3QY1BCO7Mm/cF2SByBBQE8Hr60Kw7qWK5AG5gAVT1RZ6gZkUxp7m8bHUTtDQRhlPBjoR1HSiHS4je+3iN047Scj70/kENtHho6AgjBg55FStWgskTJ5JJJPbJrFECBgAQPYcVIGgkDWVB3CgkzA7ZpVteA+38oiWPAkYA7n0q2guo1W0GAZkD3nr7VuxqQ2JyMH3HMd6k6q47g0PT6ZUJPUmZ7T2qedghtgmT/tVb4t40mmjeCAeI/wBKf/il9Y7gYqq+IfBk1Kc+ZflNWhrw/wAZtXvkbPY4P2p8mvI7ul1GmubmDSvDAHNel+Da03bKOwIJGQazLb2HnUEZoe4rzkd6JNaJqiN69ABHWgXNSVPmisu2+3HalPw5aTmptDF2yGyKjEY21uxIJ7UfdRCG1LYz5mP3NS0t8qYYxPC9RTCw0NHqKBprIUndkzzVDhQNQPwiD2FCXUbXKDtMdhTincK0qG8fKahdmI+xrToVOBJNERT+ashW4jO2THvwB1juab0ghmUGVgH2PUVorHSRTNqIxVhILQtRd2gYkkwB3JqH8VOQrEDqP7Vp2W4sAwQZHdWHEimzaTakr86iP/SZ/Q5+1VPxJ4AmrUMjAOBg/lcdj296baNx3gAsIJIPQco3TvRtEQGcKZTywem780fpUXbzjUeAagEobblogQsg8RDAwBwZr0jw8v8AhpvEOFUMPUCJpotSusvlFG2JLKomYBYxJprQaFIXLvnfe7IE2wFMSCPm4kknEelQv6t7ZAZ1cn8u0qQvUyCQB7/eiOiXRuBIIkcZHdHHUensRS+QK1rHVocNEbvNG8JMbzGCJ5GCPWmX0gnchCmZiAyk94PHuIpYad1DKqJLCC+5uIjKkE47TT1lNqqoztAE94EUk+xq1ZbfvdtxjaIG0ATJxJJJ96NUZrJrQlQdRq1T5sTOemBxPf0qP8YkqNwlvl5z7VK9aVxDAGDInvGDWfjwlbs6gOJEicw2DHeKjf04fqVzOAMHuJ60nptCysCSIBknJZ27sTwPQU8bq9WAPqaf2bbQKiATAHU8kn9zWJqFOAc9uKDq1JAIyVYNHeOlJ3r7OyqFXax5zIjmf5TTZsw7MgKgwMkGJ5/L70O2WRVcmSTke/b1o1tzLI2SsZ7qePrWxZTmKAzqp5AP0rQAA7CoXbwUZqA1CnHHoabgxdVidp296IlwMJBqu1SuBtB8vp+1QteQKQZJORWd+U3VkTQbidRzUnehFqqtLf6HFL3dXBIojwaSuKZ5rFqbWtpYAHYVJkBEUvqDlRwCc0pe1G1gENddhxdL595PSPpTiYpfT3dwnqOR60akWJ0HUqeelFmsNNKVXUAc0VSRkZHUUK9ph80VFLse3aojC5A2/l3T2x2qTpsIdTmVAWZwcEevepwORnuKnZVDkAT+1A3NRuOFEkgAdegob3wvPJ4AEk+wFR/GR5U9cbWET9DzV8G3N6z4u/8AE2WU3juxgt32j+9W/h/iNvU2zHIw6/mRgcfrwa5T4i+GWQl0kiZBGYH8rRkD1qm8I1j2ryPgSyqYOCJAIYVi2yj0F9OwLb9xD/MUg7wMeYHzKe8YpvTAl3cKUQqgAIglhOY/pgUwDW5rUmlbrYNRisOK0JFx1IHuQK2jg8EH2INIeIaUuAVJVlnKjzFSDKjPXFB0r/ItldqK0OG2jEZkZbfxU2mxX0pRibajfcJl2M7AZMgdqc01vaoUsWjq3JNTqt8fdxp7htk7wuI59YqdeVWUV5z8Z6e4upLmQhA2EDt/vVf4Z8TXrREs+PmVizBs8ndwfavQdLqbept+ZQcZHaeoNZt93hNuU+GfidlOy4SVHUmcdwT2rtnRDDjmOVOSP71yus+C1LDZcKpMwQCR1wa6azaCgKOAMewqYyzxQW3bCyZJJ5JOfSse+owWE1GZxSVx9hfyyWMqT+oPtWtpTd8SAywSDI/uKSuO7t/bt6mg6a643NGBz0B7xTzhWg9+tZ7RuzcMshyV/Y96whRmKgiBeOtBuapQYJool7UBfrQf4ocHFBvtuAKnIMiq533khsHoaxckW5uUL8SkLN/JWZjrUjcqXJF1auK61BLJUzE1CyvnG0YAg0/Nd5N9tB6ZCCzHljRxULjwCewpXedobdk8Cl8LD01sGk9LqtxIOCP1pqrKSpUF7A5FEmsmqaCtkJMmsInzJz+9a1NqRS+5xwIArKCPd8weMqCGHUA9fbFB/Dd9pMnOTPkC5+X19aPuV+DDgdP2PcVG2qlipBR+oUkBvUd6ga0lwkENkqxUnvHBPrmh39BZcgtbQkcEqJ+9EtoqiFGMnuc9Z6mpg1WkhUgagDSGu1rIwAUGRj0M539AvrV6TaxbIjiceoqo05cFmuuQLYnaCSSM+dwP2FP2tQPKGdd7dBgH+kH96ndtK2GAI9ffj2qXyI6S+XQMVIkmJ6jow9DR91LanUbAsCSWCqswJPc9BAoTal1y6AjqbbFo91IBj2mmxiO7O/n2BGCgAL1UNuYkdZqNrxATtZlYYG9eATwHHSe4x7VHUWVeHTaccHKOAZAbsQeD0pe0uxHQ23LNOIkQcKoaY2jFYQr4x8MW7kskK2eZiT6ipfDngr6csWYEEQqgkwJmSSMmrXTghEDZIUT7gZqRerqdmxTSuu3FDt5xxyQDJA+k0u7ku4ZyoUKRBAkQZYk85xS9nxGDyWTOSIaBy3qB96nuGX9QgjYIwDuBIgf3NNWb28bXGYBHqO8dDULmmUncsCc8Sp9Y6fStBGLhmIwCABPXkmp5RN7EgqGYA9MfvRCQoAHAFDZ6S8XR3tOqGGK4/wBKWhw3weCD7Gq3UXdm/E7sg/2rzzT6q7afBZWHIJOc+tdd4V4wt4bW+aPvWLkWHVZh5lOIzRGdWAMcil3sjgMQO1ZIUQOBWNomIHGKWuawAxQ21aEwGE+9JX7Mmaxch3mnpmsrK90agd75W9v7UnZ4t/WtVlKrE+df6mqzNZWUhGzWCsrKqseg6n5TWVlYqK7w75h/VTniHKf11qsqhysrKyg3UNT8j/0t+1ZWVaKXwr/OT/kj9qvjWVlSBPxHm3/zU/ZqD45/lr/Wn/UKysqUa8O+Vv63/wCqnaysqIjcqBrKyqip8Y+b/wBq5/8AWhJ/nH/lr/0VlZXO9h7w/wDyk/oX9qI1brKoBd4qLcVlZWR578T/AOcfes8B/wA8ex/asrKxVvTrblK6z5G9jWVlZZcXo/n+prpk4rKyueXY/9k="
                               alt="Collection Images">
                           </a>
                         </div>
                         <div class="single-category-item__content">
-                          <h3 class="title"> Magistr jurnalı</h3>
-                          <a href="">Bax</a>
+                          <h3 class="title">"Magistr" jurnalı</h3>
+                          <a href="jurnals.html">Bax</a>
                         </div>
                       </div>
                       <!--=======  End of single category item  =======-->
                     </div>
-                    <div class="col-lg-4 col-sm-6 col-12 grid-item" >
+                    <div class="col-lg-3 col-sm-4 col-6 grid-item">
                       <!--=======  single category item  =======-->
                       <div class="single-category-item">
                         <div class="single-category-item__image">
-                          <a href="">
-                            <img src="https://www.abiturient.az/images/jurnallar/N4_AZ_2009.jpg"
+                          <a href="jurnals.html">
+                            <img src="data:image/jpeg;base64,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"
                               alt="Collection Images">
                           </a>
                         </div>
                         <div class="single-category-item__content">
-                          <h3 class="title"> Dövlət qulluğu</h3>
-                          <a href="">Bax</a>
+                          <h3 class="title">Dövlət qulluğu</h3>
+                          <a href="jurnals.html">Bax</a>
+                        </div>
+                      </div>
+                      <!--=======  End of single category item  =======-->
+                    </div>
+                    <div class="col-lg-3 col-sm-4 col-6 grid-item">
+                      <!--=======  single category item  =======-->
+                      <div class="single-category-item">
+                        <div class="single-category-item__image">
+                          <a href="jurnals.html">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4cVjn-O2zHcWLoOmshTm3rCXTojhO-J6tEg&usqp=CAU"
+                              alt="Collection Images">
+                          </a>
+                        </div>
+                        <div class="single-category-item__content">
+                          <h3 class="title"> Metodiki dərs vəsaitləri</h3>
+                          <a href="jurnals.html">Bax</a>
+                        </div>
+                      </div>
+                      <!--=======  End of single category item  =======-->
+                    </div>
+                    <div class="col-lg-3 col-sm-4 col-6 grid-item">
+                      <!--=======  single category item  =======-->
+                      <div class="single-category-item">
+                        <div class="single-category-item__image">
+                          <a href="jurnals.html">
+                            <img src="data:image/jpeg;base64,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"
+                              alt="Collection Images">
+                          </a>
+                        </div>
+                        <div class="single-category-item__content">
+                          <h3 class="title"> Xüsusi qabiliyyət imtahanları </h3>
+                          <a href="jurnals.html">Bax</a>
+                        </div>
+                      </div>
+                      <!--=======  End of single category item  =======-->
+                    </div>
+                    <div class="col-lg-3 col-sm-4 col-6 grid-item">
+                      <!--=======  single category item  =======-->
+                      <div class="single-category-item">
+                        <div class="single-category-item__image">
+                          <a href="jurnals.html">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSknmH-bOUsCGq58A9yFiandnEG7nljUeTfHw&usqp=CAU"
+                              alt="Collection Images">
+                          </a>
+                        </div>
+                        <div class="single-category-item__content">
+                          <h3 class="title"> Xüsusi buraxılışlar</h3>
+                          <a href="jurnals.html">Bax</a>
+                        </div>
+                      </div>
+                      <!--=======  End of single category item  =======-->
+                    </div>
+                    <div class="col-lg-3 col-sm-4 col-6 grid-item">
+                      <!--=======  single category item  =======-->
+                      <div class="single-category-item">
+                        <div class="single-category-item__image">
+                          <a href="jurnals.html">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThCFkX-ALuF3oDTRgpflBq8ScFm2-qvIudYA&usqp=CAU"
+                              alt="Collection Images">
+                          </a>
+                        </div>
+                        <div class="single-category-item__content">
+                          <h3 class="title">"Rezidentura" jurnalı</h3>
+                          <a href="jurnals.html">Bax</a>
+                        </div>
+                      </div>
+                      <!--=======  End of single category item  =======-->
+                    </div>
+                    <div class="col-lg-3 col-sm-4 col-6 grid-item">
+                      <!--=======  single category item  =======-->
+                      <div class="single-category-item">
+                        <div class="single-category-item__image">
+                          <a href="jurnals.html">
+                            <img src="data:image/jpeg;base64,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"
+                              alt="Collection Images">
+                          </a>
+                        </div>
+                        <div class="single-category-item__content">
+                          <h3 class="title">Test topluları</h3>
+                          <a href="jurnals.html">Bax</a>
                         </div>
                       </div>
                       <!--=======  End of single category item  =======-->
@@ -954,12 +1079,12 @@
 
                       </div>
 
-                      <a href="" tabindex="0">
+                      <a href="jurnals-detail.html" tabindex="0">
                         <img class="img-fluid popup_cart_image" alt=""
-                          src="	https://www.abiturient.az/images/jurnallar/N4_Magistr_AZ_2016.jpg">
+                          src="	https://www.abiturient.az/images/jurnallar/N1_AZ_2009.jpg">
 
                         <img class="img-fluid popup_cart_image" alt=""
-                          src="	https://www.abiturient.az/images/jurnallar/N4_Magistr_AZ_2009.jpg">
+                          src="https://www.abiturient.az/images/jurnallar/N1_AZ_2009.jpg">
 
                       </a>
 
@@ -975,14 +1100,13 @@
                       <div class="single-grid-product__category-rating">
 
                         <span class="category"><a
-                            href="" title="Vendor 9"
-                            tabindex="0">Vendor 9</a></span>
+                            href="jurnals-detail.html" title="Vendor 9"
+                            tabindex="0">Abituriyent</a></span>
 
                       </div>
 
                       <h3 class="single-grid-product__title popup_cart_title"> <a
-                          href="" tabindex="0">Magistr
-                          jurnalı 2009</a> </h3>
+                          href="jurnals-detail.html" tabindex="0">Abituriyent N1 2009</a> </h3>
 
                       <p class="single-grid-product__price">
 
@@ -1006,12 +1130,12 @@
 
                       </div>
 
-                      <a href="" tabindex="0">
+                      <a href="jurnals-detail.html" tabindex="0">
                         <img class="img-fluid popup_cart_image" alt=""
-                          src="	https://www.abiturient.az/images/jurnallar/N4_Magistr_AZ_2016.jpg">
+                          src="	https://www.abiturient.az/images/jurnallar/N3_Magistr_AZ_2011.jpg">
 
                         <img class="img-fluid popup_cart_image" alt=""
-                          src="	https://www.abiturient.az/images/jurnallar/N4_Magistr_AZ_2009.jpg">
+                          src="	https://www.abiturient.az/images/jurnallar/N3_Magistr_AZ_2011.jpg">
 
                       </a>
 
@@ -1027,14 +1151,14 @@
                       <div class="single-grid-product__category-rating">
 
                         <span class="category"><a
-                            href="" title="Vendor 9"
-                            tabindex="0">Vendor 9</a></span>
+                            href="jurnals-detail.html" title="Vendor 9"
+                            tabindex="0">Magistr jurnalı</a></span>
 
                       </div>
 
                       <h3 class="single-grid-product__title popup_cart_title"> <a
-                          href="" tabindex="0">Magistr
-                          jurnalı 2009</a> </h3>
+                          href="jurnals-detail.html" tabindex="0">Magistr N3
+                           2011</a> </h3>
 
                       <p class="single-grid-product__price">
 
@@ -1058,12 +1182,12 @@
 
                       </div>
 
-                      <a href="" tabindex="0">
+                      <a href="jurnals-detail.html" tabindex="0">
                         <img class="img-fluid popup_cart_image" alt=""
-                          src="	https://www.abiturient.az/images/jurnallar/N4_Magistr_AZ_2016.jpg">
+                          src="https://www.abiturient.az/images/jurnallar/DG_N1_2019.jpg">
 
                         <img class="img-fluid popup_cart_image" alt=""
-                          src="	https://www.abiturient.az/images/jurnallar/N4_Magistr_AZ_2009.jpg">
+                          src="https://www.abiturient.az/images/jurnallar/DG_N1_2019.jpg">
 
                       </a>
 
@@ -1079,14 +1203,214 @@
                       <div class="single-grid-product__category-rating">
 
                         <span class="category"><a
-                            href="" title="Vendor 9"
-                            tabindex="0">Vendor 9</a></span>
+                            href="jurnals-detail.html" title="Vendor 9"
+                            tabindex="0">Dövlət qulluğu</a></span>
 
                       </div>
 
                       <h3 class="single-grid-product__title popup_cart_title"> <a
-                          href="" tabindex="0">Magistr
-                          jurnalı 2009</a> </h3>
+                          href="jurnals-detail.html" tabindex="0">Dövlət qulluğu N1 2009</a> </h3>
+
+                      <p class="single-grid-product__price">
+
+                        <span class="discounted-price"><span class="money" data-currency-usd="$79.00">19.00
+                            AZN</span></span>
+                      </p>
+
+                    </div>
+                  </div>
+                  <!--=======  End of single grid product  =======-->
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-3">
+                <div class="col" style="width: 100%; display: inline-block;">
+                  <!--=======  single grid product  =======-->
+                  <div class="single-grid-product 29444811685962">
+                    <div class="single-grid-product__image">
+                      <div class="single-grid-product__label">
+                      </div>
+
+                      <a href="jurnals-detail.html" tabindex="0">
+                        <img class="img-fluid popup_cart_image" alt=""
+                          src="https://www.abiturient.az/images/jurnallar/Vesait_Luget-orfografiya_2017.jpg">
+
+                        <img class="img-fluid popup_cart_image" alt=""
+                          src="https://www.abiturient.az/images/jurnallar/Vesait_Luget-orfografiya_2017.jpg">
+
+                      </a>
+
+                      <div class="hover-icons"><a href="javascript:void(0);" onclick='' class="" tabindex="0">
+                          <span>
+                            <span class="cart-title"><i class="bi bi-basket"></i></span>
+                          </span>
+                        </a>
+                      </div>
+                    </div>
+
+                    <div class="single-grid-product__content">
+                      <div class="single-grid-product__category-rating">
+
+                        <span class="category"><a
+                            href="jurnals-detail.html" title="Vendor 9"
+                            tabindex="0">Metodiki dərs vəsaitləri</a></span>
+
+                      </div>
+
+                      <h3 class="single-grid-product__title popup_cart_title"> <a
+                          href="jurnals-detail.html" tabindex="0">Orfoqrafiya-orfoepiya lüğəti</a> </h3>
+
+                      <p class="single-grid-product__price">
+
+                        <span class="discounted-price"><span class="money" data-currency-usd="$79.00">19.00
+                            AZN</span></span>
+                      </p>
+
+                    </div>
+                  </div>
+                  <!--=======  End of single grid product  =======-->
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-3">
+                <div class="col" style="width: 100%; display: inline-block;">
+                  <!--=======  single grid product  =======-->
+                  <div class="single-grid-product 29444811685962">
+                    <div class="single-grid-product__image">
+                      <div class="single-grid-product__label">
+
+
+
+                      </div>
+
+                      <a href="jurnals-detail.html" tabindex="0">
+                        <img class="img-fluid popup_cart_image" alt=""
+                          src="https://www.abiturient.az/images/jurnallar/Statistika_Riyaziyyat.jpg">
+
+                        <img class="img-fluid popup_cart_image" alt=""
+                          src="https://www.abiturient.az/images/jurnallar/Statistika_Riyaziyyat.jpg">
+
+                      </a>
+
+                      <div class="hover-icons"><a href="javascript:void(0);" onclick='' class="" tabindex="0">
+                          <span>
+                            <span class="cart-title"><i class="bi bi-basket"></i></span>
+                          </span>
+                        </a>
+                      </div>
+                    </div>
+
+                    <div class="single-grid-product__content">
+                      <div class="single-grid-product__category-rating">
+
+                        <span class="category"><a
+                            href="jurnals-detail.html" title="Vendor 9"
+                            tabindex="0">Statistik məlumatlar</a></span>
+
+                      </div>
+
+                      <h3 class="single-grid-product__title popup_cart_title"> <a
+                          href="jurnals-detail.html" tabindex="0">Riyaziyyat fənni</a> </h3>
+
+                      <p class="single-grid-product__price">
+
+                        <span class="discounted-price"><span class="money" data-currency-usd="$79.00">19.00
+                            AZN</span></span>
+                      </p>
+
+                    </div>
+                  </div>
+                  <!--=======  End of single grid product  =======-->
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-3">
+                <div class="col" style="width: 100%; display: inline-block;">
+                  <!--=======  single grid product  =======-->
+                  <div class="single-grid-product 29444811685962">
+                    <div class="single-grid-product__image">
+                      <div class="single-grid-product__label">
+
+
+
+                      </div>
+
+                      <a href="jurnals-detail.html" tabindex="0">
+                        <img class="img-fluid popup_cart_image" alt=""
+                          src="https://www.abiturient.az/images/jurnallar/Qabiliyyet_Tesvirisenet_2009.jpg">
+
+                        <img class="img-fluid popup_cart_image" alt=""
+                          src="https://www.abiturient.az/images/jurnallar/Qabiliyyet_Tesvirisenet_2009.jpg">
+
+                      </a>
+
+                      <div class="hover-icons"><a href="javascript:void(0);" onclick='' class="" tabindex="0">
+                          <span>
+                            <span class="cart-title"><i class="bi bi-basket"></i></span>
+                          </span>
+                        </a>
+                      </div>
+                    </div>
+
+                    <div class="single-grid-product__content">
+                      <div class="single-grid-product__category-rating">
+
+                        <span class="category"><a
+                            href="jurnals-detail.html" title="Vendor 9"
+                            tabindex="0">Xüsusi qabiliyyət tələb edən ixtisaslar üzrə vəsaitlər</a></span>
+
+                      </div>
+
+                      <h3 class="single-grid-product__title popup_cart_title"> <a
+                          href="jurnals-detail.html" tabindex="0">Təsviri sənət</a> </h3>
+
+                      <p class="single-grid-product__price">
+
+                        <span class="discounted-price"><span class="money" data-currency-usd="$79.00">19.00
+                            AZN</span></span>
+                      </p>
+
+                    </div>
+                  </div>
+                  <!--=======  End of single grid product  =======-->
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-3">
+                <div class="col" style="width: 100%; display: inline-block;">
+                  <!--=======  single grid product  =======-->
+                  <div class="single-grid-product 29444811685962">
+                    <div class="single-grid-product__image">
+                      <div class="single-grid-product__label">
+
+
+
+                      </div>
+
+                      <a href="jurnals-detail.html" tabindex="0">
+                        <img class="img-fluid popup_cart_image" alt=""
+                          src="https://www.abiturient.az/images/jurnallar/Qabiliyyet_N1_2019.jpg">
+
+                        <img class="img-fluid popup_cart_image" alt=""
+                          src="https://www.abiturient.az/images/jurnallar/Qabiliyyet_N1_2019.jpg">
+
+                      </a>
+
+                      <div class="hover-icons"><a href="javascript:void(0);" onclick='' class="" tabindex="0">
+                          <span>
+                            <span class="cart-title"><i class="bi bi-basket"></i></span>
+                          </span>
+                        </a>
+                      </div>
+                    </div>
+
+                    <div class="single-grid-product__content">
+                      <div class="single-grid-product__category-rating">
+
+                        <span class="category"><a
+                            href="jurnals-detail.html" title="Vendor 9"
+                            tabindex="0">Xüsusi qabiliyyət imtahanları</a></span>
+
+                      </div>
+
+                      <h3 class="single-grid-product__title popup_cart_title"> <a
+                          href="jurnals-detail.html" tabindex="0">Xüsusi qabiliyyət imtahanları N1 2019</a> </h3>
 
                       <p class="single-grid-product__price">
 
@@ -1109,10 +1433,10 @@
 
                       <a href="" tabindex="0">
                         <img class="img-fluid popup_cart_image" alt=""
-                          src="	https://www.abiturient.az/images/jurnallar/N4_Magistr_AZ_2016.jpg">
+                          src="https://www.abiturient.az/images/jurnallar/N2_Rezidentura_AZ_RUS_2012.jpg">
 
                         <img class="img-fluid popup_cart_image" alt=""
-                          src="	https://www.abiturient.az/images/jurnallar/N4_Magistr_AZ_2009.jpg">
+                          src="https://www.abiturient.az/images/jurnallar/N2_Rezidentura_AZ_RUS_2012.jpg">
 
                       </a>
 
@@ -1129,13 +1453,12 @@
 
                         <span class="category"><a
                             href="" title="Vendor 9"
-                            tabindex="0">Vendor 9</a></span>
+                            tabindex="0">"Rezidentura" jurnalı</a></span>
 
                       </div>
 
                       <h3 class="single-grid-product__title popup_cart_title"> <a
-                          href="" tabindex="0">Magistr
-                          jurnalı 2009</a> </h3>
+                          href="" tabindex="0">Rezidentura N2 2012</a> </h3>
 
                       <p class="single-grid-product__price">
 
@@ -1146,36 +1469,6 @@
                     </div>
                   </div>
                   <!--=======  End of single grid product  =======-->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-       
-        <div class="banner-hover-area section-space" >
-          <div class="container ">
-            <div class="row">
-              <div class="col-lg-12">
-                <div class="banner-hover-wrapper">
-                  <div class="row">
-                    <div class="col-lg-6 col-md-6">
-                      <div class="single-hover-banner single-hover-banner--middlesize-text">
-                        <div class="single-hover-banner__image">
-                          <a href=""><img src="./assests/Banner-1.png" alt="">
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                      <div class="single-hover-banner single-hover-banner--middlesize-text">
-                        <div class="single-hover-banner__image">
-                          <a href=""><img src="./assests/Banner-2.png" alt="">
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-
-                  </div>
                 </div>
               </div>
             </div>
@@ -1199,11 +1492,12 @@
 
                         <div class="single-feature-logo__content">
 
-                          <h4 class="title">FREE SHIPPING WORLDWIDE</h4>
+                          <h4 class="title">ÇATDIRILMA</h4>
 
 
-                          <p class="short-desc">We offer free shipping via Standard Shipping on orders over $200.00
-                          </p>
+                          <a href="delivery.html">
+                            <p class="short-desc">bazar və bayram günləri istisna olmaqla 5 iş günü ərzində ünvanınıza çatdırılacaqdır!</p>
+                          </a>
 
                         </div>
                       </div>
@@ -1221,11 +1515,12 @@
 
                         <div class="single-feature-logo__content">
 
-                          <h4 class="title">FREE SHIPPING WORLDWIDE</h4>
+                          <h4 class="title">ÖDƏNİŞ</h4>
 
 
-                          <p class="short-desc">We offer free shipping via Standard Shipping on orders over $200.00
-                          </p>
+                          <a href="pay.html">
+                            <p class="short-desc"> Hər bir nəşrin ünvana çatdırılma xərci 1.5 manatdır. </p>
+                          </a>
 
                         </div>
                       </div>
@@ -1243,11 +1538,12 @@
 
                         <div class="single-feature-logo__content">
 
-                          <h4 class="title">FREE SHIPPING WORLDWIDE</h4>
+                          <h4 class="title">TƏKLİFLƏRİNİZ</h4>
 
 
-                          <p class="short-desc">We offer free shipping via Standard Shipping on orders over $200.00
-                          </p>
+                          <a href="suggest.html">
+                              <p class="short-desc"> Bildirdiyiniz rəy və təklifləri nəzərə almaqla gələcək nəşrlərimizin keyfiyyətini daha da yüksəldə bilərik. </p>
+                          </a>
 
                         </div>
                       </div>
@@ -1267,7 +1563,7 @@
                         <!--=======  section title  =======-->
                         <div class="section-title-wrapper text-center section-space--half">
 
-                          <h2 class="section-title">Məqalələr</h2>
+                          <h2 class="section-title">Tədbirlər</h2>
                           <p class="section-subtitle">Littera gothica, quam nunc putamus parum claram anteposuerit
                             litterarum formas.</p>
                         </div>
@@ -1275,167 +1571,162 @@
                       </div>
                   </div>
                        <div class="blog-post-slider-wrapper">
-                          <div class="row">
-                            <div class="col-12 col-md-6 col-lg-3">
-                              <!--=======  single slider post  =======-->
-                              <div class="single-slider-post">
+                        <div class="row">
+                          <div class="col-12 col-md-6 col-lg-3">
+                            <!--=======  single slider post  =======-->
+                            <div class="single-slider-post">
 
 
-                                <div class="single-slider-post__image">
+                              <div class="single-slider-post__image">
 
-                                  <a href="blogs/news/the-london-book-fair-is-to-be-packed-with-exciting"
-                                    tabindex="-1"><img src="./assests/9_740x470_crop_center.jpg"
-                                      alt="The London Book Fair is to be packed with exciting"></a>
+                                <a href="news-detail.html"
+                                  tabindex="-1"><img src="https://www.abiturient.az/iteca/20.jpg"
+                                    alt="The London Book Fair is to be packed with exciting"></a>
 
-                                  <div class="single-slider-post__date-sticker">
-                                    <span class="month">Jan</span>
-                                    <span class="day">25</span>
-                                  </div>
-                                </div>
-
-
-                                <div class="single-slider-post__content">
-                                  <h3 class="title"><a
-                                      href="blogs/news/the-london-book-fair-is-to-be-packed-with-exciting"
-                                      tabindex="-1">The London Book Fair is to be packed with exciting</a></h3>
-                                  <p class="post-meta">by:  Demo Admin</p>
-
-                                  <p class="short-desc">
-
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, ipsum...
-
-                                  </p>
-
-                                  <a class="blog-post-link"
-                                    href="blogs/news/the-london-book-fair-is-to-be-packed-with-exciting"
-                                    tabindex="-1">Read more</a>
-
+                                <div class="single-slider-post__date-sticker">
+                                  <span class="month">Jan</span>
+                                  <span class="day">25</span>
                                 </div>
                               </div>
-                              <!--=======  End of single slider post  =======-->
+
+
+                              <div class="single-slider-post__content">
+                                <h3 class="title"><a
+                                    href="./news-detail.html"
+                                    tabindex="-1">13-cü Azərbaycan Beynəlxalq "Təhsil və Karyera" sərgisi</a></h3>
+
+                                <p class="short-desc">
+
+                                    0-12 oktyabr tarixlərində Bakı Ekspo Mərkəzində 13-cü Azərbaycan Beynəlxalq Təhsil "Eduexpo" sərgisi keçirilmişdir. 
+
+                                </p>
+
+                                <a class="blog-post-link"
+                                  href="./news-detail.html"
+                                  tabindex="-1">Ətraflı oxu</a>
+
+                              </div>
                             </div>
-                            <div class="col-12 col-md-6 col-lg-3">
-                              <!--=======  single slider post  =======-->
-                              <div class="single-slider-post">
+                            <!--=======  End of single slider post  =======-->
+                          </div>
+                          <div class="col-12 col-md-6 col-lg-3">
+                            <!--=======  single slider post  =======-->
+                            <div class="single-slider-post">
 
 
-                                <div class="single-slider-post__image">
+                              <div class="single-slider-post__image">
 
-                                  <a href="blogs/news/the-london-book-fair-is-to-be-packed-with-exciting"
-                                    tabindex="-1"><img src="./assests/9_740x470_crop_center.jpg"
-                                      alt="The London Book Fair is to be packed with exciting"></a>
+                                <a href="./news-detail.html"
+                                  tabindex="-1"><img src="https://www.abiturient.az/iteca/1.jpg"
+                                    alt="The London Book Fair is to be packed with exciting"></a>
 
-                                  <div class="single-slider-post__date-sticker">
-                                    <span class="month">Jan</span>
-                                    <span class="day">25</span>
-                                  </div>
-                                </div>
-
-
-                                <div class="single-slider-post__content">
-                                  <h3 class="title"><a
-                                      href="blogs/news/the-london-book-fair-is-to-be-packed-with-exciting"
-                                      tabindex="-1">The London Book Fair is to be packed with exciting</a></h3>
-                                  <p class="post-meta">by:  Demo Admin</p>
-
-                                  <p class="short-desc">
-
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, ipsum...
-
-                                  </p>
-
-                                  <a class="blog-post-link"
-                                    href="blogs/news/the-london-book-fair-is-to-be-packed-with-exciting"
-                                    tabindex="-1">Read more</a>
-
+                                <div class="single-slider-post__date-sticker">
+                                  <span class="month">Jan</span>
+                                  <span class="day">25</span>
                                 </div>
                               </div>
-                              <!--=======  End of single slider post  =======-->
+
+
+                              <div class="single-slider-post__content">
+                                <h3 class="title"><a
+                                    href="./news-detail.html"
+                                    tabindex="-1">7-ci Azərbaycan Beynəlxalq “Təhsil və Karyera” sərgisi</a></h3>
+
+                                <p class="short-desc">
+
+                                    Oktyabr ayının 4-dən 6-dək “JW Marriott Absheron Baku” mehmanxanasında 7-ci Azərbaycan Beynəlxalq “Təhsil və Karyera” sərgisi keçirilmişdir
+
+                                </p>
+
+                                <a class="blog-post-link"
+                                  href="./news-detail.html"
+                                  tabindex="-1">Ətraflı oxu</a>
+
+                              </div>
                             </div>
-                            <div class="col-12 col-md-6 col-lg-3">
-                              <!--=======  single slider post  =======-->
-                              <div class="single-slider-post">
+                            <!--=======  End of single slider post  =======-->
+                          </div>
+                          <div class="col-12 col-md-6 col-lg-3">
+                            <!--=======  single slider post  =======-->
+                            <div class="single-slider-post">
 
 
-                                <div class="single-slider-post__image">
+                              <div class="single-slider-post__image">
 
-                                  <a href="blogs/news/the-london-book-fair-is-to-be-packed-with-exciting"
-                                    tabindex="-1"><img src="./assests/9_740x470_crop_center.jpg"
-                                      alt="The London Book Fair is to be packed with exciting"></a>
+                                <a href="./news-detail.html"
+                                  tabindex="-1"><img src="https://www.abiturient.az/gallery/11.jpg"
+                                    alt="The London Book Fair is to be packed with exciting"></a>
 
-                                  <div class="single-slider-post__date-sticker">
-                                    <span class="month">Jan</span>
-                                    <span class="day">25</span>
-                                  </div>
-                                </div>
-
-
-                                <div class="single-slider-post__content">
-                                  <h3 class="title"><a
-                                      href="blogs/news/the-london-book-fair-is-to-be-packed-with-exciting"
-                                      tabindex="-1">The London Book Fair is to be packed with exciting</a></h3>
-                                  <p class="post-meta">by:  Demo Admin</p>
-
-                                  <p class="short-desc">
-
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, ipsum...
-
-                                  </p>
-
-                                  <a class="blog-post-link"
-                                    href="blogs/news/the-london-book-fair-is-to-be-packed-with-exciting"
-                                    tabindex="-1">Read more</a>
-
+                                <div class="single-slider-post__date-sticker">
+                                  <span class="month">Jan</span>
+                                  <span class="day">25</span>
                                 </div>
                               </div>
-                              <!--=======  End of single slider post  =======-->
+
+
+                              <div class="single-slider-post__content">
+                                <h3 class="title"><a
+                                    href="./news-detail.html"
+                                    tabindex="-1">III Bakı Beynəlxalq Kitab Sərgi-Yarmarkası</a></h3>
+
+                                <p class="short-desc">
+
+                                    23-25 sentyabr 2013-cü il tarixində Mədəniyyət və Turizm Nazirliyinin təşkilatçılığı ilə ümummilli lider Heydər Əliyevin anadan olmasının
+
+                                </p>
+
+                                <a class="blog-post-link"
+                                  href="./news-detail.html"
+                                  tabindex="-1">Ətraflı oxu</a>
+
+                              </div>
                             </div>
-                            <div class="col-12 col-md-6 col-lg-3">
-                              <!--=======  single slider post  =======-->
-                              <div class="single-slider-post">
+                            <!--=======  End of single slider post  =======-->
+                          </div>
+                          <div class="col-12 col-md-6 col-lg-3">
+                            <!--=======  single slider post  =======-->
+                            <div class="single-slider-post">
 
 
-                                <div class="single-slider-post__image">
+                              <div class="single-slider-post__image">
 
-                                  <a href="blogs/news/the-london-book-fair-is-to-be-packed-with-exciting"
-                                    tabindex="-1"><img src="./assests/9_740x470_crop_center.jpg"
-                                      alt="The London Book Fair is to be packed with exciting"></a>
+                                <a href="./news-detail.html"
+                                  tabindex="-1"><img src="https://www.abiturient.az/gallery/15.jpg"
+                                    alt="The London Book Fair is to be packed with exciting"></a>
 
-                                  <div class="single-slider-post__date-sticker">
-                                    <span class="month">Jan</span>
-                                    <span class="day">25</span>
-                                  </div>
-                                </div>
-
-
-                                <div class="single-slider-post__content">
-                                  <h3 class="title"><a
-                                      href="blogs/news/the-london-book-fair-is-to-be-packed-with-exciting"
-                                      tabindex="-1">The London Book Fair is to be packed with exciting</a></h3>
-                                  <p class="post-meta">by:  Demo Admin</p>
-
-                                  <p class="short-desc">
-
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, ipsum...
-
-                                  </p>
-
-                                  <a class="blog-post-link"
-                                    href="blogs/news/the-london-book-fair-is-to-be-packed-with-exciting"
-                                    tabindex="-1">Read more</a>
-
+                                <div class="single-slider-post__date-sticker">
+                                  <span class="month">Jan</span>
+                                  <span class="day">25</span>
                                 </div>
                               </div>
-                              <!--=======  End of single slider post  =======-->
+
+
+                              <div class="single-slider-post__content">
+                                <h3 class="title"><a
+                                    href="./news-detail.html"
+                                    tabindex="-1">“Abituriyent” jurnalı “Education and Career 2011” sərgisində</a></h3>
+
+                                <p class="short-desc">
+
+                                    “Iteca Caspian LLC” və “ITE Group” şirkətlərinin təşkilatçılığı ilə bu il oktyabrın 6-8-də “Bakı Ekspo” sərgi mərkəzində “Education and Career 2011” 
+
+                                </p>
+
+                                <a class="blog-post-link"
+                                  href="./news-detail.html"
+                                  tabindex="-1">Ətraflı oxu</a>
+
+                              </div>
                             </div>
                           </div>
+                        </div>
+                     </div>
                        </div>
                 </div>
                             
           </div>
         </div>          
     </main>
-
     <div class="footer-area footer-area--light-bg footer_wraper_common_class" id="section-footer">
 
 
@@ -1443,11 +1734,9 @@
           <div class="container">
             <div class="row">
               <div class="col-lg-12">
-                <!--=======  footer navigation wrapper  =======-->
                 <div class="footer-navigation-wrapper">
                   <div class="row">
                     <div class="col-lg-5 col-md-9 common_widget">
-                      <!--=======  footer short desc  =======-->
                       <div class="footer-short-desc">
                         <div class="image">
                           <a href="#">
@@ -1463,149 +1752,51 @@
 
                         <p>Email : test@mail.ru</p>
                       </div>
-                      <!--=======  End of footer short desc  =======-->
                     </div>
-
-
-
-
-
                     <div class="col-lg-2 offset-lg-1 col-sm-4 common_widget">
-                      <!--=======  single footer widget  =======-->
                       <div class="single-footer-widget">
-
-
-                        <h3 class="single-footer-widget__title">Business Hours</h3>
-
-
+                        <h3 class="single-footer-widget__title">İş saatları</h3>
                         <div class="single-footer-widget__content">
-
-                          <p class="time">Mon - Fri: 8AM - 10PM</p>
-                          <p class="time">Sat: 9AM-8PM</p>
-                          <p class="time">Sun: Closed</p>
-
+                          <p class="time">B.ertəsi - Cümə: 9-6</p>
+                          <p class="time">Şənbə: -</p>
+                          <p class="time">Bazar: -</p>
                         </div>
                       </div>
-                      <!--=======  End of single footer widget  =======-->
                     </div>
-
-
-
-
                     <div class="col-lg-2 col-sm-4 common_widget">
-                      <!--=======  single footer widget  =======-->
                       <div class="single-footer-widget">
-
-
-                        <h3 class="single-footer-widget__title">Footer Menu</h3>
-
-
+                        <h3 class="single-footer-widget__title">Menyu</h3>
                         <div class="single-footer-widget__content">
                           <ul class="footer-navigation">
-
-
-
-
-                            <li><a href="">Home</a></li>
-
-                            <li><a href="collections/all">Shop</a></li>
-
-                            <li><a href="blogs/news">Blog</a></li>
-
-                            <li><a href="pages/about-us">About</a></li>
-
-                            <li><a href="pages/contact-us">Contact</a></li>
-
+                            <li><a href="index.html">Ana Səhifə</a> </li>
+                            <li><a href="about.html">Haqqımızda</a> </li>
+                            <li><a href="news.html">Tədbirlər</a></li>
+                            <li><a href="jurnals.html">Jurnallar</a></li>
+                            <li><a href="contact.html">Əlaqə</a></li>
                           </ul>
 
                         </div>
                       </div>
-                      <!--=======  End of single footer widget  =======-->
                     </div>
-
-
-
-
-                    <div class="col-lg-2 col-sm-4 common_widget">
-                      <!--=======  single footer widget  =======-->
-                      <div class="single-footer-widget">
-
-
-                        <h3 class="single-footer-widget__title">Extras Menu</h3>
-
-
-                        <div class="single-footer-widget__content">
-                          <ul class="footer-navigation">
-
-
-
-
-                            <li><a href="">About Us</a></li>
-
-                            <li><a href="">Our Office</a></li>
-
-                            <li><a href="">Delivery</a></li>
-
-                            <li><a href="">Our Store</a></li>
-
-                            <li><a href="">Guarantee</a></li>
-
-                          </ul>
-
-                        </div>
-                      </div>
-                      <!--=======  End of single footer widget  =======-->
                     </div>
-
-
-
-
-
-
-
-
-
-                  </div>
                 </div>
-                <!--=======  End of footer navigation wrapper  =======-->
               </div>
             </div>
           </div>
         </div>
-
-
-
-
         <div class="footer-copyright footer_common">
           <div class="container wide">
             <div class="row">
-
               <div class="col-lg-12">
                 <div class="footer-copyright-wrapper">
                   <div class="container">
                     <div class="row align-items-center no-gutters">
-
-
-
-
-
-
-
-
-
-
-
-
                       <div class="col-xl-6 col-lg-5 col-md-5 common_widget">
                         <div class="copyright-text">
                           <p>Copyright Dim.gov.az</a>
                             All Rights Reserved.</p>
                         </div>
                       </div>
-
-
-
-
                       <div class="col-xl-6 col-lg-5 col-md-5 common_widget">
                         <div class="copyright-social-wrapper">
                           <ul class="copyright-social">
@@ -1617,11 +1808,6 @@
                           </ul>
                         </div>
                       </div>
-
-
-
-
-
                     </div>
                   </div>
                 </div>
@@ -1629,10 +1815,7 @@
             </div>
           </div>
         </div>
-
-
     </div>
   </div>
 </body>
-
 </html>

@@ -534,11 +534,10 @@
     <meta name="theme-color" content="#00bfc5">
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
     <title>ABİTURENT</title>
-      <!-- jquery -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <link href="./assests/timber.scss.css" rel="stylesheet" type="text/css" media="all">
     <link href="./assests/vendors.css" rel="stylesheet" type="text/css" media="all">
     <link href="./assests/style.css" rel="stylesheet" type="text/css" media="all">
+    <link href="./assests/responsive.css" rel="stylesheet" type="text/css" media="all">
     <link href="./assests/theme-default.css" rel="stylesheet" type="text/css" media="all">
     <link href="./assests/theme-custom.css" rel="stylesheet" type="text/css" media="all">
     <link href="./assests/theme-responsive.css" rel="stylesheet" type="text/css" media="all">
@@ -553,28 +552,29 @@
 
     <script type="text/javascript" src="./assests/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" />
-    <style>
-        #mainCarousel .carousel__slide{
+    <link rel="stylesheet" type="text/css" href="./slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="./slick/slick-theme.css">
+    <style type="text/css">
+        .slick-slide img {
             width: 100%;
-            padding: 60px;
-            text-align: center;
         }
-        #thumbCarousel .carousel__slide {
-            padding: 0;
-            width: 110px;
-            height: 85px;
-            margin: 0 10px 10px 0px;
-            object-fit: contain;
+
+        .slick-slide {
+            transition: all ease-in-out .3s;
         }
-        #thumbCarousel .carousel__slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 0px;
-    object-fit: contain;
-}
     </style>
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+    <script src="./slick/slick.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        $(document).on('ready', function () {
+            $("#hero-slider .regular").slick({
+                dots: false,
+                infinite: true,
+                slidesToShow: 1,
+                slidesToScroll: 1
+            });
+        });
+    </script>
 </head>
 
 <body class="template-index ">
@@ -588,7 +588,6 @@
                         <div class="col-lg-12">
                             <!--=======  header wrapper  =======-->
                             <div class="header-wrapper d-none d-lg-flex">
-
                                 <!-- logo -->
                                 <div class="logo">
                                     <a href="" class="theme-logo">
@@ -722,12 +721,11 @@
                                 <nav>
                                     <ul>
 
-                                        <li><a href="">Ana Səhifə</a> </li>
-                                        <li><a href="">Haqqımızda</a> </li>
-                                        <li><a href="">Tədbirlər</a></li>
-                                        <li><a href="">Jurnallar</a></li>
-                                        <li><a href="">Rəy və təklif</a></li>
-                                        <li><a href="">Əlaqə</a></li>
+                                        <li><a href="index.html">Ana Səhifə</a> </li>
+                                        <li><a href="about.html">Haqqımızda</a> </li>
+                                        <li><a href="news.html">Tədbirlər</a></li>
+                                        <li><a href="jurnals.html">Jurnallar</a></li>
+                                        <li><a href="contact.html">Əlaqə</a></li>
 
                                     </ul>
                                 </nav>
@@ -774,12 +772,11 @@
                     </div>
                     <nav class="offcanvas-navigation">
                         <ul>
-                            <li><a href="">Ana Səhifə</a> </li>
-                            <li><a href="">Haqqımızda</a> </li>
-                            <li><a href="">Tədbirlər</a></li>
-                            <li><a href="">Jurnallar</a></li>
-                            <li><a href="">Rəy və təklif</a></li>
-                            <li><a href="">Əlaqə</a></li>
+                            <li><a href="index.html">Ana Səhifə</a> </li>
+                            <li><a href="about.html">Haqqımızda</a> </li>
+                            <li><a href="news.html">Tədbirlər</a></li>
+                            <li><a href="jurnals.html">Jurnallar</a></li>
+                            <li><a href="contact.html">Əlaqə</a></li>
                         </ul>
                     </nav>
 
@@ -794,14 +791,11 @@
                                     <ul class="sub-menu" style="display: none;">
                                         <li><a href="" id="customer_login_link">Log in</a>
                                         </li>
+
                                         <li><a href="" id="customer_register_link">Create
                                                 account</a></li>
                                     </ul>
                                 </li>
-
-
-
-
                                 <li class="switcher-currency-trigger currency menu-item-has-children"><span
                                         class="menu-expand"><i></i></span>
 
@@ -878,209 +872,156 @@
             </div>
 
         </div>
-        <main>
-
-            <div class="page-content-area">
-                <div class="breadcrumb-area section-space--half">
-                    <div class="container wide">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="breadcrumb-bg">
-                                    <div class="breadcrumb-content">
-                                        <h2 class="breadcrumb-content__title">Test Product</h2>
-                                        <nav class="" role="navigation" aria-label="breadcrumbs">
-                                            <ul class="breadcrumb-list breadcrumb-content__page-map">
-                                                <li>  <a href="#" title="Back to the home page">Ana Səhifə</a> </li>
-                                                <li> <span>Jurnal</span> </li>
-                                            </ul>
-                                        </nav>
-                                    </div>
-                                </div>
+        <div class="breadcrumb-area section-space--half">
+            <div class="container wide">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="breadcrumb-bg">
+                            <div class="breadcrumb-content">
+                                <h2 class="breadcrumb-content__title">Xəbərlər</h2>
+                                <nav class="" role="navigation" aria-label="breadcrumbs">
+                                    <ul class="breadcrumb-list breadcrumb-content__page-map">
+                                        <li>
+                                            <a href="index.html" title="home">Ana səhifə</a>
+                                        </li>
+                                        <li>
+                                            <span>Xəbərlər</span>
+                                        </li>
+                                    </ul>
+                                </nav>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="page-wrapper">
-                                <div class="page-content-wrapper">
+            </div>
+        </div>
+        <main>
+            <div id="shopify-section-template--14336701530186__main" class="shopify-section">
+                <div class="page-content-area">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="page-wrapper">
+                                    <div class="page-content-wrapper">
 
-                                    <div id="shopify-section-product-template" class="shopify-section">
-                                        <div class="single-product-main-content-area section-space"
-                                            id="product-details-with-gallery">
-                                            <div class="row ">
-                                                <div class="col-md-12 col-lg-6 col-12">
-                                                    <div class="product-details-slider-area">
-                                                        <section id="detail-slider" class="">
-
-                                                            <div id="mainCarousel" class="carousel w-6/12 max-w-5xl ">
-                                                              <div class="carousel__slide" data-src="https://www.abiturient.az/images/jurnallar/N4_Magistr_AZ_2009.jpg" data-fancybox="gallery"
-                                                                data-caption="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum lobortis ultricies ipsum, a maximus ligula dignissim in. Sed consectetur tellus egestas, consequat dolor at, tempus augue. Morbi quis ipsum quis velit.">
-                                                                <img src="https://www.abiturient.az/images/jurnallar/N4_Magistr_AZ_2009.jpg" />
-                                                              </div>
-                                                              <div class="carousel__slide" data-src="https://www.abiturient.az/images/jurnallar/N5_Magistr_AZ_2009.jpg" data-fancybox="gallery"
-                                                                data-caption="Ut semper, justo eget vehicula vestibulum, enim enim suscipit lectus, et sagittis nibh risus vel metus. Quisque eu ornare ante, et gravida mauris">
-                                                                <img src="https://www.abiturient.az/images/jurnallar/N5_Magistr_AZ_2009.jpg" />
-                                                              </div>
-                                                              <div class="carousel__slide" data-src="https://www.abiturient.az/images/jurnallar/N3_Magistr_AZ_2015.jpg" data-fancybox="gallery"
-                                                                data-caption="Hello 🖐">
-                                                                <img src="https://www.abiturient.az/images/jurnallar/N3_Magistr_AZ_2015.jpg" />
-                                                              </div>
-                                                              <div class="carousel__slide" data-src="https://www.abiturient.az/images/jurnallar/N3_Magistr_RUS_2015.jpg" data-fancybox="gallery"
-                                                                data-caption="Another caption">
-                                                                <img src="https://www.abiturient.az/images/jurnallar/N3_Magistr_RUS_2015.jpg" />
-                                                              </div>
-                                                              <div class="carousel__slide" data-src="https://www.abiturient.az/images/jurnallar/N4_Magistr_AZ_2015.jpg" data-fancybox="gallery">
-                                                                <img data-lazy-src="https://www.abiturient.az/images/jurnallar/N4_Magistr_AZ_2015.jpg" />
-                                                              </div>
-                                                              <div class="carousel__slide" data-src="https://www.abiturient.az/images/jurnallar/N6_Magistr_AZ_2015.jpg" data-fancybox="gallery">
-                                                                <img src="https://www.abiturient.az/images/jurnallar/N6_Magistr_AZ_2015.jpg" />
-                                                              </div>
-                                                            </div>
-                                                  
-                                                            <div id="thumbCarousel" class="">
-                                                              <div class="carousel__slide">
-                                                                <img class="panzoom__content" src="https://www.abiturient.az/images/jurnallar/N4_Magistr_AZ_2009.jpg" />
-                                                              </div>
-                                                              <div class="carousel__slide">
-                                                                <img class="panzoom__content" src="https://www.abiturient.az/images/jurnallar/N5_Magistr_AZ_2009.jpg" />
-                                                              </div>
-                                                              <div class="carousel__slide">
-                                                                <img class="panzoom__content" src="https://www.abiturient.az/images/jurnallar/N3_Magistr_AZ_2015.jpg" />
-                                                              </div>
-                                                              <div class="carousel__slide">
-                                                                <img class="panzoom__content" src="https://www.abiturient.az/images/jurnallar/N3_Magistr_RUS_2015.jpg" />
-                                                              </div>
-                                                              <div class="carousel__slide">
-                                                                <img class="panzoom__content" src="https://www.abiturient.az/images/jurnallar/N4_Magistr_AZ_2015.jpg" />
-                                                              </div>
-                                                              <div class="carousel__slide">
-                                                                <img class="panzoom__content" src="https://www.abiturient.az/images/jurnallar/N6_Magistr_AZ_2015.jpg" />
-                                                              </div>
-                                                            </div>
-                                                          </section>
-                                                    </div>
-                                                </div>
-                                                <div class=" col-md-12 col-lg-6 col-12">
-                                                    <div id="product-content" class="">
-                                                        <form method="post"   action=""   enctype="multipart/form-data">
-                                                            <div class="single-product-content-description">
-                                                                <h4 class="product-title" id="popup_cart_title">Jurnal</h4>
-                                                                <p class="single-grid-product__price">
-                                                                    <span id="ProductPrice"
-                                                                        class="discounted-price"><span class="money">20.00  AZN</span></span>
-                                                                        <span class="main-price discounted">
-                                                                        <span class="money" >30.00 AZN </span></span>
-                                                                </p>
-                                                                <p class="single-info">
-                                                                    <span class="inventory-title">Say:</span>
-                                                                    <span class="variant-inventory">10 </span>
-                                                                </p>
-
-                                                                <div class="product-description">
-                                                                    <p>Lorem Ipsum dollar si tmesl </p>
-                                                                </div>
-                                                                <div class="single_product_special_feature">
-                                                                    <ul>
-                                                                        <li><span class="label">Ad:</span> <span
-                                                                                class="desc"> Jurnal</span></li>
-                                                                        <li><span class="label">Author:</span>
-                                                                            <span class="desc"><a  href="" title="Vendor 1">Vendor 1</a></span>
-                                                                        </li>
-                                                                        <li><span class="label">Product Type:</span>
-                                                                            <span class="desc"><a  href=""  title="Type 10">Type 10</a></span>
-                                                                        </li>
-                                                                        <li><span class="label">Publish Date:</span>
-                                                                            <span class="desc">2019 / 11 / 17</span>
-                                                                        </li>
-                                                                        <li><span class="label">Barcode</span> <span
-                                                                                class="desc">987654321</span></li>
-                                                                    </ul>
-                                                                </div>
-                                                                <div class="product-variant-option">
-                                                                    <div class="selector-wrapper"
-                                                                        style="display: none;">
-                                                                        <label  for="productSelect-option-0">Size</label>
-                                                                        <select class="single-option-selector">
-                                                                            <option value="m">m</option>
-                                                                            <option value="s">s</option>
-                                                                        </select>
-                                                                    </div>
-                                                                    <select name="id"
-                                                                        id="productSelect"
-                                                                        class="product-single__variants"
-                                                                        style="display:none;">
-                                                                        <option selected="selected" data-sku="123456-1"
-                                                                            value="31274265903178">m - $20.00 USD
-                                                                        </option>
-                                                                        <option data-sku="123456-2"
-                                                                            value="31274265935946">s - $20.00 USD
-                                                                        </option>
-                                                                    </select>
-                                                                    <div class="swatch clearfix Size"
-                                                                        data-option-index="0">
-                                                                        <div class="header">Size : </div>
-                                                                        <div data-value="m"
-                                                                            class="swatch-element m available">
-                                                                            <input id="swatch-0-m" type="radio"
-                                                                                name="option-0" value="m" checked="">
-                                                                            <label for="swatch-0-m">
-                                                                                m
-                                                                            </label>
-                                                                        </div>
-                                                                            <div data-value="s"
-                                                                            class="swatch-element s available">
-                                                                            <input id="swatch-0-s" type="radio"
-                                                                                name="option-0" value="s">
-
-                                                                            <label for="swatch-0-s">
-                                                                                s
-
-                                                                            </label>
-                                                                        </div></div>
-                                                                </div>
-                                                                <div class="product-actions">
-                                                                    <div class="quantity-selection quantity-selector">
-                                                                        <label>Say</label>
-                                                                        <input type="text" value="1" name="quantity"
-                                                                            class="cart-plus-inus-box">
-                                                                    </div>
-
-                                                                    <div class="product-buttons"><button type="submit"
-                                                                            class="cart-btn" id="AddToCart">
-                                                                            <span>
-                                                                                <span class="cart-title"
-                                                                                    id="AddToCartText">Add to
-                                                                                    cart</span>
-                                                                            </span>
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                                    
-                                                                <div class="social-share-buttons mt-20">
-                                                                    <h5>share this product</h5>
-                                                                    <ul>
-                                                                        <li><a href="" target="_blank"><i class="bi bi-twitter"></i> </a></li>
-                                                                        <li><a href="" target="_blank"><i class="bi bi-facebook"></i></a></li>
-                                                                        <li><a href="" target="_blank"><i class="bi bi-google"></i></a></li>
-                                                                        <li><a href="" target="_blank"><i class="bi bi-linkedin"></i></a></li>
-                                                                        <li><a href="" target="_blank"><i class="bi bi-pinterest"></i></a></li>
-                                                                    </ul>
-
-                                                                </div>
-                                                            </div>
+                                        <div class="row ">
+                                            <div class="col-lg-3 order-2 order-lg-1">
+                                                <div class="page-sidebar-wrapper">
+                                                    <div class="single-sidebar-widget">
+                                                        <h4 class="single-sidebar-widget__title">Axtarış</h4>
+                                                        <form action="/search" method="get" role="search"
+                                                            style="position: relative;">
+                                                            <input type="hidden" name="type" value="article">
+                                                            <input type="search" name="q" value=""
+                                                                placeholder="Xəbərlər"
+                                                                aria-label="Search our store" autocomplete="off">
+                                                            <button type="submit">
+                                                                <span>Axtar</span>
+                                                            </button>
+                                                            <ul class="search-results home-two"
+                                                                style="position: absolute; left: 0px; top: 36px; display: none;">
+                                                            </ul>
                                                         </form>
+                                                    </div>
+                                                    <div class="single-sidebar-widget">
+
+
+                                                        <h4 class="single-sidebar-widget__title">Ən son xəbərlər</h4>
+                                                        <div class="block-container">
+                                                            <div class="single-block d-flex">
+                                                                <div class="image">
+                                                                    <a
+                                                                        href="/blogs/news/testing-has-a-signficant-info-number-of-benefits"><img
+                                                                            src="//cdn.shopify.com/s/files/1/0265/8933/1530/articles/reading-books-might-help-you-live-longer-according-to-new-research-1_medium.jpg?v=1567855567"
+                                                                            alt=""></a>
+                                                                </div>
+                                                                <div class="content">
+                                                                    <p><a
+                                                                            href="/blogs/news/testing-has-a-signficant-info-number-of-benefits">Testing
+                                                                            has a signfican...</a> <span>Jan 25,
+                                                                            2022</span></p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="single-block d-flex">
+                                                                <div class="image">
+                                                                    <a
+                                                                        href="/blogs/news/international-activities-of-the-frankfurt-book"><img
+                                                                            src="//cdn.shopify.com/s/files/1/0265/8933/1530/articles/lit_fest_odesa_medium.jpg?v=1567855487"
+                                                                            alt=""></a>
+                                                                </div>
+                                                                <div class="content">
+                                                                    <p><a
+                                                                            href="/blogs/news/international-activities-of-the-frankfurt-book">International
+                                                                            activitie...</a> <span>Jan 25, 2022</span>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <!--=======  End of single block  =======-->
+
+                                                            <!--=======  single block  =======-->
+                                                            <div class="single-block d-flex">
+                                                                <div class="image">
+                                                                    <a
+                                                                        href="/blogs/news/reading-has-a-signficant-info-number-of-benefits-1"><img
+                                                                            src="//cdn.shopify.com/s/files/1/0265/8933/1530/articles/95da18b638ee746cdfb59dd5df1ffa7a_dba4f341-b61e-4b02-b4b1-810920f64def_medium.jpg?v=1567855434"
+                                                                            alt=""></a>
+                                                                </div>
+                                                                <div class="content">
+                                                                    <p><a
+                                                                            href="/blogs/news/reading-has-a-signficant-info-number-of-benefits-1">Reading
+                                                                            has a signfican...</a> <span>Jan 25,
+                                                                            2022</span></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="col-lg-9 order-1 order-lg-2">
+                                                <div class="blog-page-content">
+                                                    <div class="blog-single-post-container">
+                                                        <h3 class="post-title">13-cü Azərbaycan Beynəlxalq "Təhsil və Karyera" sərgisi</h3>
+                                                        <div class="post-meta">
+                                                            <p><span><i
+                                                                        class="fa fa-calendar"></i> Dərc edildi: <time
+                                                                        datetime="2022-01-26T04:00:00Z">iyul 25,
+                                                                        2022</time></span></p>
+                                                        </div>
+                                                        <div class="single-blog-post-media">
+                                                            <div class="image">
+                                                                <img class="img-fluid"
+                                                                    src="https://www.abiturient.az/iteca/31.jpg"
+                                                                    alt="Testing has a signficant info number of benefits">
+                                                            </div>
+                                                        </div>
+                                                        <div class="post-content">
+                                                            <p>10-12 oktyabr tarixlərində Bakı Ekspo Mərkəzində 13-cü Azərbaycan Beynəlxalq Təhsil "Eduexpo" sərgisi keçirilmişdir. "Eduexpo" ölkədə Azərbaycan Respublikası Təhsil Nazirliyinin rəsmi dəstəyi ilə keçirilən yeganə sərgidir. Sərgi eləcə də Azərbaycanda İxracatın və İnvestisiyaların Təşviqi Fondu (AZPROMO), Azərbaycan Respublikasının Kiçik və Orta Biznesin İnkişafı Agentliyi (KOBİA) və Azərbaycan Respublikası Sahibkarlar (İşəgötürənlər) Təşkilatları Milli Konfederasiyası (ASK) tərəfindən dəstəklənib. Sərginin təşkilatçısı qismində "Caspian Event Organisers" şirkəti çıxış edib.</p>
+                                                            <blockquote>
+                                                                <p>Bu il "Təhsil" sərgisində dünyanın 22 ölkəsini təmsil edən 152 təhsil strukturu iştirak edib. Ölkə və regionun təhsil sahəsində irimiqyaslı beynəlxalq sərgi olan "Eduexpo"da məktəbəqədər hazırlıq, orta təhsil, peşə və orta ixtisas təhsili, ali təhsil, magistratura, MBA, aspirantura, doktorantura, xaricdə təhsil və tələbə mübadiləsi üzrə proqramlar, eləcə də dil kursları, yay məktəbləri, treyninqlər, dərsliklər və metodiki vəsaitlər, təhsil sahəsində yeni informasiya texnologiyaları, təhsil sektoru üçün avadanlıqlar kimi sektorlar üzrə məlumat və xidmətlər təqdim edilib.</p>
+                                                            </blockquote>
+                                                            <p>Builki sərginin fərqləndirici xüsusiyyəti onun texnoloji istiqamətli olması idi. Belə ki, "Rusiyada təhsil" layihəsi təhsil sahəsində "VR" texnologiyaları sərgidə təqdim edib və "Laboratoriya işinin virtual reallıq formatında nümayişi (VR)" adlı təqdimat çərçivəsində məhsullar əyani şəkildə nümayiş edilib. Sərgidə debüt edən "leXsolar GmbH" şirkəti bərpa olunan enerji mənbələri ilə işləyən trenajor sistemlərini nümayiş edib. Sevindirici haldır ki, yerli layihəçilər tərəfindən təhsil sahəsində bir sıra yeni texnologiyalar təqdim olunub.</p>
+                                                            <p>"Azərsu" ASC "Karyera" sərgisi çərçivəsində ziyarətçilərə mühəndis-texnoloq, SCADA mühəndisi, mexanik, energetik, eləcə də hidrologiya, avtomatika və metrologiya üzrə mütəxəssis və s. kimi mövcud vakansiyaları təqdim edib. 13-cü Azərbaycan Beynəlxalq "Təhsil və Karyera" sərgisində Dövlət İmtahan Mərkəzi, onun mətbu orqanı "Abituriyent" jurnalı və öz portalı (otk.az) vasitəsilə orta məktəb şagirdləri, abituriyentlər, magistrlər, rezidentlər, dövlət qulluğuna hazırlaşan namizədlər və müəllimlər üçün onlayn sınaq imtahanları keçirən "OTK" şirkəti birgə stend təşkil ediblər. Sərginin davam etdiyi 3 gün ərzində sərgi qonaqların maraqlandıran suallara ətraflı cavab verilib. Sərgidə "Abituriyent" jurnalının son illərdə, o cümlədən 2019-cu ildə çap olunmuş sayları, "Magistr" və "Rezidentura" xüsusi buraxılışları, tədris-metodiki vəsaitləri, elmi-statistik araşdırmalar və digər zəruri çap materialları nümayiş etdirilmişdir. Dövlət İmtahan Mərkəzi və otk.az portalı orta məktəb şagirdlərinə dəstək olaraq yeni sosial layihəsi ilə sərgi iştirakçılarında xüsusi maraq oyatmışlar. Belə ki, layihə çərçivəsində iştirakçılara 5 azn-lik hədiyyə kuponları təqdim edilmişdir. Hədiyyə kuponunu alan hər bir iştirakçı otk.az saytında qeydiyyatdan keçərək istənilən imtahana yazıla bilər.
+                                                                Dövlət İmtahan Mərkəzi və "Abituriyent" jurnalı fəal iştiraklarına görə sərginin sertifikatlarına layiq görülmüşlər.!</p>
+                                                        </div>
+                                                        <div class="social-share-buttons">
+                                                            <ul>
+                                                                <li><a href="" target="_blank"><i class="bi bi-twitter"></i> </a>
+                                                                </li>
+                                                                <li><a href="" target="_blank"><i class="bi bi-facebook"></i></a>
+                                                                </li>
+                                                                <li><a href="" target="_blank"><i class="bi bi-google"></i></a></li>
+                                                                <li><a href="" target="_blank"><i class="bi bi-linkedin"></i></a>
+                                                                </li>
+                                                                <li><a href="" target="_blank"><i class="bi bi-pinterest"></i></a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                  
+                                                </div>
+                                            </div>
                                         </div>
-
-         
                                     </div>
-                                   
-                                  
-
                                 </div>
                             </div>
                         </div>
@@ -1088,10 +1029,7 @@
                 </div>
             </div>
         </main>
-
         <div class="footer-area footer-area--light-bg footer_wraper_common_class" id="section-footer">
-
-
             <div class="footer-navigation section-space--inner footer_common">
                 <div class="container">
                     <div class="row">
@@ -1239,28 +1177,12 @@
                             <div class="footer-copyright-wrapper">
                                 <div class="container">
                                     <div class="row align-items-center no-gutters">
-
-
-
-
-
-
-
-
-
-
-
-
                                         <div class="col-xl-6 col-lg-5 col-md-5 common_widget">
                                             <div class="copyright-text">
                                                 <p>Copyright Dim.gov.az</a>
                                                     All Rights Reserved.</p>
                                             </div>
                                         </div>
-
-
-
-
                                         <div class="col-xl-6 col-lg-5 col-md-5 common_widget">
                                             <div class="copyright-social-wrapper">
                                                 <ul class="copyright-social">
@@ -1276,11 +1198,6 @@
                                                 </ul>
                                             </div>
                                         </div>
-
-
-
-
-
                                     </div>
                                 </div>
                             </div>
@@ -1293,80 +1210,5 @@
         </div>
     </div>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
-<script type="module">
-  import { Fancybox } from "https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.esm.js";
-</script>
-<script>
-    // Initialise Carousel
-const mainCarousel = new Carousel(document.querySelector("#mainCarousel"), {
-  Dots: false,
-});
 
-// Thumbnails
-const thumbCarousel = new Carousel(document.querySelector("#thumbCarousel"), {
-  Sync: {
-    target: mainCarousel,
-    friction: 0,
-  },
-  Dots: false,
-  Navigation: false,
-  center: true,
-  slidesPerPage: 1,
-  infinite: false,
-});
-
-// Customize Fancybox
-Fancybox.bind('[data-fancybox="gallery"]', {
-  Carousel: {
-    on: {
-      change: (that) => {
-        mainCarousel.slideTo(mainCarousel.findPageForSlide(that.page), {
-          friction: 0,
-        });
-      },
-    },
-  },
-});
-// For the thumbnail demo! :]
-
-var count = 1
-setTimeout(demo, 500)
-setTimeout(demo, 700)
-setTimeout(demo, 900)
-setTimeout(reset, 2000)
-
-setTimeout(demo, 2500)
-setTimeout(demo, 2750)
-setTimeout(demo, 3050)
-
-
-var mousein = false
-function demo() {
-   if(mousein) return
-   document.getElementById('demo' + count++)
-      .classList.toggle('hover')
-   
-}
-
-function demo2() {
-   if(mousein) return
-   document.getElementById('demo2')
-      .classList.toggle('hover')
-}
-
-function reset() {
-   count = 1
-   var hovers = document.querySelectorAll('.hover')
-   for(var i = 0; i < hovers.length; i++ ) {
-      hovers[i].classList.remove('hover')
-   }
-}
-
-document.addEventListener('mouseover', function() {
-   mousein = true
-   reset()
-})
-
-</script>
 </html>
