@@ -1,5 +1,5 @@
 
-(function() {
+(function () {
   "use strict";
 
   /**
@@ -36,7 +36,7 @@
    * Sidebar toggle
    */
   if (select('.toggle-sidebar-btn')) {
-    on('click', '.toggle-sidebar-btn', function(e) {
+    on('click', '.toggle-sidebar-btn', function (e) {
       select('body').classList.toggle('toggle-sidebar')
     })
   }
@@ -45,7 +45,7 @@
    * Search bar toggle
    */
   if (select('.search-bar-toggle')) {
-    on('click', '.search-bar-toggle', function(e) {
+    on('click', '.search-bar-toggle', function (e) {
       select('.search-bar').classList.toggle('search-bar-show')
     })
   }
@@ -106,19 +106,19 @@
    * Initiate tooltips
    */
   var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-  var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
+  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
     return new bootstrap.Tooltip(tooltipTriggerEl)
   })
 
- 
+
   /**
    * Initiate Bootstrap validation check
    */
   var needsValidation = document.querySelectorAll('.needs-validation')
 
   Array.prototype.slice.call(needsValidation)
-    .forEach(function(form) {
-      form.addEventListener('submit', function(event) {
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
         if (!form.checkValidity()) {
           event.preventDefault()
           event.stopPropagation()
@@ -142,7 +142,7 @@
   const mainContainer = select('#main');
   if (mainContainer) {
     setTimeout(() => {
-      new ResizeObserver(function() {
+      new ResizeObserver(function () {
         select('.echart', true).forEach(getEchart => {
           echarts.getInstanceByDom(getEchart).resize();
         })
@@ -156,47 +156,55 @@ $(document).ready(function () {
   //Normally set in the title tag of your page.
   // DataTable initialisation
   $('#example').DataTable(
-      {
-          "dom": '<"dt-buttons-all"Bf><"top"l>rt<"bottom"ip>',
-          "paging": true,
-          "autoWidth": true,
-          "columnDefs": [
-              { "orderable": false, "targets": 5 }
-          ],
-          "lengthMenu": [2,5, 10, 20, 50, 100, 200, 500],
-          "buttons": [
-              'colvis',
-              'copyHtml5',
-              'excelHtml5',
-              'print'
-          ]
-      }
+    {
+      "dom": '<"dt-buttons-all"Bf><"top"l>rt<"bottom"ip>',
+      "paging": true,
+      "autoWidth": true,
+      columnDefs: [{
+        orderable: false,
+        className: 'select-checkbox',
+        targets: 0
+      }],
+      select: {
+        style: 'multi',
+        selector: 'td:first-child'
+      },
+      order: [[1, 'asc']],
+      "lengthMenu": [2, 5, 10, 20, 50, 100, 200, 500],
+      "buttons": [
+        'colvis',
+        'copyHtml5',
+        'excelHtml5',
+        'print'
+      ],
+     
+    }
   );
   $('.dt-edit').each(function () {
-      $(this).on('click', function (evt) {
-          $this = $(this);
-          var dtRow = $this.parents('tr');
-          $('div.modal-body').innerHTML = '';
-          $('div.modal-body').append('Row index: ' + dtRow[0].rowIndex + '<br/>');
-          $('div.modal-body').append('Number of columns: ' + dtRow[0].cells.length + '<br/>');
-          for (var i = 0; i < dtRow[0].cells.length; i++) {
-              $('div.modal-body').append('Cell (column, row) ' + dtRow[0].cells[i]._DT_CellIndex.column + ', ' + dtRow[0].cells[i]._DT_CellIndex.row + ' => innerHTML : ' + dtRow[0].cells[i].innerHTML + '<br/>');
-          }
-          $('#myModal').modal('show');
-      });
+    $(this).on('click', function (evt) {
+      $this = $(this);
+      var dtRow = $this.parents('tr');
+      $('div.modal-body').innerHTML = '';
+      $('div.modal-body').append('Row index: ' + dtRow[0].rowIndex + '<br/>');
+      $('div.modal-body').append('Number of columns: ' + dtRow[0].cells.length + '<br/>');
+      for (var i = 0; i < dtRow[0].cells.length; i++) {
+        $('div.modal-body').append('Cell (column, row) ' + dtRow[0].cells[i]._DT_CellIndex.column + ', ' + dtRow[0].cells[i]._DT_CellIndex.row + ' => innerHTML : ' + dtRow[0].cells[i].innerHTML + '<br/>');
+      }
+      $('#myModal').modal('show');
+    });
   });
   //Delete buttons
   $('.dt-delete').each(function () {
-      $(this).on('click', function (evt) {
-          $this = $(this);
-          var dtRow = $this.parents('tr');
-          if (confirm("Are you sure to delete this row?")) {
-              var table = $('#example').DataTable();
-              table.row(dtRow[0].rowIndex - 1).remove().draw(false);
-          }
-      });
+    $(this).on('click', function (evt) {
+      $this = $(this);
+      var dtRow = $this.parents('tr');
+      if (confirm("Are you sure to delete this row?")) {
+        var table = $('#example').DataTable();
+        table.row(dtRow[0].rowIndex - 1).remove().draw(false);
+      }
+    });
   });
   $('#myModal').on('hidden.bs.modal', function (evt) {
-      $('.modal .modal-body').empty();
+    $('.modal .modal-body').empty();
   });
 });
