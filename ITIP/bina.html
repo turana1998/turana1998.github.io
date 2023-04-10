@@ -66,6 +66,70 @@
       border-radius: 5px;
       margin: 1px;
     }
+
+    @media only screen and (max-width: 900px) {
+      .dt-buttons-all {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 30px;
+        margin-top: 30px;
+      }
+
+      .bottom {
+        flex-direction: column;
+      }
+
+      table {
+        border: 0;
+      }
+
+      table thead {
+        border: none;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+      }
+
+      table tr {
+        border-bottom: 3px solid #ddd;
+        display: block;
+        margin-bottom: .625em;
+      }
+
+      table td {
+        border-bottom: 1px solid #ddd;
+        display: block;
+        font-size: .8em;
+        text-align: right;
+      }
+
+      table td .form-check {
+        display: inline-block;
+        margin-right: -10px;
+        padding: 0;
+        min-height: 1.5rem;
+      }
+
+      table td::before {
+        /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+
+      table td:last-child {
+        border-bottom: 0;
+      }
+    }
   </style>
 </head>
 
@@ -187,19 +251,19 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td>1001</td>
-                      <td>Bakı Dövlət Universiteti</td>
-                      <td>1500</td>
-                      <td>38</td>
-                      <td>11</td>
-                      <td>
+                      <td data-label="Kod">1001</td>
+                      <td data-label="Binanın adı">Bakı Dövlət Universiteti</td>
+                      <td data-label="Tutum">1500</td>
+                      <td data-label="Zal sayı">38</td>
+                      <td data-label="Rayon">11</td>
+                      <td data-label="Status">
                         <div class="form-check form-switch">
                           <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="checked">
                         </div>
                       </td>
-                      <td>11</td>
-                      <td>1</td>
-                      <td>
+                      <td data-label="Kod O">11</td>
+                      <td data-label="">1</td>
+                      <td data-label="Əməliyyatlar">
                         <button type="button" class="btn btn-success btn-xs dt-edit">
                           <i class="bi bi-pencil-fill "></i>
                         </button>
@@ -211,857 +275,6 @@
                         </button>
                       </td>
                     </tr>
-                    <tr>
-                      <td>1001</td>
-                      <td>Bakı Dövlət Universiteti</td>
-                      <td>1500</td>
-                      <td>38</td>
-                      <td>11</td>
-                      <td>
-                        <div class="form-check form-switch">
-                          <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="checked">
-                        </div>
-                      </td>
-                      <td>11</td>
-                      <td>1</td>
-                      <td>
-                        <button type="button" class="btn btn-success btn-xs dt-edit">
-                          <i class="bi bi-pencil-fill "></i>
-                        </button>
-                        <button type="button" class="btn btn-danger btn-xs dt-delete">
-                          <i class="bi bi-trash-fill"></i>
-                        </button>
-                        <button type="button" class="btn btn-primary btn-xs dt-view">
-                          <i class="bi bi-eye-fill"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1001</td>
-                      <td>Bakı Dövlət Universiteti</td>
-                      <td>1500</td>
-                      <td>38</td>
-                      <td>11</td>
-                      <td>
-                        <div class="form-check form-switch">
-                          <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="checked">
-                        </div>
-                      </td>
-                      <td>11</td>
-                      <td>1</td>
-                      <td>
-                        <button type="button" class="btn btn-success btn-xs dt-edit">
-                          <i class="bi bi-pencil-fill "></i>
-                        </button>
-                        <button type="button" class="btn btn-danger btn-xs dt-delete">
-                          <i class="bi bi-trash-fill"></i>
-                        </button>
-                        <button type="button" class="btn btn-primary btn-xs dt-view">
-                          <i class="bi bi-eye-fill"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1001</td>
-                      <td>Bakı Dövlət Universiteti</td>
-                      <td>1500</td>
-                      <td>38</td>
-                      <td>11</td>
-                      <td>
-                        <div class="form-check form-switch">
-                          <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="checked">
-                        </div>
-                      </td>
-                      <td>11</td>
-                      <td>1</td>
-                      <td>
-                        <button type="button" class="btn btn-success btn-xs dt-edit">
-                          <i class="bi bi-pencil-fill "></i>
-                        </button>
-                        <button type="button" class="btn btn-danger btn-xs dt-delete">
-                          <i class="bi bi-trash-fill"></i>
-                        </button>
-                        <button type="button" class="btn btn-primary btn-xs dt-view">
-                          <i class="bi bi-eye-fill"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1001</td>
-                      <td>Bakı Dövlət Universiteti</td>
-                      <td>1500</td>
-                      <td>38</td>
-                      <td>11</td>
-                      <td>
-                        <div class="form-check form-switch">
-                          <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="checked">
-                        </div>
-                      </td>
-                      <td>11</td>
-                      <td>1</td>
-                      <td>
-                        <button type="button" class="btn btn-success btn-xs dt-edit">
-                          <i class="bi bi-pencil-fill "></i>
-                        </button>
-                        <button type="button" class="btn btn-danger btn-xs dt-delete">
-                          <i class="bi bi-trash-fill"></i>
-                        </button>
-                        <button type="button" class="btn btn-primary btn-xs dt-view">
-                          <i class="bi bi-eye-fill"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1001</td>
-                      <td>Bakı Dövlət Universiteti</td>
-                      <td>1500</td>
-                      <td>38</td>
-                      <td>11</td>
-                      <td>
-                        <div class="form-check form-switch">
-                          <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="checked">
-                        </div>
-                      </td>
-                      <td>11</td>
-                      <td>1</td>
-                      <td>
-                        <button type="button" class="btn btn-success btn-xs dt-edit">
-                          <i class="bi bi-pencil-fill "></i>
-                        </button>
-                        <button type="button" class="btn btn-danger btn-xs dt-delete">
-                          <i class="bi bi-trash-fill"></i>
-                        </button>
-                        <button type="button" class="btn btn-primary btn-xs dt-view">
-                          <i class="bi bi-eye-fill"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1001</td>
-                      <td>Bakı Dövlət Universiteti</td>
-                      <td>1500</td>
-                      <td>38</td>
-                      <td>11</td>
-                      <td>
-                        <div class="form-check form-switch">
-                          <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="checked">
-                        </div>
-                      </td>
-                      <td>11</td>
-                      <td>1</td>
-                      <td>
-                        <button type="button" class="btn btn-success btn-xs dt-edit">
-                          <i class="bi bi-pencil-fill "></i>
-                        </button>
-                        <button type="button" class="btn btn-danger btn-xs dt-delete">
-                          <i class="bi bi-trash-fill"></i>
-                        </button>
-                        <button type="button" class="btn btn-primary btn-xs dt-view">
-                          <i class="bi bi-eye-fill"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1001</td>
-                      <td>Bakı Dövlət Universiteti</td>
-                      <td>1500</td>
-                      <td>38</td>
-                      <td>11</td>
-                      <td>
-                        <div class="form-check form-switch">
-                          <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="checked">
-                        </div>
-                      </td>
-                      <td>11</td>
-                      <td>1</td>
-                      <td>
-                        <button type="button" class="btn btn-success btn-xs dt-edit">
-                          <i class="bi bi-pencil-fill "></i>
-                        </button>
-                        <button type="button" class="btn btn-danger btn-xs dt-delete">
-                          <i class="bi bi-trash-fill"></i>
-                        </button>
-                        <button type="button" class="btn btn-primary btn-xs dt-view">
-                          <i class="bi bi-eye-fill"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1001</td>
-                      <td>Bakı Dövlət Universiteti</td>
-                      <td>1500</td>
-                      <td>38</td>
-                      <td>11</td>
-                      <td>
-                        <div class="form-check form-switch">
-                          <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="checked">
-                        </div>
-                      </td>
-                      <td>11</td>
-                      <td>1</td>
-                      <td>
-                        <button type="button" class="btn btn-success btn-xs dt-edit">
-                          <i class="bi bi-pencil-fill "></i>
-                        </button>
-                        <button type="button" class="btn btn-danger btn-xs dt-delete">
-                          <i class="bi bi-trash-fill"></i>
-                        </button>
-                        <button type="button" class="btn btn-primary btn-xs dt-view">
-                          <i class="bi bi-eye-fill"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1001</td>
-                      <td>Bakı Dövlət Universiteti</td>
-                      <td>1500</td>
-                      <td>38</td>
-                      <td>11</td>
-                      <td>
-                        <div class="form-check form-switch">
-                          <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="checked">
-                        </div>
-                      </td>
-                      <td>11</td>
-                      <td>1</td>
-                      <td>
-                        <button type="button" class="btn btn-success btn-xs dt-edit">
-                          <i class="bi bi-pencil-fill "></i>
-                        </button>
-                        <button type="button" class="btn btn-danger btn-xs dt-delete">
-                          <i class="bi bi-trash-fill"></i>
-                        </button>
-                        <button type="button" class="btn btn-primary btn-xs dt-view">
-                          <i class="bi bi-eye-fill"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1001</td>
-                      <td>Bakı Dövlət Universiteti</td>
-                      <td>1500</td>
-                      <td>38</td>
-                      <td>11</td>
-                      <td>
-                        <div class="form-check form-switch">
-                          <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="checked">
-                        </div>
-                      </td>
-                      <td>11</td>
-                      <td>1</td>
-                      <td>
-                        <button type="button" class="btn btn-success btn-xs dt-edit">
-                          <i class="bi bi-pencil-fill "></i>
-                        </button>
-                        <button type="button" class="btn btn-danger btn-xs dt-delete">
-                          <i class="bi bi-trash-fill"></i>
-                        </button>
-                        <button type="button" class="btn btn-primary btn-xs dt-view">
-                          <i class="bi bi-eye-fill"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1001</td>
-                      <td>Bakı Dövlət Universiteti</td>
-                      <td>1500</td>
-                      <td>38</td>
-                      <td>11</td>
-                      <td>
-                        <div class="form-check form-switch">
-                          <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="checked">
-                        </div>
-                      </td>
-                      <td>11</td>
-                      <td>1</td>
-                      <td>
-                        <button type="button" class="btn btn-success btn-xs dt-edit">
-                          <i class="bi bi-pencil-fill "></i>
-                        </button>
-                        <button type="button" class="btn btn-danger btn-xs dt-delete">
-                          <i class="bi bi-trash-fill"></i>
-                        </button>
-                        <button type="button" class="btn btn-primary btn-xs dt-view">
-                          <i class="bi bi-eye-fill"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1001</td>
-                      <td>Bakı Dövlət Universiteti</td>
-                      <td>1500</td>
-                      <td>38</td>
-                      <td>11</td>
-                      <td>
-                        <div class="form-check form-switch">
-                          <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="checked">
-                        </div>
-                      </td>
-                      <td>11</td>
-                      <td>1</td>
-                      <td>
-                        <button type="button" class="btn btn-success btn-xs dt-edit">
-                          <i class="bi bi-pencil-fill "></i>
-                        </button>
-                        <button type="button" class="btn btn-danger btn-xs dt-delete">
-                          <i class="bi bi-trash-fill"></i>
-                        </button>
-                        <button type="button" class="btn btn-primary btn-xs dt-view">
-                          <i class="bi bi-eye-fill"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1001</td>
-                      <td>Bakı Dövlət Universiteti</td>
-                      <td>1500</td>
-                      <td>38</td>
-                      <td>11</td>
-                      <td>
-                        <div class="form-check form-switch">
-                          <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="checked">
-                        </div>
-                      </td>
-                      <td>11</td>
-                      <td>1</td>
-                      <td>
-                        <button type="button" class="btn btn-success btn-xs dt-edit">
-                          <i class="bi bi-pencil-fill "></i>
-                        </button>
-                        <button type="button" class="btn btn-danger btn-xs dt-delete">
-                          <i class="bi bi-trash-fill"></i>
-                        </button>
-                        <button type="button" class="btn btn-primary btn-xs dt-view">
-                          <i class="bi bi-eye-fill"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1001</td>
-                      <td>Bakı Dövlət Universiteti</td>
-                      <td>1500</td>
-                      <td>38</td>
-                      <td>11</td>
-                      <td>
-                        <div class="form-check form-switch">
-                          <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="checked">
-                        </div>
-                      </td>
-                      <td>11</td>
-                      <td>1</td>
-                      <td>
-                        <button type="button" class="btn btn-success btn-xs dt-edit">
-                          <i class="bi bi-pencil-fill "></i>
-                        </button>
-                        <button type="button" class="btn btn-danger btn-xs dt-delete">
-                          <i class="bi bi-trash-fill"></i>
-                        </button>
-                        <button type="button" class="btn btn-primary btn-xs dt-view">
-                          <i class="bi bi-eye-fill"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1001</td>
-                      <td>Bakı Dövlət Universiteti</td>
-                      <td>1500</td>
-                      <td>38</td>
-                      <td>11</td>
-                      <td>
-                        <div class="form-check form-switch">
-                          <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="checked">
-                        </div>
-                      </td>
-                      <td>11</td>
-                      <td>1</td>
-                      <td>
-                        <button type="button" class="btn btn-success btn-xs dt-edit">
-                          <i class="bi bi-pencil-fill "></i>
-                        </button>
-                        <button type="button" class="btn btn-danger btn-xs dt-delete">
-                          <i class="bi bi-trash-fill"></i>
-                        </button>
-                        <button type="button" class="btn btn-primary btn-xs dt-view">
-                          <i class="bi bi-eye-fill"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1001</td>
-                      <td>Bakı Dövlət Universiteti</td>
-                      <td>1500</td>
-                      <td>38</td>
-                      <td>11</td>
-                      <td>
-                        <div class="form-check form-switch">
-                          <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="checked">
-                        </div>
-                      </td>
-                      <td>11</td>
-                      <td>1</td>
-                      <td>
-                        <button type="button" class="btn btn-success btn-xs dt-edit">
-                          <i class="bi bi-pencil-fill "></i>
-                        </button>
-                        <button type="button" class="btn btn-danger btn-xs dt-delete">
-                          <i class="bi bi-trash-fill"></i>
-                        </button>
-                        <button type="button" class="btn btn-primary btn-xs dt-view">
-                          <i class="bi bi-eye-fill"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1001</td>
-                      <td>Bakı Dövlət Universiteti</td>
-                      <td>1500</td>
-                      <td>38</td>
-                      <td>11</td>
-                      <td>
-                        <div class="form-check form-switch">
-                          <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="checked">
-                        </div>
-                      </td>
-                      <td>11</td>
-                      <td>1</td>
-                      <td>
-                        <button type="button" class="btn btn-success btn-xs dt-edit">
-                          <i class="bi bi-pencil-fill "></i>
-                        </button>
-                        <button type="button" class="btn btn-danger btn-xs dt-delete">
-                          <i class="bi bi-trash-fill"></i>
-                        </button>
-                        <button type="button" class="btn btn-primary btn-xs dt-view">
-                          <i class="bi bi-eye-fill"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1001</td>
-                      <td>Bakı Dövlət Universiteti</td>
-                      <td>1500</td>
-                      <td>38</td>
-                      <td>11</td>
-                      <td>
-                        <div class="form-check form-switch">
-                          <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="checked">
-                        </div>
-                      </td>
-                      <td>11</td>
-                      <td>1</td>
-                      <td>
-                        <button type="button" class="btn btn-success btn-xs dt-edit">
-                          <i class="bi bi-pencil-fill "></i>
-                        </button>
-                        <button type="button" class="btn btn-danger btn-xs dt-delete">
-                          <i class="bi bi-trash-fill"></i>
-                        </button>
-                        <button type="button" class="btn btn-primary btn-xs dt-view">
-                          <i class="bi bi-eye-fill"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1001</td>
-                      <td>Bakı Dövlət Universiteti</td>
-                      <td>1500</td>
-                      <td>38</td>
-                      <td>11</td>
-                      <td>
-                        <div class="form-check form-switch">
-                          <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="checked">
-                        </div>
-                      </td>
-                      <td>11</td>
-                      <td>1</td>
-                      <td>
-                        <button type="button" class="btn btn-success btn-xs dt-edit">
-                          <i class="bi bi-pencil-fill "></i>
-                        </button>
-                        <button type="button" class="btn btn-danger btn-xs dt-delete">
-                          <i class="bi bi-trash-fill"></i>
-                        </button>
-                        <button type="button" class="btn btn-primary btn-xs dt-view">
-                          <i class="bi bi-eye-fill"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1001</td>
-                      <td>Bakı Dövlət Universiteti</td>
-                      <td>1500</td>
-                      <td>38</td>
-                      <td>11</td>
-                      <td>
-                        <div class="form-check form-switch">
-                          <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="checked">
-                        </div>
-                      </td>
-                      <td>11</td>
-                      <td>1</td>
-                      <td>
-                        <button type="button" class="btn btn-success btn-xs dt-edit">
-                          <i class="bi bi-pencil-fill "></i>
-                        </button>
-                        <button type="button" class="btn btn-danger btn-xs dt-delete">
-                          <i class="bi bi-trash-fill"></i>
-                        </button>
-                        <button type="button" class="btn btn-primary btn-xs dt-view">
-                          <i class="bi bi-eye-fill"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1001</td>
-                      <td>Bakı Dövlət Universiteti</td>
-                      <td>1500</td>
-                      <td>38</td>
-                      <td>11</td>
-                      <td>
-                        <div class="form-check form-switch">
-                          <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="checked">
-                        </div>
-                      </td>
-                      <td>11</td>
-                      <td>1</td>
-                      <td>
-                        <button type="button" class="btn btn-success btn-xs dt-edit">
-                          <i class="bi bi-pencil-fill "></i>
-                        </button>
-                        <button type="button" class="btn btn-danger btn-xs dt-delete">
-                          <i class="bi bi-trash-fill"></i>
-                        </button>
-                        <button type="button" class="btn btn-primary btn-xs dt-view">
-                          <i class="bi bi-eye-fill"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1001</td>
-                      <td>Bakı Dövlət Universiteti</td>
-                      <td>1500</td>
-                      <td>38</td>
-                      <td>11</td>
-                      <td>
-                        <div class="form-check form-switch">
-                          <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="checked">
-                        </div>
-                      </td>
-                      <td>11</td>
-                      <td>1</td>
-                      <td>
-                        <button type="button" class="btn btn-success btn-xs dt-edit">
-                          <i class="bi bi-pencil-fill "></i>
-                        </button>
-                        <button type="button" class="btn btn-danger btn-xs dt-delete">
-                          <i class="bi bi-trash-fill"></i>
-                        </button>
-                        <button type="button" class="btn btn-primary btn-xs dt-view">
-                          <i class="bi bi-eye-fill"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1001</td>
-                      <td>Bakı Dövlət Universiteti</td>
-                      <td>1500</td>
-                      <td>38</td>
-                      <td>11</td>
-                      <td>
-                        <div class="form-check form-switch">
-                          <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="checked">
-                        </div>
-                      </td>
-                      <td>11</td>
-                      <td>1</td>
-                      <td>
-                        <button type="button" class="btn btn-success btn-xs dt-edit">
-                          <i class="bi bi-pencil-fill "></i>
-                        </button>
-                        <button type="button" class="btn btn-danger btn-xs dt-delete">
-                          <i class="bi bi-trash-fill"></i>
-                        </button>
-                        <button type="button" class="btn btn-primary btn-xs dt-view">
-                          <i class="bi bi-eye-fill"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1001</td>
-                      <td>Bakı Dövlət Universiteti</td>
-                      <td>1500</td>
-                      <td>38</td>
-                      <td>11</td>
-                      <td>
-                        <div class="form-check form-switch">
-                          <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="checked">
-                        </div>
-                      </td>
-                      <td>11</td>
-                      <td>1</td>
-                      <td>
-                        <button type="button" class="btn btn-success btn-xs dt-edit">
-                          <i class="bi bi-pencil-fill "></i>
-                        </button>
-                        <button type="button" class="btn btn-danger btn-xs dt-delete">
-                          <i class="bi bi-trash-fill"></i>
-                        </button>
-                        <button type="button" class="btn btn-primary btn-xs dt-view">
-                          <i class="bi bi-eye-fill"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1001</td>
-                      <td>Bakı Dövlət Universiteti</td>
-                      <td>1500</td>
-                      <td>38</td>
-                      <td>11</td>
-                      <td>
-                        <div class="form-check form-switch">
-                          <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="checked">
-                        </div>
-                      </td>
-                      <td>11</td>
-                      <td>1</td>
-                      <td>
-                        <button type="button" class="btn btn-success btn-xs dt-edit">
-                          <i class="bi bi-pencil-fill "></i>
-                        </button>
-                        <button type="button" class="btn btn-danger btn-xs dt-delete">
-                          <i class="bi bi-trash-fill"></i>
-                        </button>
-                        <button type="button" class="btn btn-primary btn-xs dt-view">
-                          <i class="bi bi-eye-fill"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1001</td>
-                      <td>Bakı Dövlət Universiteti</td>
-                      <td>1500</td>
-                      <td>38</td>
-                      <td>11</td>
-                      <td>
-                        <div class="form-check form-switch">
-                          <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="checked">
-                        </div>
-                      </td>
-                      <td>11</td>
-                      <td>1</td>
-                      <td>
-                        <button type="button" class="btn btn-success btn-xs dt-edit">
-                          <i class="bi bi-pencil-fill "></i>
-                        </button>
-                        <button type="button" class="btn btn-danger btn-xs dt-delete">
-                          <i class="bi bi-trash-fill"></i>
-                        </button>
-                        <button type="button" class="btn btn-primary btn-xs dt-view">
-                          <i class="bi bi-eye-fill"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1001</td>
-                      <td>Bakı Dövlət Universiteti</td>
-                      <td>1500</td>
-                      <td>38</td>
-                      <td>11</td>
-                      <td>
-                        <div class="form-check form-switch">
-                          <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="checked">
-                        </div>
-                      </td>
-                      <td>11</td>
-                      <td>1</td>
-                      <td>
-                        <button type="button" class="btn btn-success btn-xs dt-edit">
-                          <i class="bi bi-pencil-fill "></i>
-                        </button>
-                        <button type="button" class="btn btn-danger btn-xs dt-delete">
-                          <i class="bi bi-trash-fill"></i>
-                        </button>
-                        <button type="button" class="btn btn-primary btn-xs dt-view">
-                          <i class="bi bi-eye-fill"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1001</td>
-                      <td>Bakı Dövlət Universiteti</td>
-                      <td>1500</td>
-                      <td>38</td>
-                      <td>11</td>
-                      <td>
-                        <div class="form-check form-switch">
-                          <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="checked">
-                        </div>
-                      </td>
-                      <td>11</td>
-                      <td>1</td>
-                      <td>
-                        <button type="button" class="btn btn-success btn-xs dt-edit">
-                          <i class="bi bi-pencil-fill "></i>
-                        </button>
-                        <button type="button" class="btn btn-danger btn-xs dt-delete">
-                          <i class="bi bi-trash-fill"></i>
-                        </button>
-                        <button type="button" class="btn btn-primary btn-xs dt-view">
-                          <i class="bi bi-eye-fill"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1001</td>
-                      <td>Bakı Dövlət Universiteti</td>
-                      <td>1500</td>
-                      <td>38</td>
-                      <td>11</td>
-                      <td>
-                        <div class="form-check form-switch">
-                          <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="checked">
-                        </div>
-                      </td>
-                      <td>11</td>
-                      <td>1</td>
-                      <td>
-                        <button type="button" class="btn btn-success btn-xs dt-edit">
-                          <i class="bi bi-pencil-fill "></i>
-                        </button>
-                        <button type="button" class="btn btn-danger btn-xs dt-delete">
-                          <i class="bi bi-trash-fill"></i>
-                        </button>
-                        <button type="button" class="btn btn-primary btn-xs dt-view">
-                          <i class="bi bi-eye-fill"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1001</td>
-                      <td>Bakı Dövlət Universiteti</td>
-                      <td>1500</td>
-                      <td>38</td>
-                      <td>11</td>
-                      <td>
-                        <div class="form-check form-switch">
-                          <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="checked">
-                        </div>
-                      </td>
-                      <td>11</td>
-                      <td>1</td>
-                      <td>
-                        <button type="button" class="btn btn-success btn-xs dt-edit">
-                          <i class="bi bi-pencil-fill "></i>
-                        </button>
-                        <button type="button" class="btn btn-danger btn-xs dt-delete">
-                          <i class="bi bi-trash-fill"></i>
-                        </button>
-                        <button type="button" class="btn btn-primary btn-xs dt-view">
-                          <i class="bi bi-eye-fill"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1001</td>
-                      <td>Bakı Dövlət Universiteti</td>
-                      <td>1500</td>
-                      <td>38</td>
-                      <td>11</td>
-                      <td>
-                        <div class="form-check form-switch">
-                          <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="checked">
-                        </div>
-                      </td>
-                      <td>11</td>
-                      <td>1</td>
-                      <td>
-                        <button type="button" class="btn btn-success btn-xs dt-edit">
-                          <i class="bi bi-pencil-fill "></i>
-                        </button>
-                        <button type="button" class="btn btn-danger btn-xs dt-delete">
-                          <i class="bi bi-trash-fill"></i>
-                        </button>
-                        <button type="button" class="btn btn-primary btn-xs dt-view">
-                          <i class="bi bi-eye-fill"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1001</td>
-                      <td>Bakı Dövlət Universiteti</td>
-                      <td>1500</td>
-                      <td>38</td>
-                      <td>11</td>
-                      <td>
-                        <div class="form-check form-switch">
-                          <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="checked">
-                        </div>
-                      </td>
-                      <td>11</td>
-                      <td>1</td>
-                      <td>
-                        <button type="button" class="btn btn-success btn-xs dt-edit">
-                          <i class="bi bi-pencil-fill "></i>
-                        </button>
-                        <button type="button" class="btn btn-danger btn-xs dt-delete">
-                          <i class="bi bi-trash-fill"></i>
-                        </button>
-                        <button type="button" class="btn btn-primary btn-xs dt-view">
-                          <i class="bi bi-eye-fill"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1001</td>
-                      <td>Bakı Dövlət Universiteti</td>
-                      <td>1500</td>
-                      <td>38</td>
-                      <td>11</td>
-                      <td>
-                        <div class="form-check form-switch">
-                          <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="checked">
-                        </div>
-                      </td>
-                      <td>11</td>
-                      <td>1</td>
-                      <td>
-                        <button type="button" class="btn btn-success btn-xs dt-edit">
-                          <i class="bi bi-pencil-fill "></i>
-                        </button>
-                        <button type="button" class="btn btn-danger btn-xs dt-delete">
-                          <i class="bi bi-trash-fill"></i>
-                        </button>
-                        <button type="button" class="btn btn-primary btn-xs dt-view">
-                          <i class="bi bi-eye-fill"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1001</td>
-                      <td>Bakı Dövlət Universiteti</td>
-                      <td>1500</td>
-                      <td>39</td>
-                      <td>11</td>
-                      <td>
-                        <div class="form-check form-switch">
-                          <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="checked">
-                        </div>
-                      </td>
-                      <td>11</td>
-                      <td>1</td>
-                      <td>
-                        <button type="button" class="btn btn-success btn-xs dt-edit">
-                          <i class="bi bi-pencil-fill "></i>
-                        </button>
-                        <button type="button" class="btn btn-danger btn-xs dt-delete">
-                          <i class="bi bi-trash-fill"></i>
-                        </button>
-                        <button type="button" class="btn btn-primary btn-xs dt-view">
-                          <i class="bi bi-eye-fill"></i>
-                        </button>
-                      </td>
-                    </tr>
-
                   </tbody>
                 </table>
 
