@@ -506,7 +506,7 @@
                                 } catch (c) { }
                             }, fnStateSaveParams: null, iStateDuration: 7200, iDeferLoading: null, iDisplayLength: 10, iDisplayStart: 0, iTabIndex: 0, oClasses: {}, oLanguage: {
                                 oAria: { sSortAscending: ": activate to sort column ascending", sSortDescending: ": activate to sort column descending" }, oPaginate: { sFirst: "First", sLast: "Last", sNext: "Sonrakı", sPrevious: "Əvvəlki" }, sEmptyTable: "No data available in table", sInfo: " _TOTAL_ xanadan  _START_ -dən _END_ kimi göstər",
-                                sInfoEmpty: "Showing 0 to 0 of 0 entries", sInfoFiltered: "(filtered from _MAX_ total entries)", sInfoPostFix: "", sDecimal: "", sThousands: ",", sLengthMenu: "Göstər _MENU_ xana", sLoadingRecords: "Loading...", sProcessing: "Processing...", sSearch: "Axtar:", sSearchPlaceholder: "", sUrl: "", sZeroRecords: "No matching records found"
+                                sInfoEmpty: "0 xana", sInfoFiltered: "( _MAX_ xanadan filter edildi)", sInfoPostFix: "", sDecimal: "", sThousands: ",", sLengthMenu: "Göstər _MENU_ xana", sLoadingRecords: "Loading...", sProcessing: "Processing...", sSearch: "Axtar:", sSearchPlaceholder: "", sUrl: "", sZeroRecords: "Uyğun xana tapılmadı"
                             }, oSearch: h.extend({}, m.models.oSearch), sAjaxDataProp: "data", sAjaxSource: null, sDom: "lfrtip", searchDelay: null, sPaginationType: "simple_numbers", sScrollX: "", sScrollXInner: "", sScrollY: "", sServerMethod: "GET",
                             renderer: null, rowId: "DT_RowId"
                         }; X(m.defaults); m.defaults.column = { aDataSort: null, iDataSort: -1, asSorting: ["asc", "desc"], bSearchable: !0, bSortable: !0, bVisible: !0, fnCreatedCell: null, mData: null, mRender: null, sCellType: "td", sClass: "", sContentPadding: "", sDefaultContent: null, sName: "", sSortDataType: "std", sTitle: null, sType: null, sWidth: null }; X(m.defaults.column); m.models.oSettings = {
@@ -893,7 +893,7 @@ Bootstrap integration for DataTables' Buttons
     var a = c.fn.dataTable; c.extend(!0, a.Buttons.defaults, {
         dom: {
             container: { className: "dt-buttons btn-group" },
-            button: { className: "btn btn-outline-success me-2" }, collection: { tag: "ul", className: "dt-button-collection dropdown-menu", button: { tag: "li", className: "dt-button" }, buttonLiner: { tag: "a", className: "" } }
+            button: { className: "btn btn-outline-success m-2" }, collection: { tag: "ul", className: "dt-button-collection dropdown-menu", button: { tag: "li", className: "dt-button" }, buttonLiner: { tag: "a", className: "" } }
         }
     }); a.ext.buttons.collection.text = function (a) { return a.i18n("buttons.collection", 'Collection <span class="caret"/>') }; return a.Buttons
 });
