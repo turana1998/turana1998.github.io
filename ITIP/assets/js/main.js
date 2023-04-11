@@ -165,7 +165,8 @@ $(document).ready(function () {
         orderable: false,
         className: 'select-checkbox',
         targets: 0
-      }],
+      }
+    ],
       select: {
         style: 'multi',
         selector: 'td:first-child'
@@ -204,7 +205,8 @@ $(document).ready(function () {
 
 
               return false;
-            }
+            },
+            columns: [ 1, 2, 3,4,5,7,8 ]
           }
         },
         {
@@ -221,7 +223,8 @@ $(document).ready(function () {
 
 
               return false;
-            }
+            },
+            columns: [ 1, 2, 3,4,5,7,8 ]
           }
         },
         {
@@ -238,7 +241,8 @@ $(document).ready(function () {
 
 
               return false;
-            }
+            },
+            columns: [ 1, 2, 3,4,5,7,8 ]
           }
         },
         {
