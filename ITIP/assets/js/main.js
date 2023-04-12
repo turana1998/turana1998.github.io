@@ -373,7 +373,114 @@ $(document).ready(function () {
           </tr>
           </tbody>
       </table>
-  `).find('#example').DataTable();
+  `).find('#example').DataTable({
+        "dom": '<"dt-buttons-all"Bf><"top"l>rt<"bottom"ip>',
+        "paging": true,
+        autoFill: true,
+        "autoWidth": true,
+        columnDefs: [{
+          orderable: false,
+          className: 'select-checkbox',
+          targets: 0
+        }],
+        select: {
+          style: 'multi',
+          selector: 'td:first-child'
+        },
+        order: [
+          [1, 'asc']
+        ],
+        "lengthMenu": [5, 10, 20, 50, 100, 200, 500],
+        buttons: [{
+            extend: 'colvis',
+            autoPrint: false,
+            text: 'Xanaları Filtirlə',
+            exportOptions: {
+              rows: function (idx, data, node) {
+                var dt = new $.fn.dataTable.Api('#example');
+                var selected = dt.rows({
+                  selected: true
+                }).indexes().toArray();
+
+                if (selected.length === 0 || $.inArray(idx, selected) !== -1)
+                  return true;
+
+
+                return false;
+              }
+            }
+          },
+          {
+            extend: 'print',
+            autoPrint: false,
+            text: 'Print',
+            exportOptions: {
+              rows: function (idx, data, node) {
+                var dt = new $.fn.dataTable.Api('#example');
+                var selected = dt.rows({
+                  selected: true
+                }).indexes().toArray();
+
+                if (selected.length === 0 || $.inArray(idx, selected) !== -1)
+                  return true;
+
+
+                return false;
+              },
+              columns: [1, 2, 3, 4, 5, 7, 8]
+            }
+          },
+          {
+            extend: 'copyHtml5',
+            autoPrint: false,
+            text: 'Kopyala',
+            exportOptions: {
+              rows: function (idx, data, node) {
+                var dt = new $.fn.dataTable.Api('#example');
+                var selected = dt.rows({
+                  selected: true
+                }).indexes().toArray();
+
+                if (selected.length === 0 || $.inArray(idx, selected) !== -1)
+                  return true;
+
+
+                return false;
+              },
+              columns: [1, 2, 3, 4, 5, 7, 8]
+            }
+          },
+          {
+            extend: 'excelHtml5',
+            autoPrint: false,
+            text: 'Excel',
+            exportOptions: {
+              rows: function (idx, data, node) {
+                var dt = new $.fn.dataTable.Api('#example');
+                var selected = dt.rows({
+                  selected: true
+                }).indexes().toArray();
+
+                if (selected.length === 0 || $.inArray(idx, selected) !== -1)
+                  return true;
+
+
+                return false;
+              },
+              columns: [1, 2, 3, 4, 5, 7, 8]
+            }
+          },
+          {
+            extend: 'selectAll',
+            text: 'Hamısını seç',
+          },
+          {
+            extend: 'selectNone',
+            text: 'Seçimi ləğv et',
+          }
+
+        ]
+      });
     });
   });
 });
