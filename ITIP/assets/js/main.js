@@ -1,4 +1,3 @@
-
 (function () {
   "use strict";
 
@@ -155,108 +154,114 @@ $(document).ready(function () {
   //Only needed for the filename of export files.
   //Normally set in the title tag of your page.
   // DataTable initialisation
-  $('#example').DataTable(
-    {
-      "dom": '<"dt-buttons-all"Bf><"top"l>rt<"bottom"ip>',
-      "paging": true,
-      autoFill: true,
-      "autoWidth": true,
-      columnDefs: [{
-        orderable: false,
-        className: 'select-checkbox',
-        targets: 0
-      }
+  $('#example').DataTable({
+    "dom": '<"dt-buttons-all"Bf><"top"l>rt<"bottom"ip>',
+    "paging": true,
+    autoFill: true,
+    "autoWidth": true,
+    columnDefs: [{
+      orderable: false,
+      className: 'select-checkbox',
+      targets: 0
+    }],
+    select: {
+      style: 'multi',
+      selector: 'td:first-child'
+    },
+    order: [
+      [1, 'asc']
     ],
-      select: {
-        style: 'multi',
-        selector: 'td:first-child'
-      },
-      order: [[1, 'asc']],
-      "lengthMenu": [5, 10, 20, 50, 100, 200, 500],
-      buttons: [
-        {
-          extend: 'colvis',
-          autoPrint: false,
-          text: 'Xanaları Filtirlə',
-          exportOptions: {
-            rows: function (idx, data, node) {
-              var dt = new $.fn.dataTable.Api('#example');
-              var selected = dt.rows({ selected: true }).indexes().toArray();
+    "lengthMenu": [5, 10, 20, 50, 100, 200, 500],
+    buttons: [{
+        extend: 'colvis',
+        autoPrint: false,
+        text: 'Xanaları Filtirlə',
+        exportOptions: {
+          rows: function (idx, data, node) {
+            var dt = new $.fn.dataTable.Api('#example');
+            var selected = dt.rows({
+              selected: true
+            }).indexes().toArray();
 
-              if (selected.length === 0 || $.inArray(idx, selected) !== -1)
-                return true;
+            if (selected.length === 0 || $.inArray(idx, selected) !== -1)
+              return true;
 
 
-              return false;
-            }
+            return false;
           }
-        },
-        {
-          extend: 'print',
-          autoPrint: false,
-          text: 'Print',
-          exportOptions: {
-            rows: function (idx, data, node) {
-              var dt = new $.fn.dataTable.Api('#example');
-              var selected = dt.rows({ selected: true }).indexes().toArray();
-
-              if (selected.length === 0 || $.inArray(idx, selected) !== -1)
-                return true;
-
-
-              return false;
-            },
-            columns: [ 1, 2, 3,4,5,7,8 ]
-          }
-        },
-        {
-          extend: 'copyHtml5',
-          autoPrint: false,
-          text: 'Kopyala',
-          exportOptions: {
-            rows: function (idx, data, node) {
-              var dt = new $.fn.dataTable.Api('#example');
-              var selected = dt.rows({ selected: true }).indexes().toArray();
-
-              if (selected.length === 0 || $.inArray(idx, selected) !== -1)
-                return true;
-
-
-              return false;
-            },
-            columns: [ 1, 2, 3,4,5,7,8 ]
-          }
-        },
-        {
-          extend: 'excelHtml5',
-          autoPrint: false,
-          text: 'Excel',
-          exportOptions: {
-            rows: function (idx, data, node) {
-              var dt = new $.fn.dataTable.Api('#example');
-              var selected = dt.rows({ selected: true }).indexes().toArray();
-
-              if (selected.length === 0 || $.inArray(idx, selected) !== -1)
-                return true;
-
-
-              return false;
-            },
-            columns: [ 1, 2, 3,4,5,7,8 ]
-          }
-        },
-        {
-          extend: 'selectAll',
-          text: 'Hamısını seç',
-        },
-        {
-          extend: 'selectNone',
-          text: 'Seçimi ləğv et',
         }
+      },
+      {
+        extend: 'print',
+        autoPrint: false,
+        text: 'Print',
+        exportOptions: {
+          rows: function (idx, data, node) {
+            var dt = new $.fn.dataTable.Api('#example');
+            var selected = dt.rows({
+              selected: true
+            }).indexes().toArray();
 
-      ]
-    }
-  );
+            if (selected.length === 0 || $.inArray(idx, selected) !== -1)
+              return true;
+
+
+            return false;
+          },
+          columns: [1, 2, 3, 4, 5, 7, 8]
+        }
+      },
+      {
+        extend: 'copyHtml5',
+        autoPrint: false,
+        text: 'Kopyala',
+        exportOptions: {
+          rows: function (idx, data, node) {
+            var dt = new $.fn.dataTable.Api('#example');
+            var selected = dt.rows({
+              selected: true
+            }).indexes().toArray();
+
+            if (selected.length === 0 || $.inArray(idx, selected) !== -1)
+              return true;
+
+
+            return false;
+          },
+          columns: [1, 2, 3, 4, 5, 7, 8]
+        }
+      },
+      {
+        extend: 'excelHtml5',
+        autoPrint: false,
+        text: 'Excel',
+        exportOptions: {
+          rows: function (idx, data, node) {
+            var dt = new $.fn.dataTable.Api('#example');
+            var selected = dt.rows({
+              selected: true
+            }).indexes().toArray();
+
+            if (selected.length === 0 || $.inArray(idx, selected) !== -1)
+              return true;
+
+
+            return false;
+          },
+          columns: [1, 2, 3, 4, 5, 7, 8]
+        }
+      },
+      {
+        extend: 'selectAll',
+        text: 'Hamısını seç',
+      },
+      {
+        extend: 'selectNone',
+        text: 'Seçimi ləğv et',
+      }
+
+    ]
+  });
   // $('.dt-edit').each(function () {
   //   $(this).on('click', function (evt) {
   //     $this = $(this);
@@ -276,29 +281,93 @@ $(document).ready(function () {
       $this = $(this);
       var dtRow = $this.parents('tr');
       swal({
-        title: "Əminsiniz?",
-        text: "Sildiyiniz halda geri qaytarmaq imkanınız olmayacaq!",
-        icon: "warning",
-        buttons: true,
-        buttons: ["Xeyr!", "Bəli!"],
-        dangerMode: true,
-      })
-      .then((willDelete) => {
-        if (willDelete) {
-          var table = $('#example').DataTable();
-          table.row(dtRow[0].rowIndex - 1).remove().draw(false);
-          swal("Əməliyyat uğurla yerine yetirildi", {
-            icon: "success",
-            buttons: "Bağla",
-          });
-        } else {
-          swal("Əməliyyat baş tutmadı",{
-            buttons:"Bağla",
-          });
-        }
-      });
-     
+          title: "Əminsiniz?",
+          text: "Sildiyiniz halda geri qaytarmaq imkanınız olmayacaq!",
+          icon: "warning",
+          buttons: true,
+          buttons: ["Xeyr!", "Bəli!"],
+          dangerMode: true,
+        })
+        .then((willDelete) => {
+          if (willDelete) {
+            var table = $('#example').DataTable();
+            table.row(dtRow[0].rowIndex - 1).remove().draw(false);
+            swal("Əməliyyat uğurla yerine yetirildi", {
+              icon: "success",
+              buttons: "Bağla",
+            });
+          } else {
+            swal("Əməliyyat baş tutmadı", {
+              buttons: "Bağla",
+            });
+          }
+        });
+
     });
   });
+  $('#zal_kodu').each(function () {
+    $(this).on('change', function (evt) {
+      $this = $(this);
+      // console.log($this);
+      let table_item = $('.table_box');
+      table_item.empty();
+      table_item.html(`
+              <div class="add_row text-end">
+                  <a href="bina_add.html" class="btn btn-success">Əlavə et</a>
+              </div>
+              <table id="example" class="table table-striped table-bordered" cellspacing="0"
+                  width="100%">
+                  <thead>
+                      <tr>
+                          <th>Seç</th>
+                          <th>Kod</th>
+                          <th>Binanı adı</th>
+                          <th>Tutum</th>
+                          <th>Zal Sayı</th>
+                          <th>Rayon</th>
+                          <th>Status</th>
+                          <th>Kod O</th>
+                          <th>Region</th>
+                          <th>Əməliyyatlar</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td data-label="Seçim"></td>
+                          <td data-label="Kod">1001</td>
+                          <td data-label="Binanın adı">Bakı Dövlət Universiteti</td>
+                          <td data-label="Tutum">1500</td>
+                          <td data-label="Zal sayı">38</td>
+                          <td data-label="Rayon">11</td>
+                          <td data-label="Status">
+                              <div class="form-check form-switch">
+                                  <input class="form-check-input" type="checkbox"
+                                      id="flexSwitchCheckChecked" checked="checked">
+                              </div>
+                          </td>
+                          <td data-label="Kod O">11</td>
+                          <td data-label="">1</td>
+                          <td data-label="Əməliyyatlar">
+                              <button type="button" class="btn btn-success btn-xs dt-edit"
+                                  data-bs-toggle="modal" data-bs-target="#editModal"
+                                  data-bs-whatever="@mdo">
+                                  <i class="bi bi-pencil-fill "></i>
+                              </button>
+                              <button type="button" class="btn btn-danger btn-xs dt-delete">
+                                  <i class="bi bi-trash-fill"></i>
+                              </button>
+                              <button type="button" class="btn btn-primary btn-xs dt-view"
+                                  data-bs-toggle="modal" data-bs-target="#viewModal"
+                                  data-bs-whatever="@mdo">
+                                  <i class="bi bi-eye-fill"></i>
+                              </button>
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
 
+      
+      `);
+    });
+  });
 });
