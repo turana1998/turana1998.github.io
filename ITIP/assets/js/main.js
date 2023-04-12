@@ -312,62 +312,68 @@ $(document).ready(function () {
       let table_item = $('.table_box');
       table_item.empty();
       table_item.html(`
-              <div class="add_row text-end">
-                  <a href="bina_add.html" class="btn btn-success">Əlavə et</a>
-              </div>
-              <table id="example" class="table table-striped table-bordered" cellspacing="0"
-                  width="100%">
-                  <thead>
-                      <tr>
-                          <th>Seç</th>
-                          <th>Kod</th>
-                          <th>Binanı adı</th>
-                          <th>Tutum</th>
-                          <th>Zal Sayı</th>
-                          <th>Rayon</th>
-                          <th>Status</th>
-                          <th>Kod O</th>
-                          <th>Region</th>
-                          <th>Əməliyyatlar</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                      <tr>
-                          <td data-label="Seçim"></td>
-                          <td data-label="Kod">1001</td>
-                          <td data-label="Binanın adı">Bakı Dövlət Universiteti</td>
-                          <td data-label="Tutum">1500</td>
-                          <td data-label="Zal sayı">38</td>
-                          <td data-label="Rayon">11</td>
-                          <td data-label="Status">
-                              <div class="form-check form-switch">
-                                  <input class="form-check-input" type="checkbox"
-                                      id="flexSwitchCheckChecked" checked="checked">
-                              </div>
-                          </td>
-                          <td data-label="Kod O">11</td>
-                          <td data-label="">1</td>
-                          <td data-label="Əməliyyatlar">
-                              <button type="button" class="btn btn-success btn-xs dt-edit"
-                                  data-bs-toggle="modal" data-bs-target="#editModal"
-                                  data-bs-whatever="@mdo">
-                                  <i class="bi bi-pencil-fill "></i>
-                              </button>
-                              <button type="button" class="btn btn-danger btn-xs dt-delete">
-                                  <i class="bi bi-trash-fill"></i>
-                              </button>
-                              <button type="button" class="btn btn-primary btn-xs dt-view"
-                                  data-bs-toggle="modal" data-bs-target="#viewModal"
-                                  data-bs-whatever="@mdo">
-                                  <i class="bi bi-eye-fill"></i>
-                              </button>
-                          </td>
-                      </tr>
-                  </tbody>
-              </table>
-
-      
-      `);
+      <div class="add_row text-end">
+          <a href="bina_add.html" class="btn btn-success">Əlavə et</a>
+      </div>
+      <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+          <thead>
+              <tr>
+                  <th>Seç</th>
+                  <th>Kod</th>
+                  <th>Binanı adı</th>
+                  <th>Tutum</th>
+                  <th>Zal Sayı</th>
+                  <th>Rayon</th>
+                  <th>Status</th>
+                  <th>Kod O</th>
+                  <th>Region</th>
+                  <th>Əməliyyatlar</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td data-label="Seçim"></td>
+                  <td data-label="Kod">1001</td>
+                  <td data-label="Binanın adı">Bakı Dövlət Universiteti</td>
+                  <td data-label="Tutum">1500</td>
+                  <td data-label="Zal sayı">38</td>
+                  <td data-label="Rayon">11</td>
+                  <td data-label="Status">
+                      <div class="form-check form-switch">
+                          <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="checked">
+                      </div>
+                  </td>
+                  <td data-label="Kod O">11</td>
+                  <td data-label="">1</td>
+                  <td data-label="Əməliyyatlar">
+                      <button type="button" class="btn btn-success btn-xs dt-edit" data-bs-toggle="modal" data-bs-target="#editModal" data-bs-whatever="@mdo"><i class="bi bi-pencil-fill "></i></button>
+                      <button type="button" class="btn btn-danger btn-xs dt-delete"><i class="bi bi-trash-fill"></i></button>
+                      <button type="button" class="btn btn-primary btn-xs dt-view" data-bs-toggle="modal" data-bs-target="#viewModal" data-bs-whatever="@mdo"><i class="bi bi-eye-fill"></i></button>
+                  </td>
+              </tr>
+              <tr>
+              <td data-label="Seçim"></td>
+              <td data-label="Kod">1001</td>
+              <td data-label="Binanın adı">Bakı Dövlət Universiteti</td>
+              <td data-label="Tutum">1500</td>
+              <td data-label="Zal sayı">37</td>
+              <td data-label="Rayon">11</td>
+              <td data-label="Status">
+                  <div class="form-check form-switch">
+                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="checked">
+                  </div>
+              </td>
+              <td data-label="Kod O">11</td>
+              <td data-label="">1</td>
+              <td data-label="Əməliyyatlar">
+                  <button type="button" class="btn btn-success btn-xs dt-edit" data-bs-toggle="modal" data-bs-target="#editModal" data-bs-whatever="@mdo"><i class="bi bi-pencil-fill "></i></button>
+                  <button type="button" class="btn btn-danger btn-xs dt-delete"><i class="bi bi-trash-fill"></i></button>
+                  <button type="button" class="btn btn-primary btn-xs dt-view" data-bs-toggle="modal" data-bs-target="#viewModal" data-bs-whatever="@mdo"><i class="bi bi-eye-fill"></i></button>
+              </td>
+          </tr>
+          </tbody>
+      </table>
+  `).find('#example').DataTable();
     });
   });
 });
