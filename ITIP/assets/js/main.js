@@ -154,6 +154,23 @@ $(document).ready(function () {
   //Only needed for the filename of export files.
   //Normally set in the title tag of your page.
   // DataTable initialisation
+
+  let toggleCells = document.querySelectorAll('.accordion-toggle');
+
+  // Loop through each toggle cell and add a click event listener
+  toggleCells.forEach(function (toggleCell) {
+    toggleCell.addEventListener('click', function () {
+      // Find the next row with the accordion-content class
+      var contentRow = toggleCell.parentNode.nextElementSibling;
+
+      // Toggle the show class on the content row
+      contentRow.classList.toggle('show');
+
+      // Toggle the collapsed class on the toggle cell
+      toggleCell.classList.toggle('collapsed');
+    });
+  });
+
   $('#example').DataTable({
     "dom": '<"dt-buttons-all"Bf><"top"l>rt<"bottom"ip>',
     "paging": true,

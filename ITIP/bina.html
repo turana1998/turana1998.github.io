@@ -548,23 +548,7 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-  <script>
-    let toggleCells = document.querySelectorAll('.accordion-toggle');
 
-// Loop through each toggle cell and add a click event listener
-   toggleCells.forEach(function(toggleCell) {
-  toggleCell.addEventListener('click', function() {
-    // Find the next row with the accordion-content class
-    var contentRow = toggleCell.parentNode.nextElementSibling;
-    
-    // Toggle the show class on the content row
-    contentRow.classList.toggle('show');
-    
-    // Toggle the collapsed class on the toggle cell
-    toggleCell.classList.toggle('collapsed');
-  });
-});
-  </script>
 </body>
 
 </html>
