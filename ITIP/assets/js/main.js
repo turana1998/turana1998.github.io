@@ -257,31 +257,48 @@ $(document).ready(function () {
       ]
     }
   );
-  $('.dt-edit').each(function () {
-    $(this).on('click', function (evt) {
-      $this = $(this);
-      var dtRow = $this.parents('tr');
-      $('div.modal-body').innerHTML = '';
-      $('div.modal-body').append('Row index: ' + dtRow[0].rowIndex + '<br/>');
-      $('div.modal-body').append('Number of columns: ' + dtRow[0].cells.length + '<br/>');
-      for (var i = 0; i < dtRow[0].cells.length; i++) {
-        $('div.modal-body').append('Cell (column, row) ' + dtRow[0].cells[i]._DT_CellIndex.column + ', ' + dtRow[0].cells[i]._DT_CellIndex.row + ' => innerHTML : ' + dtRow[0].cells[i].innerHTML + '<br/>');
-      }
-      $('#myModal').modal('show');
-    });
-  });
+  // $('.dt-edit').each(function () {
+  //   $(this).on('click', function (evt) {
+  //     $this = $(this);
+  //     var dtRow = $this.parents('tr');
+  //     $('div.modal-body').innerHTML = '';
+  //     $('div.modal-body').append('Row index: ' + dtRow[0].rowIndex + '<br/>');
+  //     $('div.modal-body').append('Number of columns: ' + dtRow[0].cells.length + '<br/>');
+  //     for (var i = 0; i < dtRow[0].cells.length; i++) {
+  //       $('div.modal-body').append('Cell (column, row) ' + dtRow[0].cells[i]._DT_CellIndex.column + ', ' + dtRow[0].cells[i]._DT_CellIndex.row + ' => innerHTML : ' + dtRow[0].cells[i].innerHTML + '<br/>');
+  //     }
+  //     $('#myModal').modal('show');
+  //   });
+  // });
   //Delete buttons
   $('.dt-delete').each(function () {
     $(this).on('click', function (evt) {
       $this = $(this);
       var dtRow = $this.parents('tr');
-      if (confirm("Are you sure to delete this row?")) {
-        var table = $('#example').DataTable();
-        table.row(dtRow[0].rowIndex - 1).remove().draw(false);
-      }
+      swal({
+        title: "Əminsiniz?",
+        text: "Sildiyiniz halda geri qaytarmaq imkanınız olmayacaq!",
+        icon: "warning",
+        buttons: true,
+        buttons: ["Xeyr!", "Bəli!"],
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+          var table = $('#example').DataTable();
+          table.row(dtRow[0].rowIndex - 1).remove().draw(false);
+          swal("Əməliyyat uğurla yerine yetirildi", {
+            icon: "success",
+            buttons: "Bağla",
+          });
+        } else {
+          swal("Əməliyyat baş tutmadı",{
+            buttons:"Bağla",
+          });
+        }
+      });
+     
     });
   });
-  $('#myModal').on('hidden.bs.modal', function (evt) {
-    $('.modal .modal-body').empty();
-  });
+
 });
