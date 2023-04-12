@@ -258,39 +258,10 @@ $(document).ready(function () {
       {
         extend: 'selectNone',
         text: 'Seçimi ləğv et',
-      },
-      
+      }
 
-    ],
-    drawCallback: function(settings) {
-      // Update the toggle cell icons after each draw
-      var toggleCells = $('.accordion-toggle');
-      toggleCells.each(function() {
-        var icon = $(this).hasClass('collapsed') ? 'bi-plus' : 'bi-dash';
-        $(this).html('<i class="bi ' + icon + '"></i>');
-      });
-    }
+    ]
   });
-  $('#example tbody').on('click', '.accordion-toggle', function() {
-    // Get the corresponding row and toggle its child row
-    var tr = $(this).closest('tr');
-    var rowData = table.row(tr).data();
-
-    if (tr.hasClass('shown')) {
-      // Close the row and update the toggle cell icon
-      tr.removeClass('shown');
-      $(this).html('<i class="bi bi-plus"></i>');
-    } else {
-      // Open the row and update the toggle cell icon
-      tr.addClass('shown');
-      $(this).html('<i class="bi bi-dash"></i>');
-
-      // Format the row with the accordion content
-      var accordionRow = format(rowData);
-      table.row(tr).child(accordionRow).show();
-    }
-  });
-});
   // $('.dt-edit').each(function () {
   //   $(this).on('click', function (evt) {
   //     $this = $(this);
