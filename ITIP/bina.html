@@ -34,9 +34,10 @@
 
   <link rel="stylesheet" href="https://cdn.datatables.net/select/1.6.2/css/select.dataTables.min.css">
   <style>
-      table.table-bordered.dataTable td:last-child{
+     .buttons_{
       display: flex;
       justify-content: space-evenly;
+      width: 100%;
     }
     td:last-child {
       text-align: center;
@@ -273,7 +274,7 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td data-label="Seçim"></td>
+                      <td data-label="Seç"></td>
                       <td data-label="Kod">1001</td>
                       <td data-label="Binanın adı">Bakı Dövlət Universiteti</td>
                       <td data-label="Tutum">1500</td>
@@ -286,7 +287,7 @@
                       </td>
                       <td data-label="Kod O">11</td>
                       <td data-label="">1</td>
-                      <td data-label="Əməliyyatlar">
+                      <td data-label="Əməliyyatlar" class="buttons_">
                         <button type="button" class="btn btn-success btn-xs dt-edit" data-bs-toggle="modal"
                           data-bs-target="#editModal" data-bs-whatever="@mdo">
                           <i class="bi bi-pencil-fill "></i>

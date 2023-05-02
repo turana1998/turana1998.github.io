@@ -259,11 +259,11 @@
                                 <div class="select_item">
                                     <div class="col-12 col-md-8 col-lg-6 m-auto mb-5 text-center">
                                         <form class="row g-3">
-                                            <label for="bina_type" class="col-sm-3 col-form-label">Binaların
+                                            <label for="zal_type" class="col-sm-3 col-form-label">zalların
                                                 siyahısı</label>
                                             <div class="col-sm-9">
                                                 <select class="form-select" aria-label="Default select example" id="zal_kodu">
-                                                    <option selected="">Uyğun bina adını və kodunu seçin</option>
+                                                    <option selected="">Uyğun zal adını və kodunu seçin</option>
                                                     <option value="1">1000</option>
                                                     <option value="2">1500</option>
                                                     <option value="3">3000</option>
@@ -287,23 +287,19 @@
                                     <div class="modal-dialog modal-dialog-centered  modal-dialog-scrollable">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Bina redaktə et</h1>
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Zal redaktə et</h1>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
                                                 <form class="row g-3">
                                                     <div class="col-md-12">
-                                                        <label for="bina_tam_ad" class="form-label">Binanın tam
+                                                        <label for="zal_tam_ad" class="form-label">Zalın 
                                                             adı</label>
-                                                        <input type="text" class="form-control" id="bina_tam_ad"
+                                                        <input type="text" class="form-control" id="zal_tam_ad"
                                                             value="Bakı Dövlət Universiteti 4 korpus ">
                                                     </div>
-                                                    <div class="col-md-12">
-                                                        <label for="bina_ad" class="form-label">Binanın adı</label>
-                                                        <input type="text" class="form-control" id="bina_ad"
-                                                            value="Bakı Dövlət Universiteti ">
-                                                    </div>
+                                                    
                                                     <div class="col-md-4">
                                                         <label for="kod" class="form-label">Kod</label>
                                                         <input type="number" class="form-control" id="kod" value="1245">
@@ -314,63 +310,17 @@
                                                             value="233">
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <label for="Zal" class="form-label">Zal</label>
-                                                        <input type="number" class="form-control" id="Zal" value="300">
+                                                        <label for="Zal" class="form-label">Sıra</label>
+                                                        <input type="number" class="form-control" id="Sıra" value="10">
                                                     </div>
-                                                    <div class="col-md-6">
-                                                        <label for="rayon" class="form-label">Rayon</label>
-                                                        <select id="rayon" class="form-select">
-                                                            <option selected="selected" disabled>Seç...</option>
-                                                            <option>...</option>
-                                                        </select>
+                                                    <div class="col-md-4">
+                                                        <label for="Zal" class="form-label">Yer</label>
+                                                        <input type="number" class="form-control" id="Yer" value="6">
                                                     </div>
-                                                    <div class="col-md-6">
-                                                        <label for="bina_type" class="form-label">Bina tipi</label>
-                                                        <select id="bina_type" class="form-select">
-                                                            <option selected="selected" disabled>Seç...</option>
-                                                            <option>...</option>
-                                                        </select>
+                                                    <div class="col-md-4">
+                                                        <label for="Zal" class="form-label">Mərtəbə</label>
+                                                        <input type="number" class="form-control" id="Mərtəbə" value="3">
                                                     </div>
-                                                    <div class="col-md-6">
-                                                        <label for="korpus" class="form-label">Korpus</label>
-                                                        <select id="korpus" class="form-select">
-                                                            <option selected="selected" disabled>Seç...</option>
-                                                            <option>...</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <label for="kateqoriya" class="form-label">Kateqoriya</label>
-                                                        <select id="kateqoriya" class="form-select">
-                                                            <option selected="selected" disabled>Seç...</option>
-                                                            <option>...</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                        <label for="unvan" class="form-label">Ünvan</label>
-                                                        <input type="text" class="form-control" id="unvan"
-                                                            value="Bakı ş S.Vurğun küçəsi ">
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                        <label for="marsrut" class="form-label">Marşrut</label>
-                                                        <input type="text" class="form-control" id="marsrut"
-                                                            value="Tibb universitinə yaxın ">
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                        <label for="zona" class="form-label">Zona</label>
-                                                        <input type="text" class="form-control" id="zona"
-                                                            value="1-DİM ">
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <label for="rehber" class="form-label">T/M rəhbər</label>
-                                                        <input type="text" class="form-control" id="rehber"
-                                                            value="Ad Soyad ata adı">
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <label for="phone" class="form-label">Telefon</label>
-                                                        <input type="tel" class="form-control" id="phone"
-                                                            value="(+994)50 000 00 00">
-                                                    </div>
-
                                                 </form>
                                             </div>
                                             <div class="modal-footer">
@@ -386,7 +336,7 @@
                                     <div class="modal-dialog modal-dialog-centered  modal-dialog-scrollable">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Bina ətraflı bax
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">zal ətraflı bax
                                                 </h1>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
@@ -394,12 +344,8 @@
                                             <div class="modal-body">
                                                 <form class="row g-3">
                                                     <div class="col-md-12 d-flex  align-items-center">
-                                                        <i class="me-3"><b>Binanın tam adı:</b></i>
-                                                        <p class="m-0 ">Bakı Dövlət Universiteti 4 korpus </p>
-                                                    </div>
-                                                    <div class="col-md-12 d-flex  align-items-center">
-                                                        <i class="me-3"><b>Binanın adı:</b></i>
-                                                        <p class="m-0">Bakı Dövlət Universiteti </p>
+                                                        <i class="me-3"><b>Zalın adı:</b></i>
+                                                        <p class="m-0">Otaq 306 </p>
                                                     </div>
                                                     <div class="col-md-4 d-flex  align-items-center">
                                                         <i class="me-3"><b>Kod:</b></i>
@@ -409,45 +355,17 @@
                                                         <i class="me-3"><b>Tutum:</b></i>
                                                         <p class="m-0">100</p>
                                                     </div>
-                                                    <div class="col-md-4 d-flex  align-items-center">
-                                                        <i class="me-3"><b>Zal:</b></i>
+                                                    <div class="col-md-12 d-flex  align-items-center">
+                                                        <i class="me-3"><b>Sıra:</b></i>
                                                         <p class="m-0">4 </p>
                                                     </div>
                                                     <div class="col-md-12 d-flex  align-items-center">
-                                                        <i class="me-3"><b>Rayon:</b></i>
-                                                        <p class="m-0">Nizami </p>
+                                                        <i class="me-3"><b>Yer:</b></i>
+                                                        <p class="m-0">8 </p>
                                                     </div>
                                                     <div class="col-md-12 d-flex  align-items-center">
-                                                        <i class="me-3"><b>Bina tipi:</b></i>
-                                                        <p class="m-0">Ali məktəb </p>
-                                                    </div>
-                                                    <div class="col-md-12 d-flex  align-items-center">
-                                                        <i class="me-3"><b>Korpus:</b></i>
-                                                        <p class="m-0">4 </p>
-                                                    </div>
-                                                    <div class="col-md-12 d-flex  align-items-center">
-                                                        <i class="me-3"><b>Kateqoriya:</b></i>
-                                                        <p class="m-0">yaxşı </p>
-                                                    </div>
-                                                    <div class="col-md-12 d-flex  align-items-center">
-                                                        <i class="me-3"><b>Ünvan:</b></i>
-                                                        <p class="m-0">Bakı ş S.Vurğun küçəsi </p>
-                                                    </div>
-                                                    <div class="col-md-12 d-flex  align-items-center">
-                                                        <i class="me-3"><b>Marşrut:</b></i>
-                                                        <p class="m-0">Tibb universitinə yaxın</p>
-                                                    </div>
-                                                    <div class="col-md-12 d-flex  align-items-center">
-                                                        <i class="me-3"><b>T/M rəhbər:</b></i>
-                                                        <p class="m-0">1-DİM</p>
-                                                    </div>
-                                                    <div class="col-md-12 d-flex  align-items-center">
-                                                        <i class="me-3"><b>Zona:</b></i>
-                                                        <p class="m-0">Ad Soyad ata adı</p>
-                                                    </div>
-                                                    <div class="col-md-12 d-flex  align-items-center">
-                                                        <i class="me-3"><b>Telefon:</b></i>
-                                                        <p class="m-0">(+994)50 000 00 00</p>
+                                                        <i class="me-3"><b>Mərtəbə:</b></i>
+                                                        <p class="m-0">3 </p>
                                                     </div>
                                                 </form>
                                             </div>

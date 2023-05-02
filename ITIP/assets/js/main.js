@@ -262,19 +262,6 @@ $(document).ready(function () {
 
     ]
   });
-  // $('.dt-edit').each(function () {
-  //   $(this).on('click', function (evt) {
-  //     $this = $(this);
-  //     var dtRow = $this.parents('tr');
-  //     $('div.modal-body').innerHTML = '';
-  //     $('div.modal-body').append('Row index: ' + dtRow[0].rowIndex + '<br/>');
-  //     $('div.modal-body').append('Number of columns: ' + dtRow[0].cells.length + '<br/>');
-  //     for (var i = 0; i < dtRow[0].cells.length; i++) {
-  //       $('div.modal-body').append('Cell (column, row) ' + dtRow[0].cells[i]._DT_CellIndex.column + ', ' + dtRow[0].cells[i]._DT_CellIndex.row + ' => innerHTML : ' + dtRow[0].cells[i].innerHTML + '<br/>');
-  //     }
-  //     $('#myModal').modal('show');
-  //   });
-  // });
   //Delete buttons
   $('.dt-delete').each(function () {
     $(this).on('click', function (evt) {
@@ -319,42 +306,40 @@ $(document).ready(function () {
           <thead>
               <tr>
                   <th>Seç</th>
-                  <th>Kod</th>
-                  <th>Binanı adı</th>
+                  <th>Zalın adı</th>
+                  <th>Sıra</th>
+                  <th>Yer</th>
                   <th>Tutum</th>
-                  <th>Zal Sayı</th>
-                  <th>Rayon</th>
+                  <th>Mərtəbə</th>
                   <th>Status</th>
                   <th>Kod O</th>
-                  <th>Region</th>
                   <th>Əməliyyatlar</th>
               </tr>
           </thead>
           <tbody>
               <tr>
-                  <td data-label="Seçim"></td>
-                  <td data-label="Kod">1001</td>
-                  <td data-label="Binanın adı">Bakı Dövlət Universiteti</td>
-                  <td data-label="Tutum">1500</td>
-                  <td data-label="Zal sayı">38</td>
-                  <td data-label="Rayon">11</td>
+                  <td data-label="Seç"></td>
+                  <td data-label="Zalın adı">Otaq 308</td>
+                  <td data-label="Sıra">8</td>
+                  <td data-label="Yer">1500</td>
+                  <td data-label="Tutum">38</td>
+                  <td data-label="Mərtəbə">11</td>
                   <td data-label="Status">
                       <div class="form-check form-switch">
                           <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="checked">
                       </div>
                   </td>
                   <td data-label="Kod O">11</td>
-                  <td data-label="">1</td>
-                  <td data-label="Əməliyyatlar">
+                  <td data-label="Əməliyyatlar" class="buttons_">
                       <button type="button" class="btn btn-success btn-xs dt-edit" data-bs-toggle="modal" data-bs-target="#editModal" data-bs-whatever="@mdo"><i class="bi bi-pencil-fill "></i></button>
                       <button type="button" class="btn btn-danger btn-xs dt-delete"><i class="bi bi-trash-fill"></i></button>
                       <button type="button" class="btn btn-primary btn-xs dt-view" data-bs-toggle="modal" data-bs-target="#viewModal" data-bs-whatever="@mdo"><i class="bi bi-eye-fill"></i></button>
                   </td>
               </tr>
               <tr>
-              <td data-label="Seçim"></td>
-              <td data-label="Kod">1001</td>
-              <td data-label="Binanın adı">Bakı Dövlət Universiteti</td>
+              <td data-label="Seç"></td>
+              <td data-label="Kod">Otaq 306</td>
+              <td data-label="Binanın adı">10</td>
               <td data-label="Tutum">1500</td>
               <td data-label="Zal sayı">37</td>
               <td data-label="Rayon">11</td>
@@ -364,8 +349,7 @@ $(document).ready(function () {
                   </div>
               </td>
               <td data-label="Kod O">11</td>
-              <td data-label="">1</td>
-              <td data-label="Əməliyyatlar">
+              <td data-label="Əməliyyatlar" class="buttons_">
                   <button type="button" class="btn btn-success btn-xs dt-edit" data-bs-toggle="modal" data-bs-target="#editModal" data-bs-whatever="@mdo"><i class="bi bi-pencil-fill "></i></button>
                   <button type="button" class="btn btn-danger btn-xs dt-delete"><i class="bi bi-trash-fill"></i></button>
                   <button type="button" class="btn btn-primary btn-xs dt-view" data-bs-toggle="modal" data-bs-target="#viewModal" data-bs-whatever="@mdo"><i class="bi bi-eye-fill"></i></button>
