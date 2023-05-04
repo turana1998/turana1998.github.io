@@ -300,7 +300,7 @@ $(document).ready(function () {
       table_item.empty();
       table_item.html(`
       <div class="add_row text-end">
-          <a href="bina_add.html" class="btn btn-success">Əlavə et</a>
+          <a href="zal_add.html" class="btn btn-success">Əlavə et</a>
       </div>
       <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
           <thead>
