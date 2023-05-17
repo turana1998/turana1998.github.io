@@ -351,7 +351,7 @@
                                     <h5 class="title_text">SERTİFİKATLAR </h5>
                                     <p>
                                         Coders Azerbaijan- Front end Developer (02/2021)<br>
-                                        Yup Technology-Full Stack Developer (05/2020)<br>
+                                        Yup Technology-Full Stack Developer (2020)<br>
                                         LİB Language Centre -English language (Upper - intermediate) (07/2019)<br>
                                         Upper Education -General English (intermadiate level ) (04/2019)<br>
 
