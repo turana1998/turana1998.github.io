@@ -12,6 +12,78 @@ website:   	http://www.themepunch.com
 -----------------------------------------------------------------------------*/
 
 /* FIX FOR WORDPRESS's CRAZY <p> TAG ANOMALY */
+#site-header .wrap-inner{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+body{
+	font-family: 'Poppins', sans-serif;
+}
+.vc_custom_1557802417323 {
+	background-image: url(../uploads/section-about.png) !important;
+	background-position: center !important;
+	background-repeat: no-repeat !important;
+	background-size: cover !important;
+}
+
+.vc_custom_1557801723128 {
+	background-image: url(../uploads/section-bg4-2.jpg) !important;
+	background-position: center !important;
+	background-repeat: no-repeat !important;
+	background-size: cover !important;
+}
+
+.vc_custom_1557803188334 {
+	background-color: #f7f9fa !important;
+}
+
+.vc_custom_1557825100635 {
+	background-image: url(../uploads/section-bg1-2.png) !important;
+	background-position: center !important;
+	background-repeat: no-repeat !important;
+	background-size: cover !important;
+}
+
+.vc_custom_1557825113206 {
+	background: #f7f9fa url(../uploads/section-bg2-2.png) !important;
+	background-position: center !important;
+	background-repeat: no-repeat !important;
+	background-size: cover !important;
+}
+
+.vc_custom_1557739268425 {
+	background: #f7f9fa url(../uploads/section-bg2-1.png) !important;
+}
+
+.vc_custom_1556980487755 {
+	background-color: #030f27 !important;
+}
+
+.vc_custom_1558767557488 {
+	background: #f7f9fa url(../uploads/main-bg-3.png) !important;
+}
+
+.vc_custom_1557834784584 {
+	background-image: url(../uploads/section-bg6.jpg) !important;
+	background-position: center !important;
+	background-repeat: no-repeat !important;
+	background-size: cover !important;
+}
+
+.vc_custom_1558767677916 {
+	background: #f7f9fa url(../uploads/cons-bg-1.png) !important;
+	background-position: center !important;
+	background-repeat: no-repeat !important;
+	background-size: cover !important;
+}
+
+.vc_custom_1557840125069 {
+	background-image: url(../uploads/section-bg7.jpg) !important;
+	background-position: center !important;
+	background-repeat: no-repeat !important;
+	background-size: cover !important;
+}
 .rs-p-wp-fix { display: none !important; margin: 0 !important; height: 0px !important; }  
 
 /* NEW Z-INDEX FIX*/
