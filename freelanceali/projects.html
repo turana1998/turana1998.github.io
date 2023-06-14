@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="az">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Sayt-2</title>
+
+    <link rel='stylesheet' href='public/css/js_composer.min.css' type='text/css' media='all'>
+    <link rel='stylesheet' href='public/css/rs6.css?v=2' type='text/css' media='all'>
+    <link rel='stylesheet' href='public/css/style.css' type='text/css' media='all'>
+    <link rel='stylesheet' href='public/css/visual-composer.css' type='text/css' media='all'>
+    <link rel='stylesheet' href='public/css/animate.css' type='text/css' media='all'>
+    <link rel='stylesheet' href='public/css/owl.carousel.css' type='text/css' media='all'>
+
+
+    <script type='text/javascript' src='public/js/jquery.min.js'></script>
+    <script type='text/javascript' src='public/js/rbtools.min.js'></script>
+    <script type='text/javascript' src='public/js/rs6.min.js'></script>
+
+    <script type="text/javascript">
+        function setREVStartSize(e) {
+            window.RSIW = window.RSIW === undefined ? window.innerWidth : window.RSIW;
+            window.RSIH = window.RSIH === undefined ? window.innerHeight : window.RSIH;
+            try {
+                var pw = document.getElementById(e.c).parentNode.offsetWidth,
+                    newh;
+                pw = pw === 0 || isNaN(pw) ? window.RSIW : pw;
+                e.tabw = e.tabw === undefined ? 0 : parseInt(e.tabw);
+                e.thumbw = e.thumbw === undefined ? 0 : parseInt(e.thumbw);
+                e.tabh = e.tabh === undefined ? 0 : parseInt(e.tabh);
+                e.thumbh = e.thumbh === undefined ? 0 : parseInt(e.thumbh);
+                e.tabhide = e.tabhide === undefined ? 0 : parseInt(e.tabhide);
+                e.thumbhide = e.thumbhide === undefined ? 0 : parseInt(e.thumbhide);
+                e.mh = e.mh === undefined || e.mh == "" || e.mh === "auto" ? 0 : parseInt(e.mh, 0);
+                if (e.layout === "fullscreen" || e.l === "fullscreen")
+                    newh = Math.max(e.mh, window.RSIH);
+                else {
+                    e.gw = Array.isArray(e.gw) ? e.gw : [e.gw];
+                    for (var i in e.rl) if (e.gw[i] === undefined || e.gw[i] === 0) e.gw[i] = e.gw[i - 1];
+                    e.gh = e.el === undefined || e.el === "" || (Array.isArray(e.el) && e.el.length == 0) ? e.gh : e.el;
+                    e.gh = Array.isArray(e.gh) ? e.gh : [e.gh];
+                    for (var i in e.rl) if (e.gh[i] === undefined || e.gh[i] === 0) e.gh[i] = e.gh[i - 1];
+
+                    var nl = new Array(e.rl.length),
+                        ix = 0,
+                        sl;
+                    e.tabw = e.tabhide >= pw ? 0 : e.tabw;
+                    e.thumbw = e.thumbhide >= pw ? 0 : e.thumbw;
+                    e.tabh = e.tabhide >= pw ? 0 : e.tabh;
+                    e.thumbh = e.thumbhide >= pw ? 0 : e.thumbh;
+                    for (var i in e.rl) nl[i] = e.rl[i] < window.RSIW ? 0 : e.rl[i];
+                    sl = nl[0];
+                    for (var i in nl) if (sl > nl[i] && nl[i] > 0) { sl = nl[i]; ix = i; }
+                    var m = pw > (e.gw[ix] + e.tabw + e.thumbw) ? 1 : (pw - (e.tabw + e.thumbw)) / (e.gw[ix]);
+                    newh = (e.gh[ix] * m) + (e.tabh + e.thumbh);
+                }
+                if (window.rs_init_css === undefined) window.rs_init_css = document.head.appendChild(document.createElement("style"));
+                document.getElementById(e.c).height = newh + "px";
+                window.rs_init_css.innerHTML += "#" + e.c + "_wrapper { height: " + newh + "px }";
+            } catch (e) {
+                console.log("Failure at Presize of Slider:" + e)
+            }
+        };
+    </script>
+    <style type="text/css" data-type="vc_shortcodes-custom-css">
+
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.min.css"
+        integrity="sha512-gMjQeDaELJ0ryCI+FtItusU9MkAifCZcGq789FrzkiM49D8lbDhoaUaIX4ASU187wofMNlgBJ4ckbrXM9sE6Pg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body
+    class="mobile-hide-top top-bar-style-2 header-fixed no-sidebar site-layout-full-width header-style-6 cur-menu-1 is-page no-padding-content header-simple-search has-related-post has-related-project footer-no-promo wpb-js-composer js-comp-ver-6.10.0 vc_responsive">
+    <div class="mobi-overlay">
+        <span class="close"></span>
+    </div>
+    <div id="wrapper">
+        <div class="search-style-fullscreen">
+            <div class="search_form_wrap">
+                <a class="search-close"></a>
+                <form role="search" method="get" class="search_form" action="#">
+                    <input type="search" class="search-field" value="" name="s" placeholder="Type your search...">
+                    <button type="submit" class="search-submit" title="Search">Search</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="page" class="clearfix animsition">
+            <div id="site-header-wrap">
+                <div id="top-bar">
+                    <div id="top-bar-inner" class="bauer-container">
+                        <div class="top-bar-inner-wrap">
+                            <div class="top-bar-content">
+                                <span class="phone content">
+                                    (+1) 212-946-2707 </span>
+                                <span class="email content">
+                                    info@BauerX.com </span>
+                                <span class="address content">
+                                    112 W 34th St, New York </span>
+                            </div>
+                            <div class="top-bar-socials">
+                                <div class="inner">
+                                    <ul id="menu-top-menu" class="top-bar-menu">
+                                        <li id="menu-item-6042"
+                                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6042">
+                                            <a href="">Careers</a>
+                                        </li>
+                                        <li id="menu-item-6043"
+                                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6043">
+                                            <a href="">Help Desk</a>
+                                        </li>
+                                        <li id="menu-item-6044"
+                                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6044">
+                                            <a href="">Login</a>
+                                        </li>
+                                    </ul>
+                                    <span class="icons">
+                                        <a href="https://www.facebook.com/" title="Facebook"><span
+                                                class="fab fa-facebook-f" aria-hidden="true"></span><span
+                                                class="screen-reader-text">Facebook Profile</span></a><a
+                                            href="https://twitter.com/" title="Twitter"><span class="fab fa-twitter"
+                                                aria-hidden="true"></span><span class="screen-reader-text">Twitter
+                                                Profile</span></a><a href="https://www.linkedin.com/"
+                                            title="LinkedIn"><span class="fab fa-linkedin-in"
+                                                aria-hidden="true"></span><span class="screen-reader-text">LinkedIn
+                                                Profile</span></a><a href="https://www.instagram.com/"
+                                            title="Instagram"><span class="fab fa-instagram"
+                                                aria-hidden="true"></span><span class="screen-reader-text">Instagram
+                                                Profile</span></a> </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Header -->
+                <header id="site-header">
+                    <div id="site-header-inner" class="bauer-container">
+                        <div class="wrap-inner">
+                            <div id="site-logo">
+                                <div id="site-logo-inner" style="max-width:135px;">
+                                    <a href="" title="Bauer" rel="home" class="main-logo">
+                                        <img src="public/uploads/logo.svg" width="100px" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div id="header-aside">
+                                <div class="aside-content">
+                                    <div class="inner">
+                                        <span class="info-one">
+                                            <div class="info-wrap">
+                                                <div class="info-i"><span><i
+                                                            class="elegant-icon_box-checked"></i></span></div>
+                                                <div class="info-c">SO 9001<br>Certification</div>
+                                            </div>
+                                        </span>
+                                        <span class="info-two">
+                                            <div class="info-wrap">
+                                                <div class="info-i"><span><i class="elegant-icon_clock_alt"></i></span>
+                                                </div>
+                                                <div class="info-c">24/7<br>Service</div>
+                                            </div>
+                                        </span>
+                                        <span class="info-three">
+                                            <div class="info-wrap">
+                                                <div class="info-i"><span><i class="elegant-icon_like"></i></span></div>
+                                                <div class="info-c">Qualified<br>Professionals</div>
+                                            </div>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="site-navigation-wrap">
+                        <div class="bauer-container inner">
+                            <div class="header-button"><a href="">Contact Us</a>
+                            </div>
+                            <div class="header-search-wrap"><a href="#" class="header-search-trigger"><span
+                                        class="basicui-search"></span></a></div>
+                            <ul class="nav-extend">
+                                <li class="ext menu-logo"><span class="menu-logo-inner" style="max-width:138px;"><a
+                                            href=""><img width="150px" src="public/uploads/logo.svg"></a></span></li>
+                                <li class="ext">
+                                    <form role="search" method="get" action="" class="search-form">
+                                        <input type="search" class="search-field" placeholder="Search..." value=""
+                                            name="s" title="Search for:">
+                                        <button type="submit" class="search-submit" title="Search">SEARCH</button>
+                                    </form>
+                                </li>
+                            </ul>
+                            <div class="mobile-button"><span></span></div>
+                            <nav id="main-nav" class="main-nav">
+                                <ul id="menu-primary-menu" class="menu">
+                                    <li id="menu-item-9224"
+                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-9224">
+                                        <a href="https://ninzio.com/bauer/"><span>Home</span></a>
+                                        <ul class="sub-menu">
+                                            <li id="menu-item-9085"
+                                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9085">
+                                                <a href=""><span>Home Main</span></a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li id="menu-item-2689"
+                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2689">
+                                        <a href=""><span>About</span></a>
+                                    </li>
+                                    <li id="menu-item-4488"
+                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4488">
+                                        <a href=""><span>Contact</span></a>
+                                    </li>
+                                    <li id="menu-item-5685"
+                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5685">
+                                        <a href=""><span>News</span></a>
+                                    </li>
+                                    <li id="menu-item-9084"
+                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9084">
+                                        <a target="_blank" rel="noopener" href=""><span>Docs</span></a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </header>
+            </div>
+
+            <div id="featured-title" class="clearfix center"
+                style="background-image: url(https://ninzio.com/bauer/wp-content/uploads/2019/05/title-bg4.jpg); background-repeat: no-repeat; background-position: center top; background-size: cover;">
+                <div class="bauer-container clearfix">
+                    <div class="inner-wrap">
+                        <div class="title-group">
+                            <h1 class="main-title">
+                                Portfolio </h1>
+                        </div>
+                        <div id="breadcrumbs">
+                            <div class="breadcrumbs-inner">
+                                <div class="breadcrumb-trail">
+                                    <a class="home" href="https://ninzio.com/bauer/">Home</a><span>Portfolio</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="main-content" class="site-main clearfix" style="">
+                <div id="content-wrap">
+                    <div id="site-content" class="site-content clearfix">
+                        <div id="inner-content" class="inner-content-wrap">
+                            <article class="page-content post-2288 page type-page status-publish hentry">
+                                <section class="wpb-content-wrapper">
+                                    <div class="vc-custom-col-spacing clearfix vc-col-spacing-30">
+                                        <section
+                                            class="wpb_row vc_row-fluid vc_custom_1558852808417 vc_row-has-fill no-padding row-content-position-Default">
+                                            <div class="row-inner clearfix">
+                                                <div class="wpb_column vc_column_container vc_col-sm-12">
+                                                    <div class="vc_column-inner">
+                                                        <div class="wpb_wrapper">
+                                                            <div class="bauer-spacer clearfix" data-desktop="94"
+                                                                data-mobi="60" data-smobi="60" style="height:94px">
+                                                            </div>
+                                                            <div class="bauer-content-box clearfix "
+                                                                data-padding="0px 15px 0px 15px"
+                                                                data-mobipadding="0px 15px 0px 15px" data-margin=""
+                                                                data-mobimargin="">
+                                                                <div class="inner ctb-1703534306"
+                                                                    style="padding: 0px 15px;" data-background="">
+                                                                    <div class="bauer-single-heading clearfix text-center"
+                                                                        style="margin-bottom:24px;"><span
+                                                                            class="inner"><span
+                                                                                class="heading clearfix "
+                                                                                style="font-weight:600;color:#777777;font-size:16px;">
+                                                                                FEATURED PROJECTS
+                                                                            </span></span></div>
+                                                                    <h2 class="bauer-text clearfix text-center"
+                                                                        style="font-size:42px;line-height:50px;margin-bottom:30px;max-width:730px;margin-left: auto; margin-right: auto;">
+                                                                        <p><span class="font-weight-300">View</span> our
+                                                                            featured projects <span
+                                                                                class="font-weight-300">below, then get
+                                                                                in touch with us</span></p>
+                                                                    </h2>
+                                                                    <div class="bauer-text clearfix text-center"
+                                                                        style="font-size:18px;line-height:30px;color:#414042;max-width:730px;margin-left: auto; margin-right: auto;">
+                                                                        <p>We are proud to show you our latest projects.
+                                                                            You will find a diverse gallery of
+                                                                            developments, remodeling, additions and new
+                                                                            construction.</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="bauer-spacer clearfix" data-desktop="70"
+                                                                data-mobi="40" data-smobi="40" style="height:70px">
+                                                            </div>
+                                                           
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </section>
+                                    </div>
+                                    <div class="vc-custom-col-spacing clearfix vc-col-spacing-30">
+                                        <section
+                                            class="wpb_row vc_row-fluid vc_custom_1558852781310 vc_row-has-fill row-content-position-Default">
+                                            <div class="bauer-container">
+                                                <div class="row-inner clearfix">
+                                                    <div class="wpb_column vc_column_container vc_col-sm-12">
+                                                        <div class="vc_column-inner">
+                                                            <div class="wpb_wrapper">
+                                                                
+                                                                <div class="bauer-spacer clearfix" data-desktop="70"
+                                                                    data-mobi="50" data-smobi="50" style="height:70px">
+                                                                </div>
+                                                                <div class="bauer-content-box clearfix">
+                                                                    <div
+                                                                        class="vc-custom-col-inner-spacing clearfix vc-col-inner-spacing-30">
+                                                                        <div class="wpb_row vc_inner vc_row-fluid">
+                                                                            <div
+                                                                                class="wpb_column vc_column_container vc_col-sm-4">
+                                                                                <div class="vc_column-inner">
+                                                                                    <div class="wpb_wrapper">
+                                                                                        <div class="bauer-content-box clearfix "
+                                                                                            data-padding="17px 15px 17px 15px"
+                                                                                            data-mobipadding="17px 15px 17px 15px"
+                                                                                            data-margin=""
+                                                                                            data-mobimargin="">
+                                                                                            <div class="inner ctb-1094297182"
+                                                                                                style="padding: 17px 15px;"
+                                                                                                data-background="#ffffff"
+                                                                                                data-shadow-hover=" 0px 0px 20px 0px rgba(0,0,0,0.07)">
+                                                                                                <div class="bauer-image-box clearfix style-1 text-center"
+                                                                                                    style="">
+                                                                                                    <div class="item">
+                                                                                                        <div
+                                                                                                            class="inner">
+                                                                                                            <div class="thumb"
+                                                                                                                style="">
+                                                                                                                <img width="450"
+                                                                                                                    height="464"
+                                                                                                                    src="https://ninzio.com/bauer/wp-content/uploads/2019/05/alt-project1.jpg"
+                                                                                                                    class="attachment-full size-full"
+                                                                                                                    alt=""
+                                                                                                                    decoding="async"
+                                                                                                                    loading="lazy"
+                                                                                                                    srcset="https://ninzio.com/bauer/wp-content/uploads/2019/05/alt-project1.jpg 450w, https://ninzio.com/bauer/wp-content/uploads/2019/05/alt-project1-291x300.jpg 291w"
+                                                                                                                    sizes="(max-width: 450px) 100vw, 450px">
+                                                                                                                <div
+                                                                                                                    class="hover-layer">
+                                                                                                                    <a href="https://ninzio.com/bauer/project/industrial-project-7/"
+                                                                                                                        class="icon"><span
+                                                                                                                            class="elegant-icon_plus_alt"></span></a>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div class="text-wrap "
+                                                                                                                style=" padding:30px 30px 12px;">
+                                                                                                                <h3 class="title"
+                                                                                                                    style="font-size:18px;color:#414042;">
+                                                                                                                    <a
+                                                                                                                        href="https://ninzio.com/bauer/project/industrial-project-7/">
+                                                                                                                        Industrial
+                                                                                                                    </a>
+                                                                                                                </h3>
+                                                                                                            </div>
+
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="bauer-spacer clearfix"
+                                                                                            data-desktop="30"
+                                                                                            data-mobi="30"
+                                                                                            data-smobi="30"
+                                                                                            style="height:30px"></div>
+                                                                                        <div class="bauer-content-box clearfix "
+                                                                                            data-padding="17px 15px 17px 15px"
+                                                                                            data-mobipadding="17px 15px 17px 15px"
+                                                                                            data-margin=""
+                                                                                            data-mobimargin="">
+                                                                                            <div class="inner ctb-888130790"
+                                                                                                style="padding: 17px 15px;"
+                                                                                                data-background="#ffffff"
+                                                                                                data-shadow-hover=" 0px 0px 20px 0px rgba(0,0,0,0.07)">
+                                                                                                <div class="bauer-image-box clearfix style-1 text-center"
+                                                                                                    style="">
+                                                                                                    <div class="item">
+                                                                                                        <div
+                                                                                                            class="inner">
+                                                                                                            <div class="thumb"
+                                                                                                                style="">
+                                                                                                                <img width="450"
+                                                                                                                    height="464"
+                                                                                                                    src="https://ninzio.com/bauer/wp-content/uploads/2019/05/alt-project4.jpg"
+                                                                                                                    class="attachment-full size-full"
+                                                                                                                    alt=""
+                                                                                                                    decoding="async"
+                                                                                                                    loading="lazy"
+                                                                                                                    srcset="https://ninzio.com/bauer/wp-content/uploads/2019/05/alt-project4.jpg 450w, https://ninzio.com/bauer/wp-content/uploads/2019/05/alt-project4-291x300.jpg 291w"
+                                                                                                                    sizes="(max-width: 450px) 100vw, 450px">
+                                                                                                                <div
+                                                                                                                    class="hover-layer">
+                                                                                                                    <a href="https://ninzio.com/bauer/project/industrial-project-4/"
+                                                                                                                        class="icon"><span
+                                                                                                                            class="elegant-icon_plus_alt"></span></a>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div class="text-wrap "
+                                                                                                                style=" padding:30px 30px 12px;">
+                                                                                                                <h3 class="title"
+                                                                                                                    style="font-size:18px;color:#414042;">
+                                                                                                                    <a
+                                                                                                                        href="https://ninzio.com/bauer/project/industrial-project-4/">
+                                                                                                                        Energy
+                                                                                                                    </a>
+                                                                                                                </h3>
+                                                                                                            </div>
+
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="bauer-spacer clearfix"
+                                                                                            data-desktop="0"
+                                                                                            data-mobi="30"
+                                                                                            data-smobi="30"
+                                                                                            style="height:0px"></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div
+                                                                                class="wpb_column vc_column_container vc_col-sm-4">
+                                                                                <div class="vc_column-inner">
+                                                                                    <div class="wpb_wrapper">
+                                                                                        <div class="bauer-content-box clearfix "
+                                                                                            data-padding="17px 15px 17px 15px"
+                                                                                            data-mobipadding="17px 15px 17px 15px"
+                                                                                            data-margin=""
+                                                                                            data-mobimargin="">
+                                                                                            <div class="inner ctb-1637651633"
+                                                                                                style="padding: 17px 15px;"
+                                                                                                data-background="#ffffff"
+                                                                                                data-shadow-hover=" 0px 0px 20px 0px rgba(0,0,0,0.07)">
+                                                                                                <div class="bauer-image-box clearfix style-1 text-center"
+                                                                                                    style="">
+                                                                                                    <div class="item">
+                                                                                                        <div
+                                                                                                            class="inner">
+                                                                                                            <div class="thumb"
+                                                                                                                style="">
+                                                                                                                <img width="450"
+                                                                                                                    height="464"
+                                                                                                                    src="https://ninzio.com/bauer/wp-content/uploads/2019/05/alt-project2.jpg"
+                                                                                                                    class="attachment-full size-full"
+                                                                                                                    alt=""
+                                                                                                                    decoding="async"
+                                                                                                                    loading="lazy"
+                                                                                                                    srcset="https://ninzio.com/bauer/wp-content/uploads/2019/05/alt-project2.jpg 450w, https://ninzio.com/bauer/wp-content/uploads/2019/05/alt-project2-291x300.jpg 291w"
+                                                                                                                    sizes="(max-width: 450px) 100vw, 450px">
+                                                                                                                <div
+                                                                                                                    class="hover-layer">
+                                                                                                                    <a href="https://ninzio.com/bauer/project/industrial-project-6/"
+                                                                                                                        class="icon"><span
+                                                                                                                            class="elegant-icon_plus_alt"></span></a>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div class="text-wrap "
+                                                                                                                style=" padding:30px 30px 12px;">
+                                                                                                                <h3 class="title"
+                                                                                                                    style="font-size:18px;color:#414042;">
+                                                                                                                    <a
+                                                                                                                        href="https://ninzio.com/bauer/project/industrial-project-6/">
+                                                                                                                        Construction
+                                                                                                                    </a>
+                                                                                                                </h3>
+                                                                                                            </div>
+
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="bauer-spacer clearfix"
+                                                                                            data-desktop="30"
+                                                                                            data-mobi="30"
+                                                                                            data-smobi="30"
+                                                                                            style="height:30px"></div>
+                                                                                        <div class="bauer-content-box clearfix "
+                                                                                            data-padding="17px 15px 17px 15px"
+                                                                                            data-mobipadding="17px 15px 17px 15px"
+                                                                                            data-margin=""
+                                                                                            data-mobimargin="">
+                                                                                            <div class="inner ctb-381323328"
+                                                                                                style="padding: 17px 15px;"
+                                                                                                data-background="#ffffff"
+                                                                                                data-shadow-hover=" 0px 0px 20px 0px rgba(0,0,0,0.07)">
+                                                                                                <div class="bauer-image-box clearfix style-1 text-center"
+                                                                                                    style="">
+                                                                                                    <div class="item">
+                                                                                                        <div
+                                                                                                            class="inner">
+                                                                                                            <div class="thumb"
+                                                                                                                style="">
+                                                                                                                <img width="450"
+                                                                                                                    height="464"
+                                                                                                                    src="https://ninzio.com/bauer/wp-content/uploads/2019/05/alt-project5.jpg"
+                                                                                                                    class="attachment-full size-full"
+                                                                                                                    alt=""
+                                                                                                                    decoding="async"
+                                                                                                                    loading="lazy"
+                                                                                                                    srcset="https://ninzio.com/bauer/wp-content/uploads/2019/05/alt-project5.jpg 450w, https://ninzio.com/bauer/wp-content/uploads/2019/05/alt-project5-291x300.jpg 291w"
+                                                                                                                    sizes="(max-width: 450px) 100vw, 450px">
+                                                                                                                <div
+                                                                                                                    class="hover-layer">
+                                                                                                                    <a href="https://ninzio.com/bauer/project/industrial-project-3/"
+                                                                                                                        class="icon"><span
+                                                                                                                            class="elegant-icon_plus_alt"></span></a>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div class="text-wrap "
+                                                                                                                style=" padding:30px 30px 12px;">
+                                                                                                                <h3 class="title"
+                                                                                                                    style="font-size:18px;color:#414042;">
+                                                                                                                    <a
+                                                                                                                        href="https://ninzio.com/bauer/project/industrial-project-3/">
+                                                                                                                        Mechanical
+                                                                                                                    </a>
+                                                                                                                </h3>
+                                                                                                            </div>
+
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="bauer-spacer clearfix"
+                                                                                            data-desktop="0"
+                                                                                            data-mobi="30"
+                                                                                            data-smobi="30"
+                                                                                            style="height:0px"></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div
+                                                                                class="wpb_column vc_column_container vc_col-sm-4">
+                                                                                <div class="vc_column-inner">
+                                                                                    <div class="wpb_wrapper">
+                                                                                        <div class="bauer-content-box clearfix "
+                                                                                            data-padding="17px 15px 17px 15px"
+                                                                                            data-mobipadding="17px 15px 17px 15px"
+                                                                                            data-margin=""
+                                                                                            data-mobimargin="">
+                                                                                            <div class="inner ctb-1437709595"
+                                                                                                style="padding: 17px 15px;"
+                                                                                                data-background="#ffffff"
+                                                                                                data-shadow-hover=" 0px 0px 20px 0px rgba(0,0,0,0.07)">
+                                                                                                <div class="bauer-image-box clearfix style-1 text-center"
+                                                                                                    style="">
+                                                                                                    <div class="item">
+                                                                                                        <div
+                                                                                                            class="inner">
+                                                                                                            <div class="thumb"
+                                                                                                                style="">
+                                                                                                                <img width="450"
+                                                                                                                    height="464"
+                                                                                                                    src="https://ninzio.com/bauer/wp-content/uploads/2019/05/alt-project3.jpg"
+                                                                                                                    class="attachment-full size-full"
+                                                                                                                    alt=""
+                                                                                                                    decoding="async"
+                                                                                                                    loading="lazy"
+                                                                                                                    srcset="https://ninzio.com/bauer/wp-content/uploads/2019/05/alt-project3.jpg 450w, https://ninzio.com/bauer/wp-content/uploads/2019/05/alt-project3-291x300.jpg 291w"
+                                                                                                                    sizes="(max-width: 450px) 100vw, 450px">
+                                                                                                                <div
+                                                                                                                    class="hover-layer">
+                                                                                                                    <a href="https://ninzio.com/bauer/project/industrial-project-5/"
+                                                                                                                        class="icon"><span
+                                                                                                                            class="elegant-icon_plus_alt"></span></a>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div class="text-wrap "
+                                                                                                                style=" padding:30px 30px 12px;">
+                                                                                                                <h3 class="title"
+                                                                                                                    style="font-size:18px;color:#414042;">
+                                                                                                                    <a
+                                                                                                                        href="https://ninzio.com/bauer/project/industrial-project-5/">
+                                                                                                                        Carpentry
+                                                                                                                    </a>
+                                                                                                                </h3>
+                                                                                                            </div>
+
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="bauer-spacer clearfix"
+                                                                                            data-desktop="30"
+                                                                                            data-mobi="30"
+                                                                                            data-smobi="30"
+                                                                                            style="height:30px"></div>
+                                                                                        <div class="bauer-content-box clearfix "
+                                                                                            data-padding="17px 15px 17px 15px"
+                                                                                            data-mobipadding="17px 15px 17px 15px"
+                                                                                            data-margin=""
+                                                                                            data-mobimargin="">
+                                                                                            <div class="inner ctb-934049741"
+                                                                                                style="padding: 17px 15px;"
+                                                                                                data-background="#ffffff"
+                                                                                                data-shadow-hover=" 0px 0px 20px 0px rgba(0,0,0,0.07)">
+                                                                                                <div class="bauer-image-box clearfix style-1 text-center"
+                                                                                                    style="">
+                                                                                                    <div class="item">
+                                                                                                        <div
+                                                                                                            class="inner">
+                                                                                                            <div class="thumb"
+                                                                                                                style="">
+                                                                                                                <img width="450"
+                                                                                                                    height="464"
+                                                                                                                    src="https://ninzio.com/bauer/wp-content/uploads/2019/05/alt-project6.jpg"
+                                                                                                                    class="attachment-full size-full"
+                                                                                                                    alt=""
+                                                                                                                    decoding="async"
+                                                                                                                    loading="lazy"
+                                                                                                                    srcset="https://ninzio.com/bauer/wp-content/uploads/2019/05/alt-project6.jpg 450w, https://ninzio.com/bauer/wp-content/uploads/2019/05/alt-project6-291x300.jpg 291w"
+                                                                                                                    sizes="(max-width: 450px) 100vw, 450px">
+                                                                                                                <div
+                                                                                                                    class="hover-layer">
+                                                                                                                    <a href="https://ninzio.com/bauer/project/industrial-project-2/"
+                                                                                                                        class="icon"><span
+                                                                                                                            class="elegant-icon_plus_alt"></span></a>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div class="text-wrap "
+                                                                                                                style=" padding:30px 30px 12px;">
+                                                                                                                <h3 class="title"
+                                                                                                                    style="font-size:18px;color:#414042;">
+                                                                                                                    <a
+                                                                                                                        href="https://ninzio.com/bauer/project/industrial-project-2/">
+                                                                                                                        Electrical
+                                                                                                                    </a>
+                                                                                                                </h3>
+                                                                                                            </div>
+
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="bauer-spacer clearfix" data-desktop="100"
+                                                                    data-mobi="60" data-smobi="60" style="height:100px">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </section>
+                            </article>
+
+                        </div>
+                    </div><!-- /#site-content -->
+
+                </div><!-- /#content-wrap -->
+            </div>
+
+            <footer id="footer" style="">
+                <div id="footer-widgets" class="bauer-container">
+                    <div class="footer-grid  gutter-35">
+                        <div class="span_1_of_4 col">
+                            <div id="text-11" class="widget widget_text">
+                                <div class="textwidget">
+                                    <p class="margin-bottom-20"><img decoding="async" src="public/uploads/logo.svg"
+                                            alt="" width="135">
+                                    </p>
+                                    <p class="font-size-14 line-height-29 margin-bottom-0">With over 10 years of
+                                        experience in construction, we partner with owners and design professionals to
+                                        build high-quality projects.</p>
+                                </div>
+                            </div>
+                            <div id="widget_socials-10" class="widget widget_socials">
+                                <div class="socials clearfix" style="">
+                                    <div class="icon" style=""><a target="_blank" title="twitter"
+                                            href="https://twitter.com/NinzioThemes" style="margin-bottom:10px"><i
+                                                class="fab fa-twitter"></i></a></div>
+                                    <div class="icon" style=""><a target="_blank" title="facebook"
+                                            href="https://www.facebook.com/ninzio" style="margin-bottom:10px"><i
+                                                class="fab fa-facebook"></i></a></div>
+                                    <div class="icon" style=""><a target="_blank" title="youtube"
+                                            href="https://www.youtube.com/ninziotek" style="margin-bottom:10px"><i
+                                                class="fab fa-youtube"></i></a></div>
+                                    <div class="icon" style=""><a target="_blank" title="vimeo"
+                                            href="https://vimeo.com/envato" style="margin-bottom:10px"><i
+                                                class="fab fa-vimeo"></i></a></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="span_1_of_4 col">
+                            <div id="widget_links-11" class="widget widget_links">
+                                <h2 class="widget-title"><span>Useful Links</span></h2>
+                                <ul class="links-wrap clearfix col2">
+
+                                    <li style="">
+                                        <a href="https://ninzio.com/bauer/about-us/" style="">
+                                            About Us
+                                        </a>
+                                    </li>
+                                    <li style="">
+                                        <a href="https://ninzio.com/bauer/blog/" style="">
+                                            News
+                                        </a>
+                                    </li>
+                                    <li style="">
+                                        <a href="https://ninzio.com/bauer/services/" style="">
+                                            Services
+                                        </a>
+                                    </li>
+                                    <li style="">
+                                        <a href="https://ninzio.com/bauer/services/" style="">
+                                            Careers
+                                        </a>
+                                    </li>
+                                    <li style="">
+                                        <a href="https://ninzio.com/bauer/portfolio/" style="">
+                                            Projects
+                                        </a>
+                                    </li>
+                                    <li style="">
+                                        <a href="https://ninzio.com/bauer/about-us/" style="">
+                                            Help Desk
+                                        </a>
+                                    </li>
+                                    <li style="">
+                                        <a href="https://ninzio.com/bauer/shop/" style="">
+                                            Shop
+                                        </a>
+                                    </li>
+                                    <li style="">
+                                        <a href="https://ninzio.com/bauer/contact-us/" style="">
+                                            Contact
+                                        </a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+
+                        <div class="span_1_of_4 col">
+                            <div id="widget_information-2" class="widget widget_information">
+                                <h2 class="widget-title"><span>Contact</span></h2>
+                                <ul class="clearfix" style="">
+                                    <li class="hour  accent-icon" style="margin-bottom:10px;"><i class="fas fa-clock"
+                                            style="padding-right:15px;"></i><span style="">Mon - Fri: 8.00am
+                                            6.00pm</span></li>
+                                    <li class="address  accent-icon" style="margin-bottom:10px;"><i
+                                            class="fas fa-map-marker-alt" style="padding-right:15px;"></i><span
+                                            style="">112 W 34th St, New York</span></li>
+                                    <li class="phone  accent-icon" style="margin-bottom:10px;"><i class="fas fa-phone"
+                                            style="padding-right:15px;"></i><span style="">(+1) 212-946-2707</span></li>
+                                    <li class="email  accent-icon" style="margin-bottom:10px;"><i
+                                            class="fas fa-envelope" style="padding-right:15px;"></i><span
+                                            style="">info@BauerX.com</span></li>
+                                </ul>
+
+                            </div>
+                        </div>
+
+                        <div class="span_1_of_4 col">
+                            <div id="mc4wp_form_widget-5" class="widget widget_mc4wp_form_widget">
+                                <h2 class="widget-title"><span>Newsletter</span></h2>
+                                <script>(function () {
+                                        window.mc4wp = window.mc4wp || {
+                                            listeners: [],
+                                            forms: {
+                                                on: function (evt, cb) {
+                                                    window.mc4wp.listeners.push(
+                                                        {
+                                                            event: evt,
+                                                            callback: cb
+                                                        }
+                                                    );
+                                                }
+                                            }
+                                        }
+                                    })();
+                                </script><!-- Mailchimp for WordPress v4.9.3 - https://wordpress.org/plugins/mailchimp-for-wp/ -->
+                                <form id="mc4wp-form-1" class="mc4wp-form mc4wp-form-3084" method="post" data-id="3084"
+                                    data-name="Form 1">
+                                    <div class="mc4wp-form-fields">
+                                        <div class="inner-wrap">
+                                            <div class="email-wrap">
+                                                <input type="email" name="EMAIL" required=""
+                                                    placeholder="Enter Your Email">
+                                            </div>
+
+                                            <div class="submit-wrap"><button type="submit">Subscribe!</button></div>
+                                        </div>
+                                    </div><label style="display: none !important;">Leave this field empty if you're
+                                        human: <input type="text" name="_mc4wp_honeypot" value="" tabindex="-1"
+                                            autocomplete="off"></label><input type="hidden" name="_mc4wp_timestamp"
+                                        value="1682186352"><input type="hidden" name="_mc4wp_form_id"
+                                        value="3084"><input type="hidden" name="_mc4wp_form_element_id"
+                                        value="mc4wp-form-1">
+                                    <div class="mc4wp-response"></div>
+                                </form><!-- / Mailchimp for WordPress Plugin -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+
+            <div id="bottom" style="">
+                <div class="bauer-container">
+                    <div class="bottom-bar-inner-wrap">
+                        <div class="bottom-bar-copyright">
+                            <div id="copyright">
+                                &copy; Bauer Construction. All rights reserved. </div>
+                        </div><!-- /.bottom-bar-copyright -->
+
+                        <div class="bottom-bar-menu">
+                            <ul id="menu-bottom-menu" class="bottom-nav">
+                                <li id="menu-item-424"
+                                    class="menu-item menu-item-type-custom menu-item-object-custom menu-item-424"><a
+                                        href="https://ninzio.com/bauer/about-us/">Terms of Use</a></li>
+                                <li id="menu-item-425"
+                                    class="menu-item menu-item-type-custom menu-item-object-custom menu-item-425"><a
+                                        href="https://ninzio.com/bauer/services/">Privacy Policy</a></li>
+                            </ul>
+                        </div><!-- /.bottom-bar-menu -->
+                    </div>
+                </div>
+            </div><!-- /#bottom -->
+        </div><!-- /#page -->
+    </div>
+
+
+    <a id="scroll-top"></a>
+
+
+    <script type='text/javascript' src='public/js/easing.js'></script>
+
+    <script type='text/javascript' src='public/js/main.js'></script>
+
+    <script type='text/javascript' src='public/js/shortcodes.js'></script>
+
+    <script type='text/javascript' src='public/js/owl.carousel.min.js'></script>
+
+    <script type='text/javascript' src='public/js/countto.js'></script>
+
+    <script type='text/javascript' src='public/js/appear.js'></script>
+
+
+</body>
+
+</html>

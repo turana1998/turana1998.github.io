@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="az">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Sayt-2</title>
+
+	<link rel='stylesheet' href='public/css/js_composer.min.css' type='text/css' media='all'>
+	<link rel='stylesheet' href='public/css/rs6.css?v=2' type='text/css' media='all'>
+	<link rel='stylesheet' href='public/css/style.css' type='text/css' media='all'>
+	<link rel='stylesheet' href='public/css/visual-composer.css' type='text/css' media='all'>
+	<link rel='stylesheet' href='public/css/animate.css' type='text/css' media='all'>
+	<link rel='stylesheet' href='public/css/owl.carousel.css' type='text/css' media='all'>
+
+
+	<script type='text/javascript' src='public/js/jquery.min.js'></script>
+	<script type='text/javascript' src='public/js/rbtools.min.js'></script>
+	<script type='text/javascript' src='public/js/rs6.min.js'></script>
+
+	<script type="text/javascript">
+		function setREVStartSize(e) {
+			window.RSIW = window.RSIW === undefined ? window.innerWidth : window.RSIW;
+			window.RSIH = window.RSIH === undefined ? window.innerHeight : window.RSIH;
+			try {
+				var pw = document.getElementById(e.c).parentNode.offsetWidth,
+					newh;
+				pw = pw === 0 || isNaN(pw) ? window.RSIW : pw;
+				e.tabw = e.tabw === undefined ? 0 : parseInt(e.tabw);
+				e.thumbw = e.thumbw === undefined ? 0 : parseInt(e.thumbw);
+				e.tabh = e.tabh === undefined ? 0 : parseInt(e.tabh);
+				e.thumbh = e.thumbh === undefined ? 0 : parseInt(e.thumbh);
+				e.tabhide = e.tabhide === undefined ? 0 : parseInt(e.tabhide);
+				e.thumbhide = e.thumbhide === undefined ? 0 : parseInt(e.thumbhide);
+				e.mh = e.mh === undefined || e.mh == "" || e.mh === "auto" ? 0 : parseInt(e.mh, 0);
+				if (e.layout === "fullscreen" || e.l === "fullscreen")
+					newh = Math.max(e.mh, window.RSIH);
+				else {
+					e.gw = Array.isArray(e.gw) ? e.gw : [e.gw];
+					for (var i in e.rl) if (e.gw[i] === undefined || e.gw[i] === 0) e.gw[i] = e.gw[i - 1];
+					e.gh = e.el === undefined || e.el === "" || (Array.isArray(e.el) && e.el.length == 0) ? e.gh : e.el;
+					e.gh = Array.isArray(e.gh) ? e.gh : [e.gh];
+					for (var i in e.rl) if (e.gh[i] === undefined || e.gh[i] === 0) e.gh[i] = e.gh[i - 1];
+
+					var nl = new Array(e.rl.length),
+						ix = 0,
+						sl;
+					e.tabw = e.tabhide >= pw ? 0 : e.tabw;
+					e.thumbw = e.thumbhide >= pw ? 0 : e.thumbw;
+					e.tabh = e.tabhide >= pw ? 0 : e.tabh;
+					e.thumbh = e.thumbhide >= pw ? 0 : e.thumbh;
+					for (var i in e.rl) nl[i] = e.rl[i] < window.RSIW ? 0 : e.rl[i];
+					sl = nl[0];
+					for (var i in nl) if (sl > nl[i] && nl[i] > 0) { sl = nl[i]; ix = i; }
+					var m = pw > (e.gw[ix] + e.tabw + e.thumbw) ? 1 : (pw - (e.tabw + e.thumbw)) / (e.gw[ix]);
+					newh = (e.gh[ix] * m) + (e.tabh + e.thumbh);
+				}
+				if (window.rs_init_css === undefined) window.rs_init_css = document.head.appendChild(document.createElement("style"));
+				document.getElementById(e.c).height = newh + "px";
+				window.rs_init_css.innerHTML += "#" + e.c + "_wrapper { height: " + newh + "px }";
+			} catch (e) {
+				console.log("Failure at Presize of Slider:" + e)
+			}
+		};
+	</script>
+	<style type="text/css" data-type="vc_shortcodes-custom-css">
+
+	</style>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.min.css"
+		integrity="sha512-gMjQeDaELJ0ryCI+FtItusU9MkAifCZcGq789FrzkiM49D8lbDhoaUaIX4ASU187wofMNlgBJ4ckbrXM9sE6Pg=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body
+	class="mobile-hide-top top-bar-style-2 header-fixed no-sidebar site-layout-full-width header-style-6 cur-menu-1 is-page no-padding-content header-simple-search has-related-post has-related-project footer-no-promo wpb-js-composer js-comp-ver-6.10.0 vc_responsive">
+	<div class="mobi-overlay">
+		<span class="close"></span>
+	</div>
+	<div id="wrapper">
+		<div class="search-style-fullscreen">
+			<div class="search_form_wrap">
+				<a class="search-close"></a>
+				<form role="search" method="get" class="search_form" action="#">
+					<input type="search" class="search-field" value="" name="s" placeholder="Type your search...">
+					<button type="submit" class="search-submit" title="Search">Search</button>
+				</form>
+			</div>
+		</div>
+
+		<div id="page" class="clearfix animsition">
+			<div id="site-header-wrap">
+				<div id="top-bar">
+					<div id="top-bar-inner" class="bauer-container">
+						<div class="top-bar-inner-wrap">
+							<div class="top-bar-content">
+								<span class="phone content">
+									(+1) 212-946-2707 </span>
+								<span class="email content">
+									info@BauerX.com </span>
+								<span class="address content">
+									112 W 34th St, New York </span>
+							</div>
+							<div class="top-bar-socials">
+								<div class="inner">
+									<ul id="menu-top-menu" class="top-bar-menu">
+										<li id="menu-item-6042"
+											class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6042">
+											<a href="">Careers</a>
+										</li>
+										<li id="menu-item-6043"
+											class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6043">
+											<a href="">Help Desk</a>
+										</li>
+										<li id="menu-item-6044"
+											class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6044">
+											<a href="">Login</a>
+										</li>
+									</ul>
+									<span class="icons">
+										<a href="https://www.facebook.com/" title="Facebook"><span
+												class="fab fa-facebook-f" aria-hidden="true"></span><span
+												class="screen-reader-text">Facebook Profile</span></a><a
+											href="https://twitter.com/" title="Twitter"><span class="fab fa-twitter"
+												aria-hidden="true"></span><span class="screen-reader-text">Twitter
+												Profile</span></a><a href="https://www.linkedin.com/"
+											title="LinkedIn"><span class="fab fa-linkedin-in"
+												aria-hidden="true"></span><span class="screen-reader-text">LinkedIn
+												Profile</span></a><a href="https://www.instagram.com/"
+											title="Instagram"><span class="fab fa-instagram"
+												aria-hidden="true"></span><span class="screen-reader-text">Instagram
+												Profile</span></a> </span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Header -->
+				<header id="site-header">
+					<div id="site-header-inner" class="bauer-container">
+						<div class="wrap-inner">
+							<div id="site-logo">
+								<div id="site-logo-inner" style="max-width:135px;">
+									<a href="" title="Bauer" rel="home" class="main-logo">
+										<img src="public/uploads/logo.svg" width="100px" alt="">
+									</a>
+								</div>
+							</div>
+							<div id="header-aside">
+								<div class="aside-content">
+									<div class="inner">
+										<span class="info-one">
+											<div class="info-wrap">
+												<div class="info-i"><span><i
+															class="elegant-icon_box-checked"></i></span></div>
+												<div class="info-c">SO 9001<br>Certification</div>
+											</div>
+										</span>
+										<span class="info-two">
+											<div class="info-wrap">
+												<div class="info-i"><span><i class="elegant-icon_clock_alt"></i></span>
+												</div>
+												<div class="info-c">24/7<br>Service</div>
+											</div>
+										</span>
+										<span class="info-three">
+											<div class="info-wrap">
+												<div class="info-i"><span><i class="elegant-icon_like"></i></span></div>
+												<div class="info-c">Qualified<br>Professionals</div>
+											</div>
+										</span>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+
+					<div class="site-navigation-wrap">
+						<div class="bauer-container inner">
+							<div class="header-button"><a href="">Contact Us</a>
+							</div>
+							<div class="header-search-wrap"><a href="#" class="header-search-trigger"><span
+										class="basicui-search"></span></a></div>
+							<ul class="nav-extend">
+								<li class="ext menu-logo"><span class="menu-logo-inner" style="max-width:138px;"><a
+											href=""><img width="150px" src="public/uploads/logo.svg"></a></span></li>
+								<li class="ext">
+									<form role="search" method="get" action="" class="search-form">
+										<input type="search" class="search-field" placeholder="Search..." value=""
+											name="s" title="Search for:">
+										<button type="submit" class="search-submit" title="Search">SEARCH</button>
+									</form>
+								</li>
+							</ul>
+							<div class="mobile-button"><span></span></div>
+							<nav id="main-nav" class="main-nav">
+								<ul id="menu-primary-menu" class="menu">
+									<li id="menu-item-9224"
+										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-9224">
+										<a href="https://ninzio.com/bauer/"><span>Home</span></a>
+										<ul class="sub-menu">
+											<li id="menu-item-9085"
+												class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9085">
+												<a href=""><span>Home Main</span></a>
+											</li>
+										</ul>
+									</li>
+									<li id="menu-item-2689"
+										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2689">
+										<a href=""><span>About</span></a>
+									</li>
+									<li id="menu-item-4488"
+										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4488">
+										<a href=""><span>Contact</span></a>
+									</li>
+									<li id="menu-item-5685"
+										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5685">
+										<a href=""><span>News</span></a>
+									</li>
+									<li id="menu-item-9084"
+										class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9084">
+										<a target="_blank" rel="noopener" href=""><span>Docs</span></a>
+									</li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</header>
+			</div>
+
+
+            <div id="featured-title" class="clearfix center" style="background-image: url(https://ninzio.com/bauer/wp-content/uploads/2019/05/title-bg1.jpg); background-repeat: no-repeat; background-position: center top; background-size: cover;">
+                <div class="bauer-container clearfix">
+                    <div class="inner-wrap">
+                                            <div class="title-group">
+                                    <h1 class="main-title">
+                                        About Our Company                        </h1>
+                                </div>
+                                                    <div id="breadcrumbs">
+                                        <div class="breadcrumbs-inner">
+                                            <div class="breadcrumb-trail">
+                                                <a class="home" href="https://ninzio.com/bauer/">Home</a><span>About Us</span>                                </div>
+                                        </div>
+                                    </div>
+                                        </div>
+                </div>
+            </div>
+            <div id="main-content" class="site-main clearfix" style="">    <div id="content-wrap">
+                <div id="site-content" class="site-content clearfix">
+                    <div id="inner-content" class="inner-content-wrap">
+                                    <article class="page-content post-1316 page type-page status-publish hentry">
+                            <section class="wpb-content-wrapper"><div class="vc-custom-col-spacing clearfix vc-col-spacing-30"><section id="first-row" class="wpb_row vc_row-fluid vc_custom_1558754119849 vc_row-has-fill row-content-position-Default"><div class="bauer-container"><div class="row-inner clearfix"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper">
+            <div class="bauer-spacer clearfix" data-desktop="94" data-mobi="60" data-smobi="60" style="height:94px"></div><div class="bauer-content-box clearfix"><div class="vc-custom-col-inner-spacing clearfix vc-col-inner-spacing-30"><div class="wpb_row vc_inner vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-6"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="bauer-single-heading clearfix " style="margin-bottom:25px;"><span class="inner"><span class="heading clearfix " style="font-weight:600;color:#cacaca;font-size:16px;">
+                WELCOME TO BAUER X
+            </span></span></div><h2 class="bauer-text clearfix " style="font-size:42px;line-height:50px;margin-bottom:32px;"><p><span class="font-weight-300">We understand the importance of</span> innovation and professionalism</p>
+        </h2><div class="bauer-text clearfix " style="font-size:18px;line-height:30px;color:#414042;margin-bottom:34px;"><p>Since our launch in 2007, our vision and focus has been to deliver high value projects for our clients with the emphasis<br>
+        on communication and attention to detail.</p>
+        </div><div class="bauer-text clearfix " style=""><p>We began Bauer X with one focus: to build a company that can compete with large construction firms while operating with the flexibility and customer-focus of a small, family-run business. We call it small business values with a big business approach.</p>
+        <p>Today, 75 percent of our business comes from a core group of legacy clients: a testament to our commitment to building strong, long-term working relationships.</p>
+        </div>
+            <div class="bauer-spacer clearfix" data-desktop="60" data-mobi="30" data-smobi="30" style="height:60px"></div><div class="button-wrap icon-right" style=""><a href="https://ninzio.com/bauer/services/" target="_self" class="bauer-button btn-1100698664 medium no_icon custom outline solid outline-accent" style="border-radius:30px;border-width:2px;" data-background="" data-text="#f35c27" data-text-hover="#ffffff" data-background-hover="#f35c27">
+                <span style="">Learn More </span>
+            </a></div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-6"><div class="vc_column-inner"><div class="wpb_wrapper">
+            <div class="bauer-spacer clearfix" data-desktop="55" data-mobi="40" data-smobi="40" style="height:55px"></div><div class="bauer-simple-image text-center" style="">
+                    <img alt="image" src="https://ninzio.com/bauer/wp-content/uploads/2019/05/about-main-1.png"> 
+                </div></div></div></div></div></div></div>
+            <div class="bauer-spacer clearfix" data-desktop="100" data-mobi="60" data-smobi="60" style="height:100px"></div></div></div></div></div></div></section></div><div class="vc-custom-col-spacing clearfix vc-col-spacing-30"><section class="wpb_row vc_row-fluid vc_custom_1558754144023 vc_row-has-fill col-aside-img row-content-position-Default"><div class="image-container img-simple vc_col-sm-6 aside-left"><div class="background-image" style="background-image: url(https://ninzio.com/bauer/wp-content/uploads/2019/05/section-img.jpg);"></div><div class="bauer-video-icon clearfix white"><a class="icon-wrap popup-video" href="https://www.youtube.com/watch?v=lixom5XWNf0">play<span class="circle"></span><span class="circle-2"></span></a></div></div><div class="bauer-container"><div class="row-inner clearfix"><div class="wpb_column vc_column_container vc_col-sm-6"><div class="vc_column-inner"><div class="wpb_wrapper"></div></div></div><div class="wpb_column vc_column_container vc_col-sm-6"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="bauer-content-box clearfix " data-padding="0% 0% 0% 20%" data-mobipadding="0% 0% 0% 0%" data-margin="" data-mobimargin="">
+                <div class="inner ctb-688835015" style="padding: 0% 0% 0% 20%;" data-background="">
+                    
+            <div class="bauer-spacer clearfix" data-desktop="45" data-mobi="45" data-smobi="45" style="height:45px"></div><div class="bauer-single-heading clearfix " style="margin-bottom:24px;"><span class="inner"><span class="heading clearfix " style="font-weight:600;color:#777777;font-size:16px;">
+                OUR SKILL AND EXPERTISE
+            </span></span></div><h2 class="bauer-text clearfix " style="font-size:42px;line-height:50px;margin-bottom:30px;"><p>Expertise, <span class="font-weight-300">discipline and precision</span></p>
+        </h2><div class="bauer-text clearfix " style="color:#414042;"><p>We are an Owner’s Representative, General Contractor and <span class="text-accent-color font-weight-500 underline-solid">Construction Management</span> company with a portfolio of projects across North America valued up to $15 million.</p>
+        </div>
+            <div class="bauer-spacer clearfix" data-desktop="37" data-mobi="37" data-smobi="37" style="height:37px"></div>
+            <div class="bauer-progress clearfix " style="margin-bottom:22px;"><h3 class="title" style="font-weight:500;color:#030f27;font-size:15px;">Architecture</h3> <div class="perc-wrap" style="font-weight:500;color:#030f27;font-size:15px;"><div class="perc  accent" style=""><span>80%</span></div></div>
+                <div class="progress-wrap" style="background-color:#cccccc;margin-top:10px;">
+                    <div class="progress-animate  accent" data-valuemax="100" data-valuemin="0" data-valuenow="80" style="height:5px;">
+                    </div>
+                </div>
+            </div>
+            <div class="bauer-progress clearfix " style="margin-bottom:22px;"><h3 class="title" style="font-weight:500;color:#030f27;font-size:15px;">Building</h3> <div class="perc-wrap" style="font-weight:500;color:#030f27;font-size:15px;"><div class="perc  accent" style=""><span>70%</span></div></div>
+                <div class="progress-wrap" style="background-color:#cccccc;margin-top:10px;">
+                    <div class="progress-animate  accent" data-valuemax="100" data-valuemin="0" data-valuenow="70" style="height:5px;">
+                    </div>
+                </div>
+            </div>
+            <div class="bauer-progress clearfix " style=""><h3 class="title" style="font-weight:500;color:#030f27;font-size:15px;">Construction</h3> <div class="perc-wrap" style="font-weight:500;color:#030f27;font-size:15px;"><div class="perc  accent" style=""><span>90%</span></div></div>
+                <div class="progress-wrap" style="background-color:#cccccc;margin-top:10px;">
+                    <div class="progress-animate  accent" data-valuemax="100" data-valuemin="0" data-valuenow="90" style="height:5px;">
+                    </div>
+                </div>
+            </div>
+            <div class="bauer-spacer clearfix" data-desktop="80" data-mobi="60" data-smobi="60" style="height:80px"></div>
+                </div>
+            </div></div></div></div></div></div></section></div><div class="vc-custom-col-spacing clearfix vc-col-spacing-30"><section class="wpb_row vc_row-fluid vc_custom_1557825100635 vc_row-has-fill row-content-position-Default"><div class="bauer-container"><div class="row-inner clearfix"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper">
+            <div class="bauer-spacer clearfix" data-desktop="94" data-mobi="60" data-smobi="60" style="height:94px"></div><div class="bauer-content-box clearfix"><div class="vc-custom-col-inner-spacing clearfix vc-col-inner-spacing-30"><div class="wpb_row vc_inner vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-6"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="bauer-single-heading clearfix " style="margin-bottom:25px;"><span class="inner"><span class="heading clearfix " style="font-weight:600;color:#777777;font-size:16px;">
+                OUR COMPANY
+            </span></span></div><h2 class="bauer-text clearfix " style="font-size:42px;line-height:50px;color:#030f27;"><p><span class="font-weight-300">We stay current with the latest</span> applications <span class="font-weight-300">and</span> building technologies</p>
+        </h2></div></div></div><div class="wpb_column vc_column_container vc_col-sm-6"><div class="vc_column-inner"><div class="wpb_wrapper">
+            <div class="bauer-spacer clearfix" data-desktop="52" data-mobi="30" data-smobi="30" style="height:52px"></div><div class="bauer-text clearfix " style="font-size:18px;line-height:30px;color:#414042;"><p>We build the finest homes and structures within our client’s budgets and time frame without sacrificing quality and workmanship. We work with you on all of your green energy ideas. We keep you up to date on the latest greenest building practices and materials.</p>
+        </div></div></div></div></div></div></div>
+            <div class="bauer-spacer clearfix" data-desktop="70" data-mobi="50" data-smobi="50" style="height:70px"></div><div class="bauer-content-box clearfix"><div class="vc-custom-col-inner-spacing clearfix vc-col-inner-spacing-30"><div class="wpb_row vc_inner vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-4"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="bauer-icon-box clearfix icon-left align-left hover-style-1 simple" style="background-color:#ffffff;padding:25px 25px 27px;border-radius:5px;border:1px solid #e7e7e7;"><div class="hover" style="border-radius:5px;background-image:url(https://ninzio.com/bauer/wp-content/uploads/2019/05/iconbox-small-bg1.jpg);"></div><div class="wrap-inner" style="position: relative;"><div class="bauer-icon icon-1279519772 accent custom" data-background="">
+                        <span class="icon" style="font-size:50px;width:50px;height:50px;border-style:solid;line-height:50px;"><i class="bauerico-helmet"></i></span>
+                    </div> <h3 class="heading " style="padding-left:75px;font-size:20px;line-height:24px;margin-bottom:12px;">
+                    <span>Construction<br>
+        Management</span>
+                </h3><div class="desc" style="padding-left:75px;"><p>This area delivers the control you want over all critical aspects of your project.</p>
+        </div> <div class="hover" style="border-radius:5px;background-image:url(https://ninzio.com/bauer/wp-content/uploads/2019/05/iconbox-small-bg1.jpg);"></div></div></div>
+            <div class="bauer-spacer clearfix" data-desktop="0" data-mobi="30" data-smobi="30" style="height:0px"></div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-4"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="bauer-icon-box clearfix icon-left align-left hover-style-1 simple" style="background-color:#ffffff;padding:25px 25px 27px;border-radius:5px;border:1px solid #e7e7e7;"><div class="hover" style="border-radius:5px;background-image:url(https://ninzio.com/bauer/wp-content/uploads/2019/05/iconbox-small-bg2.jpg);"></div><div class="wrap-inner" style="position: relative;"><div class="bauer-icon icon-698806584 accent custom" data-background="">
+                        <span class="icon" style="font-size:50px;width:50px;height:50px;border-style:solid;line-height:50px;"><i class="bauerico-building"></i></span>
+                    </div> <h3 class="heading " style="padding-left:75px;font-size:20px;line-height:24px;margin-bottom:12px;">
+                    <span>Owner's<br>
+        Representation</span>
+                </h3><div class="desc" style="padding-left:75px;"><p>A good owner’s rep saves their client time, money and a lot of headaches.</p>
+        </div> <div class="hover" style="border-radius:5px;background-image:url(https://ninzio.com/bauer/wp-content/uploads/2019/05/iconbox-small-bg2.jpg);"></div></div></div>
+            <div class="bauer-spacer clearfix" data-desktop="0" data-mobi="30" data-smobi="30" style="height:0px"></div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-4"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="bauer-icon-box clearfix icon-left align-left hover-style-1 simple" style="background-color:#ffffff;padding:25px 25px 27px;border-radius:5px;border:1px solid #e7e7e7;"><div class="hover" style="border-radius:5px;background-image:url(https://ninzio.com/bauer/wp-content/uploads/2019/05/iconbox-small-bg3.jpg);"></div><div class="wrap-inner" style="position: relative;"><div class="bauer-icon icon-523835080 accent custom" data-background="">
+                        <span class="icon" style="font-size:50px;width:50px;height:50px;border-style:solid;line-height:50px;"><i class="bauerico-crane"></i></span>
+                    </div> <h3 class="heading " style="padding-left:75px;font-size:20px;line-height:24px;margin-bottom:12px;">
+                    <span>General<br>
+        Contractor</span>
+                </h3><div class="desc" style="padding-left:75px;"><p>Clients hire Bauer because we deliver great value, without question.</p>
+        </div> <div class="hover" style="border-radius:5px;background-image:url(https://ninzio.com/bauer/wp-content/uploads/2019/05/iconbox-small-bg3.jpg);"></div></div></div></div></div></div></div></div></div>
+            <div class="bauer-spacer clearfix" data-desktop="100" data-mobi="60" data-smobi="60" style="height:100px"></div></div></div></div></div></div></section></div><div class="vc-custom-col-spacing clearfix vc-col-spacing-30"><section class="wpb_row vc_row-fluid vc_custom_1558755492081 vc_row-has-fill row-content-position-Default"><div class="bauer-container"><div class="row-inner clearfix"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper">
+            <div class="bauer-spacer clearfix" data-desktop="94" data-mobi="60" data-smobi="60" style="height:94px"></div><div class="bauer-single-heading clearfix text-center" style="margin-bottom:24px;"><span class="inner"><span class="heading clearfix " style="font-weight:600;color:#777777;font-size:16px;">
+                TESTIMONIALS
+            </span></span></div><h2 class="bauer-text clearfix text-center" style="font-size:42px;line-height:50px;margin-bottom:30px;max-width:530px;margin-left: auto; margin-right: auto;"><p><span class="font-weight-300">What</span> our customers <span class="font-weight-300">are saying about us</span></p>
+        </h2><div class="bauer-text clearfix text-center" style="font-size:18px;line-height:30px;color:#414042;max-width:570px;margin-left: auto; margin-right: auto;"><p>See what Bauer clients have to say about a variety of services<br>
+        that we provided for their projects.</p>
+        </div>
+            <div class="bauer-spacer clearfix" data-desktop="65" data-mobi="40" data-smobi="40" style="height:65px"></div><div class="bauer-content-box clearfix"><div class="vc-custom-col-inner-spacing clearfix vc-col-inner-spacing-30"><div class="wpb_row vc_inner vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-4"><div class="vc_column-inner"><div class="wpb_wrapper"></div></div></div><div class="wpb_column vc_column_container vc_col-sm-8"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="bauer-carousel-box arrow-style-1 arrow-center offsetcenter offset-v0 arrow50" data-auto="false" data-loop="false" data-gap="30" data-column="2" data-column2="2" data-column3="1">
+                <div class="owl-carousel owl-theme owl-loaded owl-drag"><div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 3357px;"><div class="owl-item active" style="width: 343px; margin-right: 30px;"><div class="bauer-testimonials light clearfix style-1 simple" style="">
+                <div class="inner" style="padding:38px 30px 30px 30px;border-radius:5px;">
+                <div class="image-wrap">
+                    <div class="thumb" style="max-width:100px;margin-bottom:26px;"><img width="100" height="100" src="https://ninzio.com/bauer/wp-content/uploads/2019/05/testimonial1-2.jpg" class="attachment-full size-full" alt="" decoding="async" loading="lazy"></div>
+                </div>
+                <div class="name-wrap" style="margin-bottom:18px;">
+                    <div class="name-pos" style=""><h6 class="name" style=""><span>Eloise Smith</span></h6> <span class="position" style="">Industrial Engineer and CEO</span></div>
+                </div>
+                <div class="text-wrap">
+                <blockquote class="text" style="font-style:normal;"><p style="margin-bottom: 32px; font-size: 14px; line-height: 25px;">Bauer X did an excellent job from the conceptual stage through the finished construction of our new office.</p>
+        <p><img decoding="async" src="https://ninzio.com/bauer/wp-content/uploads/2019/05/logo1.png" alt="" width="100" height="17" class="alignnone size-full wp-image-7669"></p>
+        </blockquote>
+                </div>
+            </div>
+            </div></div><div class="owl-item active" style="width: 343px; margin-right: 30px;"><div class="bauer-testimonials light clearfix style-1 simple" style="">
+                <div class="inner" style="padding:38px 30px 30px 30px;border-radius:5px;">
+                <div class="image-wrap">
+                    <div class="thumb" style="max-width:100px;margin-bottom:26px;"><img width="100" height="100" src="https://ninzio.com/bauer/wp-content/uploads/2019/05/testimonial2.jpg" class="attachment-full size-full" alt="" decoding="async" loading="lazy"></div>
+                </div>
+                <div class="name-wrap" style="margin-bottom:18px;">
+                    <div class="name-pos" style=""><h6 class="name" style=""><span>Thomas Smith</span></h6> <span class="position" style="">Industrial Engineer and CEO</span></div>
+                </div>
+                <div class="text-wrap">
+                <blockquote class="text" style="font-style:normal;"><p style="margin-bottom: 32px; font-size: 14px; line-height: 25px;">Bauer X did an excellent job from the conceptual stage through the finished construction of our new office.</p>
+        <p><img decoding="async" loading="lazy" src="https://ninzio.com/bauer/wp-content/uploads/2019/05/logo2.png" alt="" width="97" height="20" class="alignnone size-full wp-image-7670"></p>
+        </blockquote>
+                </div>
+            </div>
+            </div></div><div class="owl-item" style="width: 343px; margin-right: 30px;"><div class="bauer-testimonials light clearfix style-1 simple" style="">
+                <div class="inner" style="padding:38px 30px 30px 30px;border-radius:5px;">
+                <div class="image-wrap">
+                    <div class="thumb" style="max-width:100px;margin-bottom:26px;"><img width="100" height="100" src="https://ninzio.com/bauer/wp-content/uploads/2019/05/testimonial3.jpg" class="attachment-full size-full" alt="" decoding="async" loading="lazy"></div>
+                </div>
+                <div class="name-wrap" style="margin-bottom:18px;">
+                    <div class="name-pos" style=""><h6 class="name" style=""><span>Vincent Smith</span></h6> <span class="position" style="">Industrial Engineer and CEO</span></div>
+                </div>
+                <div class="text-wrap">
+                <blockquote class="text" style="font-style:normal;"><p style="margin-bottom: 32px; font-size: 14px; line-height: 25px;">Bauer X did an excellent job from the conceptual stage through the finished construction of our new office.</p>
+        <p><img decoding="async" loading="lazy" src="https://ninzio.com/bauer/wp-content/uploads/2019/05/logo3.png" alt="" width="135" height="25" class="alignnone size-full wp-image-7671"></p>
+        </blockquote>
+                </div>
+            </div>
+            </div></div><div class="owl-item" style="width: 343px; margin-right: 30px;"><div class="bauer-testimonials light clearfix style-1 simple" style="">
+                <div class="inner" style="padding:38px 30px 30px 30px;border-radius:5px;">
+                <div class="image-wrap">
+                    <div class="thumb" style="max-width:100px;margin-bottom:26px;"><img width="100" height="100" src="https://ninzio.com/bauer/wp-content/uploads/2019/05/testimonial1-2.jpg" class="attachment-full size-full" alt="" decoding="async" loading="lazy"></div>
+                </div>
+                <div class="name-wrap" style="margin-bottom:18px;">
+                    <div class="name-pos" style=""><h6 class="name" style=""><span>Eloise Smith</span></h6> <span class="position" style="">Industrial Engineer and CEO</span></div>
+                </div>
+                <div class="text-wrap">
+                <blockquote class="text" style="font-style:normal;"><p style="margin-bottom: 32px; font-size: 14px; line-height: 25px;">Bauer X did an excellent job from the conceptual stage through the finished construction of our new office.</p>
+        <p><img decoding="async" src="https://ninzio.com/bauer/wp-content/uploads/2019/05/logo1.png" alt="" width="100" height="17" class="alignnone size-full wp-image-7669"></p>
+        </blockquote>
+                </div>
+            </div>
+            </div></div><div class="owl-item" style="width: 343px; margin-right: 30px;"><div class="bauer-testimonials light clearfix style-1 simple" style="">
+                <div class="inner" style="padding:38px 30px 30px 30px;border-radius:5px;">
+                <div class="image-wrap">
+                    <div class="thumb" style="max-width:100px;margin-bottom:26px;"><img width="100" height="100" src="https://ninzio.com/bauer/wp-content/uploads/2019/05/testimonial2.jpg" class="attachment-full size-full" alt="" decoding="async" loading="lazy"></div>
+                </div>
+                <div class="name-wrap" style="margin-bottom:18px;">
+                    <div class="name-pos" style=""><h6 class="name" style=""><span>Thomas Smith</span></h6> <span class="position" style="">Industrial Engineer and CEO</span></div>
+                </div>
+                <div class="text-wrap">
+                <blockquote class="text" style="font-style:normal;"><p style="margin-bottom: 32px; font-size: 14px; line-height: 25px;">Bauer X did an excellent job from the conceptual stage through the finished construction of our new office.</p>
+        <p><img decoding="async" loading="lazy" src="https://ninzio.com/bauer/wp-content/uploads/2019/05/logo2.png" alt="" width="97" height="20" class="alignnone size-full wp-image-7670"></p>
+        </blockquote>
+                </div>
+            </div>
+            </div></div><div class="owl-item" style="width: 343px; margin-right: 30px;"><div class="bauer-testimonials light clearfix style-1 simple" style="">
+                <div class="inner" style="padding:38px 30px 30px 30px;border-radius:5px;">
+                <div class="image-wrap">
+                    <div class="thumb" style="max-width:100px;margin-bottom:26px;"><img width="100" height="100" src="https://ninzio.com/bauer/wp-content/uploads/2019/05/testimonial3.jpg" class="attachment-full size-full" alt="" decoding="async" loading="lazy"></div>
+                </div>
+                <div class="name-wrap" style="margin-bottom:18px;">
+                    <div class="name-pos" style=""><h6 class="name" style=""><span>Vincent Smith</span></h6> <span class="position" style="">Industrial Engineer and CEO</span></div>
+                </div>
+                <div class="text-wrap">
+                <blockquote class="text" style="font-style:normal;"><p style="margin-bottom: 32px; font-size: 14px; line-height: 25px;">Bauer X did an excellent job from the conceptual stage through the finished construction of our new office.</p>
+        <p><img decoding="async" loading="lazy" src="https://ninzio.com/bauer/wp-content/uploads/2019/05/logo3.png" alt="" width="135" height="25" class="alignnone size-full wp-image-7671"></p>
+        </blockquote>
+                </div>
+            </div>
+            </div></div><div class="owl-item" style="width: 343px; margin-right: 30px;"><div class="bauer-testimonials light clearfix style-1 simple" style="">
+                <div class="inner" style="padding:38px 30px 30px 30px;border-radius:5px;">
+                <div class="image-wrap">
+                    <div class="thumb" style="max-width:100px;margin-bottom:26px;"><img width="100" height="100" src="https://ninzio.com/bauer/wp-content/uploads/2019/05/testimonial1-2.jpg" class="attachment-full size-full" alt="" decoding="async" loading="lazy"></div>
+                </div>
+                <div class="name-wrap" style="margin-bottom:18px;">
+                    <div class="name-pos" style=""><h6 class="name" style=""><span>Eloise Smith</span></h6> <span class="position" style="">Industrial Engineer and CEO</span></div>
+                </div>
+                <div class="text-wrap">
+                <blockquote class="text" style="font-style:normal;"><p style="margin-bottom: 32px; font-size: 14px; line-height: 25px;">Bauer X did an excellent job from the conceptual stage through the finished construction of our new office.</p>
+        <p><img decoding="async" src="https://ninzio.com/bauer/wp-content/uploads/2019/05/logo1.png" alt="" width="100" height="17" class="alignnone size-full wp-image-7669"></p>
+        </blockquote>
+                </div>
+            </div>
+            </div></div><div class="owl-item" style="width: 343px; margin-right: 30px;"><div class="bauer-testimonials light clearfix style-1 simple" style="">
+                <div class="inner" style="padding:38px 30px 30px 30px;border-radius:5px;">
+                <div class="image-wrap">
+                    <div class="thumb" style="max-width:100px;margin-bottom:26px;"><img width="100" height="100" src="https://ninzio.com/bauer/wp-content/uploads/2019/05/testimonial2.jpg" class="attachment-full size-full" alt="" decoding="async" loading="lazy"></div>
+                </div>
+                <div class="name-wrap" style="margin-bottom:18px;">
+                    <div class="name-pos" style=""><h6 class="name" style=""><span>Thomas Smith</span></h6> <span class="position" style="">Industrial Engineer and CEO</span></div>
+                </div>
+                <div class="text-wrap">
+                <blockquote class="text" style="font-style:normal;"><p style="margin-bottom: 32px; font-size: 14px; line-height: 25px;">Bauer X did an excellent job from the conceptual stage through the finished construction of our new office.</p>
+        <p><img decoding="async" loading="lazy" src="https://ninzio.com/bauer/wp-content/uploads/2019/05/logo2.png" alt="" width="97" height="20" class="alignnone size-full wp-image-7670"></p>
+        </blockquote>
+                </div>
+            </div>
+            </div></div><div class="owl-item" style="width: 343px; margin-right: 30px;"><div class="bauer-testimonials light clearfix style-1 simple" style="">
+                <div class="inner" style="padding:38px 30px 30px 30px;border-radius:5px;">
+                <div class="image-wrap">
+                    <div class="thumb" style="max-width:100px;margin-bottom:26px;"><img width="100" height="100" src="https://ninzio.com/bauer/wp-content/uploads/2019/05/testimonial3.jpg" class="attachment-full size-full" alt="" decoding="async" loading="lazy"></div>
+                </div>
+                <div class="name-wrap" style="margin-bottom:18px;">
+                    <div class="name-pos" style=""><h6 class="name" style=""><span>Vincent Smith</span></h6> <span class="position" style="">Industrial Engineer and CEO</span></div>
+                </div>
+                <div class="text-wrap">
+                <blockquote class="text" style="font-style:normal;"><p style="margin-bottom: 32px; font-size: 14px; line-height: 25px;">Bauer X did an excellent job from the conceptual stage through the finished construction of our new office.</p>
+        <p><img decoding="async" loading="lazy" src="https://ninzio.com/bauer/wp-content/uploads/2019/05/logo3.png" alt="" width="135" height="25" class="alignnone size-full wp-image-7671"></p>
+        </blockquote>
+                </div>
+            </div>
+            </div></div></div></div><div class="owl-nav"><div class="owl-prev disabled">prev</div><div class="owl-next">next</div></div><div class="owl-dots"><div class="owl-dot active"><span></span></div><div class="owl-dot"><span></span></div><div class="owl-dot"><span></span></div><div class="owl-dot"><span></span></div><div class="owl-dot"><span></span></div></div></div>
+            </div></div></div></div></div></div></div>
+            <div class="bauer-spacer clearfix" data-desktop="175" data-mobi="135" data-smobi="135" style="height:175px"></div></div></div></div></div></div></section></div>
+        </section>				</article>
+        
+                                                </div>
+                </div><!-- /#site-content -->
+        
+                    </div><!-- /#content-wrap -->
+                </div>
+
+			<footer id="footer" style="">
+				<div id="footer-widgets" class="bauer-container">
+					<div class="footer-grid  gutter-35">
+						<div class="span_1_of_4 col">
+							<div id="text-11" class="widget widget_text">
+								<div class="textwidget">
+									<p class="margin-bottom-20"><img decoding="async" src="public/uploads/logo.svg"
+											alt="" width="135">
+									</p>
+									<p class="font-size-14 line-height-29 margin-bottom-0">With over 10 years of
+										experience in construction, we partner with owners and design professionals to
+										build high-quality projects.</p>
+								</div>
+							</div>
+							<div id="widget_socials-10" class="widget widget_socials">
+								<div class="socials clearfix" style="">
+									<div class="icon" style=""><a target="_blank" title="twitter"
+											href="https://twitter.com/NinzioThemes" style="margin-bottom:10px"><i
+												class="fab fa-twitter"></i></a></div>
+									<div class="icon" style=""><a target="_blank" title="facebook"
+											href="https://www.facebook.com/ninzio" style="margin-bottom:10px"><i
+												class="fab fa-facebook"></i></a></div>
+									<div class="icon" style=""><a target="_blank" title="youtube"
+											href="https://www.youtube.com/ninziotek" style="margin-bottom:10px"><i
+												class="fab fa-youtube"></i></a></div>
+									<div class="icon" style=""><a target="_blank" title="vimeo"
+											href="https://vimeo.com/envato" style="margin-bottom:10px"><i
+												class="fab fa-vimeo"></i></a></div>
+								</div>
+							</div>
+						</div>
+
+						<div class="span_1_of_4 col">
+							<div id="widget_links-11" class="widget widget_links">
+								<h2 class="widget-title"><span>Useful Links</span></h2>
+								<ul class="links-wrap clearfix col2">
+
+									<li style="">
+										<a href="https://ninzio.com/bauer/about-us/" style="">
+											About Us
+										</a>
+									</li>
+									<li style="">
+										<a href="https://ninzio.com/bauer/blog/" style="">
+											News
+										</a>
+									</li>
+									<li style="">
+										<a href="https://ninzio.com/bauer/services/" style="">
+											Services
+										</a>
+									</li>
+									<li style="">
+										<a href="https://ninzio.com/bauer/services/" style="">
+											Careers
+										</a>
+									</li>
+									<li style="">
+										<a href="https://ninzio.com/bauer/portfolio/" style="">
+											Projects
+										</a>
+									</li>
+									<li style="">
+										<a href="https://ninzio.com/bauer/about-us/" style="">
+											Help Desk
+										</a>
+									</li>
+									<li style="">
+										<a href="https://ninzio.com/bauer/shop/" style="">
+											Shop
+										</a>
+									</li>
+									<li style="">
+										<a href="https://ninzio.com/bauer/contact-us/" style="">
+											Contact
+										</a>
+									</li>
+								</ul>
+
+							</div>
+						</div>
+
+						<div class="span_1_of_4 col">
+							<div id="widget_information-2" class="widget widget_information">
+								<h2 class="widget-title"><span>Contact</span></h2>
+								<ul class="clearfix" style="">
+									<li class="hour  accent-icon" style="margin-bottom:10px;"><i class="fas fa-clock"
+											style="padding-right:15px;"></i><span style="">Mon - Fri: 8.00am
+											6.00pm</span></li>
+									<li class="address  accent-icon" style="margin-bottom:10px;"><i
+											class="fas fa-map-marker-alt" style="padding-right:15px;"></i><span
+											style="">112 W 34th St, New York</span></li>
+									<li class="phone  accent-icon" style="margin-bottom:10px;"><i class="fas fa-phone"
+											style="padding-right:15px;"></i><span style="">(+1) 212-946-2707</span></li>
+									<li class="email  accent-icon" style="margin-bottom:10px;"><i
+											class="fas fa-envelope" style="padding-right:15px;"></i><span
+											style="">info@BauerX.com</span></li>
+								</ul>
+
+							</div>
+						</div>
+
+						<div class="span_1_of_4 col">
+							<div id="mc4wp_form_widget-5" class="widget widget_mc4wp_form_widget">
+								<h2 class="widget-title"><span>Newsletter</span></h2>
+								<script>(function () {
+										window.mc4wp = window.mc4wp || {
+											listeners: [],
+											forms: {
+												on: function (evt, cb) {
+													window.mc4wp.listeners.push(
+														{
+															event: evt,
+															callback: cb
+														}
+													);
+												}
+											}
+										}
+									})();
+								</script><!-- Mailchimp for WordPress v4.9.3 - https://wordpress.org/plugins/mailchimp-for-wp/ -->
+								<form id="mc4wp-form-1" class="mc4wp-form mc4wp-form-3084" method="post" data-id="3084"
+									data-name="Form 1">
+									<div class="mc4wp-form-fields">
+										<div class="inner-wrap">
+											<div class="email-wrap">
+												<input type="email" name="EMAIL" required=""
+													placeholder="Enter Your Email">
+											</div>
+
+											<div class="submit-wrap"><button type="submit">Subscribe!</button></div>
+										</div>
+									</div><label style="display: none !important;">Leave this field empty if you're
+										human: <input type="text" name="_mc4wp_honeypot" value="" tabindex="-1"
+											autocomplete="off"></label><input type="hidden" name="_mc4wp_timestamp"
+										value="1682186352"><input type="hidden" name="_mc4wp_form_id"
+										value="3084"><input type="hidden" name="_mc4wp_form_element_id"
+										value="mc4wp-form-1">
+									<div class="mc4wp-response"></div>
+								</form><!-- / Mailchimp for WordPress Plugin -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</footer>
+
+
+			<div id="bottom" style="">
+				<div class="bauer-container">
+					<div class="bottom-bar-inner-wrap">
+						<div class="bottom-bar-copyright">
+							<div id="copyright">
+								&copy; Bauer Construction. All rights reserved. </div>
+						</div><!-- /.bottom-bar-copyright -->
+
+						<div class="bottom-bar-menu">
+							<ul id="menu-bottom-menu" class="bottom-nav">
+								<li id="menu-item-424"
+									class="menu-item menu-item-type-custom menu-item-object-custom menu-item-424"><a
+										href="https://ninzio.com/bauer/about-us/">Terms of Use</a></li>
+								<li id="menu-item-425"
+									class="menu-item menu-item-type-custom menu-item-object-custom menu-item-425"><a
+										href="https://ninzio.com/bauer/services/">Privacy Policy</a></li>
+							</ul>
+						</div><!-- /.bottom-bar-menu -->
+					</div>
+				</div>
+			</div><!-- /#bottom -->
+		</div><!-- /#page -->
+	</div>
+
+
+	<a id="scroll-top"></a>
+
+
+	<script type='text/javascript' src='public/js/easing.js'></script>
+
+	<script type='text/javascript' src='public/js/main.js'></script>
+
+	<script type='text/javascript' src='public/js/shortcodes.js'></script>
+
+	<script type='text/javascript' src='public/js/owl.carousel.min.js'></script>
+
+	<script type='text/javascript' src='public/js/countto.js'></script>
+
+	<script type='text/javascript' src='public/js/appear.js'></script>
+
+
+</body>
+
+</html>
