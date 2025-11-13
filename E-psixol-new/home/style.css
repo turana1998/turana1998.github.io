@@ -16,13 +16,13 @@
 	    --wdt-elementor-color-custom-3-rgb: 255, 255, 255;
 	    --wdt-elementor-color-custom-4: #E7E7E7;
 	    --wdt-elementor-color-custom-4-rgb: 231, 231, 231;
-	    --wdt-elementor-typo-primary-font-family:  "Raleway", sans-serif;
+	    --wdt-elementor-typo-primary-font-family:  "Inter", sans-serif;
 	    --wdt-elementor-typo-primary-font-weight: 700;
-	    --wdt-elementor-typo-secondary-font-family:  "Raleway", sans-serif;
+	    --wdt-elementor-typo-secondary-font-family:  "Inter", sans-serif;
 	    --wdt-elementor-typo-secondary-font-weight: 600;
-	    --wdt-elementor-typo-text-font-family:  "Raleway", sans-serif;
+	    --wdt-elementor-typo-text-font-family:  "Inter", sans-serif;
 	    --wdt-elementor-typo-text-font-weight: 400;
-	    --wdt-elementor-typo-accent-font-family:  "Raleway", sans-serif;
+	    --wdt-elementor-typo-accent-font-family:  "Inter", sans-serif;
 	    --wdt-elementor-typo-accent-font-weight: 600;
       --wdtPrimaryColor: #20373B;
 			--wdtPrimaryColorRgb: 20, 69, 47;
@@ -82,6 +82,9 @@
 			--wdtLineHeight_Ext: 1.15;
 	}
 
+  *{
+      font-family: "IBM Plex Serif", serif !important;
+  }
 	img.wp-smiley,
 	img.emoji {
 	    display: inline !important;

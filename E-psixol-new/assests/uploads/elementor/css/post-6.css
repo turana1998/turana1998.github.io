@@ -7,13 +7,13 @@
     --e-global-color-3c6a4e4: #F2F8F1;
     --e-global-color-81731bd: #FFFFFF;
     --e-global-color-aa90483: #E7E7E7;
-    --e-global-typography-primary-font-family: "Raleway", sans-serif;
+    --e-global-typography-primary-font-family: "Inter", sans-serif;
     --e-global-typography-primary-font-weight: 700;
-    --e-global-typography-secondary-font-family:  "Raleway", sans-serif;
+    --e-global-typography-secondary-font-family:  "Inter", sans-serif;
     --e-global-typography-secondary-font-weight: 600;
-    --e-global-typography-text-font-family:  "Raleway", sans-serif;
+    --e-global-typography-text-font-family:  "Inter", sans-serif;
     --e-global-typography-text-font-weight: 400;
-    --e-global-typography-accent-font-family:  "Raleway", sans-serif;
+    --e-global-typography-accent-font-family:  "Inter", sans-serif;
     --e-global-typography-accent-font-weight: 600;
 }
 
