@@ -1,11 +1,12 @@
-	:root {
+
+:root {
 	    --wdt-elementor-color-primary: #22281E;
 	    --wdt-elementor-color-primary-rgb: 34, 40, 30;
 	    --wdt-elementor-color-secondary: #20373B;
 	    --wdt-elementor-color-secondary-rgb: 20, 69, 47;
 	    --wdt-elementor-color-text: #394630;
 	    --wdt-elementor-color-text-rgb: 57, 70, 48;
-	    --wdt-elementor-color-accent: #519CAB;
+	    --wdt-elementor-color-accent: #0F4C3A;
 	    --wdt-elementor-color-accent-rgb: 20, 69, 47;
 	    --wdt-elementor-color-custom-1: #7CFF77;
 	    --wdt-elementor-color-custom-1-rgb: 124, 255, 119;
@@ -23,6 +24,62 @@
 	    --wdt-elementor-typo-text-font-weight: 400;
 	    --wdt-elementor-typo-accent-font-family:  "Raleway", sans-serif;
 	    --wdt-elementor-typo-accent-font-weight: 600;
+      --wdtPrimaryColor: #20373B;
+			--wdtPrimaryColorRgb: 20, 69, 47;
+			--wdtSecondaryColor: #7cff77;
+			--wdtSecondaryColorRgb: 124, 255, 119;
+			--wdtTertiaryColor: #f2f8f1;
+			--wdtTertiaryColorRgb: 242, 248, 241;
+			--wdtBodyBGColor: #ffffff;
+			--wdtBodyBGColorRgb: 255, 255, 255;
+			--wdtBodyTxtColor: #394630;
+			--wdtBodyTxtColorRgb: 57, 70, 48;
+			--wdtHeadAltColor: #22281E;
+			--wdtHeadAltColorRgb: 34, 40, 30;
+			--wdtLinkColor: #22281E;
+			--wdtLinkColorRgb: 34, 40, 30;
+			--wdtLinkHoverColor: #20373B;
+			--wdtLinkHoverColorRgb: 20, 69, 47;
+			--wdtBorderColor: #E7E7E7;
+			--wdtBorderColorRgb: 231, 231, 231;
+			--wdtAccentTxtColor: #ffffff;
+			--wdtAccentTxtColorRgb: 255, 255, 255;
+			--wdtFontTypo_Base: "Manrope", sans-serif;
+			--wdtFontWeight_Base: 400;
+			--wdtFontSize_Base: 16px;
+			--wdtLineHeight_Base: 1.7;
+			--wdtFontTypo_Alt: "DM Sans", sans-serif;
+			--wdtFontWeight_Alt: 700;
+			--wdtFontSize_Alt: 68px;
+			--wdtLineHeight_Alt: 1.2;
+			--wdtFontTypo_H1: "DM Sans", sans-serif;
+			--wdtFontWeight_H1: 700;
+			--wdtFontSize_H1: 68px;
+			--wdtLineHeight_H1: 1.2;
+			--wdtFontTypo_H2: "DM Sans", sans-serif;
+			--wdtFontWeight_H2: 700;
+			--wdtFontSize_H2: 55px;
+			--wdtLineHeight_H2: 1.2;
+			--wdtFontTypo_H3: "DM Sans", sans-serif;
+			--wdtFontWeight_H3: 700;
+			--wdtFontSize_H3: 40px;
+			--wdtLineHeight_H3: 1.2;
+			--wdtFontTypo_H4: "DM Sans", sans-serif;
+			--wdtFontWeight_H4: 700;
+			--wdtFontSize_H4: 30px;
+			--wdtLineHeight_H4: 1.2;
+			--wdtFontTypo_H5: "DM Sans", sans-serif;
+			--wdtFontWeight_H5: 700;
+			--wdtFontSize_H5: 24px;
+			--wdtLineHeight_H5: 1.2;
+			--wdtFontTypo_H6: "DM Sans", sans-serif;
+			--wdtFontWeight_H6: 700;
+			--wdtFontSize_H6: 20px;
+			--wdtLineHeight_H6: 1.2;
+			--wdtFontTypo_Ext: "DM Sans", sans-serif;
+			--wdtFontWeight_Ext: 500;
+			--wdtFontSize_Ext: 14px;
+			--wdtLineHeight_Ext: 1.15;
 	}
 
 	img.wp-smiley,
