@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-psixoloq - Sənin Psixoloji Bələdçin</title>
+    
+    <!-- Bootstrap 5 & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=DM+Sans:wght@400;500;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- ƏSAS DİZAYN DƏYİŞƏNLƏRİ --- */
+        :root {
+            --primary: #4E6E27; /* Orijinal Yaşıl */
+            --dark: #1F2937;
+            --cream: #FFFBEB;
+            --orange: #F97316;
+            --font-scale: 1;
+        }
+
+        /* Mövzu Dəstəyi */
+        body.theme-contrast { --primary: #000; --dark: #000; background: #FFF !important; background-image: none !important; }
+        body.theme-dark { 
+            --primary: #4ADE80; 
+            --dark: #F3F4F6; 
+            background: #0F172A !important; 
+            background-image: none !important;
+        }
+        body.theme-dark .card-custom, body.theme-dark .article-card, body.theme-dark .profession-card, body.theme-dark .counter-box { background: #1E293B; border-color: #334155; }
+        body.theme-dark .navbar, body.theme-dark footer, body.theme-dark .sidebar { background: #0F172A; color: #FFF; }
+        body.theme-dark .nav-btn-icon, body.theme-dark .logo-box span, body.theme-dark .nav-login-link { color: #FFF !important; }
+        body.theme-dark .language-panel, body.theme-dark .access-panel { background: #1E293B; color: #FFF; }
+        body.theme-dark .lang-btn, body.theme-dark .sidebar-link { color: #FFF; }
+        body.theme-dark .lang-btn:hover, body.theme-dark .sidebar-link:hover { background: #334155; }
+        body.theme-dark .btn-outline-custom { color: #4ADE80; border-color: #4ADE80; }
+        body.theme-dark .btn-outline-custom:hover { background: #4ADE80; color: #1F2937; }
+        body.theme-dark .profession-card:hover { border-color: #4ADE80; background: #334155; }
+
+        body {
+            /* SABİT FON (SOFT AURORA) */
+            background-color: #F8FAF9;
+            background-image: 
+                radial-gradient(circle at 0% 0%, rgba(78, 110, 39, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 100% 0%, rgba(249, 115, 22, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 100% 100%, rgba(78, 110, 39, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 0% 100%, rgba(249, 115, 22, 0.1) 0%, transparent 40%);
+            background-attachment: fixed;
+            
+            font-family: 'DM Sans', sans-serif;
+            color: var(--dark);
+            font-size: calc(0.95rem * var(--font-scale));
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 { font-family: 'Nunito', sans-serif; color: var(--dark); }
+        .font-hand { font-family: 'Caveat', cursive; }
+        .text-primary-custom { color: var(--primary); }
+
+        /* --- DÜYMƏLƏR --- */
+        .btn-gradient {
+            background: linear-gradient(90deg, var(--orange), #EF4444);
+            color: white; border: none; padding: 0.6rem 1.5rem;
+            border-radius: 50px; font-weight: 600; font-size: 0.9rem;
+            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+            transition: transform 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+        .btn-gradient:hover { transform: translateY(-2px); color: white; }
+
+        .btn-outline-custom {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 0.6rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-outline-custom:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(78, 110, 39, 0.2);
+        }
+        .btn-outline-custom i { transition: transform 0.3s; }
+        .btn-outline-custom:hover i { transform: translateX(4px); }
+
+        .btn-dark-custom {
+            background: var(--dark); color: white; border: none;
+            padding: 0.7rem 2rem; border-radius: 50px;
+            font-weight: 700; font-size: 0.9rem; letter-spacing: 1px;
+            transition: transform 0.2s;
+        }
+        .btn-dark-custom:hover { transform: translateY(-2px); background: black; }
+
+        /* --- NAVİQASİYA (Glassmorphism) --- */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            padding: 0.8rem 2rem;
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+        }
+        .logo-box {
+            background: var(--primary); width: 36px; height: 36px;
+            border-radius: 10px; display: flex; align-items: center; justify-content: center;
+        }
+        .logo-svg { width: 22px; height: 22px; fill: none; stroke: white; stroke-width: 2.5; }
+        
+        .nav-btn-icon {
+            border: none; background: transparent; padding: 0.4rem;
+            color: #6B7280; display: flex; align-items: center; gap: 6px;
+            font-weight: 600; font-size: 0.9rem; border-radius: 8px; transition: all 0.2s;
+        }
+        .nav-btn-icon:hover { background-color: rgba(78, 110, 39, 0.1); color: var(--primary); }
+
+        .nav-login-link { 
+            color: var(--primary); 
+            font-weight: 700; 
+            font-size: 0.9rem;
+            transition: all 0.2s ease; 
+            position: relative; 
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .nav-login-link:hover { color: var(--orange); transform: translateY(-1px); }
+
+        /* --- YAN PANEL --- */
+        .sidebar {
+            position: fixed; top: 0; right: -320px; width: 320px; height: 100vh;
+            background: #FFF; z-index: 2000; padding: 2rem;
+            transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: -5px 0 30px rgba(0,0,0,0.1);
+            display: flex; flex-direction: column;
+        }
+        .sidebar.active { right: 0; }
+        .sidebar-overlay {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 1999;
+            opacity: 0; pointer-events: none; transition: opacity 0.3s;
+            backdrop-filter: blur(4px);
+        }
+        .sidebar-overlay.active { opacity: 1; pointer-events: all; }
+        .sidebar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+        .sidebar-close { background: #F3F4F6; border: none; width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; cursor: pointer; transition: 0.2s; }
+        .sidebar-close:hover { background: #E5E7EB; transform: rotate(90deg); }
+        .sidebar-menu { list-style: none; padding: 0; margin: 0; }
+        .sidebar-link {
+            display: flex; align-items: center; gap: 12px;
+            padding: 12px 16px; color: var(--dark); text-decoration: none;
+            font-weight: 700; font-size: 1.05rem; border-radius: 12px;
+            transition: all 0.2s;
+        }
+        .sidebar-link:hover { background: #F9FAFB; color: var(--primary); transform: translateX(5px); }
+        .sidebar-divider { height: 1px; background: #E5E7EB; margin: 1.5rem 0; }
+
+        /* --- PANELLƏR --- */
+        .access-panel, .language-panel {
+            position: absolute; top: 60px; right: 0; width: 280px;
+            background: #FFF; border-radius: 20px; padding: 1.2rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15); display: none; z-index: 1100;
+        }
+        .language-panel { width: 180px; padding: 8px; }
+        .show { display: block !important; animation: fadeIn 0.2s ease; }
+        .lang-btn { width: 100%; text-align: left; padding: 8px 12px; border-radius: 10px; border: none; background: transparent; font-weight: 600; color: var(--dark); display: flex; align-items: center; gap: 10px; }
+        .lang-btn:hover { background: #F3F4F6; color: var(--primary); }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- HIGHLIGHTS --- */
+        .badge-guide {
+            background: #FFF;
+            border: 1px solid rgba(0,0,0,0.05); color: #4B5563;
+            padding: 0.4rem 1.2rem; border-radius: 50px; font-weight: 700; font-size: 0.8rem;
+            display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+        .highlight-item { cursor: pointer; text-align: center; transition: transform 0.3s; }
+        .highlight-item:hover { transform: scale(1.05); }
+        .highlight-circle {
+            width: 120px; height: 120px;
+            background: #FFF; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; margin-bottom: 0.6rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+        }
+        .highlight-item span { font-size: 0.85rem; letter-spacing: 0.5px; }
+        .border-dashed { border: 2px dashed; }
+
+        /* --- KARTLAR --- */
+        .card-custom {
+            background: #FFF; border-radius: 24px; padding: 1.8rem;
+            text-align: center; height: 100%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            transition: transform 0.3s; border: 1px solid rgba(0,0,0,0.03);
+        }
+        .card-custom h5 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .card-custom p { font-size: 0.85rem; }
+        .card-custom:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
+        .icon-box { width: 50px; height: 50px; border-radius: 14px; margin: 0 auto 1.2rem; display: flex; align-items: center; justify-content: center; }
+
+        /* --- STATİSTİKA (COUNTER) BÖLMƏSİ --- */
+        .counter-value {
+            font-size: 2.5rem; font-weight: 800;
+            display: block; margin: 0.5rem 0; font-family: 'Nunito', sans-serif;
+        }
+        .counter-label { font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+
+        /* --- MƏQALƏ KARTLARI --- */
+        .article-card {
+            background: #FFF; border-radius: 24px; overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02); border: 1px solid rgba(0,0,0,0.03);
+            transition: transform 0.3s, box-shadow 0.3s; height: 100%; display: flex; flex-direction: column;
+        }
+        .article-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
+        .article-img-wrapper { height: 180px; overflow: hidden; position: relative; }
+        .article-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .article-card:hover .article-img { transform: scale(1.05); }
+        .article-badge { position: absolute; top: 15px; left: 15px; background: rgba(255, 255, 255, 0.9); padding: 4px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: 800; color: var(--primary); box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .article-content { padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; }
+        .article-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; line-height: 1.4; color: var(--dark); text-decoration: none; }
+        .article-title:hover { color: var(--primary); }
+        .article-meta { font-size: 0.8rem; color: #9CA3AF; margin-top: auto; display: flex; justify-content: space-between; align-items: center; }
+        .read-more { font-size: 0.85rem; font-weight: 700; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 5px; }
+        .read-more:hover { text-decoration: underline; }
+
+        /* --- PEŞƏ KARTLARI --- */
+        .profession-card {
+            background: white; border-radius: 20px; padding: 1.2rem; display: flex; align-items: center; gap: 15px;
+            border: 1px solid rgba(0,0,0,0.04); box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); text-decoration: none; height: 100%;
+        }
+        .profession-card:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(78, 110, 39, 0.1); border-color: rgba(78, 110, 39, 0.2); }
+        .prof-icon-box { width: 50px; height: 50px; border-radius: 12px; display: grid; place-items: center; flex-shrink: 0; transition: transform 0.3s; }
+        .profession-card:hover .prof-icon-box { transform: scale(1.1); }
+        .prof-info h6 { font-weight: 800; margin: 0; color: var(--dark); font-size: 1rem; }
+        .prof-info span { font-size: 0.8rem; color: #6B7280; }
+
+        /* --- RƏYLƏR --- */
+        .avatar { width: 42px; height: 42px; background: #E5E7EB; border-radius: 50%; display: grid; place-items: center; font-weight: 800; color: #6B7280; font-size: 1rem; }
+
+        footer { background: #FFF; padding-top: 3rem; padding-bottom: 1.5rem; margin-top: 4rem; box-shadow: 0 -10px 40px rgba(0,0,0,0.02); }
+        .social-btn { width: 36px; height: 36px; background: #F3F4F6; border-radius: 50%; display: grid; place-items: center; color: #4B5563; transition: 0.3s; }
+        .social-btn:hover { background: var(--primary); color: #FFF; }
+        
+        /* Search Overlay */
+        .search-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.98); z-index: 2000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+        .search-overlay.active { opacity: 1; pointer-events: all; }
+        .search-input { font-size: 1.8rem; border: none; border-bottom: 2px solid #E5E7EB; background: transparent; width: 100%; max-width: 600px; padding: 1rem 0; text-align: center; outline: none; font-weight: 700; color: var(--dark); }
+        .search-close { position: absolute; top: 2rem; right: 2rem; cursor: pointer; width: 48px; height: 48px; background: #F3F4F6; border-radius: 50%; display: grid; place-items: center; }
+
+        /* Story Overlay */
+        .overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 2000; display: none; place-items: center; }
+        .story-content { width: 100%; max-width: 400px; height: 80vh; background: #222; border-radius: 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; padding: 2rem; text-align: center; }
+        
+        .custom-icon-svg { width: 32px; height: 32px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+        .custom-icon-svg.filled { fill: currentColor; fill-opacity: 0.15; }
+    </style>
+</head>
+<body>
+
+    <div class="search-overlay" id="search-overlay">
+        <div class="search-close" onclick="toggleSearch()"><i data-lucide="x" class="text-dark"></i></div>
+        <div class="container text-center">
+            <h2 class="fw-bold mb-4">Nə axtarırsınız?</h2>
+            <input type="text" class="search-input" id="search-input" placeholder="Məs: Karyera, DİM, Stress...">
+            <p class="text-muted mt-3 small">Axtarış etmək üçün <b>Enter</b> düyməsini sıxın</p>
+        </div>
+    </div>
+
+    <div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleSidebar()"></div>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="d-flex align-items-center gap-2">
+                <div class="logo-box" style="width:32px; height:32px;"><svg class="logo-svg" style="width:18px; height:18px;" viewBox="0 0 40 40"><path d="M12 20 C 12 10, 28 10, 28 20 C 28 28, 18 28, 18 20 M 20 12 L 20 28 M 12 20 C 8 20, 8 32, 20 32" /></svg></div>
+                <span class="fw-bold fs-5 text-primary-custom">Menyu</span>
+            </div>
+            <button class="sidebar-close" onclick="toggleSidebar()"><i data-lucide="x" width="20"></i></button>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="index.html" class="sidebar-link"><i data-lucide="home" width="20"></i> Ana Səhifə</a></li>
+            <li><a href="#" class="sidebar-link"><i data-lucide="users" width="20"></i> Haqqımızda</a></li>
+            <li><a href="#" class="sidebar-link"><i data-lucide="briefcase" width="20"></i> Xidmətlər</a></li>
+            <li><a href="team.html" class="sidebar-link"><i data-lucide="graduation-cap" width="20"></i> Mütəxəssislər</a></li>
+            <li><a href="#" class="sidebar-link"><i data-lucide="file-text" width="20"></i> Bloq</a></li>
+            <li><a href="#" class="sidebar-link"><i data-lucide="phone" width="20"></i> Əlaqə</a></li>
+        </ul>
+        <div class="sidebar-divider"></div>
+        <ul class="sidebar-menu">
+            <li><a href="login.html" class="sidebar-link"><i data-lucide="log-in" width="20"></i> Daxil ol</a></li>
+            <li><a href="register.html" class="sidebar-link"><i data-lucide="user-plus" width="20"></i> Qeydiyyat</a></li>
+        </ul>
+    </div>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <div class="logo-box">
+                    <svg class="logo-svg" viewBox="0 0 40 40"><path d="M12 20 C 12 10, 28 10, 28 20 C 28 28, 18 28, 18 20 M 20 12 L 20 28 M 12 20 C 8 20, 8 32, 20 32" /></svg>
+                </div>
+                <span class="text-dark" style="font-weight: 800; font-size: 1.15rem;">e-psixoloq</span>
+            </a>
+
+            <div class="d-flex align-items-center gap-2 ms-auto position-relative">
+                <button class="nav-btn-icon" onclick="toggleSearch()"><i data-lucide="search" width="18"></i></button>
+                
+                <div class="position-relative">
+                    <button class="nav-btn-icon" onclick="toggleLanguage()"><i data-lucide="globe" width="18"></i> <span id="current-lang">AZ</span></button>
+                    <div class="language-panel" id="language-panel">
+                        <button class="lang-btn active" onclick="setLanguage('AZ', this)"><span>🇦🇿</span> Azərbaycan</button>
+                        <button class="lang-btn" onclick="setLanguage('EN', this)"><span>🇬🇧</span> English</button>
+                        <button class="lang-btn" onclick="setLanguage('RU', this)"><span>🇷🇺</span> Русский</button>
+                    </div>
+                </div>
+                
+                <div class="position-relative">
+                    <button class="nav-btn-icon" onclick="toggleAccess()"><i data-lucide="eye" width="18"></i></button>
+                    <div class="access-panel" id="access-panel">
+                        <div class="d-flex justify-content-between mb-3">
+                            <h6 class="fw-bold m-0" style="font-size: 0.95rem;"><i data-lucide="eye" width="16"></i> Görünüş</h6>
+                            <i data-lucide="x" width="16" style="cursor:pointer" onclick="toggleAccess()"></i>
+                        </div>
+                        <div class="d-flex gap-2 mb-3">
+                            <button class="btn btn-sm border flex-grow-1" onclick="setFont(1)">A</button>
+                            <button class="btn btn-sm border flex-grow-1" onclick="setFont(1.1)">A</button>
+                            <button class="btn btn-sm border flex-grow-1 bg-success text-white" onclick="setFont(1.25)">A+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="login.html" class="nav-login-link d-none d-md-block mx-3">Daxil ol</a>
+                
+                <a href="register.html" class="btn-gradient">
+                    <i data-lucide="calendar-check" width="16"></i> <span class="d-none d-md-inline">Konsultasiyaya yazıl</span>
+                </a>
+
+                <button class="nav-btn-icon ms-2" onclick="toggleSidebar()">
+                    <i data-lucide="menu" width="22"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main style="padding-top: 90px;">
+        
+        <section class="text-center container pb-5 pt-4">
+            <h1 class="fw-bold mb-4" style="line-height: 1.3; font-weight: 800; font-size: 2.2rem;">
+                DİM psixoloqları sizi salamlayır.<br>
+                <span class="text-primary-custom">Bizim platformaya xoş gəlmisiniz!</span>
+            </h1>
+            <div class="badge-guide"><i data-lucide="sparkles" width="14" class="text-primary-custom"></i> BƏLƏDÇİ</div>
+            
+            <p class="text-muted small mb-5">Aşağıdakı dairələrə toxunaraq interaktiv bölmələri kəşf edin</p>
+
+            <div class="d-flex justify-content-center flex-wrap gap-4 gap-md-5">
+                <div class="highlight-item" onclick="openStory(0)">
+                    <div class="highlight-circle border-dashed" style="border-color: #8EA66D;">
+                        <svg class="custom-icon-svg filled text-primary-custom" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                    </div>
+                    <span class="fw-bold">XİDMƏTLƏR</span>
+                </div>
+                <div class="highlight-item" onclick="openStory(1)">
+                    <div class="highlight-circle border-dashed" style="border-color: #93C5FD;">
+                        <svg class="custom-icon-svg filled text-primary" viewBox="0 0 24 24"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path><path d="M5 3v4"></path><path d="M9 3v4"></path><path d="M3 5h6"></path></svg>
+                    </div>
+                    <span class="fw-bold">XƏBƏRLƏR</span>
+                </div>
+                <div class="highlight-item" onclick="openStory(2)">
+                    <div class="highlight-circle border-dashed" style="border-color: #D8B4FE;">
+                        <svg class="custom-icon-svg filled" style="color: #A855F7;" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+                    </div>
+                    <span class="fw-bold">#KƏŞFET</span>
+                </div>
+                <div class="highlight-item" onclick="openStory(3)">
+                    <div class="highlight-circle border-dashed" style="border-color: #FDE047;">
+                        <svg class="custom-icon-svg filled" style="color: #EAB308;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path></svg>
+                    </div>
+                    <span class="fw-bold">FAQ</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="container py-5">
+            <div class="row align-items-center gy-5">
+                <div class="col-md-6 text-center">
+                    <div class="position-relative">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Komandamız" class="img-fluid rounded-4 shadow-lg">
+                    </div>
+                </div>
+                <div class="col-md-6 ps-md-5">
+                    <h2 class="fw-bold fs-2">Sənin Psixoloji <span class="text-primary-custom">Bələdçin.</span></h2>
+                    <div class="border-start border-3 border-success ps-4 mt-4 text-muted small">
+                        <p class="mb-3">Biz psixoloji maarifləndirmə və emosional rifahı dəstəkləyən etibarlı bir məkan yaratmışıq.</p>
+                        <p class="mb-0">Məqsədimiz insanlara özünü daha yaxşı tanımağa kömək etməkdir.</p>
+                    </div>
+                    <p class="font-hand fs-4 text-primary-custom mt-3">Sizinlə birlikdə böyüyürük!</p>
+                    
+                    <a href="team.html" class="btn-outline-custom">
+                        Komandanı Gör <i data-lucide="arrow-right" width="16"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="container py-5 text-center">
+            <h2 class="fw-bold mb-5 fs-2">Niyə Biz?</h2>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4"><div class="card-custom"><div class="icon-box" style="background:#EFF6FF; color:#3B82F6;"><svg class="custom-icon-svg filled" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></div><h5 class="fw-bold">Etibarlılıq</h5><p class="text-muted small">Məlumatlarınız tamamilə məxfiliklə qorunur.</p></div></div>
+                <div class="col-md-4"><div class="card-custom"><div class="icon-box" style="background:#FEFCE8; color:#EAB308;"><svg class="custom-icon-svg filled" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div><h5 class="fw-bold">Peşəkarlıq</h5><p class="text-muted small">Sertifikatlı mütəxəssislər tərəfindən hazırlanan məzmun.</p></div></div>
+                <div class="col-md-4"><div class="card-custom"><div class="icon-box" style="background:#FFF1F2; color:#EC4899;"><svg class="custom-icon-svg filled" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></div><h5 class="fw-bold">Səmimiyyət</h5><p class="text-muted small">Mühakiməsiz və dəstəkləyici mühit.</p></div></div>
+            </div>
+        </section>
+
+        <!-- SON XƏBƏRLƏR YERİNİ DƏYİŞDİ -->
+        <section class="container py-5">
+            <div class="d-flex justify-content-between align-items-center mb-5">
+                <h2 class="fw-bold fs-2 m-0">Son Xəbərlər</h2>
+                <a href="#" class="text-primary-custom text-decoration-none fw-bold small">Hamısına bax <i data-lucide="arrow-right" width="16"></i></a>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6"><div class="article-card"><div class="article-img-wrapper"><img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=600" class="article-img"><span class="article-badge" style="color: #dc3545; background: #ffe6e6;">Təhsil</span></div><div class="article-content"><a href="#" class="article-title">Yeni qəbul qaydaları təsdiqləndi</a><p class="text-muted small mb-3">DİM tərəfindən keçirilən imtahanlarda yeni dəyişikliklər elan olundu.</p><div class="article-meta"><span><i data-lucide="calendar" width="12"></i> 24 Dek 2025</span><a href="#" class="read-more">Ətraflı <i data-lucide="arrow-right" width="12"></i></a></div></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="article-card"><div class="article-img-wrapper"><img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=600" class="article-img"><span class="article-badge" style="color: #0d6efd; background: #e7f1ff;">Tədbir</span></div><div class="article-content"><a href="#" class="article-title">Gənclər üçün Karyera Forumu</a><p class="text-muted small mb-3">Bakı Konqres Mərkəzində keçiriləcək foruma qeydiyyat başladı.</p><div class="article-meta"><span><i data-lucide="calendar" width="12"></i> 22 Dek 2025</span><a href="#" class="read-more">Ətraflı <i data-lucide="arrow-right" width="12"></i></a></div></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="article-card"><div class="article-img-wrapper"><img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=600" class="article-img"><span class="article-badge" style="color: #198754; background: #d1e7dd;">Seminar</span></div><div class="article-content"><a href="#" class="article-title">Stressin İdarə Edilməsi</a><p class="text-muted small mb-3">Peşəkar psixoloqların iştirakı ilə ödənişsiz seminar keçiriləcək.</p><div class="article-meta"><span><i data-lucide="calendar" width="12"></i> 20 Dek 2025</span><a href="#" class="read-more">Ətraflı <i data-lucide="arrow-right" width="12"></i></a></div></div></div></div>
+            </div>
+        </section>
+
+        <section class="py-5" style="background-color: var(--primary); color: white;">
+            <div class="container">
+                <div class="row g-4 text-center">
+                    <div class="col-md-3 col-6">
+                        <div class="p-3">
+                            <i data-lucide="users" class="mb-2" width="40" style="color: white;"></i>
+                            <h2 class="counter-value" data-target="1500" style="color: white; font-size: 3rem;">0</h2>
+                            <p class="counter-label" style="color: rgba(255,255,255,0.9);">İstifadəçi</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="p-3">
+                            <i data-lucide="graduation-cap" class="mb-2" width="40" style="color: white;"></i>
+                            <h2 class="counter-value" data-target="50" style="color: white; font-size: 3rem;">0</h2>
+                            <p class="counter-label" style="color: rgba(255,255,255,0.9);">Mütəxəssis</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="p-3">
+                            <i data-lucide="message-square" class="mb-2" width="40" style="color: white;"></i>
+                            <h2 class="counter-value" data-target="5000" style="color: white; font-size: 3rem;">0</h2>
+                            <p class="counter-label" style="color: rgba(255,255,255,0.9);">Konsultasiya</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="p-3">
+                            <i data-lucide="heart" class="mb-2" width="40" style="color: white;"></i>
+                            <h2 class="counter-value" data-target="98" style="color: white; font-size: 3rem;">0</h2>
+                            <p class="counter-label" style="color: rgba(255,255,255,0.9);">Məmnuniyyət %</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container py-5">
+            <h2 class="text-center fw-bold mb-5 fs-2">Son Məqalələr</h2>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6"><div class="article-card"><div class="article-img-wrapper"><img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&q=80&w=400" alt="Stress" class="article-img"><span class="article-badge">Psixologiya</span></div><div class="article-content"><a href="#" class="article-title">Streslə Mübarizə Yolları</a><div class="article-meta"><span><i data-lucide="clock" width="12"></i> 5 dəq</span><a href="#" class="read-more">Oxu <i data-lucide="arrow-right" width="12"></i></a></div></div></div></div>
+                <div class="col-lg-3 col-md-6"><div class="article-card"><div class="article-img-wrapper"><img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=400" alt="Karyera" class="article-img"><span class="article-badge">Karyera</span></div><div class="article-content"><a href="#" class="article-title">Doğru İxtisas Seçimi</a><div class="article-meta"><span><i data-lucide="clock" width="12"></i> 7 dəq</span><a href="#" class="read-more">Oxu <i data-lucide="arrow-right" width="12"></i></a></div></div></div></div>
+                <div class="col-lg-3 col-md-6"><div class="article-card"><div class="article-img-wrapper"><img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&q=80&w=400" alt="Zaman" class="article-img"><span class="article-badge">İnkişaf</span></div><div class="article-content"><a href="#" class="article-title">Zamanın İdarə Edilməsi</a><div class="article-meta"><span><i data-lucide="clock" width="12"></i> 6 dəq</span><a href="#" class="read-more">Oxu <i data-lucide="arrow-right" width="12"></i></a></div></div></div></div>
+                <div class="col-lg-3 col-md-6"><div class="article-card"><div class="article-img-wrapper"><img src="https://images.unsplash.com/photo-1493612276216-ee3925520721?auto=format&fit=crop&q=80&w=400" alt="EQ" class="article-img"><span class="article-badge">Şəxsi</span></div><div class="article-content"><a href="#" class="article-title">Emosional Zəka Nədir?</a><div class="article-meta"><span><i data-lucide="clock" width="12"></i> 4 dəq</span><a href="#" class="read-more">Oxu <i data-lucide="arrow-right" width="12"></i></a></div></div></div></div>
+            </div>
+        </section>
+
+        <section class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold fs-2">Peşələr Haqqında</h2>
+                <p class="text-muted">Gələcəyinizi qurun, doğru ixtisası seçin</p>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-3 col-md-4 col-sm-6"><a href="#" class="profession-card"><div class="prof-icon-box bg-primary bg-opacity-10 text-primary-custom"><i data-lucide="code"></i></div><div class="prof-info"><h6>IT Mütəxəssisi</h6><span>Texnologiya</span></div></a></div>
+                <div class="col-lg-3 col-md-4 col-sm-6"><a href="#" class="profession-card"><div class="prof-icon-box bg-danger bg-opacity-10 text-danger"><i data-lucide="stethoscope"></i></div><div class="prof-info"><h6>Həkim</h6><span>Tibb</span></div></a></div>
+                <div class="col-lg-3 col-md-4 col-sm-6"><a href="#" class="profession-card"><div class="prof-icon-box bg-warning bg-opacity-10 text-warning"><i data-lucide="pen-tool"></i></div><div class="prof-info"><h6>Dizayner</h6><span>İncəsənət</span></div></a></div>
+                <div class="col-lg-3 col-md-4 col-sm-6"><a href="#" class="profession-card"><div class="prof-icon-box bg-info bg-opacity-10 text-info"><i data-lucide="briefcase"></i></div><div class="prof-info"><h6>Menecer</h6><span>Biznes</span></div></a></div>
+            </div>
+        </section>
+
+        <section class="container py-5">
+            <h2 class="text-center fw-bold mb-5 fs-2">İstifadəçi Rəyləri</h2>
+            <div class="row g-4">
+                <div class="col-md-4"><div class="card-custom text-start"><div class="text-warning mb-2"><small>★★★★★</small></div><p class="small fst-italic text-muted mb-4">"Həyatımda etdiyim ən yaxşı yatırım özümə ayırdığım vaxt oldu. Təşəkkürlər!"</p><div class="d-flex gap-3 align-items-center"><div class="avatar">A</div><div><h6 class="fw-bold m-0 small">Aysel K.</h6><small class="text-muted" style="font-size: 0.75rem;">Tələbə</small></div></div></div></div>
+                <div class="col-md-4"><div class="card-custom text-start"><div class="text-warning mb-2"><small>★★★★★</small></div><p class="small fst-italic text-muted mb-4">"Peşəkar yanaşma və səmimi mühit. Karyera seçimimdə çox kömək oldunuz."</p><div class="d-flex gap-3 align-items-center"><div class="avatar">E</div><div><h6 class="fw-bold m-0 small">Elvin M.</h6><small class="text-muted" style="font-size: 0.75rem;">Mühəndis</small></div></div></div></div>
+                <div class="col-md-4"><div class="card-custom text-start"><div class="text-warning mb-2"><small>★★★★★</small></div><p class="small fst-italic text-muted mb-4">"Streslə mübarizə yollarını burada öyrəndim. İndi daha rahatam."</p><div class="d-flex gap-3 align-items-center"><div class="avatar">N</div><div><h6 class="fw-bold m-0 small">Nigar Ə.</h6><small class="text-muted" style="font-size: 0.75rem;">Müəllim</small></div></div></div></div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <button class="btn-dark-custom">HAQQIMIZDA</button>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-md-4">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <div class="logo-box"><svg class="logo-svg" viewBox="0 0 40 40"><path d="M12 20 C 12 10, 28 10, 28 20 C 28 28, 18 28, 18 20 M 20 12 L 20 28 M 12 20 C 8 20, 8 32, 20 32" /></svg></div>
+                        <span class="fw-bold fs-6 text-primary-custom">e-psixoloq</span>
+                    </div>
+                    <p class="small text-muted" style="font-size: 0.8rem;">Psixoloji maarifləndirmə və şəxsi inkişaf üçün Azərbaycanın ilk rəqəmsal bələdçisi.</p>
+                </div>
+                <div class="col-md-2">
+                    <h6 class="fw-bold mb-3 small">Platforma</h6>
+                    <ul class="list-unstyled small text-muted">
+                        <li><a href="#" class="text-decoration-none text-muted">Haqqımızda</a></li>
+                        <li><a href="#" class="text-decoration-none text-muted">Xidmətlər</a></li>
+                        <li><a href="#" class="text-decoration-none text-muted">Mütəxəssislər</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-bold mb-3 small">Əlaqə</h6>
+                    <ul class="list-unstyled small text-muted">
+                        <li class="mb-2"><i data-lucide="map-pin" width="14"></i> Bakı, Azərbaycan</li>
+                        <li class="mb-2"><i data-lucide="phone" width="14"></i> +994 50 000 00 00</li>
+                        <li><i data-lucide="mail" width="14"></i> info@e-psixoloq.az</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-bold mb-3 small">Sosial Media</h6>
+                    <div class="d-flex gap-2">
+                        <a href="#" class="social-btn"><i data-lucide="instagram" width="16"></i></a>
+                        <a href="#" class="social-btn"><i data-lucide="send" width="16"></i></a>
+                        <a href="#" class="social-btn"><i data-lucide="linkedin" width="16"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4 pt-3 border-top small text-muted" style="font-size: 0.75rem;">© 2025 E-psixoloq. Bütün hüquqlar qorunur.</div>
+        </div>
+    </footer>
+
+    <div class="overlay" id="story-overlay">
+        <div style="position: absolute; top: 20px; right: 20px; cursor: pointer; color: white;" onclick="closeStory()"><i data-lucide="x" width="32"></i></div>
+        <div class="story-nav-btn nav-prev d-none d-md-block" onclick="alert('Əvvəlki')"><i data-lucide="chevron-left" width="40"></i></div>
+        <div class="story-container" id="story-card-bg">
+            <div class="progress-bar-container"><div class="progress-bar-fill" id="story-progress" style="width: 0%;"></div></div>
+            <div class="story-header"><div class="story-icon-small"><i id="story-icon-header" data-lucide="briefcase" width="16" color="white"></i></div><span class="small fw-bold text-uppercase" id="story-header-title">XİDMƏTLƏR</span></div>
+            <div class="story-content-body"><h1 class="display-4 fw-bold mb-2" id="story-main-title">Xidmətlərimiz</h1><p class="lead opacity-75" id="story-subtitle">İnkişaf alətləri</p><a href="#" id="story-action-btn" class="story-btn-action"><span>Xidmətlərə bax</span> <i data-lucide="arrow-right" width="16"></i></a></div>
+        </div>
+        <div class="story-nav-btn nav-next d-none d-md-block" onclick="alert('Növbəti')"><i data-lucide="chevron-right" width="40"></i></div>
+    </div>
+    <div class="chat-float" onclick="alert('Chat açılır...')" style="position: fixed; bottom: 30px; right: 30px; background-color: var(--primary); color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 20px rgba(78, 110, 39, 0.4); cursor: pointer; z-index: 1000; transition: transform 0.2s;"><i data-lucide="message-circle" width="24"></i></div>
+    <script>
+        const DATA = [ { id: 'services', headerTitle: 'XİDMƏTLƏR', mainTitle: 'Xidmətlərimiz', subTitle: 'İnkişaf alətləri', btnText: 'Xidmətlərə bax', bgColor: '#557C3E', icon: 'briefcase' }, { id: 'news', headerTitle: 'XƏBƏRLƏR', mainTitle: 'Yeniliklər', subTitle: 'Ən son məlumatlar', btnText: 'Xəbərləri oxu', bgColor: '#3B82F6', icon: 'sparkles' }, { id: 'discover', headerTitle: '#KƏŞFET', mainTitle: 'Kəşf Et', subTitle: 'Potensialını üzə çıxar', btnText: 'Testlərə keç', bgColor: '#8B5CF6', icon: 'search' }, { id: 'faq', headerTitle: 'FAQ', mainTitle: 'Sual-Cavab', subTitle: 'Tez-tez verilən suallar', btnText: 'Cavablara bax', bgColor: '#EAB308', icon: 'help-circle' } ];
+        function toggleAccess() { document.getElementById('access-panel').classList.toggle('show'); document.getElementById('language-panel').classList.remove('show'); }
+        function toggleLanguage() { document.getElementById('language-panel').classList.toggle('show'); document.getElementById('access-panel').classList.remove('show'); }
+        function toggleSidebar() { document.getElementById('sidebar').classList.toggle('active'); document.getElementById('sidebar-overlay').classList.toggle('active'); }
+        function setLanguage(lang, btn) { document.getElementById('current-lang').innerText = lang; document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); toggleLanguage(); }
+        function toggleSearch() { document.getElementById('search-overlay').classList.toggle('active'); if(document.getElementById('search-overlay').classList.contains('active')) { setTimeout(() => document.getElementById('search-input').focus(), 100); } }
+        function setFont(scale) { document.documentElement.style.setProperty('--font-scale', scale); }
+        function setTheme(theme) { document.body.className = theme === 'default' ? '' : 'theme-' + theme; }
+        let progressInterval;
+        function openStory(index) {
+            const data = DATA[index]; const overlay = document.getElementById('story-overlay'); const cardBg = document.getElementById('story-card-bg'); const progressBar = document.getElementById('story-progress');
+            document.getElementById('story-header-title').innerText = data.headerTitle; document.getElementById('story-main-title').innerText = data.mainTitle; document.getElementById('story-subtitle').innerText = data.subTitle;
+            const btn = document.getElementById('story-action-btn'); btn.querySelector('span').innerText = data.btnText;
+            cardBg.style.backgroundColor = data.bgColor; cardBg.style.backgroundImage = `linear-gradient(to bottom, ${data.bgColor}, #1a1a1a)`;
+            document.querySelector('.story-icon-small').innerHTML = `<i data-lucide="${data.icon}" width="16" color="white"></i>`;
+            overlay.style.display = 'grid'; lucide.createIcons();
+            progressBar.style.width = '0%'; clearInterval(progressInterval); let width = 0;
+            progressInterval = setInterval(() => { if (width >= 100) { clearInterval(progressInterval); closeStory(); } else { width += 1; progressBar.style.width = width + '%'; } }, 50);
+        }
+        function closeStory() { document.getElementById('story-overlay').style.display = 'none'; clearInterval(progressInterval); }
+        const searchInput = document.getElementById('search-input'); if(searchInput) { searchInput.addEventListener('keypress', function (e) { if (e.key === 'Enter') { if(this.value.trim() !== "") { alert('Axtarılır: ' + this.value); this.value = ''; toggleSearch(); } } }); }
+        lucide.createIcons();
+
+        const counters = document.querySelectorAll('.counter-value');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = +counter.getAttribute('data-target');
+                    const duration = 2000;
+                    const increment = target / (duration / 16);
+                    let current = 0;
+                    const updateCounter = () => {
+                        current += increment;
+                        if (current < target) {
+                            counter.innerText = Math.ceil(current) + "+";
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            counter.innerText = target + "+";
+                        }
+                    };
+                    updateCounter();
+                    observer.unobserve(counter);
+                }
+            });
+        }, { threshold: 0.5 });
+        counters.forEach(counter => observer.observe(counter));
+    </script>
+</body>
+</html>

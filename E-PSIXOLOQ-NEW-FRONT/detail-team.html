@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Leyla Əliyeva - E-psixoloq</title>
+    
+    <!-- Bootstrap 5 & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=DM+Sans:wght@400;500;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- EYNİ DİZAYN SİSTEMİ --- */
+        :root {
+            --primary: #67a177;
+            --dark: #1F2937;
+            --cream: #FFFBEB;
+            --orange: #F97316;
+        }
+
+        body {
+            background-color: var(--cream);
+            font-family: 'DM Sans', sans-serif;
+            color: var(--dark);
+        }
+
+        h1, h2, h3, h4, h5 { font-family: 'Nunito', sans-serif; color: var(--dark); }
+        .text-primary-custom { color: var(--primary); }
+
+        /* --- NAVİQASİYA --- */
+        .navbar {
+            background: #FFF;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            padding: 0.8rem 2rem;
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+        }
+        .logo-box {
+            background: var(--primary); width: 36px; height: 36px;
+            border-radius: 10px; display: flex; align-items: center; justify-content: center;
+        }
+        .logo-svg { width: 22px; height: 22px; fill: none; stroke: white; stroke-width: 2.5; }
+        
+        .nav-link-back {
+            text-decoration: none; color: var(--dark); font-weight: 700;
+            display: flex; align-items: center; gap: 5px; font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        .nav-link-back:hover { color: var(--primary); }
+
+        /* --- PROFILE SECTION --- */
+        .profile-card {
+            background: #FFF;
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+        .profile-img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin-bottom: 1.5rem;
+        }
+        .specialty-badge {
+            background-color: rgba(78, 110, 39, 0.1);
+            color: var(--primary);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        
+        /* --- SERVICES LIST --- */
+        .service-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid #E5E7EB;
+            transition: background 0.2s;
+        }
+        .service-item:hover { background: #F9FAFB; border-radius: 12px; border-bottom-color: transparent; }
+        .service-price {
+            font-weight: 800;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        /* --- CALENDAR (REZERVASIYA) --- */
+        .calendar-wrapper {
+            background: #FFF;
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+        
+        .cal-header {
+            display: flex;
+            justify-content: space-between; /* Mərkəzləşdirmək istəsəniz 'center' edin */
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        .cal-title { font-size: 1.8rem; font-weight: 300; color: #4B5563; }
+        
+        /* Düymələr silindiyi üçün bu hissəyə ehtiyac qalmadı, amma gələcək üçün saxlaya bilərsiniz */
+        /* .cal-controls .btn-group { ... } */
+
+        /* Calendar Grid */
+        .cal-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            border-top: 1px solid #E5E7EB;
+            border-left: 1px solid #E5E7EB;
+        }
+        .cal-cell {
+            min-height: 100px;
+            border-right: 1px solid #E5E7EB;
+            border-bottom: 1px solid #E5E7EB;
+            padding: 10px;
+            position: relative;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .cal-cell:hover { background: #F9FAFB; }
+        .cal-cell.empty { background: #FCFCFC; cursor: default; }
+        .cal-cell.selected {
+            background-color: #FEF9C3; /* Sarımtıl fon (şəkildəki kimi) */
+        }
+        
+        .day-number {
+            font-weight: 600;
+            color: #6B7280;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        .day-name {
+            text-align: center;
+            padding: 10px;
+            font-weight: 700;
+            color: #9CA3AF;
+            border-bottom: 1px solid #E5E7EB;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+
+        /* Time Slots */
+        .slots-container {
+            margin-top: 2rem;
+            display: none; /* JS ilə açılacaq */
+            animation: fadeIn 0.3s ease;
+        }
+        .slot-btn {
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            background: white;
+            padding: 8px 16px;
+            border-radius: 50px;
+            margin: 5px;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+        .slot-btn:hover, .slot-btn.selected {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-confirm {
+            background-color: var(--orange);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            margin-top: 20px;
+            width: 100%;
+            transition: 0.2s;
+        }
+        .btn-confirm:hover { background-color: #EA580C; transform: translateY(-2px); }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Footer */
+        footer { background: #FFF; padding-top: 3rem; padding-bottom: 1.5rem; margin-top: 4rem; }
+    </style>
+</head>
+<body>
+
+    <!-- Naviqasiya -->
+    <nav class="navbar">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <div class="logo-box">
+                    <svg class="logo-svg" viewBox="0 0 40 40"><path d="M12 20 C 12 10, 28 10, 28 20 C 28 28, 18 28, 18 20 M 20 12 L 20 28 M 12 20 C 8 20, 8 32, 20 32" /></svg>
+                </div>
+                <span class="fs-5 text-dark" style="font-weight: 800;">e-psixoloq</span>
+            </a>
+            
+            <a href="team.html" class="nav-link-back ms-auto">
+                <i data-lucide="arrow-left" width="18"></i> Komandaya qayıt
+            </a>
+        </div>
+    </nav>
+
+    <div class="container" style="padding-top: 100px; padding-bottom: 60px;">
+        <div class="row g-5">
+            
+            <!-- SOL TƏRƏF: PROFİL VƏ XİDMƏTLƏR -->
+            <div class="col-lg-4">
+                <div class="profile-card mb-4">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600" alt="Dr. Leyla Əliyeva" class="profile-img">
+                    
+                    <span class="specialty-badge">Klinik Psixoloq</span>
+                    <h1 class="fw-bold mb-3">Dr. Leyla Əliyeva</h1>
+                    
+                    <p class="text-muted small mb-4" style="line-height: 1.6;">
+                        10 illik təcrübəyə malik peşəkar psixoloq. Stress idarəetməsi, təşviş pozuntuları və travma sonrası bərpa üzrə ixtisaslaşmışdır. 
+                        Azərbaycan Dövlət Pedaqoji Universitetinin məzunu.
+                    </p>
+
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-outline-dark btn-sm rounded-pill"><i data-lucide="linkedin" width="16"></i></button>
+                        <button class="btn btn-outline-dark btn-sm rounded-pill"><i data-lucide="instagram" width="16"></i></button>
+                        <button class="btn btn-outline-dark btn-sm rounded-pill"><i data-lucide="globe" width="16"></i></button>
+                    </div>
+                </div>
+
+                <div class="profile-card">
+                    <h5 class="fw-bold mb-4">Göstərdiyi Xidmətlər</h5>
+                    
+                    <div class="service-item">
+                        <span class="small fw-bold">Fərdi Konsultasiya</span>
+                        <span class="service-price">50₼</span>
+                    </div>
+                    <div class="service-item">
+                        <span class="small fw-bold">Cütlük Terapiyası</span>
+                        <span class="service-price">80₼</span>
+                    </div>
+                    <div class="service-item">
+                        <span class="small fw-bold">Online Terapiya</span>
+                        <span class="service-price">40₼</span>
+                    </div>
+                    <div class="service-item">
+                        <span class="small fw-bold">Karyera Koçluğu</span>
+                        <span class="service-price">60₼</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SAĞ TƏRƏF: REZERVASİYA (TƏQVİM) -->
+            <div class="col-lg-8">
+                <div class="calendar-wrapper">
+                    
+                    <div class="cal-header">
+                        <h2 class="cal-title" id="currentMonth">Dekabr 2025</h2>
+                        <!-- DƏYİŞİKLİK: Ay/Həftə/Gün düymələri silindi -->
+                    </div>
+
+                    <!-- Həftənin Günləri -->
+                    <div style="display: grid; grid-template-columns: repeat(7, 1fr);">
+                        <div class="day-name">B.E</div>
+                        <div class="day-name">Ç.A</div>
+                        <div class="day-name">Çər</div>
+                        <div class="day-name">C.A</div>
+                        <div class="day-name">Cüm</div>
+                        <div class="day-name">Şən</div>
+                        <div class="day-name">Baz</div>
+                    </div>
+
+                    <!-- Təqvim Günü -->
+                    <div class="cal-grid" id="calendarGrid">
+                        <!-- JS ilə doldurulacaq -->
+                    </div>
+
+                    <!-- Saat Seçimi (Gizli) -->
+                    <div class="slots-container" id="timeSlots">
+                        <hr class="my-4 text-muted opacity-25">
+                        <h5 class="fw-bold mb-3">Mövcud Saatlar <span class="text-primary-custom" id="selectedDateText">(Tarix seçin)</span></h5>
+                        
+                        <div class="d-flex flex-wrap gap-2" id="slotsWrapper">
+                            <!-- Saatlar bura düşəcək -->
+                        </div>
+
+                        <button class="btn-confirm mt-4" onclick="alert('Sorğunuz qeydə alındı! Sizinlə əlaqə saxlanılacaq.')">
+                            Təsdiqlə və Müraciət et
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center text-muted small">
+            © 2025 E-psixoloq. Bütün hüquqlar qorunur.
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // Sadə Təqvim Məntiqi (Dekabr 2025 nümunəsi)
+        const calendarGrid = document.getElementById('calendarGrid');
+        const timeSlots = document.getElementById('timeSlots');
+        const slotsWrapper = document.getElementById('slotsWrapper');
+        const selectedDateText = document.getElementById('selectedDateText');
+
+        // Dekabr 2025 - 1-ci gün Bazar ertəsinə düşür (Nümunə üçün)
+        // 31 gün var.
+        // Boşluqlar (Noyabrın son günləri)
+        const daysInMonth = 31;
+        const startDay = 0; // Bazar ertəsi (0-6)
+
+        // Təqvimi Doldurmaq
+        function renderCalendar() {
+            let html = '';
+            
+            // Boş xanalar (Ayın əvvəli)
+            for(let i = 0; i < startDay; i++) {
+                html += `<div class="cal-cell empty"></div>`;
+            }
+
+            // Günlər
+            for(let day = 1; day <= daysInMonth; day++) {
+                html += `
+                    <div class="cal-cell" onclick="selectDate(this, ${day})">
+                        <span class="day-number">${day}</span>
+                    </div>
+                `;
+            }
+
+            // Boş xanalar (Ayın sonu - cədvəli tamamlamaq üçün)
+            const totalCells = startDay + daysInMonth;
+            const remaining = 7 - (totalCells % 7);
+            if(remaining < 7) {
+                for(let i = 0; i < remaining; i++) {
+                    html += `<div class="cal-cell empty"></div>`;
+                }
+            }
+
+            calendarGrid.innerHTML = html;
+        }
+
+        // Tarix Seçimi
+        function selectDate(element, day) {
+            // Köhnə seçimi təmizlə
+            document.querySelectorAll('.cal-cell').forEach(el => el.classList.remove('selected'));
+            
+            // Yeni seçim
+            element.classList.add('selected');
+            
+            // Saatları göstər
+            timeSlots.style.display = 'block';
+            selectedDateText.innerText = `(${day} Dekabr)`;
+            
+            // Random saatlar yarat (Simulyasiya)
+            generateSlots();
+        }
+
+        function generateSlots() {
+            const hours = ['10:00', '11:30', '14:00', '15:30', '17:00'];
+            let html = '';
+            hours.forEach(time => {
+                html += `<button class="slot-btn" onclick="selectTime(this)">${time}</button>`;
+            });
+            slotsWrapper.innerHTML = html;
+        }
+
+        function selectTime(btn) {
+            document.querySelectorAll('.slot-btn').forEach(el => el.classList.remove('selected'));
+            btn.classList.add('selected');
+        }
+
+        // Başlat
+        renderCalendar();
+
+    </script>
+</body>
+</html>

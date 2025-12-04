@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Komandamız - E-psixoloq</title>
+    
+    <!-- Bootstrap 5 & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=DM+Sans:wght@400;500;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- EYNİ DİZAYN SİSTEMİ --- */
+        :root {
+            --primary: #67a177;
+            --dark: #1F2937;
+            --cream: #FFFBEB;
+            --orange: #F97316;
+        }
+
+        body {
+            background-color: var(--cream);
+            font-family: 'DM Sans', sans-serif;
+            color: var(--dark);
+        }
+
+        h1, h2, h3, h4, h5 { font-family: 'Nunito', sans-serif; color: var(--dark); }
+        .text-primary-custom { color: var(--primary); }
+
+        /* --- NAVİQASİYA --- */
+        .navbar {
+            background: #FFF;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            padding: 0.8rem 2rem;
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+        }
+        .logo-box {
+            background: var(--primary); width: 36px; height: 36px;
+            border-radius: 10px; display: flex; align-items: center; justify-content: center;
+        }
+        .logo-svg { width: 22px; height: 22px; fill: none; stroke: white; stroke-width: 2.5; }
+        
+        .nav-link-back {
+            text-decoration: none; color: var(--dark); font-weight: 700;
+            display: flex; align-items: center; gap: 5px; font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        .nav-link-back:hover { color: var(--primary); }
+
+        /* --- TEAM CARDS (MODERN) --- */
+        .team-header {
+            padding-top: 120px;
+            padding-bottom: 60px;
+            text-align: center;
+        }
+        
+        .team-card {
+            background: #FFF;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(0,0,0,0.03);
+            height: 100%; /* Eyni hündürlük üçün */
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+        }
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(78, 110, 39, 0.15);
+            border-color: rgba(78, 110, 39, 0.2);
+        }
+        
+        .member-img-wrapper {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 260px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        
+        .member-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .team-card:hover .member-img {
+            transform: scale(1.1);
+        }
+
+        /* Overlay Social Icons on Hover */
+        .member-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+            opacity: 0;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: 20px;
+            gap: 10px;
+            transition: opacity 0.3s ease;
+        }
+        .team-card:hover .member-overlay { opacity: 1; }
+        
+        .social-icon-sm {
+            width: 36px; height: 36px;
+            background: white; border-radius: 50%;
+            display: grid; place-items: center;
+            color: var(--dark); transition: 0.2s;
+            transform: translateY(20px);
+        }
+        .team-card:hover .social-icon-sm { transform: translateY(0); }
+        .social-icon-sm:hover { background: var(--primary); color: white; }
+        
+        .member-info {
+            padding: 1.5rem 0.5rem 0.5rem 0.5rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1; /* Məzmunu uzadır ki, düymə aşağı düşsün */
+        }
+        
+        .role-badge {
+            display: inline-block;
+            background-color: rgba(78, 110, 39, 0.1);
+            color: var(--primary);
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            margin-bottom: 1rem;
+            align-self: center;
+        }
+        
+        .member-name {
+            font-size: 1.35rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        .member-desc {
+            font-size: 0.9rem;
+            color: #6B7280;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            flex-grow: 1; /* Təsvir boşluğu doldurur */
+        }
+        
+        .btn-book {
+            width: 100%;
+            padding: 0.8rem;
+            border-radius: 16px;
+            background-color: var(--dark);
+            color: white;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .btn-book:hover {
+            background-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(78, 110, 39, 0.3);
+        }
+
+        /* Footer */
+        footer { background: #FFF; padding-top: 3rem; padding-bottom: 1.5rem; margin-top: 4rem; }
+        .social-btn { width: 36px; height: 36px; background: #F3F4F6; border-radius: 50%; display: grid; place-items: center; color: #4B5563; transition: 0.3s; }
+        .social-btn:hover { background: var(--primary); color: #FFF; }
+        
+        .footer-logo-svg { width: 32px; height: 32px; fill: none; stroke: currentColor; stroke-width: 2.5; }
+    </style>
+</head>
+<body>
+
+    <!-- Naviqasiya -->
+    <nav class="navbar">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <div class="logo-box">
+                    <svg class="logo-svg" viewBox="0 0 40 40"><path d="M12 20 C 12 10, 28 10, 28 20 C 28 28, 18 28, 18 20 M 20 12 L 20 28 M 12 20 C 8 20, 8 32, 20 32" /></svg>
+                </div>
+                <span class="fs-5 text-dark" style="font-weight: 800;">e-psixoloq</span>
+            </a>
+            
+            <a href="index.html" class="nav-link-back ms-auto">
+                <i data-lucide="arrow-left" width="18"></i> Ana Səhifə
+            </a>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="team-header container">
+        <h1 class="display-4 fw-bold mb-3">Bizim <span class="text-primary-custom">Komanda</span></h1>
+        <p class="text-muted fs-5" style="max-width: 600px; margin: 0 auto;">Sizin inkişafınız üçün çalışan peşəkar psixoloqlar və karyera məsləhətçiləri.</p>
+    </section>
+
+    <!-- Team Grid -->
+    <section class="container pb-5">
+        <div class="row g-4 justify-content-center">
+            
+            <!-- Member 1 -->
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch">
+                <div class="team-card">
+                    <div class="member-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600" alt="Dr. Leyla Əliyeva" class="member-img">
+                        <div class="member-overlay">
+                            <a href="#" class="social-icon-sm"><i data-lucide="linkedin" width="16"></i></a>
+                            <a href="#" class="social-icon-sm"><i data-lucide="instagram" width="16"></i></a>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <span class="role-badge">Klinik Psixoloq</span>
+                        <h3 class="member-name">Dr. Leyla Əliyeva</h3>
+                        <p class="member-desc">10 illik təcrübəyə malik, stress, təşviş pozuntuları və travma terapiyası üzrə baş mütəxəssis.</p>
+                        <a href="detail-team.html" class="btn-book">
+                            <i data-lucide="calendar" width="16"></i> Qəbula Yazıl
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Member 2 -->
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch">
+                <div class="team-card">
+                    <div class="member-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600" alt="Rəşad Məmmədov" class="member-img">
+                        <div class="member-overlay">
+                            <a href="#" class="social-icon-sm"><i data-lucide="linkedin" width="16"></i></a>
+                            <a href="#" class="social-icon-sm"><i data-lucide="instagram" width="16"></i></a>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <span class="role-badge">Karyera Koçu</span>
+                        <h3 class="member-name">Rəşad Məmmədov</h3>
+                        <p class="member-desc">Gənclərin peşə seçimi, universitetə hazırlıq və karyera planlamasında ekspert.</p>
+                        <a href="#" class="btn-book">
+                            <i data-lucide="calendar" width="16"></i> Qəbula Yazıl
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Member 3 -->
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch">
+                <div class="team-card">
+                    <div class="member-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=600" alt="Nigar Qasımova" class="member-img">
+                        <div class="member-overlay">
+                            <a href="#" class="social-icon-sm"><i data-lucide="linkedin" width="16"></i></a>
+                            <a href="#" class="social-icon-sm"><i data-lucide="instagram" width="16"></i></a>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <span class="role-badge">Uşaq Psixoloqu</span>
+                        <h3 class="member-name">Nigar Qasımova</h3>
+                        <p class="member-desc">Yeniyetmələr və uşaq inkişafı, məktəbə hazırlıq və davranış problemləri üzrə ixtisaslaşmış mütəxəssis.</p>
+                        <a href="#" class="btn-book">
+                            <i data-lucide="calendar" width="16"></i> Qəbula Yazıl
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Member 4 -->
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch">
+                <div class="team-card">
+                    <div class="member-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=600" alt="Kamil Həsənov" class="member-img">
+                        <div class="member-overlay">
+                            <a href="#" class="social-icon-sm"><i data-lucide="linkedin" width="16"></i></a>
+                            <a href="#" class="social-icon-sm"><i data-lucide="instagram" width="16"></i></a>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <span class="role-badge">Təlimçi</span>
+                        <h3 class="member-name">Kamil Həsənov</h3>
+                        <p class="member-desc">Soft skills, liderlik və şəxsi inkişaf təlimləri üzrə 5 illik təcrübəyə malik mentor.</p>
+                        <a href="#" class="btn-book">
+                            <i data-lucide="calendar" width="16"></i> Qəbula Yazıl
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-md-4">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <div class="logo-box" style="width:32px; height:32px;"><svg class="logo-svg" style="width:20px; height:20px;" viewBox="0 0 40 40"><path d="M12 20 C 12 10, 28 10, 28 20 C 28 28, 18 28, 18 20 M 20 12 L 20 28 M 12 20 C 8 20, 8 32, 20 32" /></svg></div>
+                        <span class="fw-bold fs-6 text-primary-custom">e-psixoloq</span>
+                    </div>
+                    <p class="small text-muted">Psixoloji maarifləndirmə və şəxsi inkişaf üçün Azərbaycanın ilk rəqəmsal bələdçisi.</p>
+                </div>
+                <div class="col-md-2">
+                    <h6 class="fw-bold mb-3 small">Platforma</h6>
+                    <ul class="list-unstyled small text-muted">
+                        <li><a href="#" class="text-decoration-none text-muted">Haqqımızda</a></li>
+                        <li><a href="#" class="text-decoration-none text-muted">Xidmətlər</a></li>
+                        <li><a href="#" class="text-decoration-none text-muted">Mütəxəssislər</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-bold mb-3 small">Əlaqə</h6>
+                    <ul class="list-unstyled small text-muted">
+                        <li class="mb-2"><i data-lucide="map-pin" width="14"></i> Bakı, Azərbaycan</li>
+                        <li class="mb-2"><i data-lucide="phone" width="14"></i> +994 50 000 00 00</li>
+                        <li><i data-lucide="mail" width="14"></i> info@e-psixoloq.az</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-bold mb-3 small">Sosial Media</h6>
+                    <div class="d-flex gap-2">
+                        <a href="#" class="social-btn"><i data-lucide="instagram" width="16"></i></a>
+                        <a href="#" class="social-btn"><i data-lucide="send" width="16"></i></a>
+                        <a href="#" class="social-btn"><i data-lucide="linkedin" width="16"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4 pt-3 border-top small text-muted">© 2025 E-psixoloq. Bütün hüquqlar qorunur.</div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
