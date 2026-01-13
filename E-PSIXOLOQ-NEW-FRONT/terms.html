@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qaydalar və Şərtlər - E-psixoloq</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=DM+Sans:wght@400;500;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- DİZAYN SİSTEMİ (Index.html ilə eyni) --- */
+        :root {
+            --primary: #4E6E27;
+            --dark: #1F2937;
+            --cream: #FFFBEB;
+            --orange: #F97316;
+            --gray-light: #F3F4F6;
+            --border-color: #E5E7EB;
+        }
+
+        /* --- ACCESSIBILITY MODES --- */
+        body.acc-contrast { --primary: #000 !important; --dark: #000 !important; background: #FFF !important; background-image: none !important; color: #000 !important; }
+        body.acc-contrast * { color: #000 !important; border-color: #000 !important; }
+        body.acc-contrast .navbar, body.acc-contrast footer { background: #FFF !important; border: 2px solid #000 !important; color: #000 !important; }
+
+        body.acc-dark { --primary: #4ADE80; --dark: #F3F4F6; background: #0F172A !important; background-image: none !important; color: #FFF !important; }
+        body.acc-dark .terms-content, body.acc-dark .toc-card { background: #1E293B; border-color: #334155; color: #FFF; }
+        body.acc-dark .navbar, body.acc-dark footer { background: #0F172A; color: #FFF; }
+        body.acc-dark .nav-link-back { color: #FFF !important; }
+        body.acc-dark .toc-link { color: #94A3B8; }
+        body.acc-dark .toc-link:hover, body.acc-dark .toc-link.active { color: #4ADE80; background: rgba(74, 222, 128, 0.1); }
+
+        /* --- BODY STYLE --- */
+        body {
+            background-color: #F8FAF9;
+            background-image: 
+                radial-gradient(circle at 0% 0%, rgba(78, 110, 39, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 100% 0%, rgba(249, 115, 22, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 100% 100%, rgba(78, 110, 39, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 0% 100%, rgba(249, 115, 22, 0.1) 0%, transparent 40%);
+            background-attachment: fixed;
+            font-family: 'DM Sans', sans-serif;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 { font-family: 'Nunito', sans-serif; color: var(--dark); }
+        .text-primary-custom { color: var(--primary); }
+
+        /* --- ANIMATIONS --- */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* --- NAVBAR --- */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03); padding: 0.8rem 2rem;
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+        }
+        .logo-box { background: var(--primary); width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+        .logo-svg { width: 22px; height: 22px; fill: none; stroke: white; stroke-width: 2.5; }
+        .nav-link-back { text-decoration: none; color: var(--dark); font-weight: 700; display: flex; align-items: center; gap: 5px; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-link-back:hover { color: var(--primary); }
+
+        /* --- TERMS CONTENT STYLES --- */
+        .terms-header { text-align: center; margin-bottom: 3rem; }
+        .last-updated { font-size: 0.9rem; color: #6B7280; font-weight: 500; display: inline-block; padding: 5px 15px; background: rgba(0,0,0,0.05); border-radius: 20px; }
+
+        .terms-content {
+            background: #FFF; border-radius: 24px; padding: 3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02); border: 1px solid rgba(0,0,0,0.03);
+            font-size: 1rem; line-height: 1.8;
+        }
+        
+        .terms-section { margin-bottom: 2.5rem; scroll-margin-top: 100px; }
+        .terms-section h3 { font-weight: 800; font-size: 1.4rem; margin-bottom: 1rem; color: var(--dark); display: flex; align-items: center; gap: 10px; }
+        .terms-section h3 i { color: var(--primary); }
+        .terms-section p { margin-bottom: 1rem; color: #4B5563; }
+        .terms-section ul { padding-left: 20px; margin-bottom: 1rem; color: #4B5563; }
+        .terms-section li { margin-bottom: 0.5rem; }
+
+        /* Table of Contents (Sticky) */
+        .toc-card {
+            position: sticky; top: 100px;
+            background: #FFF; border-radius: 20px; padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02); border: 1px solid rgba(0,0,0,0.03);
+        }
+        .toc-title { font-weight: 800; margin-bottom: 1rem; font-size: 1.1rem; }
+        .toc-list { list-style: none; padding: 0; margin: 0; }
+        .toc-link {
+            display: block; padding: 8px 12px; border-radius: 8px; color: #6B7280;
+            text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: all 0.2s;
+        }
+        .toc-link:hover, .toc-link.active {
+            background: #F0FDF4; color: var(--primary); transform: translateX(5px);
+        }
+
+        /* Footer */
+        footer { background: #FFF; padding-top: 3rem; padding-bottom: 1.5rem; margin-top: 4rem; box-shadow: 0 -10px 40px rgba(0,0,0,0.02); }
+        .social-btn { width: 36px; height: 36px; background: #F3F4F6; border-radius: 50%; display: grid; place-items: center; color: #4B5563; transition: 0.3s; }
+        .social-btn:hover { background: var(--primary); color: #FFF; }
+        .footer-logo-svg { width: 32px; height: 32px; fill: none; stroke: currentColor; stroke-width: 2.5; }
+
+        /* Scroll to Top */
+        .scroll-top-btn {
+            position: fixed; bottom: 100px; right: 30px; width: 45px; height: 45px;
+            background: #FFF; border-radius: 50%; display: grid; place-items: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1); cursor: pointer; z-index: 999;
+            opacity: 0; transition: 0.3s; pointer-events: none; color: var(--dark);
+        }
+        .scroll-top-btn.visible { opacity: 1; pointer-events: all; }
+        .scroll-top-btn:hover { background: var(--primary); color: white; transform: translateY(-3px); }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <div class="logo-box">
+                    <svg class="logo-svg" viewBox="0 0 40 40"><path d="M12 20 C 12 10, 28 10, 28 20 C 28 28, 18 28, 18 20 M 20 12 L 20 28 M 12 20 C 8 20, 8 32, 20 32" /></svg>
+                </div>
+                <span class="fs-5 text-dark" style="font-weight: 800;">e-psixoloq</span>
+            </a>
+            
+            <a href="index.html" class="nav-link-back ms-auto">
+                <i data-lucide="home" width="18"></i> Ana Səhifə
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main style="padding-top: 120px; padding-bottom: 60px;">
+        <div class="container">
+            
+            <!-- Header -->
+            <div class="terms-header reveal">
+                <h1 class="display-5 fw-bold mb-3">Qaydalar və <span class="text-primary-custom">Şərtlər</span></h1>
+                <span class="last-updated"><i data-lucide="clock" width="14" style="vertical-align: middle;"></i> Son yenilənmə: 15 Yanvar 2025</span>
+            </div>
+
+            <div class="row g-5">
+                
+                <!-- SOL TƏRƏF: MƏZMUN -->
+                <div class="col-lg-8 reveal">
+                    <div class="terms-content">
+                        
+                        <div id="intro" class="terms-section">
+                            <h3><i data-lucide="info"></i> 1. Ümumi Müddəalar</h3>
+                            <p>E-psixoloq platformasına xoş gəlmisiniz. Bu Qaydalar və Şərtlər ("Qaydalar") veb-saytımızdan və xidmətlərimizdən istifadənizi tənzimləyir. Sayta daxil olmaqla və ya xidmətlərimizdən istifadə etməklə bu Qaydaları qəbul etmiş olursunuz.</p>
+                            <p>Biz xidmətlərimizi mütəmadi olaraq təkmilləşdiririk, buna görə də bu Qaydalar vaxtaşırı dəyişdirilə bilər.</p>
+                        </div>
+
+                        <div id="usage" class="terms-section">
+                            <h3><i data-lucide="user-check"></i> 2. Xidmətdən İstifadə</h3>
+                            <p>Platformadan istifadə etmək üçün aşağıdakı şərtlərə əməl etməlisiniz:</p>
+                            <ul>
+                                <li>Qeydiyyat zamanı təqdim etdiyiniz məlumatlar doğru və tam olmalıdır.</li>
+                                <li>Hesabınızın təhlükəsizliyini təmin etmək sizin məsuliyyətinizdədir.</li>
+                                <li>Platformadan qeyri-qanuni və ya zərərli məqsədlər üçün istifadə etməməlisiniz.</li>
+                                <li>18 yaşdan kiçik şəxslər valideyn icazəsi ilə istifadə edə bilərlər.</li>
+                            </ul>
+                        </div>
+
+                        <div id="privacy" class="terms-section">
+                            <h3><i data-lucide="shield"></i> 3. Məxfilik Siyasəti</h3>
+                            <p>Sizin məxfiliyiniz bizim üçün ən vacib prioritetdir. Topladığımız məlumatlar (ad, email, test nəticələri) yalnız xidmət keyfiyyətini artırmaq üçün istifadə olunur.</p>
+                            <p>Psixoloqla aranızda keçən konsultasiyalar tam məxfilik prinsipi ilə qorunur və heç bir halda üçüncü tərəflərlə paylaşılmır.</p>
+                        </div>
+
+                        <div id="payment" class="terms-section">
+                            <h3><i data-lucide="credit-card"></i> 4. Ödəniş və Geri Qaytarma</h3>
+                            <p>Ödənişlər bank kartları vasitəsilə onlayn həyata keçirilir. Geri qaytarma siyasətimiz aşağıdakı kimidir:</p>
+                            <ul>
+                                <li><strong>24 saatdan çox:</strong> Görüş vaxtına 24 saatdan çox qalmış ləğv edilərsə, ödəniş tam geri qaytarılır.</li>
+                                <li><strong>24 saatdan az:</strong> Görüşə 24 saatdan az vaxt qalıbsa, ödənişin 50%-i tutulur.</li>
+                                <li><strong>2 saatdan az:</strong> Görüşə 2 saatdan az vaxt qalmış ləğv edilərsə, ödəniş geri qaytarılmır.</li>
+                            </ul>
+                        </div>
+
+                        <div id="intellectual" class="terms-section">
+                            <h3><i data-lucide="copyright"></i> 5. Əqli Mülkiyyət</h3>
+                            <p>Saytda yerləşdirilən bütün məzmun (mətnlər, qrafiklər, logolar, testlər) E-psixoloq şirkətinə məxsusdur və müəllif hüquqları qanunu ilə qorunur. İcazəsiz istifadə qadağandır.</p>
+                        </div>
+
+                        <div id="contact" class="terms-section mb-0">
+                            <h3><i data-lucide="mail"></i> 6. Əlaqə</h3>
+                            <p>Hər hansı bir sualınız və ya təklifiniz varsa, bizimlə əlaqə saxlamaqdan çəkinməyin:</p>
+                            <p><strong>Email:</strong> info@e-psixoloq.az<br><strong>Telefon:</strong> +994 50 000 00 00</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- SAĞ TƏRƏF: MÜNDƏRİCAT (STICKY) -->
+                <div class="col-lg-4 d-none d-lg-block reveal">
+                    <div class="toc-card">
+                        <h5 class="toc-title">Mündəricat</h5>
+                        <ul class="toc-list">
+                            <li><a href="#intro" class="toc-link active">1. Ümumi Müddəalar</a></li>
+                            <li><a href="#usage" class="toc-link">2. Xidmətdən İstifadə</a></li>
+                            <li><a href="#privacy" class="toc-link">3. Məxfilik Siyasəti</a></li>
+                            <li><a href="#payment" class="toc-link">4. Ödəniş və Qaytarma</a></li>
+                            <li><a href="#intellectual" class="toc-link">5. Əqli Mülkiyyət</a></li>
+                            <li><a href="#contact" class="toc-link">6. Əlaqə</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-md-4">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <div class="logo-box"><svg class="footer-logo-svg" viewBox="0 0 40 40"><path d="M12 20 C 12 10, 28 10, 28 20 C 28 28, 18 28, 18 20 M 20 12 L 20 28 M 12 20 C 8 20, 8 32, 20 32" /></svg></div>
+                        <span class="fw-bold fs-6 text-primary-custom">e-psixoloq</span>
+                    </div>
+                    <p class="small text-muted">Psixoloji maarifləndirmə və şəxsi inkişaf üçün Azərbaycanın ilk rəqəmsal bələdçisi.</p>
+                </div>
+                <div class="col-md-2">
+                    <h6 class="fw-bold mb-3 small">Platforma</h6>
+                    <ul class="list-unstyled small text-muted">
+                        <li><a href="contact.html" class="text-decoration-none text-muted">Əlaqə</a></li>
+                        <li><a href="faq.html" class="text-decoration-none text-muted">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-bold mb-3 small">Əlaqə</h6>
+                    <ul class="list-unstyled small text-muted">
+                        <li class="mb-2"><i data-lucide="map-pin" width="14"></i> Bakı, Azərbaycan</li>
+                        <li class="mb-2"><i data-lucide="phone" width="14"></i> +994 50 000 00 00</li>
+                        <li><i data-lucide="mail" width="14"></i> info@e-psixoloq.az</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-bold mb-3 small">Sosial Media</h6>
+                    <div class="d-flex gap-2">
+                        <a href="#" class="social-btn"><i data-lucide="instagram" width="16"></i></a>
+                        <a href="#" class="social-btn"><i data-lucide="send" width="16"></i></a>
+                        <a href="#" class="social-btn"><i data-lucide="linkedin" width="16"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4 pt-3 border-top small text-muted">© 2025 E-psixoloq. Bütün hüquqlar qorunur.</div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top -->
+    <div class="scroll-top-btn" id="scrollTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <i data-lucide="arrow-up" width="20"></i>
+    </div>
+
+    <!-- Chat Float -->
+    <div class="chat-float" onclick="alert('Chat tezliklə aktiv olacaq!')" style="position: fixed; bottom: 30px; right: 30px; background-color: var(--primary); color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 20px rgba(78, 110, 39, 0.4); cursor: pointer; z-index: 1000; transition: transform 0.2s;"><i data-lucide="message-circle" width="24"></i></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        lucide.createIcons();
+
+        // Scroll Reveal
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Scroll to Top & Active TOC
+        window.addEventListener('scroll', () => {
+            const btn = document.getElementById('scrollTopBtn');
+            if (window.scrollY > 300) btn.classList.add('visible');
+            else btn.classList.remove('visible');
+
+            // Active TOC Link logic (Simple version)
+            const sections = document.querySelectorAll('.terms-section');
+            const navLi = document.querySelectorAll('.toc-link');
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLi.forEach(li => {
+                li.classList.remove('active');
+                if (li.getAttribute('href').includes(current)) {
+                    li.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emosional Zəka - E-psixoloq</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=DM+Sans:wght@400;500;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- DİZAYN SİSTEMİ --- */
+        :root {
+            --primary: #4E6E27;
+            --primary-hover: #3d561f;
+            --dark: #1F2937;
+            --cream: #FFFBEB;
+            --orange: #F97316;
+            --gray-light: #F3F4F6;
+            --border-color: #E5E7EB;
+            --font-scale: 1;
+        }
+
+        /* --- ACCESSIBILITY MODES --- */
+        body.acc-contrast { --primary: #000 !important; --dark: #000 !important; background: #FFF !important; background-image: none !important; color: #000 !important; }
+        body.acc-contrast * { color: #000 !important; border-color: #000 !important; }
+        body.acc-contrast .navbar, body.acc-contrast footer { background: #FFF !important; border: 2px solid #000 !important; color: #000 !important; }
+
+        body.acc-dark { --primary: #4ADE80; --dark: #F3F4F6; background: #0F172A !important; background-image: none !important; color: #FFF !important; }
+        body.acc-dark .article-container, body.acc-dark .author-card, body.acc-dark .related-card { background: #1E293B; border-color: #334155; color: #FFF; }
+        body.acc-dark .navbar, body.acc-dark footer { background: #0F172A; color: #FFF; }
+        body.acc-dark .nav-link-back { color: #FFF !important; }
+        body.acc-dark .article-body { color: #E2E8F0; }
+        body.acc-dark blockquote { background: #334155; color: #E2E8F0; border-left-color: #4ADE80; }
+
+        /* --- BODY STYLE --- */
+        body {
+            background-color: #F8FAF9;
+            background-image: 
+                radial-gradient(circle at 0% 0%, rgba(78, 110, 39, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 100% 0%, rgba(249, 115, 22, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 100% 100%, rgba(78, 110, 39, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 0% 100%, rgba(249, 115, 22, 0.1) 0%, transparent 40%);
+            background-attachment: fixed;
+            font-family: 'DM Sans', sans-serif;
+            color: var(--dark);
+            font-size: calc(0.95rem * var(--font-scale));
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 { font-family: 'Nunito', sans-serif; color: var(--dark); }
+        .text-primary-custom { color: var(--primary); }
+
+        /* --- ANIMATIONS --- */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* --- NAVİQASİYA --- */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03); padding: 0.8rem 2rem;
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+        }
+        .logo-box { background: var(--primary); width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+        .logo-svg { width: 22px; height: 22px; fill: none; stroke: white; stroke-width: 2.5; }
+        .nav-link-back { text-decoration: none; color: var(--dark); font-weight: 700; display: flex; align-items: center; gap: 5px; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-link-back:hover { color: var(--primary); }
+
+        /* --- ARTICLE DETAIL STYLES --- */
+        .article-container {
+            background: #FFF; border-radius: 30px; overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.03); border: 1px solid rgba(0,0,0,0.03);
+            padding: 3rem; margin-bottom: 3rem;
+        }
+
+        .article-header { text-align: center; margin-bottom: 2.5rem; max-width: 800px; margin-left: auto; margin-right: auto; }
+        .article-tags { display: flex; justify-content: center; gap: 10px; margin-bottom: 1rem; }
+        .cat-tag { background: #ECFDF5; color: var(--primary); padding: 6px 14px; border-radius: 50px; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
+        
+        .article-meta {
+            display: flex; justify-content: center; gap: 20px; font-size: 0.9rem; color: #6B7280; font-weight: 600;
+            margin-top: 1rem; padding-top: 1rem; border-top: 1px dashed #E5E7EB;
+        }
+
+        .article-cover {
+            width: 100%; height: 450px; object-fit: cover; border-radius: 20px; margin-bottom: 3rem;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .article-body {
+            max-width: 800px; margin: 0 auto; font-size: 1.1rem; line-height: 1.8; color: #374151;
+        }
+        .article-body h2 { font-weight: 800; margin-top: 2.5rem; margin-bottom: 1rem; font-size: 1.8rem; }
+        .article-body p { margin-bottom: 1.5rem; }
+        
+        blockquote {
+            background: #F9FAFB; border-left: 5px solid var(--primary);
+            padding: 2rem; margin: 2.5rem 0; border-radius: 0 16px 16px 0;
+            font-style: italic; font-size: 1.2rem; color: var(--dark); font-family: 'Nunito', sans-serif;
+        }
+
+        /* Author Card */
+        .author-card {
+            background: #F8FAF9; border-radius: 20px; padding: 2rem; margin-top: 4rem;
+            display: flex; align-items: center; gap: 20px; border: 1px solid rgba(0,0,0,0.05);
+        }
+        .author-lg-img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 3px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .author-info h5 { font-weight: 800; margin: 0; font-size: 1.2rem; }
+        .author-info span { color: var(--primary); font-size: 0.9rem; font-weight: 700; text-transform: uppercase; }
+        
+        /* Share Buttons */
+        .share-section { margin-top: 3rem; text-align: center; }
+        .share-btn {
+            width: 45px; height: 45px; border-radius: 50%; border: 1px solid #E5E7EB;
+            display: inline-flex; align-items: center; justify-content: center; color: #4B5563;
+            margin: 0 5px; transition: 0.2s; background: white;
+        }
+        .share-btn:hover { background: var(--primary); color: white; border-color: var(--primary); transform: translateY(-3px); }
+
+        /* Related Articles */
+        .related-section { margin-top: 5rem; }
+        .related-card {
+            background: #FFF; border-radius: 20px; overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02); border: 1px solid rgba(0,0,0,0.03);
+            transition: 0.3s; height: 100%; display: block; text-decoration: none; color: var(--dark);
+        }
+        .related-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(78, 110, 39, 0.15); }
+        .related-img { height: 180px; width: 100%; object-fit: cover; }
+        .related-body { padding: 1.5rem; }
+        .related-title { font-weight: 800; font-size: 1.1rem; margin-bottom: 0.5rem; line-height: 1.4; }
+        .related-meta { font-size: 0.8rem; color: #9CA3AF; }
+
+        /* Footer */
+        footer { background: #FFF; padding-top: 3rem; padding-bottom: 1.5rem; margin-top: 4rem; box-shadow: 0 -10px 40px rgba(0,0,0,0.02); }
+        .social-btn { width: 36px; height: 36px; background: #F3F4F6; border-radius: 50%; display: grid; place-items: center; color: #4B5563; transition: 0.3s; }
+        .social-btn:hover { background: var(--primary); color: #FFF; }
+        .footer-logo-svg { width: 32px; height: 32px; fill: none; stroke: currentColor; stroke-width: 2.5; }
+
+        /* Scroll to Top */
+        .scroll-top-btn {
+            position: fixed; bottom: 100px; right: 30px; width: 45px; height: 45px;
+            background: #FFF; border-radius: 50%; display: grid; place-items: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1); cursor: pointer; z-index: 999;
+            opacity: 0; transition: 0.3s; pointer-events: none; color: var(--dark);
+        }
+        .scroll-top-btn.visible { opacity: 1; pointer-events: all; }
+        .scroll-top-btn:hover { background: var(--primary); color: white; transform: translateY(-3px); }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <div class="logo-box">
+                    <svg class="logo-svg" viewBox="0 0 40 40"><path d="M12 20 C 12 10, 28 10, 28 20 C 28 28, 18 28, 18 20 M 20 12 L 20 28 M 12 20 C 8 20, 8 32, 20 32" /></svg>
+                </div>
+                <span class="fs-5 text-dark" style="font-weight: 800;">e-psixoloq</span>
+            </a>
+            
+            <a href="articles.html" class="nav-link-back ms-auto">
+                <i data-lucide="arrow-left" width="18"></i> Məqalələrə qayıt
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main style="padding-top: 120px; padding-bottom: 60px;">
+        <div class="container">
+            
+            <div class="article-container reveal">
+                
+                <!-- Article Header -->
+                <div class="article-header">
+                    <div class="article-tags">
+                        <span class="cat-tag">Psixologiya</span>
+                        <span class="cat-tag" style="background: #FEF3C7; color: #D97706;">Şəxsi İnkişaf</span>
+                    </div>
+                    <h1 class="display-4 fw-bold mb-3">Emosional Zəka: Həyatımızdakı Gizli Güc</h1>
+                    <div class="article-meta">
+                        <span><i data-lucide="calendar" width="16"></i> 15 Yanvar 2025</span>
+                        <span><i data-lucide="clock" width="16"></i> 7 dəqiqə oxu</span>
+                        <span><i data-lucide="eye" width="16"></i> 1.2k baxış</span>
+                    </div>
+                </div>
+
+                <!-- Cover Image -->
+                <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?auto=format&fit=crop&q=80&w=1200" alt="Cover" class="article-cover">
+
+                <!-- Article Body -->
+                <div class="article-body">
+                    <p class="lead">Uğurlu insanların ortaq cəhəti nədir? Yüksək IQ, yoxsa başqa bir şey? Son araşdırmalar göstərir ki, həyatda xoşbəxtlik və uğur üçün Emosional Zəka (EQ) ən azı intellektual zəka qədər vacibdir.</p>
+
+                    <h2>Emosional Zəka Nədir?</h2>
+                    <p>Emosional zəka, öz duyğularımızı anlamaq, idarə etmək və başqalarının duyğularına empatiya ilə yanaşmaq qabiliyyətidir. Daniel Goleman tərəfindən populyarlaşdırılan bu termin, müasir psixologiyanın təməl daşlarından birinə çevrilib.</p>
+                    
+                    <blockquote>
+                        "Emosiyalarınızı idarə edə bilmirsinizsə, nə qədər ağıllı olmağınızın əhəmiyyəti yoxdur." <br>
+                        <span class="fs-6 mt-2 d-block text-muted">– Daniel Goleman</span>
+                    </blockquote>
+
+                    <h2>EQ-nin 5 Əsas Komponenti</h2>
+                    <p>Emosional zəka beş əsas sütun üzərində qurulur:</p>
+                    <ul>
+                        <li><strong>Özünü dərk (Self-awareness):</strong> Hisslərini tanımaq və onların davranışlarına təsirini anlamaq.</li>
+                        <li><strong>Özünü idarəetmə (Self-regulation):</strong> Ani impulsları idarə etmək və düşünərək hərəkət etmək.</li>
+                        <li><strong>Motivasiya:</strong> Daxili həvəs və məqsədlərə çatmaq üçün əzmkarlıq.</li>
+                        <li><strong>Empatiya:</strong> Başqalarının hisslərini anlamaq və onlara hörmət etmək.</li>
+                        <li><strong>Sosial bacarıqlar:</strong> Münasibətləri qurmaq və idarə etmək.</li>
+                    </ul>
+
+                    <h2>İş Həyatında EQ-nin Rolu</h2>
+                    <p>Müasir şirkətlər işə qəbul zamanı namizədlərin texniki bilikləri ilə yanaşı, "soft skills" adlanan yumşaq bacarıqlarına da diqqət yetirirlər. Yüksək EQ-yə malik işçilər komanda daxilində daha yaxşı ünsiyyət qurur, konfliktləri asanlıqla həll edir və stress altında daha effektiv işləyirlər.</p>
+
+                    <p>Nəticə etibarilə, emosional zəka inkişaf etdirilə bilən bir bacarıqdır. Gündəlik həyatda öz hisslərinizi izləmək, başqalarını dinləmək və hadisələrə müsbət yanaşmaqla EQ səviyyənizi artıra bilərsiniz.</p>
+                </div>
+
+                <!-- Author Section -->
+                <div class="author-card">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=200" alt="Author" class="author-lg-img">
+                    <div class="author-info">
+                        <h5>Dr. Nigar Quliyeva</h5>
+                        <span>Baş Psixoloq</span>
+                        <p class="text-muted small mt-2 mb-0">10 illik təcrübəyə malik klinik psixoloq. Emosional zəka və şəxsi inkişaf mövzularında ixtisaslaşmışdır.</p>
+                    </div>
+                </div>
+
+                <!-- Share -->
+                <div class="share-section">
+                    <span class="d-block fw-bold text-muted mb-3 text-uppercase small">Bu məqaləni paylaş</span>
+                    <a href="#" class="share-btn"><i data-lucide="facebook" width="20"></i></a>
+                    <a href="#" class="share-btn"><i data-lucide="twitter" width="20"></i></a>
+                    <a href="#" class="share-btn"><i data-lucide="linkedin" width="20"></i></a>
+                    <a href="#" class="share-btn"><i data-lucide="link" width="20"></i></a>
+                </div>
+
+            </div>
+
+            <!-- Related Articles -->
+            <div class="related-section reveal">
+                <h3 class="fw-bold mb-4 ps-2 border-start border-4 border-warning">Oxşar Məqalələr</h3>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <a href="#" class="related-card">
+                            <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=400" alt="" class="related-img">
+                            <div class="related-body">
+                                <div class="related-title">Stress və Yuxu Balansı</div>
+                                <div class="related-meta"><i data-lucide="clock" width="14"></i> 4 dəq oxu</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="#" class="related-card">
+                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=400" alt="" class="related-img">
+                            <div class="related-body">
+                                <div class="related-title">Komanda İşi və Liderlik</div>
+                                <div class="related-meta"><i data-lucide="clock" width="14"></i> 6 dəq oxu</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="#" class="related-card">
+                            <img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&q=80&w=400" alt="" class="related-img">
+                            <div class="related-body">
+                                <div class="related-title">Uşaqlarda Özgüvən</div>
+                                <div class="related-meta"><i data-lucide="clock" width="14"></i> 8 dəq oxu</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-md-4">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <div class="logo-box"><svg class="footer-logo-svg" viewBox="0 0 40 40"><path d="M12 20 C 12 10, 28 10, 28 20 C 28 28, 18 28, 18 20 M 20 12 L 20 28 M 12 20 C 8 20, 8 32, 20 32" /></svg></div>
+                        <span class="fw-bold fs-6 text-primary-custom">e-psixoloq</span>
+                    </div>
+                    <p class="small text-muted">Psixoloji maarifləndirmə və şəxsi inkişaf üçün Azərbaycanın ilk rəqəmsal bələdçisi.</p>
+                </div>
+                <div class="col-md-2">
+                    <h6 class="fw-bold mb-3 small">Platforma</h6>
+                    <ul class="list-unstyled small text-muted">
+                        <li><a href="articles.html" class="text-decoration-none text-muted fw-bold text-dark">Məqalələr</a></li>
+                        <li><a href="news.html" class="text-decoration-none text-muted">Xəbərlər</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-bold mb-3 small">Əlaqə</h6>
+                    <ul class="list-unstyled small text-muted">
+                        <li class="mb-2"><i data-lucide="phone" width="14"></i> +994 50 000 00 00</li>
+                        <li><i data-lucide="mail" width="14"></i> info@e-psixoloq.az</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-bold mb-3 small">Sosial Media</h6>
+                    <div class="d-flex gap-2">
+                        <a href="#" class="social-btn"><i data-lucide="instagram" width="16"></i></a>
+                        <a href="#" class="social-btn"><i data-lucide="send" width="16"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4 pt-3 border-top small text-muted">© 2025 E-psixoloq.</div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top -->
+    <div class="scroll-top-btn" id="scrollTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <i data-lucide="arrow-up" width="20"></i>
+    </div>
+
+    <!-- Chat Float -->
+    <div class="chat-float" onclick="alert('Chat tezliklə aktiv olacaq!')" style="position: fixed; bottom: 30px; right: 30px; background-color: var(--primary); color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 20px rgba(78, 110, 39, 0.4); cursor: pointer; z-index: 1000; transition: transform 0.2s;"><i data-lucide="message-circle" width="24"></i></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        lucide.createIcons();
+
+        // Scroll Reveal
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Scroll to Top Logic
+        window.addEventListener('scroll', () => {
+            const btn = document.getElementById('scrollTopBtn');
+            if (window.scrollY > 300) btn.classList.add('visible');
+            else btn.classList.remove('visible');
+        });
+    </script>
+</body>
+</html>

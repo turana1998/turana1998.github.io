@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zəka və Psixoloji Testlər - E-psixoloq</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=DM+Sans:wght@400;500;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- EYNİ DİZAYN SİSTEMİ --- */
+        :root {
+            --primary: #4E6E27;
+            --primary-hover: #3d561f;
+            --dark: #1F2937;
+            --cream: #FFFBEB;
+            --orange: #F97316;
+            --gray-light: #F3F4F6;
+            --border-color: #E5E7EB;
+            --font-scale: 1;
+        }
+
+        /* --- ACCESSIBILITY MODES --- */
+        body.acc-contrast { --primary: #000 !important; --dark: #000 !important; background: #FFF !important; background-image: none !important; color: #000 !important; }
+        body.acc-contrast * { color: #000 !important; border-color: #000 !important; }
+        body.acc-contrast .navbar, body.acc-contrast footer { background: #FFF !important; border: 2px solid #000 !important; color: #000 !important; }
+
+        body.acc-dark { --primary: #4ADE80; --dark: #F3F4F6; background: #0F172A !important; background-image: none !important; color: #FFF !important; }
+        body.acc-dark .test-card, body.acc-dark .filter-btn, body.acc-dark .stat-box, body.acc-dark .sidebar-card { background: #1E293B; border-color: #334155; color: #FFF; }
+        body.acc-dark .navbar, body.acc-dark footer { background: #0F172A; color: #FFF; }
+        body.acc-dark .nav-link-back { color: #FFF !important; }
+        body.acc-dark .test-meta, body.acc-dark .quiz-question { color: #94A3B8; }
+        body.acc-dark .quiz-opt { background: #334155; color: #FFF; border-color: #475569; }
+
+        /* --- BODY STYLE --- */
+        body {
+            background-color: #F8FAF9;
+            background-image: 
+                radial-gradient(circle at 0% 0%, rgba(78, 110, 39, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 100% 0%, rgba(249, 115, 22, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 100% 100%, rgba(78, 110, 39, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 0% 100%, rgba(249, 115, 22, 0.1) 0%, transparent 40%);
+            background-attachment: fixed;
+            font-family: 'DM Sans', sans-serif;
+            color: var(--dark);
+            font-size: calc(0.95rem * var(--font-scale));
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 { font-family: 'Nunito', sans-serif; color: var(--dark); }
+        .text-primary-custom { color: var(--primary); }
+
+        /* --- ANIMATIONS --- */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* --- NAVİQASİYA --- */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03); padding: 0.8rem 2rem;
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+        }
+        .logo-box { background: var(--primary); width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+        .logo-svg { width: 22px; height: 22px; fill: none; stroke: white; stroke-width: 2.5; }
+        .nav-link-back { text-decoration: none; color: var(--dark); font-weight: 700; display: flex; align-items: center; gap: 5px; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-link-back:hover { color: var(--primary); }
+
+        /* --- TEST PAGE STYLES --- */
+        .search-box {
+            position: relative; width: 100%; margin-bottom: 1.5rem;
+        }
+        .search-icon { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: #9CA3AF; }
+        .test-search-input {
+            width: 100%; padding: 1rem 1rem 1rem 3rem; border-radius: 50px;
+            border: 2px solid #E5E7EB; font-size: 1rem; outline: none; transition: all 0.3s;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+        }
+        .test-search-input:focus { border-color: var(--primary); box-shadow: 0 4px 20px rgba(78, 110, 39, 0.15); }
+
+        .filter-tabs { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 2rem; }
+        .filter-btn {
+            background: white; border: 1px solid #E5E7EB; padding: 8px 20px;
+            border-radius: 50px; font-weight: 600; color: var(--dark); cursor: pointer; transition: 0.2s;
+            font-size: 0.9rem;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary); color: white; border-color: var(--primary);
+        }
+
+        /* --- TEST CARDS --- */
+        .test-card {
+            background: #FFF; border-radius: 24px; padding: 1.8rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02); border: 1px solid rgba(0,0,0,0.03);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); height: 100%; display: flex; flex-direction: column;
+            position: relative; overflow: hidden; text-decoration: none; color: var(--dark);
+        }
+        .test-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(78, 110, 39, 0.15); border-color: rgba(78, 110, 39, 0.3); }
+        
+        .test-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem; }
+        .test-icon-box {
+            width: 56px; height: 56px; border-radius: 16px; display: grid; place-items: center;
+            font-size: 1.5rem; transition: transform 0.3s;
+        }
+        .test-card:hover .test-icon-box { transform: scale(1.1) rotate(-5deg); }
+
+        .test-badge {
+            font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px;
+            padding: 4px 10px; border-radius: 20px; background: #F3F4F6; color: #6B7280;
+        }
+
+        .test-title { font-weight: 800; font-size: 1.15rem; margin-bottom: 0.5rem; line-height: 1.3; }
+        .test-desc { font-size: 0.9rem; color: #6B7280; line-height: 1.5; margin-bottom: 1.5rem; flex-grow: 1; }
+
+        .test-meta {
+            display: flex; align-items: center; gap: 15px; font-size: 0.85rem; color: #6B7280; font-weight: 600;
+            padding-top: 1rem; border-top: 1px dashed #E5E7EB; margin-bottom: 1rem;
+        }
+        
+        .btn-start-test {
+            width: 100%; background: var(--dark); color: white; border: none; padding: 10px;
+            border-radius: 12px; font-weight: 700; font-size: 0.9rem; transition: 0.2s;
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+        }
+        .test-card:hover .btn-start-test { background: var(--primary); }
+
+        /* Stats Section */
+        .stat-box {
+            background: white; border-radius: 20px; padding: 1.5rem; text-align: center;
+            border: 1px solid rgba(0,0,0,0.03); box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+        .stat-num { font-size: 2rem; font-weight: 800; color: var(--primary); display: block; margin-bottom: 5px; }
+        .stat-label { font-size: 0.85rem; color: #6B7280; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* --- SIDEBAR WIDGETS --- */
+        .sidebar-card {
+            background: #FFF; border-radius: 24px; padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02); border: 1px solid rgba(0,0,0,0.03);
+            margin-bottom: 1.5rem; position: relative; overflow: hidden;
+        }
+        .quiz-header { display: flex; align-items: center; gap: 10px; margin-bottom: 1rem; color: var(--orange); }
+        .quiz-question { font-weight: 700; margin-bottom: 1.2rem; font-size: 1.05rem; }
+        .quiz-opt {
+            display: block; width: 100%; text-align: left; padding: 10px 15px; margin-bottom: 8px;
+            border: 2px solid #E5E7EB; border-radius: 12px; background: white; color: var(--dark);
+            font-weight: 600; transition: 0.2s;
+        }
+        .quiz-opt:hover { background: #F9FAFB; border-color: #D1D5DB; }
+        .quiz-opt.correct { background: #DCFCE7; border-color: #22C55E; color: #15803D; }
+        .quiz-opt.wrong { background: #FEE2E2; border-color: #EF4444; color: #B91C1C; }
+        
+        .leader-item { display: flex; align-items: center; gap: 12px; margin-bottom: 1rem; border-bottom: 1px solid #F3F4F6; padding-bottom: 0.8rem; }
+        .leader-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .leader-rank { font-weight: 800; color: #9CA3AF; font-size: 1.1rem; width: 20px; }
+        .leader-avatar { width: 40px; height: 40px; border-radius: 50%; background: #E5E7EB; display: grid; place-items: center; font-weight: 700; }
+        .leader-info h6 { margin: 0; font-size: 0.95rem; font-weight: 700; }
+        .leader-info span { font-size: 0.8rem; color: #6B7280; }
+
+        /* Footer */
+        footer { background: #FFF; padding-top: 3rem; padding-bottom: 1.5rem; margin-top: 4rem; box-shadow: 0 -10px 40px rgba(0,0,0,0.02); }
+        .social-btn { width: 36px; height: 36px; background: #F3F4F6; border-radius: 50%; display: grid; place-items: center; color: #4B5563; transition: 0.3s; }
+        .social-btn:hover { background: var(--primary); color: #FFF; }
+        .footer-logo-svg { width: 32px; height: 32px; fill: none; stroke: currentColor; stroke-width: 2.5; }
+
+        /* Scroll to Top */
+        .scroll-top-btn {
+            position: fixed; bottom: 100px; right: 30px; width: 45px; height: 45px;
+            background: #FFF; border-radius: 50%; display: grid; place-items: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1); cursor: pointer; z-index: 999;
+            opacity: 0; transition: 0.3s; pointer-events: none; color: var(--dark);
+        }
+        .scroll-top-btn.visible { opacity: 1; pointer-events: all; }
+        .scroll-top-btn:hover { background: var(--primary); color: white; transform: translateY(-3px); }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <div class="logo-box">
+                    <svg class="logo-svg" viewBox="0 0 40 40"><path d="M12 20 C 12 10, 28 10, 28 20 C 28 28, 18 28, 18 20 M 20 12 L 20 28 M 12 20 C 8 20, 8 32, 20 32" /></svg>
+                </div>
+                <span class="fs-5 text-dark" style="font-weight: 800;">e-psixoloq</span>
+            </a>
+            
+            <a href="index.html" class="nav-link-back ms-auto">
+                <i data-lucide="home" width="18"></i> Ana Səhifə
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main style="padding-top: 120px; padding-bottom: 60px;">
+        <div class="container">
+            
+            <!-- Header & Stats -->
+            <div class="text-center mb-5 reveal">
+                <span class="fw-bold small text-uppercase" style="letter-spacing: 2px; color: var(--orange);">TESTLƏR MƏRKƏZİ</span>
+                <h1 class="display-5 fw-bold mt-2 mb-4">Özünü Kəşf Etmək üçün <span class="text-primary-custom">Testlər</span></h1>
+                
+                <div class="row justify-content-center g-3 mb-4">
+                    <div class="col-4 col-md-2">
+                        <div class="stat-box">
+                            <span class="stat-num">15+</span>
+                            <span class="stat-label">Aktiv Test</span>
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <div class="stat-box">
+                            <span class="stat-num">5k+</span>
+                            <span class="stat-label">İştirakçı</span>
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <div class="stat-box">
+                            <span class="stat-num">98%</span>
+                            <span class="stat-label">Dəqiqlik</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-5">
+                
+                <!-- SOL TƏRƏF: MAIN CONTENT (FILTERS + GRID) -->
+                <div class="col-lg-8 reveal">
+                    
+                    <!-- Search & Filters -->
+                    <div class="d-flex flex-column gap-3 mb-4">
+                        <div class="search-box">
+                            <i data-lucide="search" class="search-icon" width="20"></i>
+                            <input type="text" class="test-search-input" id="testSearch" placeholder="Test axtar... (Məs: IQ, Şəxsiyyət, Stress)">
+                        </div>
+
+                        <div class="filter-tabs justify-content-start">
+                            <button class="filter-btn active" onclick="filterTests('all', this)">Bütün Testlər</button>
+                            <button class="filter-btn" onclick="filterTests('iq', this)">Zəka (IQ)</button>
+                            <button class="filter-btn" onclick="filterTests('personality', this)">Şəxsiyyət</button>
+                            <button class="filter-btn" onclick="filterTests('career', this)">Karyera</button>
+                            <button class="filter-btn" onclick="filterTests('eq', this)">Emosional (EQ)</button>
+                        </div>
+                    </div>
+
+                    <!-- Test Grid -->
+                    <div class="row g-4" id="testGrid">
+                        
+                        <!-- 1. Raven IQ Test -->
+                        <div class="col-md-6 test-item" data-category="iq">
+                            <a href="#" class="test-card">
+                                <div class="test-header">
+                                    <div class="test-icon-box" style="background: #EFF6FF; color: #2563EB;"><i data-lucide="brain-circuit" width="28"></i></div>
+                                    <span class="test-badge">KLASSİK IQ</span>
+                                </div>
+                                <h5 class="test-title">Raven Proqressiv Matrisləri</h5>
+                                <p class="test-desc">Məntiqi düşünmə və vizual analiz qabiliyyətinizi ölçən klassik IQ testi.</p>
+                                <div class="test-meta">
+                                    <span><i data-lucide="clock" width="16"></i> 20 dəq</span>
+                                    <span><i data-lucide="help-circle" width="16"></i> 30 Sual</span>
+                                </div>
+                                <button class="btn-start-test">Testə Başla <i data-lucide="arrow-right" width="16"></i></button>
+                            </a>
+                        </div>
+
+                        <!-- 2. MBTI Personality -->
+                        <div class="col-md-6 test-item" data-category="personality">
+                            <a href="#" class="test-card">
+                                <div class="test-header">
+                                    <div class="test-icon-box" style="background: #FDF4FF; color: #C026D3;"><i data-lucide="user-search" width="28"></i></div>
+                                    <span class="test-badge">ŞƏXSİYYƏT</span>
+                                </div>
+                                <h5 class="test-title">MBTI Şəxsiyyət Tipi</h5>
+                                <p class="test-desc">Xarakterinizi, güclü və zəif tərəflərinizi 16 şəxsiyyət tipi üzrə analiz edin.</p>
+                                <div class="test-meta">
+                                    <span><i data-lucide="clock" width="16"></i> 15 dəq</span>
+                                    <span><i data-lucide="help-circle" width="16"></i> 60 Sual</span>
+                                </div>
+                                <button class="btn-start-test">Testə Başla <i data-lucide="arrow-right" width="16"></i></button>
+                            </a>
+                        </div>
+
+                        <!-- 3. Career Path -->
+                        <div class="col-md-6 test-item" data-category="career">
+                            <a href="#" class="test-card">
+                                <div class="test-header">
+                                    <div class="test-icon-box" style="background: #FFF7ED; color: #EA580C;"><i data-lucide="briefcase" width="28"></i></div>
+                                    <span class="test-badge">KARYERA</span>
+                                </div>
+                                <h5 class="test-title">Peşə Meyilliliyi Testi</h5>
+                                <p class="test-desc">Maraqlarınızı və bacarıqlarınızı kəşf edərək uyğun peşəni tapın.</p>
+                                <div class="test-meta">
+                                    <span><i data-lucide="clock" width="16"></i> 12 dəq</span>
+                                    <span><i data-lucide="help-circle" width="16"></i> 45 Sual</span>
+                                </div>
+                                <button class="btn-start-test">Testə Başla <i data-lucide="arrow-right" width="16"></i></button>
+                            </a>
+                        </div>
+
+                        <!-- 4. EQ Test -->
+                        <div class="col-md-6 test-item" data-category="eq">
+                            <a href="#" class="test-card">
+                                <div class="test-header">
+                                    <div class="test-icon-box" style="background: #ECFDF5; color: #059669;"><i data-lucide="heart-handshake" width="28"></i></div>
+                                    <span class="test-badge">EQ TEST</span>
+                                </div>
+                                <h5 class="test-title">Emosional Zəka (EQ)</h5>
+                                <p class="test-desc">Empatiya, özünü dərk və sosial bacarıq səviyyənizi ölçün.</p>
+                                <div class="test-meta">
+                                    <span><i data-lucide="clock" width="16"></i> 10 dəq</span>
+                                    <span><i data-lucide="help-circle" width="16"></i> 25 Sual</span>
+                                </div>
+                                <button class="btn-start-test">Testə Başla <i data-lucide="arrow-right" width="16"></i></button>
+                            </a>
+                        </div>
+
+                        <!-- 5. Stress Level -->
+                        <div class="col-md-6 test-item" data-category="personality">
+                            <a href="#" class="test-card">
+                                <div class="test-header">
+                                    <div class="test-icon-box" style="background: #FEF2F2; color: #DC2626;"><i data-lucide="activity" width="28"></i></div>
+                                    <span class="test-badge">SAĞLAMLIQ</span>
+                                </div>
+                                <h5 class="test-title">Stress Səviyyəsi Testi</h5>
+                                <p class="test-desc">Gündəlik həyatda stress səviyyənizi və tükənmişlik sindromunu yoxlayın.</p>
+                                <div class="test-meta">
+                                    <span><i data-lucide="clock" width="16"></i> 5 dəq</span>
+                                    <span><i data-lucide="help-circle" width="16"></i> 15 Sual</span>
+                                </div>
+                                <button class="btn-start-test">Testə Başla <i data-lucide="arrow-right" width="16"></i></button>
+                            </a>
+                        </div>
+
+                        <!-- 6. Verbal IQ -->
+                        <div class="col-md-6 test-item" data-category="iq">
+                            <a href="#" class="test-card">
+                                <div class="test-header">
+                                    <div class="test-icon-box" style="background: #F0F9FF; color: #0284C7;"><i data-lucide="languages" width="28"></i></div>
+                                    <span class="test-badge">VERBAL IQ</span>
+                                </div>
+                                <h5 class="test-title">Verbal İntellekt Testi</h5>
+                                <p class="test-desc">Söz ehtiyatı, analogiyalar və məntiqi cümlə tamamlama qabiliyyətinizi yoxlayın.</p>
+                                <div class="test-meta">
+                                    <span><i data-lucide="clock" width="16"></i> 15 dəq</span>
+                                    <span><i data-lucide="help-circle" width="16"></i> 40 Sual</span>
+                                </div>
+                                <button class="btn-start-test">Testə Başla <i data-lucide="arrow-right" width="16"></i></button>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- SAĞ TƏRƏF: SIDEBAR (GÜNÜN SUALI & LİDERLƏR) -->
+                <div class="col-lg-4 reveal">
+                    
+                    <!-- Günün Sualı -->
+                    <div class="sidebar-card">
+                        <div class="quiz-header">
+                            <i data-lucide="lightbulb" width="24"></i>
+                            <h5 class="m-0 fw-bold">Günün Sualı</h5>
+                        </div>
+                        <div class="quiz-content">
+                            <p class="quiz-question">Çətin vəziyyətlərdə öz hisslərini idarə edə bilən və başqalarının duyğularını anlayan insanda hansı zəka növü daha yüksəkdir?</p>
+                            <div id="quiz-options">
+                                <button class="quiz-opt" onclick="checkQuiz(this, false)">A) Məntiqi Zəka (IQ)</button>
+                                <button class="quiz-opt" onclick="checkQuiz(this, true)">B) Emosional Zəka (EQ)</button>
+                                <button class="quiz-opt" onclick="checkQuiz(this, false)">C) Vizual Zəka</button>
+                            </div>
+                            <div id="quiz-feedback" class="mt-3 small fw-bold" style="display: none;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Liderlər Lövhəsi -->
+                    <div class="sidebar-card">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5 class="fw-bold m-0"><i data-lucide="trophy" class="text-warning me-2" width="20"></i> Top Liderlər</h5>
+                            <a href="#" class="small text-decoration-none text-primary fw-bold">Hamısı</a>
+                        </div>
+                        
+                        <div class="leader-item">
+                            <span class="leader-rank text-warning">1</span>
+                            <div class="leader-avatar bg-warning bg-opacity-10 text-warning">A</div>
+                            <div class="leader-info">
+                                <h6>Aysel Kərimova</h6>
+                                <span>1450 xal</span>
+                            </div>
+                        </div>
+
+                        <div class="leader-item">
+                            <span class="leader-rank text-secondary">2</span>
+                            <div class="leader-avatar bg-secondary bg-opacity-10 text-secondary">R</div>
+                            <div class="leader-info">
+                                <h6>Rəşad Əliyev</h6>
+                                <span>1320 xal</span>
+                            </div>
+                        </div>
+
+                        <div class="leader-item">
+                            <span class="leader-rank" style="color: #CD7F32;">3</span>
+                            <div class="leader-avatar" style="background: #FFF7ED; color: #CD7F32;">N</div>
+                            <div class="leader-info">
+                                <h6>Nigar Quliyeva</h6>
+                                <span>1280 xal</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reklam / Banner -->
+                    <div class="sidebar-card bg-primary text-white text-center p-4 border-0">
+                        <i data-lucide="zap" width="32" class="mb-3 text-warning"></i>
+                        <h5 class="fw-bold">Premium Hesab</h5>
+                        <p class="small opacity-75 mb-3">Bütün testlərə limitsiz giriş və ətraflı analiz əldə edin.</p>
+                        <button class="btn btn-light btn-sm rounded-pill fw-bold text-primary px-4">Yüksəlt</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-md-4">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <div class="logo-box"><svg class="footer-logo-svg" viewBox="0 0 40 40"><path d="M12 20 C 12 10, 28 10, 28 20 C 28 28, 18 28, 18 20 M 20 12 L 20 28 M 12 20 C 8 20, 8 32, 20 32" /></svg></div>
+                        <span class="fw-bold fs-6 text-primary-custom">e-psixoloq</span>
+                    </div>
+                    <p class="small text-muted">Psixoloji maarifləndirmə və şəxsi inkişaf üçün Azərbaycanın ilk rəqəmsal bələdçisi.</p>
+                </div>
+                <div class="col-md-2">
+                    <h6 class="fw-bold mb-3 small">Platforma</h6>
+                    <ul class="list-unstyled small text-muted">
+                        <li><a href="tests.html" class="text-decoration-none text-muted fw-bold text-dark">Testlər</a></li>
+                        <li><a href="professions.html" class="text-decoration-none text-muted">Peşələr</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-bold mb-3 small">Əlaqə</h6>
+                    <ul class="list-unstyled small text-muted">
+                        <li class="mb-2"><i data-lucide="phone" width="14"></i> +994 50 000 00 00</li>
+                        <li><i data-lucide="mail" width="14"></i> info@e-psixoloq.az</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-bold mb-3 small">Sosial Media</h6>
+                    <div class="d-flex gap-2">
+                        <a href="#" class="social-btn"><i data-lucide="instagram" width="16"></i></a>
+                        <a href="#" class="social-btn"><i data-lucide="send" width="16"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4 pt-3 border-top small text-muted">© 2025 E-psixoloq.</div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top -->
+    <div class="scroll-top-btn" id="scrollTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <i data-lucide="arrow-up" width="20"></i>
+    </div>
+
+    <!-- Chat Float -->
+    <div class="chat-float" onclick="alert('Chat tezliklə aktiv olacaq!')" style="position: fixed; bottom: 30px; right: 30px; background-color: var(--primary); color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 20px rgba(78, 110, 39, 0.4); cursor: pointer; z-index: 1000; transition: transform 0.2s;"><i data-lucide="message-circle" width="24"></i></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        lucide.createIcons();
+
+        // Scroll Reveal
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Scroll to Top Logic
+        window.addEventListener('scroll', () => {
+            const btn = document.getElementById('scrollTopBtn');
+            if (window.scrollY > 300) btn.classList.add('visible');
+            else btn.classList.remove('visible');
+        });
+
+        // Filter Logic
+        function filterTests(category, btn) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const items = document.querySelectorAll('.test-item');
+            
+            items.forEach(item => {
+                const itemCategory = item.getAttribute('data-category');
+                if (category === 'all' || itemCategory === category) {
+                    item.style.display = 'block';
+                    setTimeout(() => item.style.opacity = '1', 50);
+                } else {
+                    item.style.display = 'none';
+                    item.style.opacity = '0';
+                }
+            });
+        }
+
+        // Search Logic
+        document.getElementById('testSearch').addEventListener('keyup', function() {
+            const searchText = this.value.toLowerCase();
+            const items = document.querySelectorAll('.test-item');
+
+            items.forEach(item => {
+                const title = item.querySelector('.test-title').innerText.toLowerCase();
+                const desc = item.querySelector('.test-desc').innerText.toLowerCase();
+
+                if (title.includes(searchText) || desc.includes(searchText)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+
+        // Quiz Logic
+        function checkQuiz(btn, isCorrect) {
+            const feedback = document.getElementById('quiz-feedback');
+            const btns = document.querySelectorAll('.quiz-opt');
+            
+            // Disable all buttons
+            btns.forEach(b => b.disabled = true);
+
+            if(isCorrect) {
+                btn.classList.add('correct');
+                feedback.innerText = "Afərin! Doğru cavab: Emosional Zəka (EQ) - Özünü və başqalarını anlamaq bacarığıdır.";
+                feedback.className = "mt-3 small fw-bold text-success";
+            } else {
+                btn.classList.add('wrong');
+                feedback.innerText = "Yanlış. Doğru cavab: Emosional Zəka (EQ). Bu, sosial və emosional bacarıqlarla bağlıdır.";
+                feedback.className = "mt-3 small fw-bold text-danger";
+                
+                // Show correct one
+                btns.forEach(b => {
+                    if(b.innerText.includes('Emosional')) b.classList.add('correct');
+                });
+            }
+            feedback.style.display = 'block';
+        }
+    </script>
+</body>
+</html>

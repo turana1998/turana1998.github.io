@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konsultasiyaya Yazıl - E-psixoloq</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=DM+Sans:wght@400;500;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- DİZAYN SİSTEMİ (Index.html ilə eyni) --- */
+        :root {
+            --primary: #4E6E27;
+            --primary-hover: #3d561f;
+            --dark: #1F2937;
+            --cream: #FFFBEB;
+            --orange: #F97316;
+            --gray-light: #F3F4F6;
+            --border-color: #E5E7EB;
+        }
+
+        body {
+            background-color: #F8FAF9;
+            background-image: 
+                radial-gradient(circle at 0% 0%, rgba(78, 110, 39, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 100% 100%, rgba(249, 115, 22, 0.05) 0%, transparent 40%);
+            background-attachment: fixed;
+            font-family: 'DM Sans', sans-serif;
+            color: var(--dark);
+            padding-bottom: 50px;
+        }
+
+        h1, h2, h3, h4, h5 { font-family: 'Nunito', sans-serif; color: var(--dark); }
+
+        /* --- NAVBAR --- */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            padding: 0.8rem 2rem;
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+        }
+        .logo-box { background: var(--primary); width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+        .logo-svg { width: 22px; height: 22px; fill: none; stroke: white; stroke-width: 2.5; }
+        .nav-link-back { text-decoration: none; color: var(--dark); font-weight: 700; display: flex; align-items: center; gap: 5px; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-link-back:hover { color: var(--primary); }
+
+        /* --- FORM LAYOUT --- */
+        .booking-container {
+            padding-top: 100px;
+        }
+
+        .form-card {
+            background: #FFF;
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .form-label {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--dark);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .form-select-custom, .form-control-custom {
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 12px;
+            font-size: 0.95rem;
+            width: 100%;
+            transition: all 0.2s;
+            background-color: #FFF;
+            color: var(--dark);
+        }
+        
+        .form-select-custom:focus, .form-control-custom:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(78, 110, 39, 0.1);
+            outline: none;
+        }
+
+        /* Disabled State Styling */
+        .form-select-custom:disabled, .form-control-custom:disabled {
+            background-color: var(--gray-light);
+            color: #9CA3AF;
+            cursor: not-allowed;
+            border-color: #E5E7EB;
+        }
+
+        /* --- SUMMARY CARD (STICKY) --- */
+        .summary-card {
+            background: var(--dark);
+            color: white;
+            border-radius: 24px;
+            padding: 2rem;
+            position: sticky;
+            top: 100px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 1rem;
+        }
+        .summary-row:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        
+        .summary-label { opacity: 0.6; font-size: 0.85rem; font-weight: 600; }
+        .summary-value { font-weight: 700; font-size: 1rem; text-align: right; }
+        .summary-value.empty { font-style: italic; opacity: 0.4; }
+
+        .btn-submit {
+            background: var(--orange);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 14px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1rem;
+            margin-top: 2rem;
+            transition: transform 0.2s, background 0.2s;
+            cursor: pointer;
+        }
+        .btn-submit:hover { background: #EA580C; transform: translateY(-2px); }
+        .btn-submit:disabled { background: #9CA3AF; cursor: not-allowed; transform: none; }
+
+        /* Animation */
+        .fade-in { animation: fadeIn 0.4s ease-out forwards; opacity: 0; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .step-indicator {
+            display: inline-block;
+            width: 24px; height: 24px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 0.8rem;
+            line-height: 24px;
+            margin-right: 8px;
+        }
+        
+        .step-indicator.disabled { background: #D1D5DB; }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <div class="logo-box">
+                    <svg class="logo-svg" viewBox="0 0 40 40"><path d="M12 20 C 12 10, 28 10, 28 20 C 28 28, 18 28, 18 20 M 20 12 L 20 28 M 12 20 C 8 20, 8 32, 20 32" /></svg>
+                </div>
+                <span class="text-dark" style="font-weight: 800; font-size: 1.15rem;">e-psixoloq</span>
+            </a>
+            
+            <a href="index.html" class="nav-link-back ms-auto">
+                <i data-lucide="x" width="20"></i> Ləğv et
+            </a>
+        </div>
+    </nav>
+
+    <div class="container booking-container">
+        <div class="row g-5">
+            
+            <!-- FORM SECTOR -->
+            <div class="col-lg-8">
+                <div class="mb-4">
+                    <h1 class="fw-bold">Konsultasiya Təyini</h1>
+                    <p class="text-muted">Zəhmət olmasa aşağıdakı məlumatları ardıcıllıqla doldurun.</p>
+                </div>
+
+                <form id="bookingForm" class="form-card" onsubmit="event.preventDefault(); submitBooking();">
+                    
+                    <!-- 1. Psixoloq Seçimi (Statik HTML) -->
+                    <div class="mb-4">
+                        <label class="form-label"><span class="step-indicator">1</span> Mütəxəssis Seçin</label>
+                        <select class="form-select-custom" id="doctorSelect" onchange="handleDoctorChange()">
+                            <option value="" selected disabled>Siyahıdan seçin...</option>
+                            <!-- PHP ilə buranı dövrə salacaqsınız: -->
+                            <!-- <option value="<?=$doctor['id']?>"><?=$doctor['name']?></option> -->
+                            <option value="1">Dr. Leyla Əliyeva</option>
+                            <option value="2">Rəşad Məmmədov</option>
+                            <option value="3">Nigar Qasımova</option>
+                        </select>
+                    </div>
+
+                    <!-- 2. Kateqoriya Seçimi (Statik HTML) -->
+                    <div class="mb-4 fade-in" style="animation-delay: 0.1s;">
+                        <label class="form-label"><span class="step-indicator disabled" id="step2">2</span> Konsultasiya Növü</label>
+                        <select class="form-select-custom" id="categorySelect" disabled onchange="handleCategoryChange()">
+                            <option value="" selected disabled>Əvvəlcə mütəxəssis seçin</option>
+                            <!-- PHP ilə buranı dövrə salacaqsınız (data-price atributuna diqqət edin): -->
+                            <!-- <option value="<?=$service['id']?>" data-price="<?=$service['price']?>"><?=$service['name']?></option> -->
+                            <option value="s1" data-price="50">Fərdi Konsultasiya (50₼)</option>
+                            <option value="s2" data-price="60">Travma Terapiyası (60₼)</option>
+                            <option value="s3" data-price="40">Karyera Planlaması (40₼)</option>
+                            <option value="s4" data-price="45">Mentorluq (45₼)</option>
+                            <option value="s5" data-price="50">Uşaq Psixologiyası (50₼)</option>
+                        </select>
+                    </div>
+
+                    <!-- 3. Tarix Seçimi -->
+                    <div class="mb-4 fade-in" style="animation-delay: 0.2s;">
+                        <label class="form-label"><span class="step-indicator disabled" id="step3">3</span> Tarix</label>
+                        <input type="date" class="form-control-custom" id="dateInput" disabled onchange="handleDateChange()">
+                    </div>
+
+                    <!-- 4. Saat və Dəqiqə (Müddət) -->
+                    <div class="mb-4 fade-in" style="animation-delay: 0.3s;">
+                        <label class="form-label"><span class="step-indicator disabled" id="step4">4</span> Zaman və Müddət</label>
+                        <div class="row g-2">
+                            <div class="col-6">
+                                <label class="small text-muted fw-bold ms-1 mb-1" style="font-size: 0.75rem;">BAŞLAMA SAATI</label>
+                                <select class="form-select-custom" id="hourSelect" disabled onchange="handleTimeChange()">
+                                    <option value="" selected disabled>Seç...</option>
+                                    <!-- PHP ilə generate edə bilərsiniz -->
+                                    <option value="09:00">09:00</option>
+                                    <option value="10:00">10:00</option>
+                                    <option value="11:00">11:00</option>
+                                    <option value="12:00">12:00</option>
+                                    <option value="13:00">13:00</option>
+                                    <option value="14:00">14:00</option>
+                                    <option value="15:00">15:00</option>
+                                    <option value="16:00">16:00</option>
+                                    <option value="17:00">17:00</option>
+                                    <option value="18:00">18:00</option>
+                                </select>
+                            </div>
+                            <div class="col-6">
+                                <label class="small text-muted fw-bold ms-1 mb-1" style="font-size: 0.75rem;">MÜDDƏT (DƏQİQƏ)</label>
+                                <select class="form-select-custom" id="durationSelect" disabled onchange="handleTimeChange()">
+                                    <option value="" selected disabled>Seç...</option>
+                                    <option value="30">30 dəqiqə</option>
+                                    <option value="45">45 dəqiqə</option>
+                                    <option value="60">60 dəqiqə</option>
+                                    <option value="90">90 dəqiqə</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5. Əlavə Qeyd -->
+                    <div class="mb-2 fade-in" style="animation-delay: 0.4s;">
+                        <label class="form-label"><i data-lucide="edit-3" width="16" class="text-muted"></i> Əlavə Qeyd (İstəyə bağlı)</label>
+                        <textarea class="form-control-custom" id="noteInput" rows="3" placeholder="Sizi narahat edən məsələ haqqında qısa məlumat..."></textarea>
+                    </div>
+
+                </form>
+            </div>
+
+            <!-- SUMMARY SECTOR -->
+            <div class="col-lg-4">
+                <div class="summary-card fade-in">
+                    <h4 class="fw-bold mb-4">Seçiminiz</h4>
+                    
+                    <div class="summary-row">
+                        <span class="summary-label">Mütəxəssis</span>
+                        <span class="summary-value empty" id="summaryDoctor">Seçilməyib</span>
+                    </div>
+                    
+                    <div class="summary-row">
+                        <span class="summary-label">Xidmət</span>
+                        <span class="summary-value empty" id="summaryCategory">Seçilməyib</span>
+                    </div>
+                    
+                    <div class="summary-row">
+                        <span class="summary-label">Tarix</span>
+                        <span class="summary-value empty" id="summaryDate">--/--/----</span>
+                    </div>
+                    
+                    <div class="summary-row">
+                        <span class="summary-label">Zaman</span>
+                        <span class="summary-value empty" id="summaryTime">--:--</span>
+                    </div>
+
+                    <div class="summary-row mt-4 pt-3 border-top border-light">
+                        <span class="summary-label text-warning">Ödəniləcək Məbləğ</span>
+                        <span class="summary-value text-warning fs-4" id="summaryPrice">0 ₼</span>
+                    </div>
+
+                    <button class="btn-submit" id="submitBtn" disabled>
+                        Təsdiqlə və Ödə
+                    </button>
+                    
+                    <p class="text-white-50 text-center mt-3 small" style="font-size: 0.75rem;">
+                        <i data-lucide="shield-check" width="12"></i> Məlumatlarınız tam məxfiliklə qorunur.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        // ELEMENTLƏR
+        const els = {
+            doctor: document.getElementById('doctorSelect'),
+            category: document.getElementById('categorySelect'),
+            date: document.getElementById('dateInput'),
+            hour: document.getElementById('hourSelect'),
+            duration: document.getElementById('durationSelect'),
+            submit: document.getElementById('submitBtn'),
+            // Summary Elements
+            sumDoc: document.getElementById('summaryDoctor'),
+            sumCat: document.getElementById('summaryCategory'),
+            sumDate: document.getElementById('summaryDate'),
+            sumTime: document.getElementById('summaryTime'),
+            sumPrice: document.getElementById('summaryPrice'),
+            // Steps
+            step2: document.getElementById('step2'),
+            step3: document.getElementById('step3'),
+            step4: document.getElementById('step4'),
+        };
+
+        // JS YALNIZ UX (Aktiv/Passiv etmək) VƏ SUMMARY YENİLƏMƏK ÜÇÜNDÜR
+        
+        // 1. Psixoloq seçiləndə
+        function handleDoctorChange() {
+            const selectedText = els.doctor.options[els.doctor.selectedIndex].text;
+            
+            // Summary Update
+            updateSummary(els.sumDoc, selectedText);
+            resetField(els.sumCat);
+            resetField(els.sumPrice, '0 ₼');
+
+            // Növbəti addımı aç (Kateqoriya)
+            // QEYD: PHP ilə bu optionları həkimə görə filterləmək lazım olacaq (AJAX və ya bütün datanı yükləyib JS ilə gizlətmək)
+            // Hazırda statik olduğu üçün hamısını açır.
+            els.category.disabled = false;
+            els.category.selectedIndex = 0; // Reset selection
+            els.step2.classList.remove('disabled');
+            els.step2.style.background = 'var(--primary)';
+
+            // Sonrakı addımları bağla
+            disableFields(['date', 'hour', 'duration']);
+            checkValidity();
+        }
+
+        // 2. Kateqoriya seçiləndə
+        function handleCategoryChange() {
+            const selectedOpt = els.category.options[els.category.selectedIndex];
+            
+            updateSummary(els.sumCat, selectedOpt.text);
+            // Qiyməti data-price atributundan oxuyur
+            const price = selectedOpt.getAttribute('data-price');
+            updateSummary(els.sumPrice, price ? price + ' ₼' : '0 ₼');
+
+            // Növbəti addımı aç (Tarix)
+            els.date.disabled = false;
+            els.step3.classList.remove('disabled');
+            els.step3.style.background = 'var(--primary)';
+            
+            checkValidity();
+        }
+
+        // 3. Tarix seçiləndə
+        function handleDateChange() {
+            if(els.date.value) {
+                updateSummary(els.sumDate, els.date.value);
+                
+                // Növbəti addımı aç (Zaman)
+                els.hour.disabled = false;
+                els.duration.disabled = false;
+                els.step4.classList.remove('disabled');
+                els.step4.style.background = 'var(--primary)';
+            }
+            checkValidity();
+        }
+
+        // 4. Zaman seçiləndə
+        function handleTimeChange() {
+            if(els.hour.value && els.duration.value) {
+                updateSummary(els.sumTime, `${els.hour.value} (${els.duration.value} dəq)`);
+            } else if (els.hour.value) {
+                updateSummary(els.sumTime, `${els.hour.value}`);
+            }
+            checkValidity();
+        }
+
+        // KÖMƏKÇİ FUNKSİYALAR
+        function updateSummary(el, text) {
+            el.textContent = text;
+            el.classList.remove('empty');
+            el.style.color = 'white'; 
+        }
+
+        function resetField(el, defaultText = 'Seçilməyib') {
+            el.textContent = defaultText;
+            el.classList.add('empty');
+        }
+
+        function disableFields(fields) {
+            if(fields.includes('date')) {
+                els.date.disabled = true; els.date.value = ''; 
+                resetField(els.sumDate, '--/--/----');
+                els.step3.classList.add('disabled');
+                els.step3.style.background = '#D1D5DB';
+            }
+            if(fields.includes('hour') || fields.includes('duration')) {
+                els.hour.disabled = true; els.hour.selectedIndex = 0;
+                els.duration.disabled = true; els.duration.selectedIndex = 0;
+                resetField(els.sumTime, '--:--');
+                els.step4.classList.add('disabled');
+                els.step4.style.background = '#D1D5DB';
+            }
+            els.submit.disabled = true;
+        }
+
+        function checkValidity() {
+            if(els.doctor.value && els.category.value && els.date.value && els.hour.value && els.duration.value) {
+                els.submit.disabled = false;
+            } else {
+                els.submit.disabled = true;
+            }
+        }
+
+        function submitBooking() {
+            const btn = els.submit;
+            btn.disabled = true;
+            btn.innerText = "Emal edilir...";
+            
+            setTimeout(() => {
+                alert("Təbrik edirik! Görüşünüz təsdiqləndi.");
+                window.location.href = 'meets.html';
+            }, 1500);
+        }
+
+    </script>
+</body>
+</html>

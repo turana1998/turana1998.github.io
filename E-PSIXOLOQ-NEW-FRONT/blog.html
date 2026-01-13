@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Məqalələr və Bloq - E-psixoloq</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=DM+Sans:wght@400;500;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- DİZAYN SİSTEMİ --- */
+        :root {
+            --primary: #4E6E27;
+            --primary-hover: #3d561f;
+            --dark: #1F2937;
+            --cream: #FFFBEB;
+            --orange: #F97316;
+            --gray-light: #F3F4F6;
+            --border-color: #E5E7EB;
+            --font-scale: 1;
+        }
+
+        /* --- ACCESSIBILITY MODES --- */
+        body.acc-contrast { --primary: #000 !important; --dark: #000 !important; background: #FFF !important; background-image: none !important; color: #000 !important; }
+        body.acc-contrast * { color: #000 !important; border-color: #000 !important; }
+        body.acc-contrast .navbar, body.acc-contrast footer { background: #FFF !important; border: 2px solid #000 !important; color: #000 !important; }
+
+        body.acc-dark { --primary: #4ADE80; --dark: #F3F4F6; background: #0F172A !important; background-image: none !important; color: #FFF !important; }
+        body.acc-dark .article-card, body.acc-dark .featured-card, body.acc-dark .filter-btn { background: #1E293B; border-color: #334155; color: #FFF; }
+        body.acc-dark .navbar, body.acc-dark footer { background: #0F172A; color: #FFF; }
+        body.acc-dark .nav-link-back { color: #FFF !important; }
+        body.acc-dark .article-desc { color: #94A3B8; }
+
+        /* --- BODY STYLE --- */
+        body {
+            background-color: #F8FAF9;
+            background-image: 
+                radial-gradient(circle at 0% 0%, rgba(78, 110, 39, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 100% 0%, rgba(249, 115, 22, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 100% 100%, rgba(78, 110, 39, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 0% 100%, rgba(249, 115, 22, 0.1) 0%, transparent 40%);
+            background-attachment: fixed;
+            font-family: 'DM Sans', sans-serif;
+            color: var(--dark);
+            font-size: calc(0.95rem * var(--font-scale));
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 { font-family: 'Nunito', sans-serif; color: var(--dark); }
+        .text-primary-custom { color: var(--primary); }
+
+        /* --- ANIMATIONS --- */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* --- NAVİQASİYA --- */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03); padding: 0.8rem 2rem;
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+        }
+        .logo-box { background: var(--primary); width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+        .logo-svg { width: 22px; height: 22px; fill: none; stroke: white; stroke-width: 2.5; }
+        .nav-link-back { text-decoration: none; color: var(--dark); font-weight: 700; display: flex; align-items: center; gap: 5px; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-link-back:hover { color: var(--primary); }
+
+        /* --- FEATURED ARTICLE (HERO) --- */
+        .featured-card {
+            background: white; border-radius: 24px; overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.03);
+            display: flex; flex-direction: column; margin-bottom: 3rem;
+            transition: 0.3s;
+        }
+        .featured-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+        
+        @media (min-width: 992px) {
+            .featured-card { flex-direction: row; height: 400px; }
+            .featured-img-wrapper { flex: 1.2; height: 100%; }
+            .featured-content { flex: 1; padding: 3rem; }
+        }
+
+        .featured-img-wrapper { position: relative; overflow: hidden; }
+        .featured-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .featured-card:hover .featured-img { transform: scale(1.05); }
+        
+        .featured-content { padding: 1.5rem; display: flex; flex-direction: column; justify-content: center; }
+        .meta-tags { display: flex; gap: 10px; margin-bottom: 1rem; }
+        .cat-tag { background: #ECFDF5; color: var(--primary); padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; }
+        .date-tag { color: #6B7280; font-size: 0.85rem; display: flex; align-items: center; gap: 5px; }
+
+        /* --- ARTICLE CARDS --- */
+        .article-card {
+            background: #FFF; border-radius: 20px; overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02); border: 1px solid rgba(0,0,0,0.03);
+            transition: all 0.3s; height: 100%; display: flex; flex-direction: column;
+            text-decoration: none; color: var(--dark);
+        }
+        .article-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(78, 110, 39, 0.15); }
+        
+        .article-thumb { height: 220px; overflow: hidden; position: relative; }
+        .article-thumb img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .article-card:hover .article-thumb img { transform: scale(1.1); }
+        
+        .article-body { padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; }
+        .article-title { font-weight: 800; font-size: 1.2rem; margin-bottom: 0.8rem; line-height: 1.4; transition: 0.2s; }
+        .article-card:hover .article-title { color: var(--primary); }
+        .article-desc { font-size: 0.9rem; color: #6B7280; line-height: 1.6; margin-bottom: 1.5rem; -webkit-box-orient: vertical; overflow: hidden; }
+        
+        .author-box { margin-top: auto; display: flex; align-items: center; gap: 10px;  border-top: 1px dashed #E5E7EB; }
+        .author-img { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; }
+        .author-name { font-size: 0.85rem; font-weight: 700; }
+        .read-time { margin-left: auto; font-size: 0.8rem; color: #9CA3AF; }
+
+        /* Filter Tabs */
+        .filter-tabs { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 3rem; }
+        .filter-btn {
+            background: white; border: 1px solid #E5E7EB; padding: 10px 25px;
+            border-radius: 50px; font-weight: 600; color: var(--dark); cursor: pointer; transition: 0.2s;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary); color: white; border-color: var(--primary);
+        }
+
+        /* Footer */
+        footer { background: #FFF; padding-top: 3rem; padding-bottom: 1.5rem; margin-top: 4rem; box-shadow: 0 -10px 40px rgba(0,0,0,0.02); }
+        .social-btn { width: 36px; height: 36px; background: #F3F4F6; border-radius: 50%; display: grid; place-items: center; color: #4B5563; transition: 0.3s; }
+        .social-btn:hover { background: var(--primary); color: #FFF; }
+        .footer-logo-svg { width: 32px; height: 32px; fill: none; stroke: currentColor; stroke-width: 2.5; }
+
+        /* Scroll to Top */
+        .scroll-top-btn {
+            position: fixed; bottom: 100px; right: 30px; width: 45px; height: 45px;
+            background: #FFF; border-radius: 50%; display: grid; place-items: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1); cursor: pointer; z-index: 999;
+            opacity: 0; transition: 0.3s; pointer-events: none; color: var(--dark);
+        }
+        .scroll-top-btn.visible { opacity: 1; pointer-events: all; }
+        .scroll-top-btn:hover { background: var(--primary); color: white; transform: translateY(-3px); }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <div class="logo-box">
+                    <svg class="logo-svg" viewBox="0 0 40 40"><path d="M12 20 C 12 10, 28 10, 28 20 C 28 28, 18 28, 18 20 M 20 12 L 20 28 M 12 20 C 8 20, 8 32, 20 32" /></svg>
+                </div>
+                <span class="fs-5 text-dark" style="font-weight: 800;">e-psixoloq</span>
+            </a>
+            
+            <a href="index.html" class="nav-link-back ms-auto">
+                <i data-lucide="home" width="18"></i> Ana Səhifə
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main style="padding-top: 120px; padding-bottom: 60px;">
+        <div class="container">
+            
+            <!-- Header -->
+            <div class="text-center mb-5 reveal">
+                <span class="fw-bold small text-uppercase" style="letter-spacing: 2px; color: var(--orange);">BLOQ VƏ MƏQALƏLƏR</span>
+                <h1 class="display-5 fw-bold mt-2 mb-4">Maarifləndirici <span class="text-primary-custom">Oxu Materialları</span></h1>
+                
+                <div class="filter-tabs">
+                    <button class="filter-btn active" onclick="filterArticles('all', this)">Hamısı</button>
+                    <button class="filter-btn" onclick="filterArticles('psychology', this)">Psixologiya</button>
+                    <button class="filter-btn" onclick="filterArticles('career', this)">Karyera</button>
+                    <button class="filter-btn" onclick="filterArticles('health', this)">Sağlamlıq</button>
+                    <button class="filter-btn" onclick="filterArticles('tech', this)">Texnologiya</button>
+                </div>
+            </div>
+
+            <!-- Featured Article -->
+            <div class="reveal">
+                <a href="blog-detail.html" class="featured-card text-decoration-none text-dark">
+                    <div class="featured-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?auto=format&fit=crop&q=80&w=800" class="featured-img" alt="Featured">
+                    </div>
+                    <div class="featured-content">
+                        <div class="meta-tags">
+                            <span class="cat-tag">PSİXOLOGİYA</span>
+                            <span class="date-tag"><i data-lucide="calendar" width="14"></i> Bu gün</span>
+                        </div>
+                        <h2 class="fw-bold mb-3">Emosional Zəka: Həyatımızdakı Gizli Güc</h2>
+                        <p class="text-muted mb-4">Uğurlu insanların sirri təkcə IQ deyil, həm də yüksək EQ-dir. Emosional zəkanızı necə inkişaf etdirə biləcəyinizi və bunun karyeranıza təsirini öyrənin.</p>
+                        <div class="d-flex align-items-center gap-2">
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=50" class="author-img" alt="Author">
+                            <div>
+                                <span class="d-block fw-bold small">Dr. Nigar Quliyeva</span>
+                                <span class="text-muted small" style="font-size: 0.75rem;">Baş Psixoloq</span>
+                            </div>
+                            <span class="ms-auto text-primary fw-bold small">Oxu <i data-lucide="arrow-right" width="14"></i></span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Articles Grid -->
+            <div class="row g-4" id="articleGrid">
+                
+                <!-- Article 1 -->
+                <div class="col-lg-4 col-md-6 article-item reveal" data-category="career">
+                    <a href="news-detail.html" class="article-card">
+                        <div class="article-thumb">
+                            <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80&w=400" alt="Career">
+                            <span class="article-badge">KARYERA</span>
+                        </div>
+                        <div class="article-body">
+                            <h5 class="article-title">Uğurlu Müsahibənin 5 Qızıl Qaydası</h5>
+                            <p class="article-desc">İş görüşmələrində özünüzü necə təqdim etməlisiniz? HR mütəxəssislərindən məsləhətlər.</p>
+                            <div class="author-box">
+                                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=50" class="author-img" alt="">
+                                <span class="author-name">Rəşad Əliyev</span>
+                                <span class="read-time">6 dəq</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Article 2 -->
+                <div class="col-lg-4 col-md-6 article-item reveal" data-category="health">
+                    <a href="news-detail.html" class="article-card">
+                        <div class="article-thumb">
+                            <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=400" alt="Health">
+                            <span class="article-badge" style="background: #FEF3C7; color: #D97706;">SAĞLAMLIQ</span>
+                        </div>
+                        <div class="article-body">
+                            <h5 class="article-title">Stress və Yuxu: Balansı Necə Qorumalı?</h5>
+                            <p class="article-desc">Keyfiyyətli yuxunun psixoloji sağlamlığa təsiri və yuxusuzluqla mübarizə yolları.</p>
+                            <div class="author-box">
+                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=50" class="author-img" alt="">
+                                <span class="author-name">Aysel Məmmədova</span>
+                                <span class="read-time">4 dəq</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Article 3 -->
+                <div class="col-lg-4 col-md-6 article-item reveal" data-category="tech">
+                    <a href="news-detail.html" class="article-card">
+                        <div class="article-thumb">
+                            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=400" alt="Tech">
+                            <span class="article-badge" style="background: #E0E7FF; color: #4338CA;">TEXNOLOGİYA</span>
+                        </div>
+                        <div class="article-body">
+                            <h5 class="article-title">Rəqəmsal Detoks: Telefonsuz Bir Gün</h5>
+                            <p class="article-desc">Sosial media asılılığından qurtulmaq və diqqəti bərpa etmək üçün praktik addımlar.</p>
+                            <div class="author-box">
+                                <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=50" class="author-img" alt="">
+                                <span class="author-name">Elvin Həsənov</span>
+                                <span class="read-time">5 dəq</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Article 4 -->
+                <div class="col-lg-4 col-md-6 article-item reveal" data-category="psychology">
+                    <a href="news-detail.html" class="article-card">
+                        <div class="article-thumb">
+                            <img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&q=80&w=400" alt="Psychology">
+                            <span class="article-badge">PSİXOLOGİYA</span>
+                        </div>
+                        <div class="article-body">
+                            <h5 class="article-title">Uşaqlarda Özgüvən Formalaşdırmaq</h5>
+                            <p class="article-desc">Valideynlər üçün bələdçi: Uşağınızın potensialını necə üzə çıxara bilərsiniz?</p>
+                            <div class="author-box">
+                                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=50" class="author-img" alt="">
+                                <span class="author-name">Dr. Nigar Quliyeva</span>
+                                <span class="read-time">8 dəq</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Article 5 -->
+                <div class="col-lg-4 col-md-6 article-item reveal" data-category="career">
+                    <a href="news-detail.html" class="article-card">
+                        <div class="article-thumb">
+                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=400" alt="Career">
+                            <span class="article-badge">KARYERA</span>
+                        </div>
+                        <div class="article-body">
+                            <h5 class="article-title">Komanda İşi və Liderlik</h5>
+                            <p class="article-desc">Effektiv komanda qurmaq və idarə etmək üçün lazım olan əsas bacarıqlar.</p>
+                            <div class="author-box">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=50" class="author-img" alt="">
+                                <span class="author-name">Kamran Vəliyev</span>
+                                <span class="read-time">7 dəq</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Article 6 -->
+                <div class="col-lg-4 col-md-6 article-item reveal" data-category="health">
+                    <a href="news-detail.html" class="article-card">
+                        <div class="article-thumb">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=50" alt="Yoga">
+                            <span class="article-badge" style="background: #FEF3C7; color: #D97706;">SAĞLAMLIQ</span>
+                        </div>
+                        <div class="article-body">
+                            <h5 class="article-title">Meditasiya: Başlayanlar üçün Bələdçi</h5>
+                            <p class="article-desc">Zəhni sakitləşdirmək və daxili hüzur tapmaq üçün sadə meditasiya texnikaları.</p>
+                            <div class="author-box">
+                                <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&q=80&w=50" class="author-img" alt="">
+                                <span class="author-name">Lalə Məmmədova</span>
+                                <span class="read-time">5 dəq</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- Pagination -->
+            <div class="d-flex justify-content-center mt-5 reveal">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        <li class="page-item disabled"><a class="page-link rounded-circle mx-1 border-0" href="#"><i data-lucide="chevron-left" width="16"></i></a></li>
+                        <li class="page-item"><a class="page-link rounded-circle mx-1 border-0 active bg-success" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link rounded-circle mx-1 border-0 text-dark" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link rounded-circle mx-1 border-0 text-dark" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link rounded-circle mx-1 border-0 text-dark" href="#"><i data-lucide="chevron-right" width="16"></i></a></li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-md-4">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <div class="logo-box"><svg class="footer-logo-svg" viewBox="0 0 40 40"><path d="M12 20 C 12 10, 28 10, 28 20 C 28 28, 18 28, 18 20 M 20 12 L 20 28 M 12 20 C 8 20, 8 32, 20 32" /></svg></div>
+                        <span class="fw-bold fs-6 text-primary-custom">e-psixoloq</span>
+                    </div>
+                    <p class="small text-muted">Psixoloji maarifləndirmə və şəxsi inkişaf üçün Azərbaycanın ilk rəqəmsal bələdçisi.</p>
+                </div>
+                <div class="col-md-2">
+                    <h6 class="fw-bold mb-3 small">Platforma</h6>
+                    <ul class="list-unstyled small text-muted">
+                        <li><a href="articles.html" class="text-decoration-none text-muted fw-bold text-dark">Məqalələr</a></li>
+                        <li><a href="news.html" class="text-decoration-none text-muted">Xəbərlər</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-bold mb-3 small">Əlaqə</h6>
+                    <ul class="list-unstyled small text-muted">
+                        <li class="mb-2"><i data-lucide="map-pin" width="14"></i> Bakı, Azərbaycan</li>
+                        <li class="mb-2"><i data-lucide="phone" width="14"></i> +994 50 000 00 00</li>
+                        <li><i data-lucide="mail" width="14"></i> info@e-psixoloq.az</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-bold mb-3 small">Sosial Media</h6>
+                    <div class="d-flex gap-2">
+                        <a href="#" class="social-btn"><i data-lucide="instagram" width="16"></i></a>
+                        <a href="#" class="social-btn"><i data-lucide="send" width="16"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4 pt-3 border-top small text-muted">© 2025 E-psixoloq. Bütün hüquqlar qorunur.</div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top -->
+    <div class="scroll-top-btn" id="scrollTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <i data-lucide="arrow-up" width="20"></i>
+    </div>
+
+    <!-- Chat Float -->
+    <div class="chat-float" onclick="alert('Chat tezliklə aktiv olacaq!')" style="position: fixed; bottom: 30px; right: 30px; background-color: var(--primary); color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 20px rgba(78, 110, 39, 0.4); cursor: pointer; z-index: 1000; transition: transform 0.2s;"><i data-lucide="message-circle" width="24"></i></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        lucide.createIcons();
+
+        // Scroll Reveal
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Scroll to Top Logic
+        window.addEventListener('scroll', () => {
+            const btn = document.getElementById('scrollTopBtn');
+            if (window.scrollY > 300) btn.classList.add('visible');
+            else btn.classList.remove('visible');
+        });
+
+        // Filter Logic
+        function filterArticles(category, btn) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const items = document.querySelectorAll('.article-item');
+            
+            items.forEach(item => {
+                const itemCategory = item.getAttribute('data-category');
+                if (category === 'all' || itemCategory === category) {
+                    item.style.display = 'block';
+                    setTimeout(() => item.style.opacity = '1', 50);
+                } else {
+                    item.style.display = 'none';
+                    item.style.opacity = '0';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

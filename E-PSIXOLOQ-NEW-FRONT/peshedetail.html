@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proqramçı - Peşə Haqqında</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=DM+Sans:wght@400;500;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- EYNİ DİZAYN SİSTEMİ (Index.html ilə) --- */
+        :root {
+            --primary: #4E6E27;
+            --primary-hover: #3d561f;
+            --dark: #1F2937;
+            --cream: #FFFBEB;
+            --orange: #F97316;
+            --gray-light: #F3F4F6;
+            --border-color: #E5E7EB;
+            --font-scale: 1;
+        }
+
+        /* --- ACCESSIBILITY MODES --- */
+        body.acc-contrast { --primary: #000 !important; --dark: #000 !important; background: #FFF !important; background-image: none !important; color: #000 !important; }
+        body.acc-contrast * { color: #000 !important; border-color: #000 !important; }
+        body.acc-contrast .navbar, body.acc-contrast footer { background: #FFF !important; border: 2px solid #000 !important; color: #000 !important; }
+
+        body.acc-dark { --primary: #4ADE80; --dark: #F3F4F6; background: #0F172A !important; background-image: none !important; color: #FFF !important; }
+        body.acc-dark .detail-card, body.acc-dark .info-box { background: #1E293B; border-color: #334155; color: #FFF; }
+        body.acc-dark .navbar, body.acc-dark footer { background: #0F172A; color: #FFF; }
+        body.acc-dark .nav-link-back { color: #FFF !important; }
+        body.acc-dark .skill-tag { background: #334155; color: #E2E8F0; }
+
+        /* --- BODY STYLE --- */
+        body {
+            background-color: #F8FAF9;
+            background-image: 
+                radial-gradient(circle at 0% 0%, rgba(78, 110, 39, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 100% 0%, rgba(249, 115, 22, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 100% 100%, rgba(78, 110, 39, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 0% 100%, rgba(249, 115, 22, 0.1) 0%, transparent 40%);
+            background-attachment: fixed;
+            font-family: 'DM Sans', sans-serif;
+            color: var(--dark);
+            font-size: calc(0.95rem * var(--font-scale));
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 { font-family: 'Nunito', sans-serif; color: var(--dark); }
+        .text-primary-custom { color: var(--primary); }
+
+        /* --- ANIMATIONS --- */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* --- NAVİQASİYA --- */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03); padding: 0.8rem 2rem;
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+        }
+        .logo-box { background: var(--primary); width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+        .logo-svg { width: 22px; height: 22px; fill: none; stroke: white; stroke-width: 2.5; }
+        .nav-link-back { text-decoration: none; color: var(--dark); font-weight: 700; display: flex; align-items: center; gap: 5px; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-link-back:hover { color: var(--primary); }
+
+        /* --- DETAIL PAGE STYLES --- */
+        .detail-header {
+            text-align: center; margin-bottom: 3rem;
+        }
+        .prof-icon-huge {
+            width: 100px; height: 100px; border-radius: 28px; display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 1.5rem; background: rgba(78, 110, 39, 0.1); color: var(--primary);
+            box-shadow: 0 10px 30px rgba(78, 110, 39, 0.15);
+        }
+        .salary-badge {
+            background: #ECFDF5; color: #059669; padding: 6px 16px; border-radius: 50px;
+            font-weight: 700; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 6px;
+            border: 1px solid #D1FAE5;
+        }
+
+        .detail-card {
+            background: #FFF; border-radius: 24px; padding: 2.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02); border: 1px solid rgba(0,0,0,0.03);
+            margin-bottom: 2rem;
+        }
+
+        .section-title { font-weight: 800; font-size: 1.3rem; margin-bottom: 1.2rem; display: flex; align-items: center; gap: 10px; }
+        .section-title i { color: var(--primary); }
+
+        .skill-tag {
+            display: inline-block; background: #F3F4F6; color: var(--dark); padding: 8px 16px;
+            border-radius: 12px; font-weight: 600; font-size: 0.9rem; margin-right: 8px; margin-bottom: 8px;
+        }
+
+        .career-step {
+            position: relative; padding-left: 30px; margin-bottom: 1.5rem;
+        }
+        .career-step::before {
+            content: ''; position: absolute; left: 0; top: 5px; width: 12px; height: 12px;
+            background: var(--primary); border-radius: 50%; z-index: 2;
+        }
+        .career-step::after {
+            content: ''; position: absolute; left: 5px; top: 17px; width: 2px; height: 100%;
+            background: #E5E7EB; z-index: 1;
+        }
+        .career-step:last-child::after { display: none; }
+        
+        .career-step h6 { font-weight: 700; margin-bottom: 4px; }
+        .career-step p { font-size: 0.9rem; color: #6B7280; margin: 0; }
+
+        .info-box {
+            background: #EFF6FF; border-radius: 16px; padding: 1.5rem;
+            border-left: 4px solid #3B82F6; display: flex; gap: 15px; align-items: start;
+        }
+        .info-box i { color: #3B82F6; flex-shrink: 0; margin-top: 3px; }
+
+        /* Footer */
+        footer { background: #FFF; padding-top: 3rem; padding-bottom: 1.5rem; margin-top: 4rem; box-shadow: 0 -10px 40px rgba(0,0,0,0.02); }
+        .social-btn { width: 36px; height: 36px; background: #F3F4F6; border-radius: 50%; display: grid; place-items: center; color: #4B5563; transition: 0.3s; }
+        .social-btn:hover { background: var(--primary); color: #FFF; }
+        .footer-logo-svg { width: 32px; height: 32px; fill: none; stroke: currentColor; stroke-width: 2.5; }
+
+        /* Scroll to Top */
+        .scroll-top-btn {
+            position: fixed; bottom: 100px; right: 30px; width: 45px; height: 45px;
+            background: #FFF; border-radius: 50%; display: grid; place-items: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1); cursor: pointer; z-index: 999;
+            opacity: 0; transition: 0.3s; pointer-events: none; color: var(--dark);
+        }
+        .scroll-top-btn.visible { opacity: 1; pointer-events: all; }
+        .scroll-top-btn:hover { background: var(--primary); color: white; transform: translateY(-3px); }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <div class="logo-box">
+                    <svg class="logo-svg" viewBox="0 0 40 40"><path d="M12 20 C 12 10, 28 10, 28 20 C 28 28, 18 28, 18 20 M 20 12 L 20 28 M 12 20 C 8 20, 8 32, 20 32" /></svg>
+                </div>
+                <span class="fs-5 text-dark" style="font-weight: 800;">e-psixoloq</span>
+            </a>
+            
+            <a href="professions.html" class="nav-link-back ms-auto">
+                <i data-lucide="arrow-left" width="18"></i> Peşələrə qayıt
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main style="padding-top: 120px; padding-bottom: 60px;">
+        <div class="container">
+            
+            <!-- Hero Header -->
+            <div class="detail-header reveal">
+                <div class="prof-icon-huge">
+                    <i data-lucide="code" width="48"></i>
+                </div>
+                <span class="text-uppercase fw-bold text-muted small letter-spacing-1">Texnologiya</span>
+                <h1 class="display-4 fw-bold mt-2 mb-3">Proqramçı (Developer)</h1>
+                
+                <div class="d-flex justify-content-center gap-3 flex-wrap">
+                    <div class="salary-badge"><i data-lucide="banknote" width="16"></i> 1500 - 5000+ AZN</div>
+                    <div class="salary-badge" style="background: #FFF7ED; color: #EA580C; border-color: #FFEDD5;"><i data-lucide="trending-up" width="16"></i> Yüksək Tələbat</div>
+                </div>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                
+                <!-- Left Column: Description & Skills -->
+                <div class="col-lg-7 reveal">
+                    <div class="detail-card">
+                        <h4 class="section-title"><i data-lucide="info"></i> Peşə Haqqında</h4>
+                        <p class="text-muted mb-4" style="line-height: 1.7;">
+                            Proqramçı, kompüterlər və digər cihazlar üçün proqram təminatı, veb saytlar və mobil tətbiqlər hazırlayan mütəxəssisdir. Onlar kod yazaraq texnoloji problemləri həll edir və rəqəmsal məhsullar yaradırlar. Bu sahə daim inkişaf edir və yaradıcı yanaşma tələb edir.
+                        </p>
+
+                        <h4 class="section-title mt-5"><i data-lucide="check-circle-2"></i> Tələb Olunan Bacarıqlar</h4>
+                        <div class="mb-4">
+                            <span class="d-block text-muted small fw-bold mb-2">TEXNİKİ (HARD SKILLS)</span>
+                            <span class="skill-tag">JavaScript / Python</span>
+                            <span class="skill-tag">HTML & CSS</span>
+                            <span class="skill-tag">Database (SQL)</span>
+                            <span class="skill-tag">Git / GitHub</span>
+                        </div>
+                        <div>
+                            <span class="d-block text-muted small fw-bold mb-2">FƏRDİ (SOFT SKILLS)</span>
+                            <span class="skill-tag">Analitik düşünmə</span>
+                            <span class="skill-tag">Komanda işi</span>
+                            <span class="skill-tag">Problem həlletmə</span>
+                            <span class="skill-tag">Davamlı öyrənmə</span>
+                        </div>
+                    </div>
+
+                    <!-- Mütəxəssis Rəyi -->
+                    <div class="info-box mt-4">
+                        <i data-lucide="lightbulb" width="24"></i>
+                        <div>
+                            <h6 class="fw-bold mb-1" style="color: #1E40AF;">Psixoloq Rəyi</h6>
+                            <p class="text-muted small m-0">
+                                "Bu peşə yüksək konsentrasiya və səbir tələb edir. İntrovert xarakterli insanlar üçün daha uyğun ola bilər, lakin komanda layihələrində ünsiyyət bacarıqları da vacibdir. Stressə davamlılıq mütləqdir."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Career Path & Education -->
+                <div class="col-lg-4 reveal">
+                    <div class="detail-card">
+                        <h4 class="section-title"><i data-lucide="map"></i> Karyera Yolu</h4>
+                        
+                        <div class="career-step">
+                            <h6>1. Təhsil</h6>
+                            <p>Kompüter Elmləri və ya İnformasiya Texnologiyaları üzrə bakalavr dərəcəsi (və ya intensiv kurslar).</p>
+                        </div>
+                        
+                        <div class="career-step">
+                            <h6>2. Təcrübə (Junior)</h6>
+                            <p>Kiçik layihələrdə iştirak etmək və portfel (portfolio) yığmaq.</p>
+                        </div>
+                        
+                        <div class="career-step">
+                            <h6>3. İxtisaslaşma (Middle)</h6>
+                            <p>Backend, Frontend və ya Mobil sahəsində dərinləşmək.</p>
+                        </div>
+                        
+                        <div class="career-step">
+                            <h6>4. Liderlik (Senior/Lead)</h6>
+                            <p>Komandaları idarə etmək və mürəkkəb arxitektura qurmaq.</p>
+                        </div>
+
+                        <a href="test-results.html" class="btn btn-outline-custom w-100 mt-3 justify-content-center" style="font-size: 0.9rem;">
+                            Bu peşə mənə uyğundurmu? (Test)
+                        </a>
+                    </div>
+
+                    <div class="detail-card bg-light border-0">
+                        <h6 class="fw-bold mb-3">Faydalı Resurslar</h6>
+                        <ul class="list-unstyled mb-0 small text-muted">
+                            <li class="mb-2"><i data-lucide="external-link" width="14" class="me-2"></i> <a href="#" class="text-decoration-none text-muted">Coursera - Python Kursu</a></li>
+                            <li class="mb-2"><i data-lucide="external-link" width="14" class="me-2"></i> <a href="#" class="text-decoration-none text-muted">Udemy - Web Development</a></li>
+                            <li><i data-lucide="external-link" width="14" class="me-2"></i> <a href="#" class="text-decoration-none text-muted">W3Schools</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-md-4">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <div class="logo-box"><svg class="footer-logo-svg" viewBox="0 0 40 40"><path d="M12 20 C 12 10, 28 10, 28 20 C 28 28, 18 28, 18 20 M 20 12 L 20 28 M 12 20 C 8 20, 8 32, 20 32" /></svg></div>
+                        <span class="fw-bold fs-6 text-primary-custom">e-psixoloq</span>
+                    </div>
+                    <p class="small text-muted">Psixoloji maarifləndirmə və şəxsi inkişaf üçün Azərbaycanın ilk rəqəmsal bələdçisi.</p>
+                </div>
+                <div class="col-md-2">
+                    <h6 class="fw-bold mb-3 small">Platforma</h6>
+                    <ul class="list-unstyled small text-muted">
+                        <li><a href="professions.html" class="text-decoration-none text-muted fw-bold text-dark">Peşələr</a></li>
+                        <li><a href="news.html" class="text-decoration-none text-muted">Xəbərlər</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-bold mb-3 small">Əlaqə</h6>
+                    <ul class="list-unstyled small text-muted">
+                        <li class="mb-2"><i data-lucide="phone" width="14"></i> +994 50 000 00 00</li>
+                        <li><i data-lucide="mail" width="14"></i> info@e-psixoloq.az</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-bold mb-3 small">Sosial Media</h6>
+                    <div class="d-flex gap-2">
+                        <a href="#" class="social-btn"><i data-lucide="instagram" width="16"></i></a>
+                        <a href="#" class="social-btn"><i data-lucide="send" width="16"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4 pt-3 border-top small text-muted">© 2025 E-psixoloq.</div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top -->
+    <div class="scroll-top-btn" id="scrollTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <i data-lucide="arrow-up" width="20"></i>
+    </div>
+
+    <!-- Chat Float -->
+    <div class="chat-float" onclick="alert('Chat tezliklə aktiv olacaq!')" style="position: fixed; bottom: 30px; right: 30px; background-color: var(--primary); color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 20px rgba(78, 110, 39, 0.4); cursor: pointer; z-index: 1000; transition: transform 0.2s;"><i data-lucide="message-circle" width="24"></i></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        lucide.createIcons();
+
+        // Scroll Reveal
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Scroll to Top Logic
+        window.addEventListener('scroll', () => {
+            const btn = document.getElementById('scrollTopBtn');
+            if (window.scrollY > 300) btn.classList.add('visible');
+            else btn.classList.remove('visible');
+        });
+    </script>
+</body>
+</html>

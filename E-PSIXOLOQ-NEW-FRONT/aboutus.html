@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haqqımızda - E-psixoloq</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=DM+Sans:wght@400;500;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- ƏSAS DİZAYN DƏYİŞƏNLƏRİ (Index.html ilə eyni) --- */
+        :root {
+            --primary: #4E6E27;
+            --dark: #1F2937;
+            --cream: #FFFBEB;
+            --orange: #F97316;
+            --font-scale: 1;
+        }
+
+        /* --- ACCESSIBILITY MODES --- */
+        body.acc-contrast { --primary: #000 !important; --dark: #000 !important; background: #FFF !important; background-image: none !important; color: #000 !important; }
+        body.acc-contrast * { color: #000 !important; border-color: #000 !important; }
+        body.acc-contrast .navbar, body.acc-contrast footer { background: #FFF !important; border: 2px solid #000 !important; color: #000 !important; }
+
+        body.acc-dark { --primary: #4ADE80; --dark: #F3F4F6; background: #0F172A !important; background-image: none !important; color: #FFF !important; }
+        body.acc-dark .mission-box, body.acc-dark .value-card, body.acc-dark .team-member { background: #1E293B; border-color: #334155; color: #FFF; }
+        body.acc-dark .navbar, body.acc-dark footer { background: #0F172A; color: #FFF; }
+        body.acc-dark .nav-link-back { color: #FFF !important; }
+        body.acc-dark .hero-badge { background: #1E293B; color: #FFF; border-color: #334155; }
+
+        /* --- BODY STYLE (Soft Aurora) --- */
+        body {
+            background-color: #F8FAF9;
+            background-image: 
+                radial-gradient(circle at 0% 0%, rgba(78, 110, 39, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 100% 0%, rgba(249, 115, 22, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 100% 100%, rgba(78, 110, 39, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 0% 100%, rgba(249, 115, 22, 0.1) 0%, transparent 40%);
+            background-attachment: fixed;
+            font-family: 'DM Sans', sans-serif;
+            color: var(--dark);
+            font-size: calc(0.95rem * var(--font-scale));
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 { font-family: 'Nunito', sans-serif; color: var(--dark); }
+        .text-primary-custom { color: var(--primary); }
+
+        /* --- ANIMATIONS --- */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* --- NAVBAR --- */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03); padding: 0.8rem 2rem;
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+        }
+        .logo-box { background: var(--primary); width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+        .logo-svg { width: 22px; height: 22px; fill: none; stroke: white; stroke-width: 2.5; }
+        .nav-link-back { text-decoration: none; color: var(--dark); font-weight: 700; display: flex; align-items: center; gap: 5px; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-link-back:hover { color: var(--primary); }
+
+        /* --- HERO SECTION --- */
+        .hero-section { padding: 140px 0 80px; text-align: center; }
+        
+        .hero-img-wrapper { position: relative; margin-top: 2rem; }
+        .hero-img {
+            width: 100%; border-radius: 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            height: 500px; object-fit: cover; transition: transform 0.5s;
+        }
+        .hero-img:hover { transform: scale(1.01); }
+        
+        .hero-badge {
+            position: absolute; bottom: -30px; right: 50px;
+            background: white; padding: 20px 30px; border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: left;
+            display: flex; align-items: center; gap: 15px; max-width: 300px;
+        }
+        .hero-badge-icon {
+            width: 50px; height: 50px; background: #ECFDF5; border-radius: 50%;
+            display: grid; place-items: center; color: var(--primary); flex-shrink: 0;
+        }
+
+        /* --- MISSION & VALUES --- */
+        .mission-box {
+            background: white; border-radius: 30px; padding: 4rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.03); position: relative; overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+        .mission-box::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 8px; height: 100%; background: var(--primary);
+        }
+
+        .value-card {
+            padding: 2rem; border-radius: 24px; background: rgba(255,255,255,0.6);
+            border: 1px solid rgba(255,255,255,0.8); backdrop-filter: blur(10px);
+            transition: 0.3s; height: 100%;
+        }
+        .value-card:hover { background: white; transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
+        .value-icon { margin-bottom: 1.5rem; color: var(--primary); }
+
+        /* --- TEAM GRID --- */
+        .team-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px;
+        }
+        .team-member {
+            background: white; border-radius: 24px; overflow: hidden; text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02); transition: 0.3s; position: relative;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+        .team-member:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .member-img { width: 100%; height: 320px; object-fit: cover; filter: grayscale(10%); transition: 0.5s; }
+        .team-member:hover .member-img { filter: grayscale(0%); transform: scale(1.05); }
+        
+        .member-info {
+            padding: 1.5rem; position: absolute; bottom: 0; left: 0; width: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); color: white; text-align: left;
+        }
+        .member-name { font-weight: 800; font-size: 1.2rem; margin-bottom: 2px; }
+        .member-role { font-size: 0.85rem; opacity: 0.9; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; color: #86EFAC; }
+
+        /* Footer */
+        footer { background: #FFF; padding-top: 3rem; padding-bottom: 1.5rem; margin-top: 6rem; box-shadow: 0 -10px 40px rgba(0,0,0,0.02); }
+        .social-btn { width: 36px; height: 36px; background: #F3F4F6; border-radius: 50%; display: grid; place-items: center; color: #4B5563; transition: 0.3s; }
+        .social-btn:hover { background: var(--primary); color: #FFF; }
+        .footer-logo-svg { width: 32px; height: 32px; fill: none; stroke: currentColor; stroke-width: 2.5; }
+
+        /* Scroll to Top */
+        .scroll-top-btn {
+            position: fixed; bottom: 100px; right: 30px; width: 45px; height: 45px;
+            background: #FFF; border-radius: 50%; display: grid; place-items: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1); cursor: pointer; z-index: 999;
+            opacity: 0; transition: 0.3s; pointer-events: none; color: var(--dark);
+        }
+        .scroll-top-btn.visible { opacity: 1; pointer-events: all; }
+        .scroll-top-btn:hover { background: var(--primary); color: white; transform: translateY(-3px); }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <div class="logo-box">
+                    <svg class="logo-svg" viewBox="0 0 40 40"><path d="M12 20 C 12 10, 28 10, 28 20 C 28 28, 18 28, 18 20 M 20 12 L 20 28 M 12 20 C 8 20, 8 32, 20 32" /></svg>
+                </div>
+                <span class="fs-5 text-dark" style="font-weight: 800;">e-psixoloq</span>
+            </a>
+            
+            <a href="index.html" class="nav-link-back ms-auto">
+                <i data-lucide="home" width="18"></i> Ana Səhifə
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        
+        <!-- Hero Section (Kollektiv Vurğusu) -->
+        <section class="hero-section reveal">
+            <div class="container">
+                <div class="row justify-content-center text-center mb-5">
+                    <div class="col-lg-10">
+                        <span class="fw-bold small text-uppercase" style="letter-spacing: 2px; color: var(--orange);">BİZİM HEKAYƏMİZ</span>
+                        <h1 class="display-3 fw-bold mt-3 mb-4 text-dark">Biz, Sizin <span class="text-primary-custom">Yol Yoldaşınız.</span></h1>
+                        <p class="text-muted fs-5">
+                            "E-psixoloq" sadəcə bir platforma deyil, insanlara dəstək olmaq üçün birləşmiş peşəkarlar icmasıdır. Biz inanırıq ki, hər kəsin eşidilməyə və anlaşılmağa ehtiyacı var.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="hero-img-wrapper reveal">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1200" alt="Komanda" class="hero-img">
+                    <div class="hero-badge">
+                        <div class="hero-badge-icon"><i data-lucide="users" width="24"></i></div>
+                        <div>
+                            <h6 class="fw-bold m-0">Birlikdə Güclüyük</h6>
+                            <span class="text-muted small">Komanda ruhu bizim əsas gücümüzdür.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission & Values Section -->
+        <section class="py-5 reveal">
+            <div class="container">
+                <div class="mission-box">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <h2 class="display-5 fw-bold mb-4">Missiyamız</h2>
+                            <p class="fs-5 text-muted mb-4" style="line-height: 1.8;">
+                                Məqsədimiz Azərbaycanda psixoloji sağlamlıq mədəniyyətini formalaşdırmaq və hər bir fərdin potensialını kəşf etməsinə kömək etməkdir. Biz ənənəvi üsulları müasir texnologiyalarla birləşdirərək psixoloji dəstəyi hamı üçün əlçatan edirik.
+                            </p>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Signature_sample.svg" alt="Signature" width="150" style="opacity: 0.4;">
+                        </div>
+                        <div class="col-lg-6 mt-5 mt-lg-0">
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <div class="value-card">
+                                        <div class="value-icon"><i data-lucide="heart" width="32"></i></div>
+                                        <h5 class="fw-bold">Səmimiyyət</h5>
+                                        <p class="text-muted small m-0">Münasibətlərimizdə şəffaflıq və dürüstlük əsasdır.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="value-card">
+                                        <div class="value-icon"><i data-lucide="lightbulb" width="32"></i></div>
+                                        <h5 class="fw-bold">İnkişaf</h5>
+                                        <p class="text-muted small m-0">Daim öyrənir, yenilikləri tətbiq edirik.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="value-card">
+                                        <div class="value-icon"><i data-lucide="users" width="32"></i></div>
+                                        <h5 class="fw-bold">Kollektiv</h5>
+                                        <p class="text-muted small m-0">Bir-birimizə dəstək olaraq böyüyürük.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="value-card">
+                                        <div class="value-icon"><i data-lucide="shield-check" width="32"></i></div>
+                                        <h5 class="fw-bold">Etibar</h5>
+                                        <p class="text-muted small m-0">Məxfilik və təhlükəsizlik bizim sözümüzdür.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section class="py-5 reveal">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <span class="text-primary fw-bold small text-uppercase">MÜTƏXƏSSİSLƏRİMİZ</span>
+                    <h2 class="fw-bold display-6 mt-2">Komandamızla Tanış Olun</h2>
+                </div>
+                
+                <div class="team-grid">
+                    
+                    <!-- Member 1 -->
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400" alt="Member" class="member-img">
+                        <div class="member-info">
+                            <h5 class="member-name">Aysel Məmmədova</h5>
+                            <span class="member-role">Təsisçi & CEO</span>
+                        </div>
+                    </div>
+
+                    <!-- Member 2 -->
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400" alt="Member" class="member-img">
+                        <div class="member-info">
+                            <h5 class="member-name">Rəşad Əliyev</h5>
+                            <span class="member-role">Texniki Direktor</span>
+                        </div>
+                    </div>
+
+                    <!-- Member 3 -->
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400" alt="Member" class="member-img">
+                        <div class="member-info">
+                            <h5 class="member-name">Dr. Nigar Quliyeva</h5>
+                            <span class="member-role">Baş Psixoloq</span>
+                        </div>
+                    </div>
+
+                    <!-- Member 4 -->
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=400" alt="Member" class="member-img">
+                        <div class="member-info">
+                            <h5 class="member-name">Elvin Həsənov</h5>
+                            <span class="member-role">Marketinq Rəhbəri</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-md-4">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <div class="logo-box"><svg class="footer-logo-svg" viewBox="0 0 40 40"><path d="M12 20 C 12 10, 28 10, 28 20 C 28 28, 18 28, 18 20 M 20 12 L 20 28 M 12 20 C 8 20, 8 32, 20 32" /></svg></div>
+                        <span class="fw-bold fs-6 text-primary-custom">e-psixoloq</span>
+                    </div>
+                    <p class="small text-muted">Psixoloji maarifləndirmə və şəxsi inkişaf üçün Azərbaycanın ilk rəqəmsal bələdçisi.</p>
+                </div>
+                <div class="col-md-2">
+                    <h6 class="fw-bold mb-3 small">Platforma</h6>
+                    <ul class="list-unstyled small text-muted">
+                        <li><a href="contact.html" class="text-decoration-none text-muted">Əlaqə</a></li>
+                        <li><a href="faq.html" class="text-decoration-none text-muted">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-bold mb-3 small">Əlaqə</h6>
+                    <ul class="list-unstyled small text-muted">
+                        <li class="mb-2"><i data-lucide="map-pin" width="14"></i> Bakı, Azərbaycan</li>
+                        <li class="mb-2"><i data-lucide="phone" width="14"></i> +994 50 000 00 00</li>
+                        <li><i data-lucide="mail" width="14"></i> info@e-psixoloq.az</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-bold mb-3 small">Sosial Media</h6>
+                    <div class="d-flex gap-2">
+                        <a href="#" class="social-btn"><i data-lucide="instagram" width="16"></i></a>
+                        <a href="#" class="social-btn"><i data-lucide="send" width="16"></i></a>
+                        <a href="#" class="social-btn"><i data-lucide="linkedin" width="16"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4 pt-3 border-top small text-muted">© 2025 E-psixoloq. Bütün hüquqlar qorunur.</div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top -->
+    <div class="scroll-top-btn" id="scrollTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <i data-lucide="arrow-up" width="20"></i>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        lucide.createIcons();
+
+        // Scroll Reveal
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Scroll to Top Logic
+        window.addEventListener('scroll', () => {
+            const btn = document.getElementById('scrollTopBtn');
+            if (window.scrollY > 300) btn.classList.add('visible');
+            else btn.classList.remove('visible');
+        });
+    </script>
+</body>
+</html>

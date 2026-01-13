@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kəşf Et - E-psixoloq</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=DM+Sans:wght@400;500;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- DİZAYN SİSTEMİ --- */
+        :root {
+            --primary: #4E6E27;
+            --dark: #1F2937;
+            --cream: #FFFBEB;
+            --orange: #F97316;
+        }
+
+        body {
+            background-color: #F8FAF9;
+            font-family: 'DM Sans', sans-serif;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* --- NAVBAR (Sadələşdirilmiş) --- */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03); padding: 0.8rem 2rem;
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+        }
+        .logo-box { background: var(--primary); width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+        .logo-svg { width: 22px; height: 22px; fill: none; stroke: white; stroke-width: 2.5; }
+        .nav-link-back { text-decoration: none; color: var(--dark); font-weight: 700; display: flex; align-items: center; gap: 5px; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-link-back:hover { color: var(--primary); }
+
+        /* --- CATEGORY CHIPS (Instagram Style) --- */
+        .categories-wrapper {
+            padding-top: 100px; padding-bottom: 20px;
+            overflow-x: auto; white-space: nowrap;
+            -ms-overflow-style: none; scrollbar-width: none; /* Scrollbar gizlət */
+        }
+        .categories-wrapper::-webkit-scrollbar { display: none; }
+        
+        .cat-chip {
+            display: inline-block; padding: 8px 20px; border-radius: 50px;
+            background: white; border: 1px solid #E5E7EB; color: var(--dark);
+            font-weight: 600; font-size: 0.9rem; margin-right: 10px; cursor: pointer;
+            transition: all 0.2s;
+        }
+        .cat-chip:hover, .cat-chip.active {
+            background: var(--dark); color: white; border-color: var(--dark); transform: translateY(-2px);
+        }
+
+        /* --- MASONRY GRID (MOZAİKA) --- */
+        .explore-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-auto-rows: 280px; /* Baza hündürlük */
+            gap: 15px;
+            padding-bottom: 60px;
+        }
+
+        .grid-item {
+            position: relative; border-radius: 16px; overflow: hidden; cursor: pointer;
+            background-color: #E5E7EB;
+        }
+
+        .grid-item img {
+            width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;
+        }
+
+        /* Xüsusi Ölçülər */
+        .row-span-2 { grid-row: span 2; } /* Uzun (Vertical) */
+        .col-span-2 { grid-column: span 2; } /* Geniş (Horizontal) */
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .row-span-2, .col-span-2 { grid-row: span 1; grid-column: span 1; } /* Mobildə standartlaşdır */
+            .explore-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 200px; gap: 5px; }
+        }
+
+        /* Hover Overlay */
+        .item-overlay {
+            position: absolute; inset: 0; background: rgba(0,0,0,0.3);
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            opacity: 0; transition: 0.3s; color: white; gap: 10px;
+            backdrop-filter: blur(2px);
+        }
+        /* Videolar üçün overlay hər zaman azca görünsün ki, video olduğu bilinsin */
+        .grid-item.video-type .item-overlay { opacity: 0; } 
+        .grid-item:hover .item-overlay { opacity: 1; }
+        .grid-item:hover img { transform: scale(1.1); }
+
+        .overlay-stats { font-weight: 700; font-size: 1.1rem; display: flex; gap: 15px; }
+        .overlay-stats span { display: flex; align-items: center; gap: 5px; }
+
+        .play-btn-large {
+            width: 60px; height: 60px; background: rgba(255,255,255,0.25);
+            border-radius: 50%; display: grid; place-items: center;
+            backdrop-filter: blur(4px); border: 2px solid rgba(255,255,255,0.6);
+            transition: transform 0.3s;
+        }
+        .grid-item:hover .play-btn-large { transform: scale(1.1); background: rgba(78, 110, 39, 0.8); border-color: transparent; }
+
+        /* Media Type Icon (Küncdəki kiçik ikon) */
+        .type-icon {
+            position: absolute; top: 15px; right: 15px; color: white; 
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)); pointer-events: none;
+        }
+
+        /* Quote Card Style */
+        .quote-card {
+            background: linear-gradient(135deg, var(--orange), #EF4444);
+            display: flex; align-items: center; justify-content: center;
+            padding: 2rem; text-align: center; color: white;
+            cursor: default; /* Quotes are not clickable for video */
+        }
+        .quote-text { font-family: 'Caveat', cursive; font-size: 1.8rem; line-height: 1.2; }
+
+        /* Modal (Lightbox) */
+        .lightbox-modal {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 2000;
+            display: none; align-items: center; justify-content: center; padding: 20px;
+        }
+        .lightbox-content {
+            max-width: 1000px; width: 100%; background: white; border-radius: 16px; overflow: hidden;
+            display: flex; height: 80vh; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        .lightbox-media { flex: 2; background: black; display: flex; align-items: center; justify-content: center; position: relative; }
+        .lightbox-media iframe { width: 100%; height: 100%; border: 0; }
+        
+        .lightbox-info { flex: 1; padding: 25px; display: flex; flex-direction: column; border-left: 1px solid #eee; background: #fff; }
+        .lightbox-close { position: absolute; top: 20px; right: 20px; color: white; cursor: pointer; z-index: 2001; }
+
+        @media (max-width: 992px) {
+            .lightbox-content { flex-direction: column; height: auto; max-height: 90vh; }
+            .lightbox-media { height: 300px; flex: none; }
+            .lightbox-info { display: none; } /* Mobildə info gizlədilir */
+        }
+        
+        /* Spinner */
+        .loader {
+            text-align: center; margin: 2rem 0; color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <div class="logo-box">
+                    <svg class="logo-svg" viewBox="0 0 40 40"><path d="M12 20 C 12 10, 28 10, 28 20 C 28 28, 18 28, 18 20 M 20 12 L 20 28 M 12 20 C 8 20, 8 32, 20 32" /></svg>
+                </div>
+                <span class="fs-5 text-dark" style="font-weight: 800;">e-psixoloq</span>
+            </a>
+            
+            <div class="d-flex align-items-center gap-3">
+                <div class="input-group d-none d-md-flex" style="width: 250px;">
+                    <span class="input-group-text bg-light border-end-0 rounded-start-pill"><i data-lucide="search" width="16"></i></span>
+                    <input type="text" class="form-control bg-light border-start-0 rounded-end-pill" placeholder="Axtar...">
+                </div>
+                <a href="index.html" class="nav-link-back">
+                    <i data-lucide="home" width="20"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        
+        <!-- Categories -->
+        <div class="categories-wrapper">
+            <div class="cat-chip active">Sizin üçün</div>
+            <div class="cat-chip">Psixologiya</div>
+            <div class="cat-chip">Təbiət</div>
+            <div class="cat-chip">Motivasiya</div>
+            <div class="cat-chip">Art Terapiya</div>
+            <div class="cat-chip">Meditasiya</div>
+            <div class="cat-chip">Kitablar</div>
+            <div class="cat-chip">Video çarxlar</div>
+        </div>
+
+        <!-- Masonry Grid -->
+        <div class="explore-grid" id="exploreGrid">
+            
+            <!-- Video 1 (Vertical) -->
+            <div class="grid-item row-span-2 video-type" onclick="openVideo('https://www.youtube.com/embed/1not849c79E')">
+                <i data-lucide="video" class="type-icon" width="24"></i>
+                <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=600" alt="">
+                <div class="item-overlay">
+                    <div class="play-btn-large"><i data-lucide="play" fill="white" width="24"></i></div>
+                    <div class="overlay-stats mt-3">
+                        <span><i data-lucide="eye" fill="white"></i> 18.2k</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quote 1 -->
+            <div class="grid-item quote-card">
+                <div class="quote-text">"Dəyişiklik sən özün dəyişəndə başlayır."</div>
+            </div>
+
+            <!-- Video 2 -->
+            <div class="grid-item video-type" onclick="openVideo('https://www.youtube.com/embed/jfKfPfyJRdk')">
+                <i data-lucide="video" class="type-icon" width="24"></i>
+                <img src="https://images.unsplash.com/photo-1493836512294-502baa1986e2?auto=format&fit=crop&q=80&w=600" alt="">
+                <div class="item-overlay">
+                    <div class="play-btn-large"><i data-lucide="play" fill="white" width="24"></i></div>
+                </div>
+            </div>
+
+            <!-- Video 3 -->
+            <div class="grid-item video-type" onclick="openVideo('https://www.youtube.com/embed/75d_29QWELk')">
+                <i data-lucide="video" class="type-icon" width="24"></i>
+                <img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&q=80&w=600" alt="">
+                <div class="item-overlay">
+                    <div class="play-btn-large"><i data-lucide="play" fill="white" width="24"></i></div>
+                </div>
+            </div>
+
+            <!-- Video 4 (Wide) -->
+            <div class="grid-item col-span-2 video-type" onclick="openVideo('https://www.youtube.com/embed/ysz5S6P_288')">
+                <i data-lucide="video" class="type-icon" width="24"></i>
+                <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=800" alt="">
+                <div class="item-overlay">
+                    <div class="play-btn-large"><i data-lucide="play" fill="white" width="24"></i></div>
+                    <div class="overlay-stats mt-3">
+                        <span><i data-lucide="eye" fill="white"></i> 45k izləmə</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video 5 (Vertical) -->
+            <div class="grid-item row-span-2 video-type" onclick="openVideo('https://www.youtube.com/embed/lTRiuFIWV54')">
+                <i data-lucide="video" class="type-icon" width="24"></i>
+                <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&q=80&w=600" alt="">
+                <div class="item-overlay">
+                    <div class="play-btn-large"><i data-lucide="play" fill="white" width="24"></i></div>
+                </div>
+            </div>
+
+            <!-- Quote 2 -->
+            <div class="grid-item quote-card" style="background: linear-gradient(135deg, #3B82F6, #8B5CF6);">
+                <div class="quote-text">"Sakitlik ən güclü səsdir."</div>
+            </div>
+
+            <!-- Video 6 -->
+            <div class="grid-item video-type" onclick="openVideo('https://www.youtube.com/embed/M7lc1UVf-VE')">
+                <i data-lucide="video" class="type-icon" width="24"></i>
+                <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=600" alt="">
+                <div class="item-overlay">
+                    <div class="play-btn-large"><i data-lucide="play" fill="white" width="24"></i></div>
+                </div>
+            </div>
+
+            <!-- Quote 3 -->
+            <div class="grid-item quote-card" style="background: linear-gradient(135deg, #10B981, #3B82F6);">
+                <div class="quote-text">"Özünü kəşf etmək, dünyanı kəşf etməkdir."</div>
+            </div>
+
+            <!-- Video 7 -->
+            <div class="grid-item video-type" onclick="openVideo('https://www.youtube.com/embed/9_vK76R_8bU')">
+                <i data-lucide="video" class="type-icon" width="24"></i>
+                <img src="https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?auto=format&fit=crop&q=80&w=600" alt="">
+                <div class="item-overlay">
+                    <div class="play-btn-large"><i data-lucide="play" fill="white" width="24"></i></div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="loader">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Lightbox Modal (Youtube Frame) -->
+    <div class="lightbox-modal" id="lightboxModal">
+        <div class="lightbox-close" onclick="closeLightbox()"><i data-lucide="x" width="32"></i></div>
+        <div class="lightbox-content">
+            <div class="lightbox-media">
+                <iframe id="lightboxVideo" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="lightbox-info">
+                <div class="d-flex align-items-center gap-2 mb-3">
+                    <div style="width: 40px; height: 40px; background: #E5E7EB; border-radius: 50%; display: grid; place-items: center;"><i data-lucide="user" width="20"></i></div>
+                    <div>
+                        <span class="fw-bold text-dark d-block" style="line-height: 1.2;">e_psixoloq</span>
+                        <span class="text-muted small">Psixoloji Dəstək</span>
+                    </div>
+                    <button class="btn btn-sm btn-outline-primary rounded-pill ms-auto fw-bold px-3">İzlə</button>
+                </div>
+                
+                <h5 class="fw-bold mb-2">Video haqqında</h5>
+                <p class="text-muted small" style="line-height: 1.6;">Bu video sizə daxili hüzur tapmaqda və gündəlik stressi azaltmaqda kömək edəcək. Psixoloji sağlamlıq üçün faydalı məsləhətləri izləyin.</p>
+                
+                <div class="mt-auto pt-3 border-top">
+                    <div class="d-flex gap-4 mb-3 justify-content-center">
+                        <div class="text-center cursor-pointer hover-primary">
+                            <i data-lucide="heart" width="24"></i>
+                            <span class="d-block small fw-bold mt-1">1.2k</span>
+                        </div>
+                        <div class="text-center cursor-pointer hover-primary">
+                            <i data-lucide="message-circle" width="24"></i>
+                            <span class="d-block small fw-bold mt-1">45</span>
+                        </div>
+                        <div class="text-center cursor-pointer hover-primary">
+                            <i data-lucide="share-2" width="24"></i>
+                            <span class="d-block small fw-bold mt-1">Paylaş</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        lucide.createIcons();
+
+        // Lightbox Logic
+        const modal = document.getElementById('lightboxModal');
+        const videoFrame = document.getElementById('lightboxVideo');
+
+        function openVideo(url) {
+            // Autoplay əlavə et
+            const videoUrl = url.includes('?') ? `${url}&autoplay=1` : `${url}?autoplay=1`;
+            videoFrame.src = videoUrl;
+            modal.style.display = 'flex';
+        }
+
+        function closeLightbox() {
+            modal.style.display = 'none';
+            videoFrame.src = ""; // Stop video
+        }
+
+        // Close on outside click
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeLightbox();
+            }
+        });
+
+        // Filter Logic (Simple active class toggle)
+        const chips = document.querySelectorAll('.cat-chip');
+        chips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                chips.forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
