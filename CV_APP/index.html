@@ -48,11 +48,11 @@
             font-size: 13px;
             font-weight: 700;
             color: #000;
-            text-align: center;
             text-transform: uppercase;
             border-bottom: 2px solid #000;
             padding-bottom: 2px;
-            margin-top: 18px;
+            margin-top: 5px;
+            text-align: center;
             margin-bottom: 8px;
             width: 100%;
         }
@@ -177,6 +177,8 @@
                     <div class="space-y-3">
                         <input type="text" id="fullName" class="sv-input" value="AD SOYAD" placeholder="Ad Soyad">
                         <input type="text" id="linkedin" class="sv-input" value="linkedin.com/in/user" placeholder="LinkedIn">
+                        <input type="text" id="github" class="sv-input" value="" placeholder="GitHub (İstəyə bağlı)">
+                        <input type="text" id="behance" class="sv-input" value="" placeholder="Behance (İstəyə bağlı)">
                         <input type="text" id="location" class="sv-input" value="Baku, Azerbaijan" placeholder="Məkan">
                         <input type="email" id="email" class="sv-input" value="email@example.com" placeholder="Email">
                         <input type="text" id="phone" class="sv-input" value="+994 50 000 00 00" placeholder="Mobil">
@@ -277,6 +279,8 @@
                     <div class="contact-info">
                         <div class="flex flex-col gap-0.5">
                             <span id="p-linkedin">LinkedIn: linkedin.com/in/user</span>
+                            <span id="p-github" class="hidden">GitHub: </span>
+                            <span id="p-behance" class="hidden">Behance: </span>
                             <span id="p-loc">Location: Baku, Azerbaijan</span>
                         </div>
                         <div class="flex flex-col gap-0.5 text-right">
@@ -382,6 +386,26 @@
             document.getElementById('p-email').innerText = "Email: " + document.getElementById('email').value;
             document.getElementById('p-phone').innerText = "Mobile: " + document.getElementById('phone').value;
 
+            // GitHub visibility logic
+            const githubVal = document.getElementById('github').value.trim();
+            const pGithub = document.getElementById('p-github');
+            if(githubVal) {
+                pGithub.innerText = "GitHub: " + githubVal;
+                pGithub.classList.remove('hidden');
+            } else {
+                pGithub.classList.add('hidden');
+            }
+
+            // Behance visibility logic
+            const behanceVal = document.getElementById('behance').value.trim();
+            const pBehance = document.getElementById('p-behance');
+            if(behanceVal) {
+                pBehance.innerText = "Behance: " + behanceVal;
+                pBehance.classList.remove('hidden');
+            } else {
+                pBehance.classList.add('hidden');
+            }
+
             // Education
             const eduPreview = document.getElementById('p-edu');
             eduPreview.innerHTML = '';
@@ -436,10 +460,14 @@
         }
 
         async function downloadPDF() {
+            const fullName = document.getElementById('fullName').value.trim();
+            const formattedName = fullName ? fullName.toLowerCase().replace(/\s+/g, '_') : 'Software_Village';
+            const fileName = `${formattedName}_CV.pdf`;
+
             const element = document.getElementById('cv-content');
             const opt = {
                 margin: 0,
-                filename: 'Software_Village_CV.pdf',
+                filename: fileName,
                 image: { type: 'jpeg', quality: 1 },
                 html2canvas: { scale: 4, useCORS: true },
                 jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
