@@ -1,0 +1,415 @@
+.elementor-kit-4 {
+    --e-global-color-primary: #34D6E2;
+    --e-global-color-secondary: #FFFFFF;
+    --e-global-color-text: #FFFFFFC2;
+    --e-global-color-accent: #834DEB;
+    --e-global-color-d81b147: #FFFFFF00;
+    --e-global-color-52ffec4: #44404C;
+    --e-global-color-be10035: #22143D;
+    --e-global-color-5a5729e: #FFFFFF0F;
+    --e-global-color-c966e66: #0A0711;
+    --e-global-color-b568d6f: #2F2248;
+    --e-global-color-f9e9528: #22143DBF;
+    --e-global-typography-primary-font-family: "Montserrat", sans-serif;
+    --e-global-typography-primary-font-size: 52px;
+    --e-global-typography-primary-font-weight: 800;
+    --e-global-typography-primary-line-height: 1.3em;
+    --e-global-typography-primary-letter-spacing: -0.8px;
+    --e-global-typography-secondary-font-family: "Montserrat", sans-serif;
+    --e-global-typography-secondary-font-size: 38px;
+    --e-global-typography-secondary-font-weight: 700;
+    --e-global-typography-secondary-line-height: 1.3em;
+    --e-global-typography-secondary-letter-spacing: -0.6px;
+    --e-global-typography-text-font-family: "Poppins", sans-serif;
+    --e-global-typography-text-font-size: 16px;
+    --e-global-typography-text-font-weight: 400;
+    --e-global-typography-text-text-transform: none;
+    --e-global-typography-text-line-height: 1.5em;
+    --e-global-typography-text-letter-spacing: 0px;
+    --e-global-typography-accent-font-family: "Montserrat", sans-serif;
+    --e-global-typography-accent-font-size: 13px;
+    --e-global-typography-accent-font-weight: 700;
+    --e-global-typography-accent-text-transform: uppercase;
+    --e-global-typography-accent-font-style: normal;
+    --e-global-typography-accent-text-decoration: none;
+    --e-global-typography-accent-line-height: 1.2em;
+    --e-global-typography-accent-letter-spacing: 0.1px;
+    --e-global-typography-9b52189-font-family: "Montserrat", sans-serif;
+    --e-global-typography-9b52189-font-size: 22px;
+    --e-global-typography-9b52189-font-weight: 700;
+    --e-global-typography-9b52189-line-height: 1.3em;
+    --e-global-typography-9b52189-letter-spacing: -0.2px;
+    --e-global-typography-15bb2cc-font-family: "Montserrat", sans-serif;
+    --e-global-typography-15bb2cc-font-size: 18px;
+    --e-global-typography-15bb2cc-font-weight: 700;
+    --e-global-typography-15bb2cc-line-height: 1.4em;
+    --e-global-typography-15bb2cc-letter-spacing: 0px;
+    --e-global-typography-a908785-font-family: "Montserrat", sans-serif;
+    --e-global-typography-a908785-font-size: 16px;
+    --e-global-typography-a908785-font-weight: 500;
+    --e-global-typography-a908785-line-height: 1.5em;
+    --e-global-typography-5544a5d-font-family: "Montserrat", sans-serif;
+    --e-global-typography-5544a5d-font-size: 13px;
+    --e-global-typography-5544a5d-font-weight: 500;
+    --e-global-typography-5544a5d-line-height: 1.4em;
+    --e-global-typography-5544a5d-letter-spacing: 0px;
+    --e-global-typography-4304b17-font-family: "Poppins", sans-serif;
+    --e-global-typography-4304b17-font-size: 19px;
+    --e-global-typography-4304b17-font-weight: 400;
+    --e-global-typography-4304b17-line-height: 1.4em;
+    --e-global-typography-5684be7-font-family: "Poppins", sans-serif;
+    --e-global-typography-5684be7-font-size: 14px;
+    --e-global-typography-5684be7-line-height: 1.5em;
+    --e-global-typography-bfadf93-font-family: "Montserrat", sans-serif;
+    --e-global-typography-bfadf93-font-size: 15px;
+    --e-global-typography-bfadf93-font-weight: 600;
+    --e-global-typography-bfadf93-font-style: normal;
+    --e-global-typography-bfadf93-text-decoration: none;
+    --e-global-typography-bfadf93-line-height: 1.3em;
+    --e-global-typography-bfadf93-letter-spacing: -0.2px;
+    --e-global-typography-19143c7-font-family: "Montserrat", sans-serif;
+    --e-global-typography-19143c7-font-size: 14px;
+    --e-global-typography-19143c7-font-weight: 500;
+    --e-global-typography-19143c7-line-height: 1.3em;
+    --e-global-typography-ca96f47-font-family: "Montserrat", sans-serif;
+    --e-global-typography-ca96f47-font-size: 15px;
+    --e-global-typography-ca96f47-font-weight: 700;
+    --e-global-typography-ca96f47-text-transform: uppercase;
+    --e-global-typography-ca96f47-text-decoration: none;
+    --e-global-typography-ca96f47-line-height: 1.2em;
+    --e-global-typography-ca96f47-letter-spacing: 1px;
+    --e-global-typography-ca96f47-word-spacing: 1px;
+    background-color: var(--e-global-color-c966e66);
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-text-font-family), Sans-serif;
+    font-size: var(--e-global-typography-text-font-size);
+    font-weight: var(--e-global-typography-text-font-weight);
+    text-transform: var(--e-global-typography-text-text-transform);
+    line-height: var(--e-global-typography-text-line-height);
+    letter-spacing: var(--e-global-typography-text-letter-spacing);
+}
+
+.elementor-kit-4 button,
+.elementor-kit-4 input[type="button"],
+.elementor-kit-4 input[type="submit"],
+.elementor-kit-4 .elementor-button {
+    background-color: var(--e-global-color-d81b147);
+    font-family: var(--e-global-typography-accent-font-family), Sans-serif;
+    font-size: var(--e-global-typography-accent-font-size);
+    font-weight: var(--e-global-typography-accent-font-weight);
+    text-transform: var(--e-global-typography-accent-text-transform);
+    font-style: var(--e-global-typography-accent-font-style);
+    text-decoration: var(--e-global-typography-accent-text-decoration);
+    line-height: var(--e-global-typography-accent-line-height);
+    letter-spacing: var(--e-global-typography-accent-letter-spacing);
+    color: var(--e-global-color-secondary);
+    border-style: solid;
+    border-width: 2px 2px 2px 2px;
+    border-color: var(--e-global-color-primary);
+    border-radius: 0px 0px 0px 0px;
+    padding: 12px 24px 12px 24px;
+}
+
+.elementor-kit-4 button:hover,
+.elementor-kit-4 button:focus,
+.elementor-kit-4 input[type="button"]:hover,
+.elementor-kit-4 input[type="button"]:focus,
+.elementor-kit-4 input[type="submit"]:hover,
+.elementor-kit-4 input[type="submit"]:focus,
+.elementor-kit-4 .elementor-button:hover,
+.elementor-kit-4 .elementor-button:focus {
+    background-color: var(--e-global-color-d81b147);
+    color: var(--e-global-color-primary);
+    border-style: solid;
+    border-width: 2px 2px 2px 2px;
+    border-color: var(--e-global-color-secondary);
+}
+
+.elementor-kit-4 e-page-transition {
+    background-color: #FFBC7D;
+}
+
+.elementor-kit-4 p {
+    margin-bottom: 1.5em;
+}
+
+.elementor-kit-4 a {
+    color: var(--e-global-color-secondary);
+}
+
+.elementor-kit-4 a:hover {
+    color: var(--e-global-color-primary);
+}
+
+.elementor-kit-4 h1 {
+    color: var(--e-global-color-secondary);
+    font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+    font-size: var(--e-global-typography-primary-font-size);
+    font-weight: var(--e-global-typography-primary-font-weight);
+    line-height: var(--e-global-typography-primary-line-height);
+    letter-spacing: var(--e-global-typography-primary-letter-spacing);
+}
+
+.elementor-kit-4 h2 {
+    color: var(--e-global-color-secondary);
+    font-family: var(--e-global-typography-secondary-font-family), Sans-serif;
+    font-size: var(--e-global-typography-secondary-font-size);
+    font-weight: var(--e-global-typography-secondary-font-weight);
+    line-height: var(--e-global-typography-secondary-line-height);
+    letter-spacing: var(--e-global-typography-secondary-letter-spacing);
+}
+
+.elementor-kit-4 h3 {
+    color: var(--e-global-color-secondary);
+    font-family: var(--e-global-typography-9b52189-font-family), Sans-serif;
+    font-size: var(--e-global-typography-9b52189-font-size);
+    font-weight: var(--e-global-typography-9b52189-font-weight);
+    line-height: var(--e-global-typography-9b52189-line-height);
+    letter-spacing: var(--e-global-typography-9b52189-letter-spacing);
+}
+
+.elementor-kit-4 h4 {
+    color: var(--e-global-color-secondary);
+    font-family: var(--e-global-typography-15bb2cc-font-family), Sans-serif;
+    font-size: var(--e-global-typography-15bb2cc-font-size);
+    font-weight: var(--e-global-typography-15bb2cc-font-weight);
+    line-height: var(--e-global-typography-15bb2cc-line-height);
+    letter-spacing: var(--e-global-typography-15bb2cc-letter-spacing);
+}
+
+.elementor-kit-4 h5 {
+    color: var(--e-global-color-secondary);
+    font-family: var(--e-global-typography-a908785-font-family), Sans-serif;
+    font-size: var(--e-global-typography-a908785-font-size);
+    font-weight: var(--e-global-typography-a908785-font-weight);
+    line-height: var(--e-global-typography-a908785-line-height);
+}
+
+.elementor-kit-4 h6 {
+    color: var(--e-global-color-secondary);
+    font-family: var(--e-global-typography-5544a5d-font-family), Sans-serif;
+    font-size: var(--e-global-typography-5544a5d-font-size);
+    font-weight: var(--e-global-typography-5544a5d-font-weight);
+    line-height: var(--e-global-typography-5544a5d-line-height);
+    letter-spacing: var(--e-global-typography-5544a5d-letter-spacing);
+}
+
+.elementor-kit-4 img {
+    border-radius: 0px 0px 0px 0px;
+}
+
+.elementor-kit-4 label {
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-accent-font-family), Sans-serif;
+    font-size: var(--e-global-typography-accent-font-size);
+    font-weight: var(--e-global-typography-accent-font-weight);
+    text-transform: var(--e-global-typography-accent-text-transform);
+    font-style: var(--e-global-typography-accent-font-style);
+    text-decoration: var(--e-global-typography-accent-text-decoration);
+    line-height: var(--e-global-typography-accent-line-height);
+    letter-spacing: var(--e-global-typography-accent-letter-spacing);
+}
+
+.elementor-kit-4 input:not([type="button"]):not([type="submit"]),
+.elementor-kit-4 textarea,
+.elementor-kit-4 .elementor-field-textual {
+    font-family: var(--e-global-typography-text-font-family), Sans-serif;
+    font-size: var(--e-global-typography-text-font-size);
+    font-weight: var(--e-global-typography-text-font-weight);
+    text-transform: var(--e-global-typography-text-text-transform);
+    line-height: var(--e-global-typography-text-line-height);
+    letter-spacing: var(--e-global-typography-text-letter-spacing);
+    color: var(--e-global-color-secondary);
+    background-color: var(--e-global-color-b568d6f);
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+    border-color: var(--e-global-color-52ffec4);
+    border-radius: 0px 0px 0px 0px;
+}
+
+.elementor-section.elementor-section-boxed>.elementor-container {
+    max-width: 1280px;
+}
+
+.e-con {
+    --container-max-width: 1280px;
+    --container-default-padding-top: 0px;
+    --container-default-padding-right: 0px;
+    --container-default-padding-bottom: 0px;
+    --container-default-padding-left: 0px;
+}
+
+.elementor-widget:not(:last-child) {
+    margin-block-end: 0px;
+}
+
+.elementor-element {
+    --widgets-spacing: 0px 0px;
+}
+
+    {}
+
+h1.entry-title {
+    display: var(--page-title-display);
+}
+
+@media(max-width:1024px) {
+    .elementor-kit-4 {
+        --e-global-typography-primary-font-size: 46px;
+        --e-global-typography-secondary-font-size: 36px;
+        --e-global-typography-9b52189-font-size: 21px;
+        --e-global-typography-4304b17-font-size: 18px;
+        --e-global-typography-ca96f47-letter-spacing: 0.4px;
+        font-size: var(--e-global-typography-text-font-size);
+        line-height: var(--e-global-typography-text-line-height);
+        letter-spacing: var(--e-global-typography-text-letter-spacing);
+    }
+
+    .elementor-kit-4 h1 {
+        font-size: var(--e-global-typography-primary-font-size);
+        line-height: var(--e-global-typography-primary-line-height);
+        letter-spacing: var(--e-global-typography-primary-letter-spacing);
+    }
+
+    .elementor-kit-4 h2 {
+        font-size: var(--e-global-typography-secondary-font-size);
+        line-height: var(--e-global-typography-secondary-line-height);
+        letter-spacing: var(--e-global-typography-secondary-letter-spacing);
+    }
+
+    .elementor-kit-4 h3 {
+        font-size: var(--e-global-typography-9b52189-font-size);
+        line-height: var(--e-global-typography-9b52189-line-height);
+        letter-spacing: var(--e-global-typography-9b52189-letter-spacing);
+    }
+
+    .elementor-kit-4 h4 {
+        font-size: var(--e-global-typography-15bb2cc-font-size);
+        line-height: var(--e-global-typography-15bb2cc-line-height);
+        letter-spacing: var(--e-global-typography-15bb2cc-letter-spacing);
+    }
+
+    .elementor-kit-4 h5 {
+        font-size: var(--e-global-typography-a908785-font-size);
+        line-height: var(--e-global-typography-a908785-line-height);
+    }
+
+    .elementor-kit-4 h6 {
+        font-size: var(--e-global-typography-5544a5d-font-size);
+        line-height: var(--e-global-typography-5544a5d-line-height);
+        letter-spacing: var(--e-global-typography-5544a5d-letter-spacing);
+    }
+
+    .elementor-kit-4 button,
+    .elementor-kit-4 input[type="button"],
+    .elementor-kit-4 input[type="submit"],
+    .elementor-kit-4 .elementor-button {
+        font-size: var(--e-global-typography-accent-font-size);
+        line-height: var(--e-global-typography-accent-line-height);
+        letter-spacing: var(--e-global-typography-accent-letter-spacing);
+    }
+
+    .elementor-kit-4 label {
+        font-size: var(--e-global-typography-accent-font-size);
+        line-height: var(--e-global-typography-accent-line-height);
+        letter-spacing: var(--e-global-typography-accent-letter-spacing);
+    }
+
+    .elementor-kit-4 input:not([type="button"]):not([type="submit"]),
+    .elementor-kit-4 textarea,
+    .elementor-kit-4 .elementor-field-textual {
+        font-size: var(--e-global-typography-text-font-size);
+        line-height: var(--e-global-typography-text-line-height);
+        letter-spacing: var(--e-global-typography-text-letter-spacing);
+    }
+
+    .elementor-section.elementor-section-boxed>.elementor-container {
+        max-width: 1024px;
+    }
+
+    .e-con {
+        --container-max-width: 1024px;
+    }
+}
+
+@media(max-width:767px) {
+    .elementor-kit-4 {
+        --e-global-typography-primary-font-size: 36px;
+        --e-global-typography-secondary-font-size: 30px;
+        --e-global-typography-9b52189-font-size: 19px;
+        --e-global-typography-15bb2cc-font-size: 17px;
+        --e-global-typography-a908785-font-size: 15px;
+        --e-global-typography-ca96f47-font-size: 13px;
+        --e-global-typography-ca96f47-letter-spacing: 0.6px;
+        font-size: var(--e-global-typography-text-font-size);
+        line-height: var(--e-global-typography-text-line-height);
+        letter-spacing: var(--e-global-typography-text-letter-spacing);
+    }
+
+    .elementor-kit-4 h1 {
+        font-size: var(--e-global-typography-primary-font-size);
+        line-height: var(--e-global-typography-primary-line-height);
+        letter-spacing: var(--e-global-typography-primary-letter-spacing);
+    }
+
+    .elementor-kit-4 h2 {
+        font-size: var(--e-global-typography-secondary-font-size);
+        line-height: var(--e-global-typography-secondary-line-height);
+        letter-spacing: var(--e-global-typography-secondary-letter-spacing);
+    }
+
+    .elementor-kit-4 h3 {
+        font-size: var(--e-global-typography-9b52189-font-size);
+        line-height: var(--e-global-typography-9b52189-line-height);
+        letter-spacing: var(--e-global-typography-9b52189-letter-spacing);
+    }
+
+    .elementor-kit-4 h4 {
+        font-size: var(--e-global-typography-15bb2cc-font-size);
+        line-height: var(--e-global-typography-15bb2cc-line-height);
+        letter-spacing: var(--e-global-typography-15bb2cc-letter-spacing);
+    }
+
+    .elementor-kit-4 h5 {
+        font-size: var(--e-global-typography-a908785-font-size);
+        line-height: var(--e-global-typography-a908785-line-height);
+    }
+
+    .elementor-kit-4 h6 {
+        font-size: var(--e-global-typography-5544a5d-font-size);
+        line-height: var(--e-global-typography-5544a5d-line-height);
+        letter-spacing: var(--e-global-typography-5544a5d-letter-spacing);
+    }
+
+    .elementor-kit-4 button,
+    .elementor-kit-4 input[type="button"],
+    .elementor-kit-4 input[type="submit"],
+    .elementor-kit-4 .elementor-button {
+        font-size: var(--e-global-typography-accent-font-size);
+        line-height: var(--e-global-typography-accent-line-height);
+        letter-spacing: var(--e-global-typography-accent-letter-spacing);
+        padding: 10px 32px 10px 32px;
+    }
+
+    .elementor-kit-4 label {
+        font-size: var(--e-global-typography-accent-font-size);
+        line-height: var(--e-global-typography-accent-line-height);
+        letter-spacing: var(--e-global-typography-accent-letter-spacing);
+    }
+
+    .elementor-kit-4 input:not([type="button"]):not([type="submit"]),
+    .elementor-kit-4 textarea,
+    .elementor-kit-4 .elementor-field-textual {
+        font-size: var(--e-global-typography-text-font-size);
+        line-height: var(--e-global-typography-text-line-height);
+        letter-spacing: var(--e-global-typography-text-letter-spacing);
+    }
+
+    .elementor-section.elementor-section-boxed>.elementor-container {
+        max-width: 767px;
+    }
+
+    .e-con {
+        --container-max-width: 767px;
+    }
+}
