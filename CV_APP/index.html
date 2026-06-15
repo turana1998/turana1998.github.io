@@ -3,480 +3,1525 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Software Village | CV Generator</title>
+    <title>Software Village | Professional CV Generator</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #f8fafc; }
         
-        /* PDF Preview & Export Styles (Strict Monochrome) */
-        .cv-preview {
+        .custom-scroll::-webkit-scrollbar { width: 6px; }
+        .custom-scroll::-webkit-scrollbar-track { background: #1e293b; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #475569; border-radius: 3px; }
+        .custom-scroll::-webkit-scrollbar-thumb:hover { background: #64748b; }
+
+        .cv-workspace {
+            background-color: #334155;
+            min-height: calc(100vh - 80px);
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 40px 20px;
+            overflow-x: auto;
+        }
+
+        /* Strict A4 Page dimensions (Print Mode optimized) */
+        .cv-page {
             width: 210mm;
             min-height: 297mm;
-            padding: 15mm 20mm;
-            margin: auto;
             background: white;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-            color: #000;
-            line-height: 1.4;
-            display: flex;
-            flex-direction: column;
+            color: #000000;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
             position: relative;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+            transform-origin: top center;
         }
 
-        .preview-name {
-            font-size: 26px;
-            font-weight: 800;
-            color: #000;
-            text-transform: uppercase;
-            letter-spacing: -0.5px;
-            margin-bottom: 8px;
+        /* Printing Adjustments */
+        @media print {
+            body { background: white; color: black; }
+            .no-print { display: none !important; }
+            .cv-workspace { padding: 0; background: none; }
+            .cv-page {
+                width: 210mm;
+                height: 297mm;
+                box-shadow: none;
+                margin: 0;
+                transform: scale(1) !important;
+            }
         }
 
-        .contact-info {
-            font-size: 10.5px;
-            color: #000;
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 15px;
-            border-bottom: 1.5px solid #000;
-            padding-bottom: 8px;
-        }
-
-        .section-title {
-            font-size: 13px;
-            font-weight: 700;
-            color: #000;
-            text-transform: uppercase;
-            border-bottom: 2px solid #000;
-            padding-bottom: 2px;
-            margin-top: 5px;
-            text-align: center;
-            margin-bottom: 8px;
-            width: 100%;
-        }
-
-        .content-item {
-            font-size: 11px;
-            margin-bottom: 10px;
-        }
-
-        .item-header {
-            display: flex;
-            justify-content: space-between;
-            font-weight: 700;
-        }
-
-        .item-sub {
-            display: flex;
-            justify-content: space-between;
-            font-style: italic;
-            margin-top: 1px;
-        }
-
-        .bullet-list {
-            list-style-type: disc;
-            margin-left: 18px;
-            margin-top: 3px;
-            font-size: 10.5px;
-        }
-
-        .ref-item {
-            font-size: 10px;
-            margin-bottom: 6px;
-        }
-
-        .cv-footer {
-            margin-top: auto;
-            padding-top: 15px;
-            border-top: 0.5px solid #000;
-            display: flex;
-            justify-content: center;
-            font-size: 9px;
-            font-weight: 700;
-            color: #000;
-            text-transform: uppercase;
-        }
-
-        /* UI Styling */
-        .input-card { background: #fff; border-radius: 16px; padding: 24px; margin-bottom: 20px; border: 1px solid #e2e8f0; }
-        .sv-input { width: 100%; border: 2px solid #e2e8f0; border-radius: 10px; padding: 10px; font-size: 14px; transition: all 0.2s; background: #f8fafc; }
-        .sv-input:focus { border-color: #3b82f6; background: #fff; outline: none; }
-        .sv-label { font-weight: 700; font-size: 12px; color: #475569; text-transform: uppercase; margin-bottom: 6px; display: block; }
-        .btn-action { font-size: 12px; font-weight: 700; display: flex; align-items: center; gap: 4px; transition: all 0.2s; }
-        
-        .delete-btn {
-            position: absolute;
-            top: -10px;
-            right: -10px;
-            background: #fee2e2;
-            color: #dc2626;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1.5px solid #fecaca;
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            z-index: 10;
-        }
-        .delete-btn:hover {
-            background: #dc2626;
-            color: white;
-            transform: scale(1.1) rotate(10deg);
-            box-shadow: 0 4px 8px rgba(220, 38, 38, 0.2);
-        }
-
-        @media print { .no-print { display: none; } .cv-preview { box-shadow: none; margin: 0; } }
+        .font-sans-cv { font-family: 'Inter', sans-serif; }
+        .font-serif-cv { font-family: 'Playfair Display', serif; }
+        .font-mono-cv { font-family: 'JetBrains Mono', monospace; }
     </style>
 </head>
-<body class="p-4 md:p-8">
+<body class="min-h-screen flex flex-col">
 
-    <div class="max-w-[1440px] mx-auto flex flex-col xl:flex-row gap-8">
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="fixed top-5 right-5 z-50 flex flex-col gap-2"></div>
+
+    <header class="bg-slate-900 border-b border-slate-800 px-6 py-4 flex items-center justify-between no-print shrink-0 flex-wrap gap-4">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white font-black shadow-lg shadow-blue-500/20">
+                <svg viewBox="0 0 100 100" class="w-6 h-6 fill-none stroke-white" stroke-width="8">
+                    <circle cx="50" cy="50" r="42" class="fill-blue-600 stroke-none"/>
+                    <path d="M30 65 L48 35 L55 48 L70 25" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <div>
+                <h1 class="text-md font-extrabold text-white tracking-tight uppercase leading-none">Software Village</h1>
+                <p class="text-[10px] font-bold text-blue-400 tracking-wider uppercase mt-1">Professional CV Builder v2.0</p>
+            </div>
+        </div>
         
-        <!-- Form Side -->
-        <div class="w-full xl:w-[500px] no-print overflow-y-auto max-h-[95vh] pr-2">
-            <div class="flex items-center gap-4 mb-6 bg-white p-6 rounded-2xl shadow-sm border border-blue-50">
-                <div class="w-14 h-14 bg-blue-500 rounded-full flex items-center justify-center text-white shrink-0">
-                    <svg viewBox="0 0 100 100" class="w-8 h-8 fill-none stroke-white" stroke-width="6">
-                        <circle cx="50" cy="50" r="45" class="fill-blue-500 stroke-none"/>
-                        <path d="M25 65 L45 35 L55 50 L75 25" stroke-linecap="round" stroke-linejoin="round"/>
-                        <text x="50" y="65" text-anchor="middle" font-size="12" font-weight="bold" fill="white" stroke="none">&lt;/&gt;</text>
-                    </svg>
-                </div>
-                <div>
-                    <h1 class="text-xl font-black text-gray-900 leading-tight tracking-tighter uppercase">Software Village</h1>
-                    <p class="text-xs font-bold text-blue-600 tracking-widest uppercase">Karyera Konstruktoru</p>
-                </div>
+        <div class="flex items-center gap-2 flex-wrap">
+            <button onclick="downloadHTML()" class="bg-amber-600 hover:bg-amber-500 text-white font-bold text-xs px-4 py-2.5 rounded-xl transition duration-150 flex items-center gap-1.5 shadow-lg shadow-amber-500/15" title="Bütün məlumatlarınızla birlikdə tətbiqi HTML faylı olaraq kompüterinizə endirin">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                <span>HTML YÜKLƏ</span>
+            </button>
+            <button onclick="downloadWord()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs px-4 py-2.5 rounded-xl transition duration-150 flex items-center gap-1.5 shadow-lg shadow-emerald-500/15">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                <span>WORD YÜKLƏ</span>
+            </button>
+            <button onclick="downloadPDF()" class="bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs px-4 py-2.5 rounded-xl transition duration-150 flex items-center gap-1.5 shadow-lg shadow-blue-500/15">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                </svg>
+                <span>PDF YÜKLƏ</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Workspace -->
+    <div class="flex-1 flex flex-col lg:flex-row min-h-0">
+        
+        <!-- Left Side: Form Controls -->
+        <aside class="w-full lg:w-[480px] bg-slate-900 border-r border-slate-800 flex flex-col no-print shrink-0">
+            <!-- Tabs Bar -->
+            <div class="flex border-b border-slate-800 bg-slate-950 px-2 shrink-0 overflow-x-auto custom-scroll">
+                <button onclick="switchTab('content')" id="tab-content" class="px-4 py-3 text-xs font-bold tracking-wider text-blue-400 border-b-2 border-blue-500 transition duration-150 shrink-0">MƏZMUN</button>
+                <button onclick="switchTab('design')" id="tab-design" class="px-4 py-3 text-xs font-bold tracking-wider text-slate-400 hover:text-white transition duration-150 shrink-0">DİZAYN & ŞABLON</button>
+                <button onclick="switchTab('helper')" id="tab-helper" class="px-4 py-3 text-xs font-bold tracking-wider text-slate-400 hover:text-white transition duration-150 shrink-0 font-mono text-emerald-400">CV ANALİZİ</button>
             </div>
 
-            <form id="cvForm" class="space-y-4">
-                <!-- Sector Selection -->
-                <div class="input-card border-l-4 border-l-blue-500 bg-blue-50/30">
-                    <label class="sv-label">Tədris Sahəsi (Gizli)</label>
-                    <select id="sectorSelect" class="sv-input font-bold text-blue-700" onchange="handleSectorChange()">
-                        <option value="">Sahəni seçin...</option>
-                        <option value="frontend">Frontend Development</option>
-                        <option value="data">Data Analitika</option>
-                        <option value="java">Java Programming</option>
-                        <option value="csharp">C# / .NET</option>
-                        <option value="mobile">Mobil (Android Kotlin)</option>
-                        <option value="uiux">UX/UI Dizayn</option>
-                        <option value="graphic">Qrafik Dizayn</option>
-                        <option value="cyber">Kibertehlukesizlik</option>
-                    </select>
-                    <p class="text-[10px] text-gray-500 mt-2 italic">Qeyd: Bu seçim PDF-də görünmür, məzmunu avtomatik doldurmaq üçündür.</p>
-                </div>
-
-                <!-- Personal -->
-                <div class="input-card border-l-4 border-l-blue-500">
-                    <h3 class="sv-label mb-4">Şəxsi Məlumatlar</h3>
-                    <div class="space-y-3">
-                        <input type="text" id="fullName" class="sv-input" value="AD SOYAD" placeholder="Ad Soyad">
-                        <input type="text" id="linkedin" class="sv-input" value="linkedin.com/in/user" placeholder="LinkedIn">
-                        <input type="text" id="github" class="sv-input" value="" placeholder="GitHub (İstəyə bağlı)">
-                        <input type="text" id="behance" class="sv-input" value="" placeholder="Behance (İstəyə bağlı)">
-                        <input type="text" id="location" class="sv-input" value="Baku, Azerbaijan" placeholder="Məkan">
-                        <input type="email" id="email" class="sv-input" value="email@example.com" placeholder="Email">
-                        <input type="text" id="phone" class="sv-input" value="+994 50 000 00 00" placeholder="Mobil">
+            <div class="flex-1 overflow-y-auto p-5 space-y-5 custom-scroll" id="form-container">
+                
+                <!-- TAB: CONTENT -->
+                <div id="panel-content" class="space-y-5">
+                    
+                    <!-- Quick Import Profile Box -->
+                    <div class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-500/30 p-4 rounded-xl shadow-md">
+                        <span class="block text-[10px] font-black tracking-widest text-blue-400 uppercase mb-1">MÜRACİƏTÇİ PROFİLİ</span>
+                        <h4 class="text-xs font-bold text-white mb-2">Tükəzban Rəcəbova CV-sini sıfırla/yükle</h4>
+                        <button onclick="loadSaidGadirovProfile()" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-extrabold text-[10.5px] py-2.5 rounded-lg transition uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-lg shadow-blue-500/20">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                            </svg>
+                            <span>MƏLUMATLARINI SIFIRLA VƏ İDXAL ET</span>
+                        </button>
                     </div>
-                </div>
 
-                <!-- Education -->
-                <div class="input-card">
-                    <div class="flex justify-between items-center mb-4">
-                        <h3 class="sv-label">Təhsil</h3>
-                        <button type="button" onclick="addItem('educationList')" class="btn-action text-blue-600 hover:text-blue-800">+ Əlavə et</button>
-                    </div>
-                    <div id="educationList" class="space-y-6">
-                        <div class="education-item space-y-2 p-4 bg-gray-50 rounded-xl relative border border-gray-100">
-                            <input type="text" class="edu-school sv-input !bg-white font-bold" placeholder="Universitet Adı">
-                            <input type="text" class="edu-degree sv-input !bg-white" placeholder="Dərəcə və ixtisas">
-                            <div class="grid grid-cols-2 gap-2">
-                                <input type="text" class="edu-date sv-input !bg-white" placeholder="Tarix">
-                                <input type="text" class="edu-loc sv-input !bg-white" placeholder="Məkan">
+                    <!-- Personal Information -->
+                    <div class="bg-slate-800/20 border border-slate-800/80 p-5 rounded-xl space-y-3.5">
+                        <h3 class="text-xs font-black tracking-widest text-slate-200 border-b border-slate-800 pb-2 uppercase">Şəxsi Məlumatlar</h3>
+                        <div>
+                            <label class="block text-[10px] font-bold text-slate-400 uppercase mb-1">Ad və Soyad</label>
+                            <input type="text" id="fullName" class="w-full bg-slate-950 border border-slate-800 rounded-lg py-2 px-3 text-xs text-slate-200 focus:outline-none focus:border-blue-500" value="TÜKƏZBAN RƏCƏBOVA" oninput="updateState('fullName', this.value)">
+                        </div>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-[10px] font-bold text-slate-400 uppercase mb-1">E-poçt ünvanı</label>
+                                <input type="email" id="email" class="w-full bg-slate-950 border border-slate-800 rounded-lg py-2 px-3 text-xs text-slate-200 focus:outline-none focus:border-blue-500" value="tradjabova86@gmail.com" oninput="updateState('email', this.value)">
                             </div>
-                            <button type="button" onclick="this.parentElement.remove(); updatePreview();" class="delete-btn">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
+                            <div>
+                                <label class="block text-[10px] font-bold text-slate-400 uppercase mb-1">Telefon nömrəsi</label>
+                                <input type="text" id="phone" class="w-full bg-slate-950 border border-slate-800 rounded-lg py-2 px-3 text-xs text-slate-200 focus:outline-none focus:border-blue-500" value="055 846 11 47" oninput="updateState('phone', this.value)">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-[10px] font-bold text-slate-400 uppercase mb-1">Məkan (Şəhər, Ölkə)</label>
+                                <input type="text" id="location" class="w-full bg-slate-950 border border-slate-800 rounded-lg py-2 px-3 text-xs text-slate-200 focus:outline-none focus:border-blue-500" value="Baku, Azerbaijan" oninput="updateState('location', this.value)">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold text-slate-400 uppercase mb-1">LinkedIn Profili</label>
+                                <input type="text" id="linkedin" class="w-full bg-slate-950 border border-slate-800 rounded-lg py-2 px-3 text-xs text-slate-200 focus:outline-none focus:border-blue-500" value="" placeholder="linkedin.com/in/username" oninput="updateState('linkedin', this.value)">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-[10px] font-bold text-slate-400 uppercase mb-1">GitHub (İstəyə bağlı)</label>
+                                <input type="text" id="github" class="w-full bg-slate-950 border border-slate-800 rounded-lg py-2 px-3 text-xs text-slate-200 focus:outline-none focus:border-blue-500" value="" placeholder="github.com/username" oninput="updateState('github', this.value)">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold text-slate-400 uppercase mb-1">Portfolio / Behance</label>
+                                <input type="text" id="portfolio" class="w-full bg-slate-950 border border-slate-800 rounded-lg py-2 px-3 text-xs text-slate-200 focus:outline-none focus:border-blue-500" value="behance.net/turagraphics" placeholder="behance.net/username" oninput="updateState('portfolio', this.value)">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Education Section -->
+                    <div class="bg-slate-800/20 border border-slate-800/80 p-5 rounded-xl space-y-4">
+                        <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+                            <h3 class="text-xs font-black tracking-widest text-slate-200 uppercase">Təhsil</h3>
+                            <button type="button" onclick="addDynamicItem('education')" class="text-[10px] font-bold text-blue-400 hover:text-blue-300 flex items-center gap-1">
+                                <span>+ Əlavə et</span>
+                            </button>
+                        </div>
+                        <div id="education-form-list" class="space-y-4">
+                            <!-- Injected by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Experience Section -->
+                    <div class="bg-slate-800/20 border border-slate-800/80 p-5 rounded-xl space-y-4">
+                        <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+                            <h3 class="text-xs font-black tracking-widest text-slate-200 uppercase">İş Təcrübəsi</h3>
+                            <button type="button" onclick="addDynamicItem('experience')" class="text-[10px] font-bold text-blue-400 hover:text-blue-300 flex items-center gap-1">
+                                <span>+ Əlavə et</span>
+                            </button>
+                        </div>
+                        <div id="experience-form-list" class="space-y-4">
+                            <!-- Injected by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Projects Section -->
+                    <div class="bg-slate-800/20 border border-slate-800/80 p-5 rounded-xl space-y-4">
+                        <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+                            <h3 class="text-xs font-black tracking-widest text-slate-200 uppercase">Layihələr (Portfolio)</h3>
+                            <button type="button" onclick="addDynamicItem('projects')" class="text-[10px] font-bold text-blue-400 hover:text-blue-300 flex items-center gap-1">
+                                <span>+ Əlavə et</span>
+                            </button>
+                        </div>
+                        <div id="projects-form-list" class="space-y-4">
+                            <!-- Injected by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Skills summary -->
+                    <div class="bg-slate-800/20 border border-slate-800/80 p-5 rounded-xl space-y-3">
+                        <h3 class="text-xs font-black tracking-widest text-slate-200 border-b border-slate-800 pb-2 uppercase">Texniki Bacarıqlar (Skills)</h3>
+                        <textarea id="skills" rows="8" class="w-full bg-slate-950 border border-slate-800 rounded-lg py-2.5 px-3 text-xs text-slate-200 font-mono focus:outline-none focus:border-blue-500" placeholder="• Texnologiyalar və sahələr üzrə bölərək yazın..." oninput="updateState('skills', this.value)"></textarea>
+                    </div>
+
+                    <!-- Languages Section -->
+                    <div class="bg-slate-800/20 border border-slate-800/80 p-5 rounded-xl space-y-3">
+                        <h3 class="text-xs font-black tracking-widest text-slate-200 border-b border-slate-800 pb-2 uppercase">Xarici Dillər</h3>
+                        <textarea id="languages" rows="2" class="w-full bg-slate-950 border border-slate-800 rounded-lg py-2.5 px-3 text-xs text-slate-200 font-mono focus:outline-none focus:border-blue-500" placeholder="İngilis dili (C1), Rus dili (B2)..." oninput="updateState('languages', this.value)"></textarea>
+                    </div>
+
+                    <!-- Certificates summary -->
+                    <div class="bg-slate-800/20 border border-slate-800/80 p-5 rounded-xl space-y-3">
+                        <h3 class="text-xs font-black tracking-widest text-slate-200 border-b border-slate-800 pb-2 uppercase">Sertifikatlar</h3>
+                        <textarea id="certificates" rows="8" class="w-full bg-slate-950 border border-slate-800 rounded-lg py-2.5 px-3 text-xs text-slate-200 font-mono focus:outline-none focus:border-blue-500" placeholder="Sertifikat Adı - Verən Qurum (Tarix)..." oninput="updateState('certificates', this.value)"></textarea>
+                    </div>
+
+                    <!-- Custom Reference Panel (Teacher / Mentor) -->
+                    <div class="bg-slate-800/20 border border-slate-800/80 p-5 rounded-xl space-y-3.5">
+                        <h3 class="text-xs font-black tracking-widest text-slate-200 border-b border-slate-800 pb-2 uppercase">Rəylər və Referanslar</h3>
+                        
+                        <div class="border border-slate-800 bg-slate-950/40 p-3 rounded-lg space-y-3">
+                            <span class="text-[9px] font-bold tracking-widest text-emerald-400 block uppercase">MÜƏLLİM REFRANSI</span>
+                            <div>
+                                <input type="text" id="refTeacherName" class="w-full bg-slate-950 border border-slate-800 rounded-lg py-1.5 px-2.5 text-xs text-slate-200 focus:outline-none" placeholder="Müəllim Ad Soyad" oninput="updateState('refTeacherName', this.value)">
+                            </div>
+                            <div class="grid grid-cols-2 gap-2">
+                                <input type="text" id="refTeacherPhone" class="w-full bg-slate-950 border border-slate-800 rounded-lg py-1.5 px-2.5 text-xs text-slate-200 focus:outline-none" placeholder="Əlaqə nömrəsi" oninput="updateState('refTeacherPhone', this.value)">
+                                <input type="text" id="refTeacherLinkedin" class="w-full bg-slate-950 border border-slate-800 rounded-lg py-1.5 px-2.5 text-xs text-slate-200 focus:outline-none" placeholder="LinkedIn URL" oninput="updateState('refTeacherLinkedin', this.value)">
+                            </div>
+                        </div>
+
+                        <div class="border border-slate-800 bg-slate-950/40 p-3 rounded-lg space-y-3">
+                            <span class="text-[9px] font-bold tracking-widest text-blue-400 block uppercase">MENTOR REFERANSI</span>
+                            <div>
+                                <input type="text" id="refMentorName" class="w-full bg-slate-950 border border-slate-800 rounded-lg py-1.5 px-2.5 text-xs text-slate-200 focus:outline-none" placeholder="Mentor Ad Soyad" oninput="updateState('refMentorName', this.value)">
+                            </div>
+                            <div class="grid grid-cols-2 gap-2">
+                                <input type="text" id="refMentorPhone" class="w-full bg-slate-950 border border-slate-800 rounded-lg py-1.5 px-2.5 text-xs text-slate-200 focus:outline-none" placeholder="Əlaqə nömrəsi" oninput="updateState('refMentorPhone', this.value)">
+                                <input type="text" id="refMentorLinkedin" class="w-full bg-slate-950 border border-slate-800 rounded-lg py-1.5 px-2.5 text-xs text-slate-200 focus:outline-none" placeholder="LinkedIn URL" oninput="updateState('refMentorLinkedin', this.value)">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- TAB: DESIGN & TEMPLATES -->
+                <div id="panel-design" class="hidden space-y-5">
+                    
+                    <!-- Templates Selection -->
+                    <div class="bg-slate-800/20 border border-slate-800/80 p-5 rounded-xl space-y-3">
+                        <h3 class="text-xs font-black tracking-widest text-slate-200 border-b border-slate-800 pb-2 uppercase">Vizual Şablon Siyahısı</h3>
+                        <div class="grid grid-cols-1 gap-2.5">
+                            <button onclick="updateDesign('template', 'classic')" id="tpl-classic" class="w-full text-left bg-blue-600 border border-blue-500 p-3 rounded-xl flex items-center justify-between transition">
+                                <div>
+                                    <span class="text-xs font-bold block text-white">Classic Academic (Eyniləşdirilmiş)</span>
+                                    <span class="text-[10px] text-blue-100 block">Sənəd dizaynı, mərkəzləşdirilmiş başlıqlar</span>
+                                </div>
+                                <div class="w-4 h-4 rounded-full bg-white flex items-center justify-center">
+                                    <div class="w-2 h-2 rounded-full bg-blue-600"></div>
+                                </div>
+                            </button>
+                            <button onclick="updateDesign('template', 'modern')" id="tpl-modern" class="w-full text-left bg-slate-950 border border-slate-800 p-3 rounded-xl flex items-center justify-between hover:border-slate-700 transition">
+                                <div>
+                                    <span class="text-xs font-bold block text-slate-200">Modern Executive</span>
+                                    <span class="text-[10px] text-slate-400 block">Sol başlıq, minimal sətirlər, asimmetrik harmoniya</span>
+                                </div>
+                                <div class="w-4 h-4 rounded-full border border-slate-700"></div>
+                            </button>
+                            <button onclick="updateDesign('template', 'split')" id="tpl-split" class="w-full text-left bg-slate-950 border border-slate-800 p-3 rounded-xl flex items-center justify-between hover:border-slate-700 transition">
+                                <div>
+                                    <span class="text-xs font-bold block text-slate-200">Creative Split-Column</span>
+                                    <span class="text-[10px] text-slate-400 block">Sol tərəfdə əlavə qutu, sağ tərəfdə zəngin detallar</span>
+                                </div>
+                                <div class="w-4 h-4 rounded-full border border-slate-700"></div>
                             </button>
                         </div>
                     </div>
-                </div>
 
-                <!-- Experience -->
-                <div class="input-card">
-                    <div class="flex justify-between items-center mb-4">
-                        <h3 class="sv-label">İş Təcrübəsi</h3>
-                        <button type="button" onclick="addItem('experienceList')" class="btn-action text-blue-600 hover:text-blue-800">+ Əlavə et</button>
+                    <!-- Font Selections -->
+                    <div class="bg-slate-800/20 border border-slate-800/80 p-5 rounded-xl space-y-3">
+                        <h3 class="text-xs font-black tracking-widest text-slate-200 border-b border-slate-800 pb-2 uppercase">Mətn Şrifti (Font Family)</h3>
+                        <div class="grid grid-cols-3 gap-2">
+                            <button onclick="updateDesign('font', 'sans')" id="font-sans" class="bg-blue-600 text-white p-2.5 rounded-lg text-xs font-bold border border-blue-500 transition">Sans (Inter)</button>
+                            <button onclick="updateDesign('font', 'serif')" id="font-serif" class="bg-slate-950 hover:bg-slate-900 text-slate-400 p-2.5 rounded-lg text-xs font-serif border border-slate-800 transition">Serif (Playfair)</button>
+                            <button onclick="updateDesign('font', 'mono')" id="font-mono" class="bg-slate-950 hover:bg-slate-900 text-slate-400 p-2.5 rounded-lg text-xs font-mono border border-slate-800 transition">Mono (JetBrains)</button>
+                        </div>
                     </div>
-                    <div id="experienceList" class="space-y-6">
-                        <div class="experience-item space-y-2 p-4 bg-gray-50 rounded-xl relative border border-gray-100">
-                            <input type="text" class="exp-title sv-input !bg-white font-bold" placeholder="Vəzifə">
-                            <input type="text" class="exp-company sv-input !bg-white" placeholder="Şirkət">
-                            <div class="grid grid-cols-2 gap-2">
-                                <input type="text" class="exp-date sv-input !bg-white" placeholder="Tarix">
-                                <input type="text" class="exp-loc sv-input !bg-white" placeholder="Məkan">
+
+                    <!-- Sizing Controls -->
+                    <div class="bg-slate-800/20 border border-slate-800/80 p-5 rounded-xl space-y-4">
+                        <h3 class="text-xs font-black tracking-widest text-slate-200 border-b border-slate-800 pb-1 uppercase">Səhifə Sıxlığı & Şrift Ölçüsü</h3>
+                        
+                        <div>
+                            <div class="flex justify-between text-[10px] font-bold text-slate-400 mb-1">
+                                <span>ŞRİFT ÖLÇÜSÜ (Base Size)</span>
+                                <span id="font-size-val">10.5px</span>
                             </div>
-                            <textarea class="exp-desc sv-input !bg-white text-xs" rows="3" placeholder="Görülən işlər (hər sətir bir bənd)"></textarea>
-                            <button type="button" onclick="this.parentElement.remove(); updatePreview();" class="delete-btn">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
+                            <input type="range" id="fontSizeSlider" min="9" max="14" step="0.5" value="10.5" oninput="updateDesign('fontSize', this.value)" class="w-full accent-blue-500">
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-[10px] font-bold text-slate-400 mb-1">
+                                <span>BLOKLARARASI MƏSAFƏ (Margin)</span>
+                                <span id="margin-val">12px</span>
+                            </div>
+                            <input type="range" id="marginSlider" min="5" max="25" step="1" value="12" oninput="updateDesign('margin', this.value)" class="w-full accent-blue-500">
+                        </div>
+
+                        <div class="pt-2">
+                            <button onclick="autoFitToPage()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-[10px] py-2.5 rounded-xl transition uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-lg shadow-emerald-500/15">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5" />
+                                </svg>
+                                <span>Tək Səhifəyə Sığdır (Fit to Page)</span>
                             </button>
                         </div>
                     </div>
+
                 </div>
 
-                <!-- Skills Area -->
-                <div class="input-card border-l-4 border-l-blue-500">
-                    <h3 class="sv-label mb-4">Bacarıqlar (Skills)</h3>
-                    <textarea id="skillsInput" rows="10" class="sv-input text-xs" placeholder="Seçim etdikdə avtomatik dolacaq..."></textarea>
-                </div>
-
-                <!-- Certificates Area -->
-                <div class="input-card border-l-4 border-l-blue-500">
-                    <h3 class="sv-label mb-4">Sertifikatlar</h3>
-                    <textarea id="certsInput" rows="12" class="sv-input text-xs" placeholder="Seçim etdikdə avtomatik dolacaq..."></textarea>
-                </div>
-
-                <!-- References -->
-                <div class="input-card border-l-4 border-l-blue-500">
-                    <h3 class="sv-label mb-4">Referanslar</h3>
-                    <div class="space-y-4">
-                        <div class="p-4 border rounded-xl bg-blue-50/50 space-y-2">
-                            <p class="text-[10px] font-bold text-blue-800 mb-1">MÜƏLLİM</p>
-                            <input type="text" id="refTeacherName" class="sv-input !bg-white !py-2 !text-xs" placeholder="Müəllim Ad Soyad">
-                            <div class="grid grid-cols-2 gap-2">
-                                <input type="text" id="refTeacherPhone" class="sv-input !bg-white !py-2 !text-xs" placeholder="Telefon">
-                                <input type="text" id="refTeacherLinkedin" class="sv-input !bg-white !py-2 !text-xs" placeholder="LinkedIn link">
+                <!-- TAB: CV HELPER / DIAGNOSTICS -->
+                <div id="panel-helper" class="hidden space-y-4">
+                    <div class="bg-slate-800/20 border border-slate-800 p-5 rounded-xl text-center space-y-3">
+                        <h3 class="text-xs font-black tracking-widest text-emerald-400 uppercase">CV Tamlıq Analizi</h3>
+                        <p class="text-slate-400 text-[11px]">Doldurduğunuz məlumatların keyfiyyətinə əsasən CV-nin güc reytinqi hesablanır.</p>
+                        
+                        <div class="py-4 flex justify-center">
+                            <div class="relative w-28 h-28 flex items-center justify-center">
+                                <!-- Circular Indicator -->
+                                <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                                    <circle cx="50" cy="50" r="40" stroke="#1e293b" stroke-width="8" fill="transparent" />
+                                    <circle id="score-circle" cx="50" cy="50" r="40" stroke="#10b981" stroke-width="8" fill="transparent" stroke-dasharray="251.2" stroke-dashoffset="251.2" class="transition-all duration-500" />
+                                </svg>
+                                <span id="score-text" class="absolute text-xl font-black text-white">0%</span>
                             </div>
                         </div>
-                        <div class="p-4 border rounded-xl bg-blue-50/50 space-y-2">
-                            <p class="text-[10px] font-bold text-blue-800 mb-1">MENTOR</p>
-                            <input type="text" id="refMentorName" class="sv-input !bg-white !py-2 !text-xs" placeholder="Mentor Ad Soyad">
-                            <div class="grid grid-cols-2 gap-2">
-                                <input type="text" id="refMentorPhone" class="sv-input !bg-white !py-2 !text-xs" placeholder="Telefon">
-                                <input type="text" id="refMentorLinkedin" class="sv-input !bg-white !py-2 !text-xs" placeholder="LinkedIn link">
+
+                        <!-- Progress indicators -->
+                        <div class="space-y-2 text-left text-[11px]">
+                            <div class="flex justify-between border-b border-slate-800/50 pb-1">
+                                <span class="text-slate-400">Şəxsi məlumatlar</span>
+                                <span id="chk-personal" class="font-bold text-red-400">Yarımçıq</span>
+                            </div>
+                            <div class="flex justify-between border-b border-slate-800/50 pb-1">
+                                <span class="text-slate-400">Təhsil statusu</span>
+                                <span id="chk-education" class="font-bold text-red-400">Əlavə edilməyib</span>
+                            </div>
+                            <div class="flex justify-between border-b border-slate-800/50 pb-1">
+                                <span class="text-slate-400">İş Təcrübələri</span>
+                                <span id="chk-experience" class="font-bold text-red-400">Əlavə edilməyib</span>
+                            </div>
+                            <div class="flex justify-between border-b border-slate-800/50 pb-1">
+                                <span class="text-slate-400">Sertifikatlar & Dillər</span>
+                                <span id="chk-credentials" class="font-bold text-red-400">Yarımçıq</span>
+                            </div>
+                            <div class="flex justify-between border-b border-slate-800/50 pb-1">
+                                <span class="text-slate-400">Portfel / Layihələr</span>
+                                <span id="chk-projects" class="font-bold text-red-400">Yoxdur</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <button type="button" onclick="downloadPDF()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-5 rounded-2xl shadow-xl transition-all active:scale-95">
-                    PDF OLARAQ YÜKLƏ
-                </button>
-                <div class="h-10"></div>
-            </form>
-        </div>
+            </div>
+        </aside>
 
-        <!-- Preview Side -->
-        <div class="flex-1 bg-slate-700 p-4 md:p-10 overflow-x-auto flex justify-center">
-            <div id="cv-content" class="cv-preview shadow-2xl">
-                <!-- Header -->
-                <div class="preview-header">
-                    <h1 id="p-name" class="preview-name">AD SOYAD</h1>
-                    <div class="contact-info">
-                        <div class="flex flex-col gap-0.5">
-                            <span id="p-linkedin">LinkedIn: linkedin.com/in/user</span>
-                            <span id="p-github" class="hidden">GitHub: </span>
-                            <span id="p-behance" class="hidden">Behance: </span>
-                            <span id="p-loc">Location: Baku, Azerbaijan</span>
-                        </div>
-                        <div class="flex flex-col gap-0.5 text-right">
-                            <span id="p-email">Email: email@example.com</span>
-                            <span id="p-phone">Mobile: +994 50 000 00 00</span>
-                        </div>
-                    </div>
-                </div>
+        <!-- Right Side: Interactive Live Preview Workspace -->
+        <main class="flex-1 cv-workspace custom-scroll relative">
+            
+            <!-- Zoom Controls & Page Adjusters -->
+            <div class="absolute top-4 right-6 bg-slate-900/90 backdrop-blur border border-slate-800 px-3 py-1.5 rounded-xl shadow-xl flex items-center gap-3 no-print z-40">
+                <button onclick="adjustZoom(-0.05)" class="text-slate-400 hover:text-white transition text-xs font-bold" title="Kiçilt">-</button>
+                <span id="zoom-text" class="text-slate-300 text-[10px] font-mono font-bold">Zoom: 100%</span>
+                <button onclick="adjustZoom(0.05)" class="text-slate-400 hover:text-white transition text-xs font-bold" title="Böyüt">+</button>
+                <div class="w-[1px] h-3 bg-slate-800"></div>
+                <button onclick="resetZoom()" class="text-blue-400 hover:text-blue-300 transition text-[10px] font-bold">Reset</button>
+            </div>
 
-                <!-- Education -->
-                <div class="section-title">EDUCATION</div>
-                <div id="p-edu"></div>
-
-                <!-- Skills -->
-                <div class="section-title">SKILLS SUMMARY</div>
-                <div id="p-skills" style="font-size: 10.5px; white-space: pre-wrap;"></div>
-
-                <!-- Experience -->
-                <div class="section-title">WORK EXPERIENCE</div>
-                <div id="p-exp"></div>
-
-                <!-- Certificates -->
-                <div class="section-title">CERTIFICATES</div>
-                <div id="p-certs" style="font-size: 10.5px; white-space: pre-wrap;"></div>
-
-                <!-- References -->
-                <div class="section-title">REFERENCES</div>
-                <div class="grid grid-cols-1 gap-4">
-                    <div class="ref-item">
-                        <div class="font-bold">Umid Babakishiyev</div>
-                        <div>CEO | Software Village | Phone: 070 681 11 53 | LinkedIn: linkedin.com/in/ümid-babakişiyev-726790180/</div>
-                    </div>
-                    <div id="p-ref-teacher" class="ref-item hidden"></div>
-                    <div id="p-ref-mentor" class="ref-item hidden"></div>
-                </div>
-
-                <!-- Footer -->
-                <div class="cv-footer">
-                    <span>COPYRIGHT SOFTWARE VILLAGE 2026</span>
+            <!-- Page boundaries -->
+            <div id="cv-scale-container" class="transition-transform duration-200">
+                <div id="cv-content" class="cv-page font-sans-cv" style="font-size: 10.5px;">
+                    <!-- Raw content generated dynamically by JS render engine -->
                 </div>
             </div>
-        </div>
+
+        </main>
+
     </div>
 
+    <!-- Script Implementation -->
     <script>
-        const sectorData = {
-            frontend: {
-                skills: `• Languages: HTML, CSS, JavaScript\n• Frameworks & Libraries: React, Next.js, Redux, Tailwind CSS, Bootstrap\n• Tools & Platforms: Git, GitHub, VS Code, Figma, npm, Webpack/Vite\n• UI/UX & Design: Responsive Design, Cross-Browser Compatibility, Accessibility (a11y), Mobile-First Design\n• Competencies: Component-Based Architecture, State Management, API Integration (REST), Performance Optimization, Debugging\n• Soft Skills: Analytical Thinking, Attention to Detail, Problem Solving, Team Collaboration`,
-                certs: `Frontend Development Program – Software Village\nMarch 2025\n○ Completed an intensive training program covering HTML, CSS, JavaScript, and modern frontend frameworks (React, Next.js).\n○ Built responsive and user-friendly web interfaces using modern UI/UX principles and best practices.\n○ Developed real-world projects including dynamic web applications, API integrations, and component-based architectures.\n○ Applied state management, routing, and performance optimization techniques in frontend applications.`
-            },
-            data: {
-                skills: `• Languages: SQL, Python, DAX\n• Databases: MS SQL Server, Oracle, MySQL, Azure Data Studio\n• BI & Visualization: Power BI, Google Data Studio, Excel (Power Pivot, Power Query)\n• Tools & Platforms: Microsoft Excel, PowerPoint, Visio, 1C, AWS, Microsoft Azure, Google Cloud\n• Competencies: Data Modeling, Data Wrangling & Cleaning, Statistical Analysis, Data Visualization, Data Mining, Source Control\n• Soft Skills: Analytical Thinking, Stakeholder Communication, Problem Solving, Team Collaboration`,
-                certs: `Data Science Mentorship Program – Software Village\n2025\n○ Completed an intensive diploma program covering SQL, Power BI, Google Data Studio, Python, and cloud platforms.\n○ Delivered capstone projects including end-to-end dashboards, complex SQL analyses, and automated data pipelines.`
-            },
-            java: {
-                skills: `• Languages: Java, SQL\n• Backend Development: Spring Boot (basic), REST APIs\n• Databases: MySQL, PostgreSQL\n• Tools & Platforms: Git, GitHub, IntelliJ IDEA, Maven\n• Competencies: Object-Oriented Programming (OOP), Data Structures, Algorithms (basic), Debugging, Problem Solving\n• Soft Skills: Analytical Thinking, Problem Solving, Team Collaboration, Communication`,
-                certs: `Java Programming Program – Software Village\n2024\n○ Completed training in Java programming and object-oriented programming (OOP) concepts\n○ Developed practical applications and strengthened problem-solving skills using Java`
-            },
-            cyber: {
-                skills: `• Systems & OS: Linux, Windows (internals, administration basics)\n• Networking: Network Fundamentals, Protocols, Traffic Analysis\n• Security Tools: Burp Suite, Metasploit, SIEM (Splunk, ELK), Wazuh (EDR)\n• Cybersecurity Domains: Web Security, Malware Basics, Threat Detection, Incident Response\n• Technologies: Active Directory, Log Analysis, Detection Rules Writing\n• Cloud & Platforms: AWS, Microsoft Azure, Google Cloud (fundamentals)\n• Tools: Microsoft Excel, PowerPoint, Visio\n\nCORE COMPETENCIES\n• Network & Log Analysis\n• Threat Detection & Monitoring\n• Incident Response Fundamentals\n• Vulnerability Assessment & Web Exploitation Basics\n• SIEM & EDR Monitoring\n• Digital Forensics Basics\n• Analytical Thinking & Problem Solving\n• Stakeholder Communication & Team Collaboration`,
-                certs: `Cybersecurity & SOC Analyst Training Program – Software Village\n2025\n○ Completed an 8-month intensive training covering networking, system internals, and security operations.\n○ Gained hands-on experience in traffic analysis, enumeration, and Active Directory environments.\n○ Practiced web attacks, exploitation techniques, and security testing using Burp Suite and Metasploit.\n○ Worked with SIEM tools (Splunk, ELK) and Wazuh for real-time monitoring and detection.\n○ Developed skills in incident response, threat intelligence, and digital forensics basics.\n○ Created detection rules and participated in SOC operations simulations (Red vs Blue exercises).\n○ Completed a capstone project involving attack simulation, defense strategies, and reporting.`
-            },
-            graphic: {
-                skills: `• Design Tools: Adobe Photoshop, Adobe Illustrator, Adobe InDesign, Coreldraw, Canva\n• Design Skills: Branding, Logo Design, Typography, Color Theory, Layout Design, Visual Composition\n• UI/UX Design: Wireframing, Prototyping, User Interface Design, User Experience Principles, Responsive Design\n• Tools & Platforms: Adobe Creative Cloud, Microsoft PowerPoint\n• Competencies: Creative Thinking, Visual Storytelling, Design Systems, Attention to Detail, Concept Development\n• Soft Skills: Creativity, Communication, Time Management, Problem Solving, Team Collaboration`,
-                certs: `Graphic Design Program – Software Village\n2025\n○ Completed an intensive training program covering Adobe Photoshop, Illustrator, and modern design tools.\n○ Developed practical skills in branding, visual identity, typography, and layout design.\n○ Created real-world design projects including social media creatives, marketing materials, and brand assets.\n○ Applied UI/UX principles to design user-friendly and visually appealing interfaces.`
-            },
-            uiux: {
-                skills: `• Design Tools: Figma, Adobe XD, Sketch, Adobe Photoshop, Adobe Illustrator\n• UX Research: User Interviews, Personas, User Journeys, Card Sorting, Usability Testing\n• UI Design: Wireframing, High-Fidelity Prototyping, Design Systems, Typography, Color Theory\n• Competencies: Information Architecture, Interaction Design, Visual Design, Responsive Web Design\n• Soft Skills: Empathy, Analytical Thinking, Problem Solving, Team Collaboration, Communication`,
-                certs: `UI/UX Design Program – Software Village\n2025\n○ Completed a comprehensive training program in User Interface and User Experience design.\n○ Mastered design tools like Figma for creating high-fidelity prototypes.\n○ Conducted user research and usability testing to validate design decisions.\n○ Developed a professional portfolio featuring mobile and web design projects.`
-            },
-            csharp: {
-                skills: `• Languages: C#, SQL\n• Frameworks: .NET Core, ASP.NET Web API, Entity Framework Core, SignalR\n• Architecture: Microservices, Clean Architecture, MVC Pattern\n• Tools: Visual Studio, NuGet, Git, Docker, Azure basics\n• Databases: MS SQL Server, Redis\n• Competencies: LINQ, Dependency Injection, Async Programming, SOLID Principles`,
-                certs: `C# / .NET Development Program – Software Village\n2025\n○ Advanced training in .NET ecosystem and enterprise application development.\n○ Built high-performance Web APIs with robust error handling and logging.\n○ Implemented Entity Framework for efficient data access and management.`
-            },
-            mobile: {
-                skills: `• Languages: Kotlin, Java, XML\n• Frameworks & UI: Android SDK, Jetpack Compose, Material Design\n• Architecture: MVVM, MVI, Clean Architecture\n• Data: Retrofit, Room DB, Firebase SDK, Coroutines, Flow\n• Tools: Android Studio, Git, Gradle, Play Console\n• Competencies: Mobile Performance Optimization, API Integration, Unit Testing`,
-                certs: `Mobile Development Program (Android Kotlin) – Software Village\n2025\n○ Specialized in modern Android application development using Kotlin and Jetpack Compose.\n○ Developed native applications with offline support and REST API integration.\n○ Mastered state management and dependency injection in mobile environments.`
+        // Default Tukezban Rajabova Profile Configuration (Translated completely to English)
+        const defaultState = {
+            fullName: "TÜKƏZBAN RƏCƏBOVA",
+            email: "tradjabova86@gmail.com",
+            phone: "055 846 11 47",
+            location: "Baku, Azerbaijan",
+            linkedin: "",
+            github: "",
+            portfolio: "behance.net/turagraphics",
+            skills: `Design Tools: Adobe Photoshop, Adobe Illustrator, Adobe InDesign, Coreldraw, Canva\nDesign Skills: Branding, Logo Design, Typography, Color Theory, Layout Design, Visual Composition\nUI/UX Design: Wireframing, Prototyping, User Interface Design, User Experience Principles, Responsive Design\nTools & Platforms: Adobe Creative Cloud, Microsoft PowerPoint\nCompetencies: Creative Thinking, Visual Storytelling, Design Systems, Attention to Detail, Concept Development\nSoft Skills: Creativity, Communication, Time Management, Problem Solving, Team Collaboration`,
+            languages: "Azerbaijani (Native), English (B1)",
+            certificates: `Graphic Design Program (Group BG-7) - Software Village (2026)\n• Completed an intensive training program covering Adobe Photoshop, Illustrator, and modern design tools.\n• Developed practical skills in branding, visual identity, typography, and layout design.\n• Created real-world design projects including social media creatives, marketing materials, and brand assets.\n• Applied UI/UX principles to design user-friendly and visually appealing interfaces.`,
+            refTeacherName: "Elşən Kazımzadə",
+            refTeacherPhone: "051 320 12 47",
+            refTeacherLinkedin: "linkedin.com/in/elshankazimzadeh/",
+            refMentorName: "Nərmin Muradova",
+            refMentorPhone: "077 625 77 73",
+            refMentorLinkedin: "linkedin.com/in/n%C9%99rmin-muradova-302a56360/",
+            education: [
+                { school: "College of Art under Azerbaijan State Academy of Fine Arts", degree: "Design / Associate Degree (Sub-Bachelor)", date: "2020 — 2024", loc: "Baku, Azerbaijan" },
+                { school: "Azerbaijan State Pedagogical University", degree: "Fine Art Teacher / Bachelor's Degree", date: "2024 — Present", loc: "Baku, Azerbaijan" }
+            ],
+            experience: [
+                { title: "Trainer", company: "Leonart Education Center", date: "2024 — 2026", loc: "Baku, Azerbaijan", desc: "• Conducted comprehensive training sessions, developed professional lesson plans, and organized educational processes.\n• Cultivated participant skills and practical abilities in layout, visual styling, and design composition.\n• Evaluated overall program achievements and monitored individual progress to enhance instructional pathways." },
+                { title: "Trainer", company: "Sokrat Education Center", date: "2023 — 2024", loc: "Baku, Azerbaijan", desc: "• Designed course materials, led engaging learning workshops, and measured performance metrics.\n• Formulated active lesson plans to prepare students for real-world creative and artistic tasks.\n• Managed session logistics and facilitated high-quality feedback loops." },
+                { title: "Trainer", company: "Intellect Education Center", date: "2022 — 2023", loc: "Baku, Azerbaijan", desc: "• Conducted structural training lessons and tracked overall participant knowledge development.\n• Organized learning assessments and created responsive class schedules." }
+            ],
+            projects: [],
+            design: {
+                template: "classic",
+                font: "sans",
+                color: "monochrome",
+                fontSize: 10.5,
+                margin: 12
             }
         };
 
-        function addItem(listId) {
-            const list = document.getElementById(listId);
-            const template = list.querySelector('div').cloneNode(true);
-            template.querySelectorAll('input, textarea').forEach(i => i.value = '');
-            list.appendChild(template);
-            updatePreview();
+        // Create a deep copy of the Tukezban profile as our runtime state
+        let state = JSON.parse(JSON.stringify(defaultState));
+        let zoomLevel = 1.0;
+
+        // Initialize Application
+        window.onload = function() {
+            // Check LocalStorage with strict property verification
+            const savedState = localStorage.getItem("sv_cv_state_pro");
+            if (savedState) {
+                try {
+                    const parsed = JSON.parse(savedState);
+                    
+                    // Safe property verification & recovery (Deep Merging)
+                    state = { ...defaultState, ...parsed };
+                    state.design = { ...defaultState.design, ...(parsed.design || {}) };
+                    state.education = parsed.education || [...defaultState.education];
+                    state.experience = parsed.experience || [...defaultState.experience];
+                    state.projects = parsed.projects || [...defaultState.projects];
+
+                    showToast("Məlumatlar yerli yaddaşdan bərpa edildi.");
+                } catch(e) {
+                    console.error("Yaddaş bərpasında xəta, ilkin parametrlərə qayıdılır:", e);
+                    state = JSON.parse(JSON.stringify(defaultState));
+                }
+            }
+            
+            initUI();
+            renderDynamicFormLists();
+            
+            // Render and catch potential rendering crashes automatically
+            try {
+                renderPreview();
+            } catch (err) {
+                console.warn("Köhnə yaddaş xətası səbəbilə render baş tutmadı. Profil sıfırlanır...", err);
+                state = JSON.parse(JSON.stringify(defaultState));
+                initUI();
+                renderDynamicFormLists();
+                renderPreview();
+            }
+            
+            calculateCVStrength();
+        };
+
+        // Specific trigger to force load clean Tukezban profile and wipe bad caches
+        function loadSaidGadirovProfile() {
+            state = JSON.parse(JSON.stringify(defaultState));
+            initUI();
+            renderDynamicFormLists();
+            renderPreview();
+            calculateCVStrength();
+            saveToLocalStorage();
+            showToast("Tükəzban Rəcəbova CV məlumatları uğurla bərpa olundu!");
         }
 
-        function handleSectorChange() {
-            const sector = document.getElementById('sectorSelect').value;
-            if(sectorData[sector]) {
-                document.getElementById('skillsInput').value = sectorData[sector].skills;
-                document.getElementById('certsInput').value = sectorData[sector].certs;
-            }
-            updatePreview();
+        function showToast(message) {
+            const container = document.getElementById("toast-container");
+            const toast = document.createElement("div");
+            toast.className = "bg-slate-900 border border-slate-800 text-slate-200 px-4 py-3 rounded-xl shadow-2xl text-xs flex items-center gap-2 animate-fade-in";
+            toast.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>${message}</span>
+            `;
+            container.appendChild(toast);
+            setTimeout(() => {
+                toast.classList.add("opacity-0", "transition-all", "duration-500");
+                setTimeout(() => toast.remove(), 500);
+            }, 3000);
         }
 
-        function updatePreview() {
-            // Header
-            document.getElementById('p-name').innerText = document.getElementById('fullName').value.toUpperCase();
-            document.getElementById('p-linkedin').innerText = "LinkedIn: " + document.getElementById('linkedin').value;
-            document.getElementById('p-loc').innerText = "Location: " + document.getElementById('location').value;
-            document.getElementById('p-email').innerText = "Email: " + document.getElementById('email').value;
-            document.getElementById('p-phone').innerText = "Mobile: " + document.getElementById('phone').value;
+        // Initialize static fields in UI from State safely
+        function initUI() {
+            document.getElementById("fullName").value = state.fullName || "";
+            document.getElementById("email").value = state.email || "";
+            document.getElementById("phone").value = state.phone || "";
+            document.getElementById("location").value = state.location || "";
+            document.getElementById("linkedin").value = state.linkedin || "";
+            document.getElementById("github").value = state.github || "";
+            document.getElementById("portfolio").value = state.portfolio || "";
+            document.getElementById("skills").value = state.skills || "";
+            document.getElementById("languages").value = state.languages || "";
+            document.getElementById("certificates").value = state.certificates || "";
+            document.getElementById("refTeacherName").value = state.refTeacherName || "";
+            document.getElementById("refTeacherPhone").value = state.refTeacherPhone || "";
+            document.getElementById("refTeacherLinkedin").value = state.refTeacherLinkedin || "";
+            document.getElementById("refMentorName").value = state.refMentorName || "";
+            document.getElementById("refMentorPhone").value = state.refMentorPhone || "";
+            document.getElementById("refMentorLinkedin").value = state.refMentorLinkedin || "";
 
-            // GitHub visibility logic
-            const githubVal = document.getElementById('github').value.trim();
-            const pGithub = document.getElementById('p-github');
-            if(githubVal) {
-                pGithub.innerText = "GitHub: " + githubVal;
-                pGithub.classList.remove('hidden');
-            } else {
-                pGithub.classList.add('hidden');
+            // Design Panel Sync
+            document.getElementById("fontSizeSlider").value = state.design.fontSize || 10.5;
+            document.getElementById("font-size-val").innerText = (state.design.fontSize || 10.5) + "px";
+            document.getElementById("marginSlider").value = state.design.margin || 12;
+            document.getElementById("margin-val").innerText = (state.design.margin || 12) + "px";
+
+            updateDesignUIActiveStates();
+        }
+
+        function saveToLocalStorage() {
+            localStorage.setItem("sv_cv_state_pro", JSON.stringify(state));
+        }
+
+        function updateState(key, val) {
+            state[key] = val;
+            saveToLocalStorage();
+            renderPreview();
+            calculateCVStrength();
+        }
+
+        // TAB Switching System
+        function switchTab(tabId) {
+            const tabs = ['content', 'design', 'helper'];
+            tabs.forEach(t => {
+                const btn = document.getElementById(`tab-${t}`);
+                const panel = document.getElementById(`panel-${t}`);
+                if(t === tabId) {
+                    btn.className = "px-4 py-3 text-xs font-bold tracking-wider text-blue-400 border-b-2 border-blue-500 transition duration-150 shrink-0";
+                    panel.classList.remove("hidden");
+                } else {
+                    btn.className = "px-4 py-3 text-xs font-bold tracking-wider text-slate-400 hover:text-white transition duration-150 shrink-0";
+                    panel.classList.add("hidden");
+                }
+            });
+        }
+
+        // Render input forms for dynamic arrays
+        function renderDynamicFormLists() {
+            // Render Education Form inputs safely
+            const eduContainer = document.getElementById("education-form-list");
+            eduContainer.innerHTML = "";
+            (state.education || []).forEach((item, index) => {
+                eduContainer.appendChild(createFormNode('education', item, index));
+            });
+
+            // Render Experience Form inputs safely
+            const expContainer = document.getElementById("experience-form-list");
+            expContainer.innerHTML = "";
+            (state.experience || []).forEach((item, index) => {
+                expContainer.appendChild(createFormNode('experience', item, index));
+            });
+
+            // Render Projects Form inputs safely
+            const projContainer = document.getElementById("projects-form-list");
+            projContainer.innerHTML = "";
+            (state.projects || []).forEach((item, index) => {
+                projContainer.appendChild(createFormNode('projects', item, index));
+            });
+        }
+
+        // Helper to construct highly interactive item form nodes
+        function createFormNode(type, item, index) {
+            const wrapper = document.createElement("div");
+            wrapper.className = "p-4 bg-slate-950/60 border border-slate-800 rounded-xl space-y-2 relative";
+            
+            // Reordering and Delete controls
+            const controls = `
+                <div class="absolute top-2 right-2 flex items-center gap-1.5">
+                    <button type="button" onclick="moveItem('${type}', ${index}, -1)" class="w-6 h-6 bg-slate-800 hover:bg-slate-700 text-slate-400 rounded flex items-center justify-center transition" title="Yuxarı köçür">▲</button>
+                    <button type="button" onclick="moveItem('${type}', ${index}, 1)" class="w-6 h-6 bg-slate-800 hover:bg-slate-700 text-slate-400 rounded flex items-center justify-center transition" title="Aşağı köçür">▼</button>
+                    <button type="button" onclick="deleteDynamicItem('${type}', ${index})" class="w-6 h-6 bg-red-950/60 border border-red-900/40 hover:bg-red-900 hover:text-white text-red-400 rounded flex items-center justify-center transition" title="Sil">✕</button>
+                </div>
+            `;
+
+            if (type === 'education') {
+                wrapper.innerHTML = `
+                    ${controls}
+                    <div class="pr-20">
+                        <span class="text-[9px] font-black text-slate-500 uppercase">Təhsil Seksiyası #${index+1}</span>
+                    </div>
+                    <div class="space-y-2 pt-2">
+                        <input type="text" value="${item.school || ''}" oninput="updateArrayField('education', ${index}, 'school', this.value)" class="w-full bg-slate-900 border border-slate-800 rounded py-1.5 px-2.5 text-xs text-slate-200" placeholder="Müəssisə adı (Universitet, məktəb)">
+                        <input type="text" value="${item.degree || ''}" oninput="updateArrayField('education', ${index}, 'degree', this.value)" class="w-full bg-slate-900 border border-slate-800 rounded py-1.5 px-2.5 text-xs text-slate-200" placeholder="Dərəcə və ixtisas (Bakalavr, Kiber Təhlükəsizlik)">
+                        <div class="grid grid-cols-2 gap-2">
+                            <input type="text" value="${item.date || ''}" oninput="updateArrayField('education', ${index}, 'date', this.value)" class="bg-slate-900 border border-slate-800 rounded py-1.5 px-2.5 text-xs text-slate-200" placeholder="Tarix aralığı (Məs. 2021-2025)">
+                            <input type="text" value="${item.loc || ''}" oninput="updateArrayField('education', ${index}, 'loc', this.value)" class="bg-slate-900 border border-slate-800 rounded py-1.5 px-2.5 text-xs text-slate-200" placeholder="Məkan (Məs. Bakı, Azərbaycan)">
+                        </div>
+                    </div>
+                `;
+            } else if (type === 'experience') {
+                wrapper.innerHTML = `
+                    ${controls}
+                    <div class="pr-20">
+                        <span class="text-[9px] font-black text-slate-500 uppercase">İş Təcrübəsi #${index+1}</span>
+                    </div>
+                    <div class="space-y-2 pt-2">
+                        <input type="text" value="${item.title || ''}" oninput="updateArrayField('experience', ${index}, 'title', this.value)" class="w-full bg-slate-900 border border-slate-800 rounded py-1.5 px-2.5 text-xs text-slate-200" placeholder="Vəzifə / Rol">
+                        <input type="text" value="${item.company || ''}" oninput="updateArrayField('experience', ${index}, 'company', this.value)" class="w-full bg-slate-900 border border-slate-800 rounded py-1.5 px-2.5 text-xs text-slate-200" placeholder="Şirkət / Müəssisə">
+                        <div class="grid grid-cols-2 gap-2">
+                            <input type="text" value="${item.date || ''}" oninput="updateArrayField('experience', ${index}, 'date', this.value)" class="bg-slate-900 border border-slate-800 rounded py-1.5 px-2.5 text-xs text-slate-200" placeholder="Tarix (Məs. 2023 - Hazırda)">
+                            <input type="text" value="${item.loc || ''}" oninput="updateArrayField('experience', ${index}, 'loc', this.value)" class="bg-slate-900 border border-slate-800 rounded py-1.5 px-2.5 text-xs text-slate-200" placeholder="Məkan (Məs. Bakı, Azərbaycan)">
+                        </div>
+                        <textarea rows="3" oninput="updateArrayField('experience', ${index}, 'desc', this.value)" class="w-full bg-slate-900 border border-slate-800 rounded py-1.5 px-2.5 text-xs text-slate-200 font-mono" placeholder="Görülən işlər (Hər sətir üçün • işarəsi istifadə edin)">${item.desc || ''}</textarea>
+                    </div>
+                `;
+            } else if (type === 'projects') {
+                wrapper.innerHTML = `
+                    ${controls}
+                    <div class="pr-20">
+                        <span class="text-[9px] font-black text-slate-500 uppercase">Layihə #${index+1}</span>
+                    </div>
+                    <div class="space-y-2 pt-2">
+                        <input type="text" value="${item.name || ''}" oninput="updateArrayField('projects', ${index}, 'name', this.value)" class="w-full bg-slate-900 border border-slate-800 rounded py-1.5 px-2.5 text-xs text-slate-200" placeholder="Layihə adı">
+                        <input type="text" value="${item.link || ''}" oninput="updateArrayField('projects', ${index}, 'link', this.value)" class="w-full bg-slate-900 border border-slate-800 rounded py-1.5 px-2.5 text-xs text-slate-200" placeholder="Layihə linki (Github, Behance və ya Vebsayt)">
+                        <textarea rows="2" oninput="updateArrayField('projects', ${index}, 'desc', this.value)" class="w-full bg-slate-900 border border-slate-800 rounded py-1.5 px-2.5 text-xs text-slate-200 font-mono" placeholder="Haqqında qısa məlumat">${item.desc || ''}</textarea>
+                    </div>
+                `;
             }
 
-            // Behance visibility logic
-            const behanceVal = document.getElementById('behance').value.trim();
-            const pBehance = document.getElementById('p-behance');
-            if(behanceVal) {
-                pBehance.innerText = "Behance: " + behanceVal;
-                pBehance.classList.remove('hidden');
-            } else {
-                pBehance.classList.add('hidden');
+            return wrapper;
+        }
+
+        function addDynamicItem(type) {
+            const schemas = {
+                education: { school: "", degree: "", date: "", loc: "" },
+                experience: { title: "", company: "", date: "", loc: "", desc: "" },
+                projects: { name: "", link: "", desc: "" }
+            };
+            if (!state[type]) state[type] = [];
+            state[type].push(schemas[type]);
+            renderDynamicFormLists();
+            renderPreview();
+            saveToLocalStorage();
+        }
+
+        function deleteDynamicItem(type, index) {
+            state[type].splice(index, 1);
+            renderDynamicFormLists();
+            renderPreview();
+            saveToLocalStorage();
+        }
+
+        function moveItem(type, index, direction) {
+            const newIndex = index + direction;
+            if (newIndex < 0 || newIndex >= state[type].length) return;
+            
+            const temp = state[type][index];
+            state[type][index] = state[type][newIndex];
+            state[type][newIndex] = temp;
+            
+            renderDynamicFormLists();
+            renderPreview();
+            saveToLocalStorage();
+        }
+
+        function updateArrayField(type, index, key, value) {
+            if (!state[type]) state[type] = [];
+            if (!state[type][index]) state[type][index] = {};
+            state[type][index][key] = value;
+            saveToLocalStorage();
+            renderPreview();
+        }
+
+        // Apply visual and structural updates to State Design
+        function updateDesign(key, val) {
+            if (!state.design) state.design = {};
+            state.design[key] = val;
+            
+            if(key === 'fontSize') {
+                document.getElementById("font-size-val").innerText = val + "px";
+                document.getElementById("fontSizeSlider").value = val;
+            }
+            if(key === 'margin') {
+                document.getElementById("margin-val").innerText = val + "px";
+                document.getElementById("marginSlider").value = val;
             }
 
-            // Education
-            const eduPreview = document.getElementById('p-edu');
-            eduPreview.innerHTML = '';
-            document.querySelectorAll('#educationList > div').forEach(div => {
-                const school = div.querySelector('.edu-school').value;
-                const deg = div.querySelector('.edu-degree').value;
-                const date = div.querySelector('.edu-date').value;
-                const loc = div.querySelector('.edu-loc').value;
-                if(school || deg) {
-                    eduPreview.innerHTML += `<div class="content-item"><div class="item-header"><span>${school}</span><span>${loc}</span></div><div class="item-sub"><span>${deg}</span><span>${date}</span></div></div>`;
+            updateDesignUIActiveStates();
+            renderPreview();
+            saveToLocalStorage();
+        }
+
+        // Synchronize UI styles with chosen design keys
+        function updateDesignUIActiveStates() {
+            const template = state.design.template || "classic";
+            const font = state.design.font || "sans";
+            const color = state.design.color || "monochrome";
+
+            // Templates
+            ['classic', 'modern', 'split'].forEach(t => {
+                const el = document.getElementById(`tpl-${t}`);
+                if (el) {
+                    if(template === t) {
+                        el.className = "w-full text-left bg-blue-600 border border-blue-500 p-3 rounded-xl flex items-center justify-between transition";
+                        el.querySelector('div:last-child').innerHTML = `<div class="w-2 h-2 rounded-full bg-blue-600"></div>`;
+                        el.querySelector('div:last-child').className = "w-4 h-4 rounded-full bg-white flex items-center justify-center";
+                    } else {
+                        el.className = "w-full text-left bg-slate-950 border border-slate-800 p-3 rounded-xl flex items-center justify-between hover:border-slate-700 transition";
+                        el.querySelector('div:last-child').innerHTML = "";
+                        el.querySelector('div:last-child').className = "w-4 h-4 rounded-full border border-slate-700";
+                    }
                 }
             });
 
-            // Experience
-            const expPreview = document.getElementById('p-exp');
-            expPreview.innerHTML = '';
-            document.querySelectorAll('#experienceList > div').forEach(div => {
-                const title = div.querySelector('.exp-title').value;
-                const company = div.querySelector('.exp-company').value;
-                const date = div.querySelector('.exp-date').value;
-                const loc = div.querySelector('.exp-loc').value;
-                const desc = div.querySelector('.exp-desc').value;
-                if(title || company) {
-                    const bullets = desc.split('\n').filter(l => l.trim()).map(l => `<li>${l.trim()}</li>`).join('');
-                    expPreview.innerHTML += `
-                        <div class="content-item">
-                            <div class="item-header"><span>${title} | ${company}</span><span>${date}</span></div>
-                            <div class="item-sub"><span>${loc}</span></div>
-                            <ul class="bullet-list">${bullets}</ul>
-                        </div>`;
+            // Fonts
+            ['sans', 'serif', 'mono'].forEach(f => {
+                const el = document.getElementById(`font-${f}`);
+                if (el) {
+                    if(font === f) {
+                        el.className = `bg-blue-600 text-white p-2.5 rounded-lg text-xs font-bold border border-blue-500 transition`;
+                    } else {
+                        const fallback = f === 'serif' ? 'font-serif' : (f === 'mono' ? 'font-mono' : 'font-sans');
+                        el.className = `bg-slate-950 hover:bg-slate-900 text-slate-400 p-2.5 rounded-lg text-xs ${fallback} border border-slate-800 transition`;
+                    }
                 }
             });
 
-            // Text Areas
-            document.getElementById('p-skills').innerText = document.getElementById('skillsInput').value;
-            document.getElementById('p-certs').innerText = document.getElementById('certsInput').value;
-
-            // References
-            const teacherName = document.getElementById('refTeacherName').value;
-            const tRef = document.getElementById('p-ref-teacher');
-            if(teacherName) {
-                tRef.classList.remove('hidden');
-                tRef.innerHTML = `<div class="font-bold">${teacherName}</div><div>Teacher | Software Village | Phone: ${document.getElementById('refTeacherPhone').value} | LinkedIn: ${document.getElementById('refTeacherLinkedin').value}</div>`;
-            } else { tRef.classList.add('hidden'); }
-
-            const mentorName = document.getElementById('refMentorName').value;
-            const mRef = document.getElementById('p-ref-mentor');
-            if(mentorName) {
-                mRef.classList.remove('hidden');
-                mRef.innerHTML = `<div class="font-bold">${mentorName}</div><div>Mentor | Software Village | Phone: ${document.getElementById('refMentorPhone').value} | LinkedIn: ${document.getElementById('refMentorLinkedin').value}</div>`;
-            } else { mRef.classList.add('hidden'); }
+            // Colors
+            ['monochrome', 'navy', 'emerald', 'burgundy'].forEach(c => {
+                const el = document.getElementById(`col-${c}`);
+                if (el) {
+                    if(color === c) {
+                        el.className = "bg-slate-950 border-2 border-blue-500 text-slate-200 py-2 rounded-lg text-[10px] font-bold flex items-center justify-center gap-1";
+                    } else {
+                        el.className = "bg-slate-950 border border-slate-800 text-slate-400 py-2 rounded-lg text-[10px] font-bold flex items-center justify-center gap-1";
+                    }
+                }
+            });
         }
 
+        // Fit CV content dynamically onto exactly one page
+        function autoFitToPage() {
+            let optimalSize = 11;
+            let optimalMargin = 10;
+            const element = document.getElementById('cv-content');
+            
+            for (let fs = 11; fs >= 8.5; fs -= 0.5) {
+                element.style.fontSize = `${fs}px`;
+                const blocks = element.querySelectorAll('.cv-block-spacing');
+                blocks.forEach(b => b.style.marginBottom = `${optimalMargin}px`);
+                
+                if (element.scrollHeight <= 1122) {
+                    optimalSize = fs;
+                    break;
+                }
+                optimalMargin = Math.max(5, optimalMargin - 1);
+            }
+
+            state.design.fontSize = optimalSize;
+            state.design.margin = optimalMargin;
+            
+            initUI();
+            renderPreview();
+            saveToLocalStorage();
+            showToast(`Mətn ölçüsü (${optimalSize}px) və boşluq (${optimalMargin}px) sığdırıldı.`);
+        }
+
+        // Preview Scaling Handlers
+        function adjustZoom(delta) {
+            zoomLevel = Math.max(0.5, Math.min(1.5, zoomLevel + delta));
+            applyZoom();
+        }
+
+        function resetZoom() {
+            zoomLevel = 1.0;
+            applyZoom();
+        }
+
+        function applyZoom() {
+            const container = document.getElementById("cv-scale-container");
+            container.style.transform = `scale(${zoomLevel})`;
+            document.getElementById("zoom-text").innerText = `Zoom: ${Math.round(zoomLevel * 100)}%`;
+        }
+
+        // Strictly pairs Left (LinkedIn, GitHub, Behance, Location) with Right (Email, Mobile) sequentially
+        function generateParallelHeaderRows(isWord = false) {
+            const leftItems = [];
+            if (state.linkedin) leftItems.push(`Linkedin: ${state.linkedin}`);
+            if (state.github) leftItems.push(`GitHub: ${state.github}`);
+            if (state.portfolio) leftItems.push(`Behance: ${state.portfolio}`);
+            if (state.location) leftItems.push(`Location: ${state.location}`);
+
+            const rightItems = [];
+            if (state.email) rightItems.push(`Email: ${state.email}`);
+            if (state.phone) rightItems.push(`Mobile: ${state.phone}`);
+
+            const maxRows = Math.max(leftItems.length, rightItems.length);
+            let rowsHTML = '';
+
+            for (let i = 0; i < maxRows; i++) {
+                const leftVal = leftItems[i] || '';
+                const rightVal = rightItems[i] || '';
+                
+                if (isWord) {
+                    rowsHTML += `
+                        <tr>
+                            <td style="width:50%; text-align:left; font-size:10pt; color:#000000; padding: 1.5px 0;">${leftVal}</td>
+                            <td style="width:50%; text-align:right; font-size:10pt; color:#000000; padding: 1.5px 0;">${rightVal}</td>
+                        </tr>
+                    `;
+                } else {
+                    rowsHTML += `
+                        <div class="flex justify-between" style="width: 100%; font-size: 10.5px; line-height: 1.5; color: #000000;">
+                            <div style="text-align: left;">${leftVal}</div>
+                            <div style="text-align: right;">${rightVal}</div>
+                        </div>
+                    `;
+                }
+            }
+            return rowsHTML;
+        }
+
+        function renderPreview() {
+            const preview = document.getElementById("cv-content");
+            const d = state.design || defaultState.design;
+
+            // Strict layout class assignments matching the PDF
+            preview.className = `cv-preview cv-page px-[18mm] py-[15mm] flex flex-col justify-between`;
+            if (d.font === 'sans') preview.classList.add('font-sans-cv');
+            else if (d.font === 'serif') preview.classList.add('font-serif-cv');
+            else if (d.font === 'mono') preview.classList.add('font-mono-cv');
+
+            preview.style.fontSize = `${d.fontSize || 10.5}px`;
+
+            // Color palette definition mapping (Defaulting strictly to Monochrome)
+            const colors = {
+                monochrome: { primary: "#000000", line: "#000000", text: "#000000" },
+                navy: { primary: "#1e3a8a", line: "#1e3a8a", text: "#1e293b" },
+                emerald: { primary: "#064e3b", line: "#064e3b", text: "#1e293b" },
+                burgundy: { primary: "#881337", line: "#881337", text: "#1e293b" }
+            };
+            const pal = colors[d.color || "monochrome"] || colors.monochrome;
+
+            // Compile Education blocks safely (only if not empty)
+            let eduHTML = "";
+            (state.education || []).forEach(item => {
+                if(item.school || item.degree) {
+                    eduHTML += `
+                        <div class="cv-block-spacing" style="margin-bottom: ${d.margin || 12}px; font-size: ${d.fontSize || 10.5}px; clear: both;">
+                            <div class="flex justify-between font-bold" style="color: ${pal.primary};">
+                                <span>${item.school || ''}</span>
+                                <span class="font-normal text-slate-700" style="font-weight: 500;">${item.loc || ''}</span>
+                            </div>
+                            <div class="flex justify-between text-slate-800" style="font-size: 0.95em; margin-top: 1px;">
+                                <span>${item.degree || ''}</span>
+                                <span class="font-normal" style="font-weight: 500;">${item.date || ''}</span>
+                            </div>
+                        </div>
+                    `;
+                }
+            });
+
+            // Compile Experience blocks safely (only if not empty)
+            let expHTML = "";
+            (state.experience || []).forEach(item => {
+                if(item.title || item.company) {
+                    const bullets = (item.desc || "").split('\n').filter(l => l.trim()).map(l => {
+                        let clean = l.trim();
+                        if(clean.startsWith('•')) clean = clean.substring(1).trim();
+                        return `<li class="relative pl-4 mb-0.5" style="font-size: 0.95em; list-style-type: disc; margin-left: 14px;">${clean}</li>`;
+                    }).join('');
+
+                    expHTML += `
+                        <div class="cv-block-spacing" style="margin-bottom: ${d.margin || 12}px; font-size: ${d.fontSize || 10.5}px; clear: both;">
+                            <div class="flex justify-between font-bold" style="color: ${pal.primary};">
+                                <span>${item.title || ''} | ${item.company || ''}</span>
+                                <span class="font-normal text-slate-700" style="font-weight: 500;">${item.date || ''}</span>
+                            </div>
+                            <div class="text-slate-600 italic mb-1 hidden" style="font-size: 0.9em; margin-top: 1px;">${item.loc || ''}</div>
+                            <ul class="p-0 m-0 text-slate-900 space-y-0.5">${bullets}</ul>
+                        </div>
+                    `;
+                }
+            });
+
+            // Compile Projects blocks safely
+            let projHTML = "";
+            (state.projects || []).forEach(item => {
+                if(item.name) {
+                    projHTML += `
+                        <div class="cv-block-spacing" style="margin-bottom: ${d.margin || 12}px; font-size: ${d.fontSize || 10.5}px; clear: both;">
+                            <div class="flex justify-between font-bold" style="color: ${pal.primary};">
+                                <span>${item.name || ''}</span>
+                                <span class="font-normal text-blue-600 font-mono text-[9px]">${item.link || ''}</span>
+                            </div>
+                            <div class="text-slate-800 mt-0.5" style="font-size: 0.95em;">${item.desc || ''}</div>
+                        </div>
+                    `;
+                }
+            });
+
+            // Compile References blocks (matching exact PDF layout structure)
+            let refHTML = "";
+            let hasReferences = false;
+
+            refHTML += `
+                <div class="cv-block-spacing" style="margin-bottom: ${d.margin || 12}px; font-size: ${d.fontSize || 10.5}px;">
+                    <div class="font-bold text-slate-900" style="font-size: 1.05em;">Umid Babakishiyev</div>
+                    <div class="text-slate-700" style="font-size: 0.95em; margin-top: 1px;">CEO | Software Village | Phone: 070 681 11 53 | Linkedin: linkedin.com/in/ümid-babakişiyev-726790180/</div>
+                </div>
+            `;
+            hasReferences = true;
+
+            if (state.refTeacherName || state.refTeacherPhone) {
+                refHTML += `
+                    <div class="cv-block-spacing" style="margin-bottom: ${d.margin || 12}px; font-size: ${d.fontSize || 10.5}px;">
+                        <div class="font-bold text-slate-900" style="font-size: 1.05em;">${state.refTeacherName || ''}</div>
+                        <div class="text-slate-700" style="font-size: 0.95em; margin-top: 1px;">Teacher | Software Village | ${state.refTeacherPhone ? `Phone: ${state.refTeacherPhone}` : ''}${state.refTeacherLinkedin ? ` | LinkedIn: ${state.refTeacherLinkedin}` : ''}</div>
+                    </div>
+                `;
+            }
+            if (state.refMentorName || state.refMentorPhone) {
+                refHTML += `
+                    <div class="cv-block-spacing" style="margin-bottom: ${d.margin || 12}px; font-size: ${d.fontSize || 10.5}px;">
+                        <div class="font-bold text-slate-900" style="font-size: 1.05em;">${state.refMentorName || ''}</div>
+                        <div class="text-slate-700" style="font-size: 0.95em; margin-top: 1px;">Mentor | Software Village | ${state.refMentorPhone ? `Phone: ${state.refMentorPhone}` : ''}${state.refMentorLinkedin ? ` | LinkedIn: ${state.refMentorLinkedin}` : ''}</div>
+                    </div>
+                `;
+            }
+
+            // Skills format safely (only render lines if they exist)
+            const skillsParsed = (state.skills || "").split('\n').filter(l => l.trim()).map(l => {
+                const parts = l.split(':');
+                if(parts.length > 1) {
+                    return `<div class="mb-1.5" style="font-size: 0.95em; line-height: 1.4;"><strong style="font-weight:700;">${parts[0]}:</strong>${parts.slice(1).join(':')}</div>`;
+                }
+                return `<div class="mb-1.5" style="font-size: 0.95em; line-height: 1.4;">${l.trim()}</div>`;
+            }).join('');
+
+            // Certs format safely
+            const certsParsed = (state.certificates || "").split('\n').filter(l => l.trim()).map(l => {
+                let clean = l.trim();
+                if(clean.startsWith('•')) {
+                    clean = clean.substring(1).trim();
+                    return `<li class="relative pl-4 mb-0.5" style="font-size: 0.95em; list-style-type: disc; margin-left: 14px;">${clean}</li>`;
+                }
+                if(clean.startsWith('Graphic Design Program')) {
+                    return `<div class="font-bold" style="font-size: 1em; color: ${pal.primary}; margin-bottom: 2px;">${clean}</div>`;
+                }
+                return `<div class="mb-1 pl-4" style="font-size: 0.95em; line-height: 1.4;">${clean}</div>`;
+            }).join('');
+
+            // Classic Parallel Headers Generator (Guarantees parallel alignment row by row, hides empty)
+            let classicHeaderHTML = "";
+            if (state.fullName) {
+                classicHeaderHTML += `
+                    <div style="margin-bottom: 20px;">
+                        <div class="flex justify-between items-start" style="width: 100%;">
+                            <div style="text-align: left; width: 100%;">
+                                <h1 style="font-size: 26px; font-weight: 800; color: #000000; text-transform: uppercase; letter-spacing: -0.5px; margin-bottom: 6px;">${state.fullName}</h1>
+                            </div>
+                        </div>
+                        ${generateParallelHeaderRows(false)}
+                        <div style="border-bottom: 1.5px solid #000000; margin-top: 12px; width: 100%;"></div>
+                    </div>
+                `;
+            }
+
+            // Layout template selector: Rendering identical formats
+            if (d.template === 'split') {
+                preview.innerHTML = `
+                    <div class="flex-1 flex gap-6">
+                        <!-- Left Column -->
+                        <div class="w-[32%] border-r pr-5 flex flex-col" style="border-color: ${pal.line};">
+                            <div class="mb-6">
+                                <h1 class="font-black tracking-tight" style="font-size: 20px; color: ${pal.primary}; line-height: 1.1; text-transform: uppercase;">${state.fullName || ''}</h1>
+                            </div>
+                            <div class="space-y-2 text-slate-800 mb-6" style="font-size: 9px; line-height: 1.3;">
+                                <div class="font-bold text-slate-900 border-b pb-0.5 uppercase tracking-wider" style="border-color: ${pal.line};">Əlaqə</div>
+                                ${state.location ? `<div>Məkan: ${state.location}</div>` : ''}
+                                ${state.email ? `<div>Email: ${state.email}</div>` : ''}
+                                ${state.phone ? `<div>Telefon: ${state.phone}</div>` : ''}
+                                ${state.linkedin ? `<div class="truncate">LinkedIn: ${state.linkedin}</div>` : ''}
+                                ${gitSnippet ? `<div class="truncate">${gitSnippet}</div>` : ''}
+                                ${portSnippet ? `<div class="truncate">${portSnippet}</div>` : ''}
+                            </div>
+                            ${state.languages ? `
+                            <div class="mb-6" style="font-size: 9px;">
+                                <div class="font-bold text-slate-900 border-b pb-0.5 uppercase tracking-wider mb-2" style="border-color: ${pal.line}; font-size: 9px;">Xarici Dillər</div>
+                                <div class="text-slate-700">${state.languages}</div>
+                            </div>` : ''}
+                            ${state.skills ? `
+                            <div class="mb-4">
+                                <div class="font-bold text-slate-900 border-b pb-0.5 uppercase tracking-wider mb-2" style="border-color: ${pal.line}; font-size: 9px;">Bacarıqlar</div>
+                                <div class="text-slate-800 font-sans" style="font-size: 9.5px;">${skillsParsed}</div>
+                            </div>` : ''}
+                        </div>
+                        <!-- Right Column -->
+                        <div class="flex-1 flex flex-col justify-start">
+                            ${eduHTML ? `
+                            <div class="mb-4">
+                                <div class="font-bold border-b pb-0.5 mb-2 text-slate-900 tracking-wider uppercase" style="border-color: ${pal.line}; font-size: 11px;">EDUCATION</div>
+                                ${eduHTML}
+                            </div>` : ''}
+                            ${expHTML ? `
+                            <div class="mb-4">
+                                <div class="font-bold border-b pb-0.5 mb-2 text-slate-900 tracking-wider uppercase" style="border-color: ${pal.line}; font-size: 11px;">WORK EXPERIENCE</div>
+                                ${expHTML}
+                            </div>` : ''}
+                            ${certsParsed ? `
+                            <div class="mb-4">
+                                <div class="font-bold border-b pb-0.5 mb-2 text-slate-900 tracking-wider uppercase" style="border-color: ${pal.line}; font-size: 11px;">CERTIFICATES</div>
+                                <div class="text-slate-800">${certsParsed}</div>
+                            </div>` : ''}
+                            ${hasReferences ? `
+                            <div class="mb-2">
+                                <div class="font-bold border-b pb-0.5 mb-2 text-slate-900 tracking-wider uppercase" style="border-color: ${pal.line}; font-size: 11px;">REFERENCES</div>
+                                <div class="space-y-2">${refHTML}</div>
+                            </div>` : ''}
+                        </div>
+                    </div>
+                    <div class="text-center pt-3 border-t text-[8px] font-bold text-slate-500 tracking-widest uppercase mt-auto" style="border-color: ${pal.line};">
+                        COPYRIGHT SOFTWARE VILLAGE 2026
+                    </div>
+                `;
+            } else if (d.template === 'modern') {
+                preview.innerHTML = `
+                    <div class="flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-6 border-b pb-4" style="border-color: ${pal.line};">
+                                <div>
+                                    <h1 class="font-black tracking-tight" style="font-size: 26px; color: ${pal.primary}; line-height: 1; text-transform: uppercase;">${state.fullName || ''}</h1>
+                                    <div class="flex gap-4 text-slate-600 mt-2" style="font-size: 9.5px;">
+                                        ${state.location ? `<span>${state.location}</span>` : ''}
+                                        ${state.location && state.email ? '<span>•</span>' : ''}
+                                        ${state.email ? `<span>${state.email}</span>` : ''}
+                                        ${state.email && state.phone ? '<span>•</span>' : ''}
+                                        ${state.phone ? `<span>${state.phone}</span>` : ''}
+                                    </div>
+                                </div>
+                                <div class="flex flex-col text-right text-slate-600" style="font-size: 9.5px; line-height: 1.4;">
+                                    ${state.linkedin ? `<span>LinkedIn: ${state.linkedin}</span>` : ''}
+                                    ${state.github ? `<span>GitHub: ${state.github}</span>` : ''}
+                                    ${state.portfolio ? `<span>Behance: ${state.portfolio}</span>` : ''}
+                                </div>
+                            </div>
+                            ${state.skills ? `
+                            <div class="mb-5">
+                                <div class="font-bold mb-1.5 uppercase tracking-wide" style="font-size: 11px; color: ${pal.primary};">TECHNICAL SKILLS</div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-1">${skillsParsed}</div>
+                            </div>` : ''}
+                            ${eduHTML ? `
+                            <div class="mb-5">
+                                <div class="font-bold border-b pb-0.5 mb-2 uppercase tracking-wide" style="border-color: ${pal.line}; font-size: 11px; color: ${pal.primary};">EDUCATION</div>
+                                ${eduHTML}
+                            </div>` : ''}
+                            ${expHTML ? `
+                            <div class="mb-5">
+                                <div class="font-bold border-b pb-0.5 mb-2 uppercase tracking-wide" style="border-color: ${pal.line}; font-size: 11px; color: ${pal.primary};">WORK EXPERIENCE</div>
+                                ${expHTML}
+                            </div>` : ''}
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
+                                ${certsParsed ? `
+                                <div class="md:col-span-2">
+                                    <div class="font-bold border-b pb-0.5 mb-2 uppercase tracking-wide" style="border-color: ${pal.line}; font-size: 11px; color: ${pal.primary};">CERTIFICATES</div>
+                                    <div class="text-slate-800">${certsParsed}</div>
+                                </div>` : ''}
+                                ${state.languages ? `
+                                <div>
+                                    <div class="font-bold border-b pb-0.5 mb-2 uppercase tracking-wide" style="border-color: ${pal.line}; font-size: 11px; color: ${pal.primary};">LANGUAGES</div>
+                                    <div class="text-slate-800 text-xs">${state.languages}</div>
+                                </div>` : ''}
+                            </div>
+                            ${hasReferences ? `
+                            <div>
+                                <div class="font-bold border-b pb-0.5 mb-2 uppercase tracking-wide" style="border-color: ${pal.line}; font-size: 11px; color: ${pal.primary};">REFERENCES</div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">${refHTML}</div>
+                            </div>` : ''}
+                        </div>
+                        <div class="text-center pt-3 border-t text-[8px] font-bold text-slate-500 tracking-widest uppercase mt-6" style="border-color: ${pal.line};">
+                            COPYRIGHT SOFTWARE VILLAGE 2026
+                        </div>
+                    </div>
+                `;
+            } else {
+                // Classic Strict Monochrome layout matching 100% of PDF style (Optimized)
+                preview.innerHTML = `
+                    <div class="flex-1 flex flex-col justify-between" style="color: #000000;">
+                        <div>
+                            <!-- Header Info -->
+                            ${classicHeaderHTML}
+
+                            <!-- Education Section -->
+                            ${eduHTML ? `
+                            <div style="margin-bottom: 15px;">
+                                <div style="font-size: 13px; font-weight: 700; color: #000000; text-transform: uppercase; border-bottom: 2px solid #000000; padding-bottom: 2px; text-align: center; margin-bottom: 10px; width: 100%;">EDUCATION</div>
+                                ${eduHTML}
+                            </div>` : ''}
+
+                            <!-- Skills Summary -->
+                            ${state.skills ? `
+                            <div style="margin-bottom: 15px;">
+                                <div style="font-size: 13px; font-weight: 700; color: #000000; text-transform: uppercase; border-bottom: 2px solid #000000; padding-bottom: 2px; text-align: center; margin-bottom: 10px; width: 100%;">SKILLS SUMMARY</div>
+                                <div class="text-slate-900 font-sans" style="line-height: 1.45; color: #000000;">${skillsParsed}</div>
+                            </div>` : ''}
+
+                            <!-- Experience Section -->
+                            ${expHTML ? `
+                            <div style="margin-bottom: 15px;">
+                                <div style="font-size: 13px; font-weight: 700; color: #000000; text-transform: uppercase; border-bottom: 2px solid #000000; padding-bottom: 2px; text-align: center; margin-bottom: 10px; width: 100%;">WORK EXPERIENCE</div>
+                                ${expHTML}
+                            </div>` : ''}
+
+                            <!-- Certificates Area -->
+                            ${certsParsed ? `
+                            <div style="margin-bottom: 15px;">
+                                <div style="font-size: 13px; font-weight: 700; color: #000000; text-transform: uppercase; border-bottom: 2px solid #000000; padding-bottom: 2px; text-align: center; margin-bottom: 10px; width: 100%;">CERTIFICATES</div>
+                                <div class="text-slate-900 font-sans" style="line-height: 1.45; color: #000000;">
+                                    ${certsParsed}
+                                </div>
+                            </div>` : ''}
+
+                            <!-- References -->
+                            ${hasReferences ? `
+                            <div style="margin-bottom: 15px;">
+                                <div style="font-size: 13px; font-weight: 700; color: #000000; text-transform: uppercase; border-bottom: 2px solid #000000; padding-bottom: 2px; text-align: center; margin-bottom: 10px; width: 100%;">REFERENCES</div>
+                                <div style="color: #000000;">${refHTML}</div>
+                            </div>` : ''}
+                        </div>
+
+                        <!-- Footer -->
+                        <div class="text-center pt-3 border-t text-[8px] font-bold text-slate-500 tracking-widest uppercase mt-6" style="border-color: #000000;">
+                            COPYRIGHT SOFTWARE VILLAGE 2026
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        // Calculate and display progress re-scoring
+        function calculateCVStrength() {
+            let score = 0;
+            
+            // 1. Personal data score (Max 20)
+            let personalFilled = 0;
+            if (state.fullName && state.fullName !== "AD SOYAD") personalFilled += 4;
+            if (state.email && state.email !== "email@example.com") personalFilled += 4;
+            if (state.phone && state.phone !== "+994 50 000 00 00") personalFilled += 4;
+            if (state.location) personalFilled += 4;
+            if (state.linkedin) personalFilled += 4;
+            
+            score += personalFilled;
+            const chkPersonal = document.getElementById("chk-personal");
+            if (chkPersonal) {
+                if(personalFilled >= 16) {
+                    chkPersonal.innerText = "Əla"; chkPersonal.className = "font-bold text-emerald-400";
+                } else {
+                    chkPersonal.innerText = "Yarımçıq"; chkPersonal.className = "font-bold text-red-400";
+                }
+            }
+
+            // 2. Education (Max 20)
+            const chkEdu = document.getElementById("chk-education");
+            if (chkEdu) {
+                if (state.education && state.education.length > 0 && state.education[0].school) {
+                    score += 20;
+                    chkEdu.innerText = "Doldurulub"; chkEdu.className = "font-bold text-emerald-400";
+                } else {
+                    chkEdu.innerText = "Yoxdur"; chkEdu.className = "font-bold text-red-400";
+                }
+            }
+
+            // 3. Experience (Max 25)
+            const chkExp = document.getElementById("chk-experience");
+            if (chkExp) {
+                if (state.experience && state.experience.length > 0 && state.experience[0].title) {
+                    score += 25;
+                    chkExp.innerText = "Doldurulub"; chkExp.className = "font-bold text-emerald-400";
+                } else {
+                    chkExp.innerText = "Yoxdur"; chkExp.className = "font-bold text-red-400";
+                }
+            }
+
+            // 4. Credentials/Certificates/Languages (Max 20)
+            let creds = 0;
+            if (state.skills) creds += 10;
+            if (state.certificates) creds += 5;
+            if (state.languages) creds += 5;
+            score += creds;
+
+            const chkCreds = document.getElementById("chk-credentials");
+            if (chkCreds) {
+                if(creds >= 15) {
+                    chkCreds.innerText = "Əla"; chkCreds.className = "font-bold text-emerald-400";
+                } else {
+                    chkCreds.innerText = "Yarımçıq"; chkCreds.className = "font-bold text-red-400";
+                }
+            }
+
+            // 5. Projects (Max 15)
+            const chkProj = document.getElementById("chk-projects");
+            if (chkProj) {
+                if (state.projects && state.projects.length > 0 && state.projects[0].name) {
+                    score += 15;
+                    chkProj.innerText = "Əlavə edilib"; chkProj.className = "font-bold text-emerald-400";
+                } else {
+                    chkProj.innerText = "Yoxdur"; chkProj.className = "font-bold text-red-400";
+                }
+            }
+
+            // Update UI Score Elements
+            const scoreText = document.getElementById("score-text");
+            if (scoreText) scoreText.innerText = `${score}%`;
+            
+            // Adjust SVG stroke dashoffset
+            const circle = document.getElementById("score-circle");
+            if (circle) {
+                const circumference = 2 * Math.PI * 40; // ~251.2
+                const offset = circumference - (score / 100) * circumference;
+                circle.style.strokeDashoffset = offset;
+            }
+        }
+
+        // Export PDF with html2pdf (0% layout difference guaranteed)
         async function downloadPDF() {
-            const fullName = document.getElementById('fullName').value.trim();
-            const formattedName = fullName ? fullName.toLowerCase().replace(/\s+/g, '_') : 'Software_Village';
+            showToast("PDF generasiya edilir, zəhmət olmasa gözləyin...");
+            
+            const fullName = (state.fullName || "CV").trim();
+            const formattedName = fullName ? fullName.toLowerCase().replace(/\s+/g, '_') : 'software_village';
             const fileName = `${formattedName}_CV.pdf`;
 
             const element = document.getElementById('cv-content');
+            
+            // Force temporary zoom scale transformation reset for 1:1 render capture
+            const scaleContainer = document.getElementById("cv-scale-container");
+            const originalTransform = scaleContainer.style.transform;
+            scaleContainer.style.transform = "none";
+
             const opt = {
                 margin: 0,
                 filename: fileName,
-                image: { type: 'jpeg', quality: 1 },
-                html2canvas: { scale: 4, useCORS: true },
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 3.5, useCORS: true, letterRendering: true, logging: false },
                 jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
             };
-            await html2pdf().set(opt).from(element).save();
+
+            try {
+                await html2pdf().set(opt).from(element).save();
+                showToast("CV uğurla yükləndi!");
+            } catch(e) {
+                console.error("PDF generation failed:", e);
+                showToast("Sənəd saxlanılarkən xəta baş verdi.");
+            } finally {
+                scaleContainer.style.transform = originalTransform;
+            }
         }
 
-        document.getElementById('cvForm').addEventListener('input', updatePreview);
-        window.onload = updatePreview;
+        // Export MS Word Friendly HTML table structure (0% layout difference in MS Word)
+        function downloadWord() {
+            showToast("Word sənədi (.doc) hazırlanır...");
+
+            // Building structured table elements for maximum Word compatibility
+            let eduTables = "";
+            (state.education || []).forEach(item => {
+                if (item.school || item.degree) {
+                    eduTables += `
+                        <table width="100%" cellpadding="0" cellspacing="0" style="width:100%; border:none; margin-bottom:8px; font-family:'Arial'; font-size:10pt; line-height:1.45;">
+                            <tr>
+                                <td style="text-align:left; font-weight:bold; width:70%;">${item.school || ''}</td>
+                                <td style="text-align:right; font-weight:normal; width:30%; color:#475569;">${item.loc || ''}</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:left; font-style:normal; width:70%; color:#1e293b;">${item.degree || ''}</td>
+                                <td style="text-align:right; font-weight:normal; width:30%; color:#475569;">${item.date || ''}</td>
+                            </tr>
+                        </table>
+                    `;
+                }
+            });
+
+            let expTables = "";
+            (state.experience || []).forEach(item => {
+                if (item.title || item.company) {
+                    const bullets = (item.desc || "").split('\n').filter(l => l.trim()).map(l => {
+                        let clean = l.trim();
+                        if(clean.startsWith('•')) clean = clean.substring(1).trim();
+                        return `<li style="margin-bottom:3px;">${clean}</li>`;
+                    }).join('');
+
+                    expTables += `
+                        <table width="100%" cellpadding="0" cellspacing="0" style="width:100%; border:none; margin-bottom:12px; font-family:'Arial'; font-size:10pt; line-height:1.45;">
+                            <tr>
+                                <td style="text-align:left; font-weight:bold; width:70%;">${item.title || ''} | ${item.company || ''}</td>
+                                <td style="text-align:right; font-weight:normal; width:30%; color:#475569;">${item.date || ''}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="padding-top:4px;">
+                                    <ul style="margin:0; padding-left:20px; color:#1e293b;">
+                                        ${bullets}
+                                    </ul>
+                                </td>
+                            </tr>
+                        </table>
+                    `;
+                }
+            });
+
+            const skillsTables = (state.skills || "").split('\n').filter(l => l.trim()).map(l => {
+                const parts = l.split(':');
+                if(parts.length > 1) {
+                    return `<div style="margin-bottom:5px; font-family:'Arial'; font-size:10pt; line-height:1.45;"><strong style="font-weight:bold;">${parts[0]}:</strong>${parts.slice(1).join(':')}</div>`;
+                }
+                return `<div style="margin-bottom:5px; font-family:'Arial'; font-size:10pt; line-height:1.45;">${l.trim()}</div>`;
+            }).join('');
+
+            const certsTables = (state.certificates || "").split('\n').filter(l => l.trim()).map(l => {
+                let clean = l.trim();
+                if(clean.startsWith('•')) {
+                    clean = clean.substring(1).trim();
+                    return `<li style="margin-bottom:3px; font-family:'Arial'; font-size:10pt;">${clean}</li>`;
+                }
+                if(clean.startsWith('Graphic Design Program')) {
+                    return `<div style="font-family:'Arial'; font-size:10pt; font-weight:bold; margin-top:5px; margin-bottom:3px;">${clean}</div>`;
+                }
+                return `<div style="font-family:'Arial'; font-size:10pt; margin-bottom:3px; padding-left:15px;">${clean}</div>`;
+            }).join('');
+
+            let refTables = `
+                <table width="100%" cellpadding="0" cellspacing="0" style="width:100%; border:none; margin-bottom:8px; font-family:'Arial'; font-size:10pt; line-height:1.45;">
+                    <tr>
+                        <td style="text-align:left; font-weight:bold;">Umid Babakishiyev</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:left; color:#334155;">CEO | Software Village | Phone: 070 681 11 53 | Linkedin: linkedin.com/in/ümid-babakişiyev-726790180/</td>
+                    </tr>
+                </table>
+            `;
+            if (state.refTeacherName) {
+                refTables += `
+                    <table width="100%" cellpadding="0" cellspacing="0" style="width:100%; border:none; margin-bottom:8px; font-family:'Arial'; font-size:10pt; line-height:1.45;">
+                        <tr>
+                            <td style="text-align:left; font-weight:bold;">${state.refTeacherName}</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left; color:#334155;">Teacher | Software Village | Phone: ${state.refTeacherPhone || 'Göstərilməyib'} | LinkedIn: ${state.refTeacherLinkedin || 'Göstərilməyib'}</td>
+                        </tr>
+                    </table>
+                `;
+            }
+            if (state.refMentorName) {
+                refTables += `
+                    <table width="100%" cellpadding="0" cellspacing="0" style="width:100%; border:none; margin-bottom:8px; font-family:'Arial'; font-size:10pt; line-height:1.45;">
+                        <tr>
+                            <td style="text-align:left; font-weight:bold;">${state.refMentorName}</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left; color:#334155;">Mentor | Software Village | Phone: ${state.refMentorPhone || 'Göstərilməyib'} | LinkedIn: ${state.refMentorLinkedin || 'Göstərilməyib'}</td>
+                        </tr>
+                    </table>
+                `;
+            }
+
+            // Word-compatible header info block with precise parallelism
+            let wordHeaderRows = generateParallelHeaderRows(true);
+
+            // Word-compatible template generation
+            const header = `
+                <html xmlns:o="urn:schemas-microsoft-com:office:office" 
+                      xmlns:w="urn:schemas-microsoft-com:office:word" 
+                      xmlns="http://www.w3.org/TR/REC-html40">
+                <head>
+                    <meta charset="utf-8">
+                    <title>${state.fullName || 'CV'}- CV</title>
+                    <style>
+                        @page {
+                            size: A4;
+                            margin: 1.5cm 1.8cm 1.5cm 1.8cm;
+                        }
+                        body {
+                            font-family: 'Arial', 'Helvetica', sans-serif;
+                            font-size: 10.5pt;
+                            color: #000000;
+                            line-height: 1.45;
+                        }
+                        .section-title {
+                            font-size: 11.5pt;
+                            font-weight: bold;
+                            text-align: center;
+                            border-bottom: 2px solid #000000;
+                            padding-bottom: 3px;
+                            margin-top: 15px;
+                            margin-bottom: 10px;
+                            text-transform: uppercase;
+                        }
+                        ul { 
+                            margin: 4px 0 6px 0; 
+                            padding-left: 20px; 
+                        }
+                        li { 
+                            margin-bottom: 3px; 
+                            list-style-type: disc;
+                        }
+                    </style>
+                </head>
+                <body>
+                    
+                    <!-- Header -->
+                    <table width="100%" cellpadding="0" cellspacing="0" style="width:100%; border:none; margin-bottom:5px; font-family:'Arial';">
+                        <tr>
+                            <td colspan="2" style="text-align:left; vertical-align:top;">
+                                <h1 style="font-size:22pt; font-weight:bold; text-transform:uppercase; margin:0 0 6px 0; color:#000000; letter-spacing:-0.5px;">${state.fullName || ''}</h1>
+                            </td>
+                        </tr>
+                        ${wordHeaderRows}
+                    </table>
+                    
+                    <div style="border-top:1.5px solid #000000; margin-bottom:15px; width:100%; line-height:0; font-size:0;">&nbsp;</div>
+
+                    <!-- Education -->
+                    ${eduTables ? `
+                    <div class="section-title">EDUCATION</div>
+                    ${eduTables}` : ''}
+
+                    <!-- Skills -->
+                    ${skillsTables ? `
+                    <div class="section-title">SKILLS SUMMARY</div>
+                    <div style="margin-bottom:12px;">
+                        ${skillsTables}
+                    </div>` : ''}
+
+                    <!-- Experience -->
+                    ${expTables ? `
+                    <div class="section-title">WORK EXPERIENCE</div>
+                    ${expTables}` : ''}
+
+                    <!-- Certificates -->
+                    ${certsTables ? `
+                    <div class="section-title">CERTIFICATES</div>
+                    <div style="margin-bottom:12px;">
+                        ${certsTables.includes('<li') ? `<ul style="margin:0; padding-left:20px; color:#1e293b;">${certsTables}</ul>` : certsTables}
+                    </div>` : ''}
+
+                    <!-- References -->
+                    <div class="section-title">REFERENCES</div>
+                    ${refTables}
+
+                    <!-- Footer -->
+                    <table width="100%" cellpadding="0" cellspacing="0" style="width:100%; border-top:1px solid #000000; margin-top:25px; font-family:'Arial';">
+                        <tr>
+                            <td style="text-align:center; padding-top:10px; font-size:7.5pt; font-weight:bold; color:#64748b; letter-spacing:1px; text-transform:uppercase;">
+                                COPYRIGHT SOFTWARE VILLAGE 2026
+                            </td>
+                        </tr>
+                    </table>
+
+                </body>
+                </html>
+            `;
+            
+            // Adding UTF-8 BOM to keep Azerbaijani characters readable inside Microsoft Word (ə, ı, ş, ç, ö, ğ, vb.)
+            const blob = new Blob(['\ufeff' + header], {
+                type: 'application/msword;charset=utf-8'
+            });
+            
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            
+            const fullName = (state.fullName || "CV").trim();
+            const formattedName = fullName ? fullName.toLowerCase().replace(/\s+/g, '_') : 'software_village';
+            a.download = `${formattedName}_CV.doc`;
+            
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            showToast("Word sənədi (.doc) yükləndi!");
+        }
+
+        // Export Entire Current Interactive HTML application
+        function downloadHTML() {
+            showToast("Məlumatlarınız daxil edilmiş tətbiq faylı (.html) hazırlanır...");
+            
+            const stateString = JSON.stringify(state, null, 4);
+            let currentHTML = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+            
+            // Inject the updated current reactive state as default values so it opens filled
+            const stateRegex = /let state = \{[\s\S]*?\};\s*let zoomLevel/g;
+            currentHTML = currentHTML.replace(stateRegex, `let state = ${stateString};\n\n        let zoomLevel`);
+            
+            const blob = new Blob([currentHTML], { type: 'text/html;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            
+            const fullName = (state.fullName || "CV").trim();
+            const formattedName = fullName ? fullName.toLowerCase().replace(/\s+/g, '_') : 'software_village';
+            a.download = `${formattedName}_CV_Editor.html`;
+            
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            showToast("HTML tətbiq faylı uğurla endirildi!");
+        }
     </script>
 </body>
 </html>
