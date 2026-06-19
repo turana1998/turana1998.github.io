@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DVS Studiyası - Premium Veb Həllər Studiyası</title>
+  
+  <!-- Bootstrap 5 CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Google Fonts - Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* --- CUSTOM DESIGN TOKENS & OVERRIDES --- */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #F4F6F9;
+      color: #1E293B;
+      overflow-x: hidden;
+    }
+
+    /* Selection colors */
+    ::selection {
+      background-color: #C17F21;
+      color: #FFFFFF;
+    }
+
+    /* Colors */
+    .text-navy { color: #05346A !important; }
+    .text-gold { color: #C17F21 !important; }
+    .bg-navy { background-color: #05346A !important; }
+    .bg-navy-dark { background-color: #021226 !important; }
+    .bg-light-gray { background-color: #F4F6F9 !important; }
+    .bg-accent-gray { background-color: #EBF0F6 !important; }
+
+    /* Premium Sticky Header with glassmorphism and subtle gold accent line */
+    header {
+      background: rgba(255, 255, 255, 0.85) !important;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(5, 52, 106, 0.08) !important;
+      position: sticky;
+      top: 0;
+      z-index: 1030;
+      transition: all 0.3s ease;
+    }
+
+    /* Cosmic Dome Hero (With moving ambient glow and digital tech grid) */
+    .hero-curved-dome {
+      background: radial-gradient(ellipse 75% 65% at 50% 100%, rgba(5, 52, 106, 0.98) 0%, #031D3C 60%, #021226 100%);
+      background-size: 110% 110%;
+      color: #FFFFFF;
+      position: relative;
+      animation: cosmicPulse 12s ease infinite alternate;
+    }
+
+    /* Moving background effect */
+    @keyframes cosmicPulse {
+      0% { background-position: 50% 100%; }
+      100% { background-position: 55% 95%; }
+    }
+
+    /* Subtle tech grid mesh in the background of hero */
+    .hero-curved-dome::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(193, 127, 33, 0.12) 1px, transparent 1px);
+      background-size: 24px 24px;
+      opacity: 0.55;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Gentle glowing dust animations */
+    .hero-curved-dome::after {
+      content: '';
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      background: radial-gradient(circle, rgba(193, 127, 33, 0.15) 0%, transparent 70%);
+      top: 20%;
+      left: 15%;
+      pointer-events: none;
+      animation: floatGlow 8s infinite alternate ease-in-out;
+      z-index: 0;
+    }
+
+    @keyframes floatGlow {
+      0% { transform: translateY(0) scale(1); opacity: 0.5; }
+      100% { transform: translateY(-30px) scale(1.3); opacity: 0.8; }
+    }
+
+    /* Premium Gradient Button */
+    .gradient-btn {
+      background: linear-gradient(90deg, #05346A 0%, #C17F21 100%);
+      border: none;
+      transition: all 0.3s ease;
+      color: #FFFFFF !important;
+    }
+    .gradient-btn:hover {
+      filter: brightness(1.15);
+      box-shadow: 0px 4px 20px rgba(193, 127, 33, 0.45);
+      transform: translateY(-1px);
+    }
+
+    /* Realistic Gold Dashed Line border from Screenshots */
+    .custom-dashed-line {
+      background-image: linear-gradient(to right, rgba(193, 127, 33, 0.5) 50%, rgba(0, 0, 0, 0) 0%);
+      background-position: bottom;
+      background-size: 8px 1px;
+      background-repeat: repeat-x;
+      display: inline-block;
+      padding-bottom: 6px;
+    }
+
+    /* Custom Dropdown Hover triggers for Bootstrap */
+    @media (min-width: 768px) {
+      .nav-item-dropdown:hover .custom-dropdown-menu {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+    }
+
+    .custom-dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: 1000;
+      min-width: 220px;
+      padding: 10px;
+      background-color: #FFFFFF;
+      border: 1px solid rgba(193, 127, 33, 0.15);
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(5, 52, 106, 0.08);
+      transition: all 0.25s ease;
+    }
+
+    /* Custom styling for inputs */
+    .form-control-custom {
+      background-color: #F4F6F9;
+      border: 1px solid rgba(5, 52, 106, 0.15);
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-size: 14px;
+      color: #05346A;
+      transition: all 0.3s ease;
+    }
+    .form-control-custom:focus {
+      border-color: #C17F21;
+      background-color: #FFFFFF;
+      box-shadow: 0 0 0 3px rgba(193, 127, 33, 0.15);
+      outline: none;
+    }
+
+    /* Typewriter blink indicator */
+    .typewriter-cursor {
+      border-right: 3px solid #C17F21;
+      animation: blink 0.75s step-end infinite;
+      white-space: nowrap;
+    }
+
+    @keyframes blink {
+      from, to { border-color: transparent }
+      50% { border-color: #C17F21 }
+    }
+
+    /* Service card animations */
+    .portfolio-card {
+      transition: all 0.3s ease;
+    }
+    .portfolio-card:hover {
+      border-color: rgba(193, 127, 33, 0.6) !important;
+      transform: translateY(-5px);
+    }
+
+    /* Active nav links - smaller font size as requested */
+    .nav-custom-link {
+      color: #4A5568;
+      font-weight: 600;
+      font-size: 13.5px !important;
+      letter-spacing: 0.02em;
+      transition: color 0.2s ease;
+      text-decoration: none;
+    }
+    .nav-custom-link:hover, .nav-custom-link.active {
+      color: #C17F21 !important;
+    }
+
+    /* Custom Range Slider styling */
+    input[type="range"]::-webkit-slider-thumb {
+      background: #C17F21;
+    }
+    input[type="range"]::-moz-range-thumb {
+      background: #C17F21;
+    }
+
+    /* Custom Stepper Indicators */
+    .step-dot {
+      height: 6px;
+      flex: 1;
+      background-color: #E2E8F0;
+      border-radius: 10px;
+      transition: background-color 0.3s ease;
+    }
+    .step-dot.active {
+      background-color: #C17F21;
+    }
+
+    /* Custom Modals background opacity blur */
+    .wizard-backdrop {
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- --- HEADER / NAVIGATION (Now in standardized container) --- -->
+  <header>
+    <div class="container py-3 d-flex align-items-center justify-content-between">
+      
+      <!-- Brand Logo Custom Vector Element -->
+      <a href="#home" class="d-flex flex-column text-decoration-none select-none">
+         <img src="./DVS_logo.png" alt="DVS Logo" style="height: 60px;">
+      </a>
+
+      <!-- Desktop Navigation Menu (With smaller elegant fonts) -->
+      <nav class="hidden md:flex d-none d-md-flex align-items-center gap-4 font-semibold">
+        <a href="#home" class="nav-custom-link active">Ana Səhifə</a>
+        <a href="#about" class="nav-custom-link">Haqqında</a>
+        
+        <!-- Xidmətlər Dropdown -->
+        <div class="position-relative nav-item-dropdown py-2">
+          <span class="nav-custom-link cursor-pointer d-flex align-items-center" style="cursor: pointer;">
+            Xidmətlər 
+            <svg class="ms-1 text-secondary" style="width: 12px; height: 12px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </span>
+          <div class="custom-dropdown-menu">
+            <a href="#services" class="d-block p-2 text-xs text-secondary text-decoration-none rounded hover:bg-light">Veb Proqramlaşdırma</a>
+            <a href="#services" class="d-block p-2 text-xs text-secondary text-decoration-none rounded hover:bg-light">UX/UI Brendinq</a>
+            <a href="#services" class="d-block p-2 text-xs text-secondary text-decoration-none rounded hover:bg-light">Mobil App İnkişafı</a>
+          </div>
+        </div>
+
+        <!-- Portfolyo Dropdown -->
+        <div class="position-relative nav-item-dropdown py-2">
+          <span class="nav-custom-link cursor-pointer d-flex align-items-center" style="cursor: pointer;">
+            Portfolyo
+            <svg class="ms-1 text-secondary" style="width: 12px; height: 12px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </span>
+          <div class="custom-dropdown-menu">
+            <a href="#portfolio" class="d-block p-2 text-xs text-secondary text-decoration-none rounded hover:bg-light">Korporativ</a>
+            <a href="#portfolio" class="d-block p-2 text-xs text-secondary text-decoration-none rounded hover:bg-light">E-Commerce</a>
+          </div>
+        </div>
+
+        <!-- Səhifələr Dropdown -->
+        <div class="position-relative nav-item-dropdown py-2">
+          <span class="nav-custom-link cursor-pointer d-flex align-items-center" style="cursor: pointer;">
+            Səhifələr
+            <svg class="ms-1 text-secondary" style="width: 12px; height: 12px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </span>
+          <div class="custom-dropdown-menu">
+            <a href="#calculator" class="d-block p-2 text-xs text-secondary text-decoration-none rounded hover:bg-light">Büdcə Hesablayıcı</a>
+            <a href="#faq" class="d-block p-2 text-xs text-secondary text-decoration-none rounded hover:bg-light">FAQ</a>
+          </div>
+        </div>
+
+        <a href="#contact" class="nav-custom-link">Əlaqə</a>
+      </nav>
+
+      <!-- CTA Action Header Button -->
+      <div>
+        <button onclick="openWizard(1)" class="btn gradient-btn rounded-lg fw-bold text-uppercase px-4 py-2.5" style="font-size: 11px; letter-spacing: 0.1em;">
+          LAYİHƏYƏ BAŞLA
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- --- HERO SECTION WITH COSMIC NAVY, DIGITAL GRID & GOLDEN DOME --- -->
+  <section id="home" class="hero-curved-dome py-5 text-center">
+    <div class="container py-5 z-1 position-relative">
+      
+      <!-- Orijinal kəsik xətli qızılı alt cizgi ilə başlığı təqdim edən bədc -->
+      <div class="custom-dashed-line mb-4">
+        <span class="fw-bold tracking-wide text-light opacity-90" style="font-size: 15px; letter-spacing: 0.02em;">
+          Rəqəmsal layihələriniz üçün etibarlı veb həllər studiyası
+        </span>
+      </div>
+
+      <!-- Live Typewriter Header Element with Blinking Cursor -->
+      <h1 class="display-3 fw-bold tracking-tight text-white my-4" style="min-height: 95px;">
+        <span id="typewriter-text" class="typewriter-cursor text-gold fw-black"></span>
+      </h1>
+
+      <!-- Short narrative description -->
+      <p class="lead mx-auto mb-5 text-light opacity-75" style="max-width: 720px; font-size: 16px; line-height: 1.7;">
+        Biz ideyalarınızı peşəkar saytlar, veb tətbiqlər və rəqəmsal platformalara çeviririk – <br class="d-none d-md-inline" />
+        biznesinizin böyüməsi üçün funksional, sürətli və müasir həllər hazırlayırıq.
+      </p>
+
+      <!-- Buttons CTA -->
+      <div class="d-flex flex-column flex-sm-row justify-content-center align-items-center gap-3">
+        <button onclick="openWizard(1)" class="btn gradient-btn px-5 py-3 fw-bold text-uppercase rounded-lg" style="font-size: 12px; letter-spacing: 0.12em;">
+          LAYİHƏ ÜÇÜN MÜRACİƏT ET
+        </button>
+        <a href="#services" class="btn btn-outline-light px-5 py-3 fw-bold text-uppercase rounded-lg" style="font-size: 12px; letter-spacing: 0.12em; border-color: #C17F21; color: #FFFFFF;">
+          XİDMƏTLƏRİMİZ
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- --- SERVICES BLOCK (EXACT LOWER CLONE SECTION FROM SCREENSHOT 1) --- -->
+  <section id="services" class="py-5 bg-light-gray border-top border-light">
+    <div class="container py-5">
+      <div class="row g-5 align-items-start">
+        
+        <!-- Left narrative col -->
+        <div class="col-lg-5">
+          <span class="text-uppercase text-gold fw-bold tracking-widest d-block mb-3" style="font-size: 11px; letter-spacing: 0.25em;">
+            XİDMƏTLƏRİMİZ
+          </span>
+          <h2 class="display-6 fw-bold text-navy mb-4 leading-tight">
+            Müasir veb və tətbiq həlləri
+          </h2>
+          <p class="text-secondary mb-4" style="font-size: 14px; line-height: 1.7;">
+            Texnologiya və dizaynın biznesləri daha güclü etdiyinə inanırıq. Biz sadəcə sayt hazırlayan komanda deyil, rəqəmsal inkişafınız üçün texniki tərəfdaşıq.
+          </p>
+
+          <!-- Checklists with gold checkmark SVGs -->
+          <div class="space-y-3 pt-3">
+            <div class="d-flex align-items-center mb-3" style="font-size: 13px; font-weight: 500; color: #4A5568;">
+              <svg class="text-gold me-2 shrink-0" style="width: 18px; height: 18px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+              </svg>
+              Sürət və təhlükəsizlik üzrə tam zəmanət
+            </div>
+            <div class="d-flex align-items-center mb-3" style="font-size: 13px; font-weight: 500; color: #4A5568;">
+              <svg class="text-gold me-2 shrink-0" style="width: 18px; height: 18px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+              </svg>
+              Tam responsive mobil və SEO adaptiv kod quruluşu
+            </div>
+            <div class="d-flex align-items-center" style="font-size: 13px; font-weight: 500; color: #4A5568;">
+              <svg class="text-gold me-2 shrink-0" style="width: 18px; height: 18px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+              </svg>
+              Müasir fərdi dizayn yanaşması (heç bir şablon istifadə edilmir)
+            </div>
+          </div>
+        </div>
+
+        <!-- Right custom card with embedded SVG isometric layout -->
+        <div class="col-lg-7">
+          <div class="bg-white rounded-4 border p-4 p-md-5 shadow-sm d-flex flex-column flex-md-row align-items-center gap-4">
+            
+            <!-- Left dynamic SVG layout representation -->
+            <div class="w-100 w-md-50 d-flex justify-content-center">
+              <svg class="w-100 h-auto" style="max-width: 250px;" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Isometric shapes mirroring screenshot exactly -->
+                <ellipse cx="100" cy="120" rx="80" ry="40" fill="url(#gridGlow)" opacity="0.35" />
+                <ellipse cx="100" cy="120" rx="70" ry="35" stroke="#C17F21" stroke-width="1" stroke-dasharray="4 4" opacity="0.6" />
+                <ellipse cx="100" cy="120" rx="55" ry="27.5" stroke="#05346A" stroke-width="1.5" />
+                <ellipse cx="100" cy="120" rx="35" ry="17.5" stroke="#C17F21" stroke-width="2" />
+                
+                <g class="animated-isometric-node">
+                  <path d="M85 90 L85 115 A 15 7.5 0 0 0 115 115 L115 90 Z" fill="url(#cylinderGradient)" opacity="0.85" />
+                  <ellipse cx="100" cy="90" rx="15" ry="7.5" fill="#C17F21" />
+                </g>
+
+                <g>
+                  <path d="M60 85 L70 90 L70 70 L60 65 Z" fill="#05346A" opacity="0.75" />
+                  <path d="M130 95 L140 90 L140 75 L130 80 Z" fill="#C17F21" opacity="0.85" />
+                  <circle cx="100" cy="50" r="8" fill="#05346A" opacity="0.4" />
+                  <circle cx="100" cy="50" r="5" fill="#C17F21" />
+                </g>
+
+                <defs>
+                  <radialGradient id="gridGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#C17F21" stop-opacity="0.4" />
+                    <stop offset="100%" stop-color="#05346A" stop-opacity="0" />
+                  </radialGradient>
+                  <linearGradient id="cylinderGradient" x1="85" y1="90" x2="115" y2="115">
+                    <stop offset="0%" stop-color="#05346A" />
+                    <stop offset="100%" stop-color="#C17F21" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+
+            <!-- Descriptive Text details -->
+            <div class="w-100 w-md-50 space-y-3">
+              <h3 class="fw-bold text-navy h4">
+                Sayt Hazırlanması
+              </h3>
+              <p class="text-secondary" style="font-size: 13px; line-height: 1.6;">
+                Biznesiniz üçün sürətli, təhlükəsiz və mobil uyğun korporativ saytlar, landing page-lər və idarəetmə panelli veb layihələr hazırlayırıq.
+              </p>
+              <div class="pt-2">
+                <a href="#calculator" class="btn btn-outline-dark px-4 py-2 fw-bold" style="font-size: 11px; letter-spacing: 0.1em; border-color: #C17F21; color: #C17F21;">
+                  ƏTRAFLI
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- --- REALTIME INTERACTIVE PRICE CALCULATOR --- -->
+  <section id="calculator" class="py-5 bg-accent-gray border-top border-bottom border-light">
+    <div class="container py-5">
+      
+      <div class="text-center mb-5">
+        <span class="text-uppercase text-gold fw-bold px-4 py-1.5 bg-white border rounded-pill d-inline-block mb-3" style="font-size: 11px; letter-spacing: 0.15em;">
+          PLANLAYICI
+        </span>
+        <h2 class="fw-bold text-navy h3">Xidmət və Qiymət Kalkulyatoru</h2>
+        <p class="text-secondary text-sm">Xidməti fərdiləşdirərək təxmini büdcəni və vaxtı canlı olaraq hesablayın.</p>
+      </div>
+
+      <div class="row g-4 align-items-stretch">
+        
+        <!-- Left Interactive Options Column -->
+        <div class="col-lg-7">
+          <div class="bg-white border rounded-4 p-4 p-md-5 shadow-sm space-y-4 h-100 d-flex flex-column justify-content-between">
+            
+            <!-- 1. Service select -->
+            <div class="mb-4">
+              <label class="text-uppercase fw-bold text-secondary mb-2 block" style="font-size: 11px; letter-spacing: 0.05em;">1. Xidmət növünü seçin</label>
+              <select id="calc-service" onchange="updateCalc()" class="form-select form-control-custom w-100">
+                <option value="web" selected>Veb saytların Hazırlanması (Avans: 450 AZN)</option>
+                <option value="design">Brendinq & UX/UI Dizayn (Avans: 500 AZN)</option>
+                <option value="app">Mobil Tətbiqlərin yaradılması (Avans: 1500 AZN)</option>
+              </select>
+            </div>
+
+            <!-- 2. Page Slider -->
+            <div class="mb-4" id="calc-pages-container">
+              <div class="d-flex justify-content-between align-items-center mb-2" style="font-size: 12px; font-weight: 700;">
+                <span class="text-secondary text-uppercase">Səhifə Sayı: <span class="text-gold" id="calc-pages-val">5</span></span>
+                <span class="text-muted">(hər səhifə +50 AZN)</span>
+              </div>
+              <input type="range" id="calc-pages" min="1" max="30" value="5" oninput="updateCalc()" class="form-range w-100">
+            </div>
+
+            <!-- 3. Extras checkboxes -->
+            <div class="space-y-3">
+              <label class="text-uppercase fw-bold text-secondary mb-2 block" style="font-size: 11px; letter-spacing: 0.05em;">Əlavə Seçimlər</label>
+              
+              <!-- Check 1 -->
+              <div class="d-flex align-items-center justify-content-between p-3 bg-light rounded-3 border mb-3">
+                <div>
+                  <span class="fw-bold text-navy d-block" style="font-size: 13px;">Google SEO Optimizasiyası (+250 AZN)</span>
+                  <span class="text-muted" style="font-size: 11px;">Mühərriklərdə sürətli indekslənmə və açar söz auditi</span>
+                </div>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="calc-seo" checked onchange="updateCalc()" style="cursor: pointer; width: 40px; height: 20px;">
+                </div>
+              </div>
+
+              <!-- Check 2 -->
+              <div class="d-flex align-items-center justify-content-between p-3 bg-light rounded-3 border">
+                <div>
+                  <span class="fw-bold text-navy d-block" style="font-size: 13px;">Xüsusi Fərdi UX/UI Figma Dizaynı (+350 AZN)</span>
+                  <span class="text-muted" style="font-size: 11px;">Hazır dizaynlar əvəzinə brendinizə uyğun sıfırdan xüsusi eskiz</span>
+                </div>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="calc-design" checked onchange="updateCalc()" style="cursor: pointer; width: 40px; height: 20px;">
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right Results Box Column -->
+        <div class="col-lg-5">
+          <div class="bg-navy p-4 p-md-5 rounded-4 shadow-lg text-white h-100 d-flex flex-column justify-content-between border-top border-4" style="border-color: #C17F21 !important;">
+            
+            <div class="space-y-4">
+              <h3 class="h5 fw-bold border-bottom pb-3" style="border-color: rgba(255,255,255,0.1) !important;">Təxmini Layihə Fakturası</h3>
+              
+              <div class="space-y-3" style="font-size: 14px;">
+                <div class="d-flex justify-content-between text-white-50 py-1">
+                  <span>Əsas Xidmət:</span>
+                  <span id="inv-service" class="text-white fw-semibold">VEB xidməti</span>
+                </div>
+                <div class="d-flex justify-content-between text-white-50 py-1" id="inv-pages-row">
+                  <span>Səhifə Sayı:</span>
+                  <span id="inv-pages" class="text-white fw-semibold">5 Səhifə</span>
+                </div>
+                <div class="d-flex justify-content-between text-white-50 py-1">
+                  <span>SEO Dəstəyi:</span>
+                  <span id="inv-seo" class="text-white fw-semibold">Bəli</span>
+                </div>
+                <div class="d-flex justify-content-between text-white-50 py-1">
+                  <span>Özəl Dizayn:</span>
+                  <span id="inv-design" class="text-white fw-semibold">Bəli</span>
+                </div>
+              </div>
+
+              <div class="bg-navy-dark p-4 rounded-3 border border-secondary border-opacity-10 space-y-2 mt-4">
+                <div class="d-flex justify-content-between align-items-baseline mb-2">
+                  <span class="text-muted text-uppercase" style="font-size: 10px; letter-spacing: 0.05em;">Hazırlanma Müddəti:</span>
+                  <span id="inv-days" class="text-gold fw-bold fs-5">9 gün</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-baseline">
+                  <span class="text-muted text-uppercase" style="font-size: 10px; letter-spacing: 0.05em;">Təxmini Qiymət:</span>
+                  <span id="inv-price" class="text-white fw-extrabold fs-3">1300 AZN</span>
+                </div>
+              </div>
+            </div>
+
+            <button onclick="handleCalculatorOrder()" class="btn w-100 py-3 mt-4 text-white fw-bold uppercase" style="background-color: #C17F21; font-size: 12px; letter-spacing: 0.05em; border: none; transition: filter 0.2s;" onmouseover="this.style.filter='brightness(1.1)'" onmouseout="this.style.filter='none'">
+              BU HESABLA SİFARİŞ ET
+            </button>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- --- PORTFOLIO GALLERY SECTION --- -->
+  <section id="portfolio" class="py-5 bg-white">
+    <div class="container py-5">
+      
+      <div class="text-center mb-5">
+        <span class="text-uppercase text-gold fw-bold tracking-widest d-block mb-3" style="font-size: 11px; letter-spacing: 0.25em;">PORTFOLİO</span>
+        <h2 class="display-6 fw-bold text-navy">İşlərimizdən nümunələr</h2>
+        <p class="text-secondary text-sm">Ən son fəaliyyətlərimiz və müasir rəqəmsal təqdimat platformalarımız.</p>
+      </div>
+
+      <div class="row g-4">
+        
+        <!-- Card 1 -->
+        <div class="col-md-4">
+          <div class="card h-100 border rounded-3 overflow-hidden portfolio-card shadow-sm">
+            <div class="position-relative" style="height: 200px; overflow: hidden;">
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Baku Logistics Portal" class="w-100 h-100 object-fit-cover" />
+              <span class="position-absolute top-0 start-0 m-3 bg-navy text-white fw-bold tracking-widest text-uppercase px-2.5 py-1.5 rounded" style="font-size: 8px; border: 1px solid rgba(193, 127, 33, 0.3);">
+                Web Development
+              </span>
+            </div>
+            <div class="card-body p-4">
+              <h3 class="h5 fw-bold text-navy card-title">Baku Logistics Portal</h3>
+              <p class="card-text text-secondary text-xs" style="font-size: 12px; line-height: 1.6;">
+                Milli daşıma şirkəti üçün responsive rəqəmsal panel və sürətli müştəri tablosu.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col-md-4">
+          <div class="card h-100 border rounded-3 overflow-hidden portfolio-card shadow-sm">
+            <div class="position-relative" style="height: 200px; overflow: hidden;">
+              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Fintech Mobile App" class="w-100 h-100 object-fit-cover" />
+              <span class="position-absolute top-0 start-0 m-3 bg-navy text-white fw-bold tracking-widest text-uppercase px-2.5 py-1.5 rounded" style="font-size: 8px; border: 1px solid rgba(193, 127, 33, 0.3);">
+                Mobile Development
+              </span>
+            </div>
+            <div class="card-body p-4">
+              <h3 class="h5 fw-bold text-navy card-title">Fintech Mobile Application</h3>
+              <p class="card-text text-secondary text-xs" style="font-size: 12px; line-height: 1.6;">
+                iOS və Android üçün sürətli pul köçürmə və şifrələnmiş mobil cüzdan tətbiqi.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col-md-4">
+          <div class="card h-100 border rounded-3 overflow-hidden portfolio-card shadow-sm">
+            <div class="position-relative" style="height: 200px; overflow: hidden;">
+              <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=600&q=80" alt="E-Commerce Market" class="w-100 h-100 object-fit-cover" />
+              <span class="position-absolute top-0 start-0 m-3 bg-navy text-white fw-bold tracking-widest text-uppercase px-2.5 py-1.5 rounded" style="font-size: 8px; border: 1px solid rgba(193, 127, 33, 0.3);">
+                Web Development
+              </span>
+            </div>
+            <div class="card-body p-4">
+              <h3 class="h5 fw-bold text-navy card-title">E-Commerce Market</h3>
+              <p class="card-text text-secondary text-xs" style="font-size: 12px; line-height: 1.6;">
+                Səbət və inteqrasiya olunmuş onlayn ödəniş sistemli müasir ticarət mağazası.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- --- FAQ ACCORDION SECTION --- -->
+  <section id="faq" class="py-5 bg-accent-gray border-top border-light">
+    <div class="container py-5">
+      
+      <div class="text-center mb-5">
+        <span class="text-uppercase text-gold fw-bold tracking-widest d-block mb-3" style="font-size: 11px; letter-spacing: 0.25em;">SUAL-CAVAB</span>
+        <h2 class="display-6 fw-bold text-navy">Tez-Tez verilən suallar</h2>
+      </div>
+
+      <div class="mx-auto space-y-3" style="max-width: 800px;">
+        
+        <!-- Accordion Item 1 -->
+        <div class="bg-white border rounded-3 p-4 mb-3 shadow-sm">
+          <button onclick="toggleFaq(1)" class="w-100 border-0 bg-transparent text-navy fw-bold text-start p-0 d-flex justify-content-between align-items-center" style="font-size: 15px; font-family: 'Poppins', sans-serif;">
+            <span>Layihələrin hazırlanma müddəti necə təyin edilir?</span>
+            <span id="faq-symbol-1" class="text-gold fs-4 fw-bold">+</span>
+          </button>
+          <div id="faq-answer-1" class="collapse-answer text-secondary border-top mt-3 pt-3 d-none" style="font-size: 13px; line-height: 1.6;">
+            Adətən sadə korporativ layihələr 8-10 iş günü, mürəkkəb e-ticarət və mobil tətbiqlər isə 30-45 iş günü ərzində tam zəmanətlə hazırlanıb təhvil verilir.
+          </div>
+        </div>
+
+        <!-- Accordion Item 2 -->
+        <div class="bg-white border rounded-3 p-4 shadow-sm">
+          <button onclick="toggleFaq(2)" class="w-100 border-0 bg-transparent text-navy fw-bold text-start p-0 d-flex justify-content-between align-items-center" style="font-size: 15px; font-family: 'Poppins', sans-serif;">
+            <span>Sifarişdən sonra texniki dəstək göstərilir?</span>
+            <span id="faq-symbol-2" class="text-gold fs-4 fw-bold">+</span>
+          </button>
+          <div id="faq-answer-2" class="collapse-answer text-secondary border-top mt-3 pt-3 d-none" style="font-size: 13px; line-height: 1.6;">
+            Bəli, hazırladığımız bütün layihələrə ilkin 6 ay müddətində ödənişsiz texniki zəmanət və hostinq optimizasiyası dəstəyi təklif edirik.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- --- CONTACT FORM SECTION --- -->
+  <section id="contact" class="py-5 bg-white border-top border-light">
+    <div class="container py-5">
+      <div class="row g-5 align-items-center">
+        
+        <!-- Contact narrative details -->
+        <div class="col-lg-6">
+          <span class="text-uppercase text-gold fw-bold tracking-widest d-block mb-3" style="font-size: 11px; letter-spacing: 0.25em;">ƏLAQƏ</span>
+          <h2 class="display-5 fw-bold text-navy mb-4">Bizimlə yeni layihəyə başlayın</h2>
+          <p class="text-secondary mb-4" style="font-size: 14px; line-height: 1.7;">
+            Dəqiq müraciət, sual və texniki layihə tapşırıqlarınızı göndərmək üçün aşağıdakı formdan istifadə edə bilərsiniz. Ofisimiz Bakı şəhərində fəaliyyət göstərir.
+          </p>
+          <div class="pt-3 space-y-3" style="font-size: 13px; font-weight: 500; color: #4A5568;">
+            <p class="mb-2">📍 Ünvan: Bakı şəhəri, Nizami küçəsi 142</p>
+            <p class="mb-2">📞 Əlaqə nömrəsi: +994 (50) 123 45 67</p>
+            <p>✉️ E-mail: info@dvs.az</p>
+          </div>
+        </div>
+
+        <!-- Form container -->
+        <div class="col-lg-6">
+          <div class="bg-white border p-4 p-md-5 rounded-4 shadow-lg">
+            
+            <div id="contact-success-msg" class="text-center py-5 d-none">
+              <span class="text-emerald text-success display-4 mb-3 d-block">✓</span>
+              <h4 class="fw-bold text-navy">Mesajınız uğurla göndərildi!</h4>
+              <p class="text-muted text-xs">Tezliklə rəqəmsal menecerlərimiz sizinlə əlaqə saxlayacaqdır.</p>
+            </div>
+
+            <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-4">
+              
+              <div class="mb-3">
+                <label class="text-uppercase fw-bold text-secondary mb-2 block" style="font-size: 11px; letter-spacing: 0.05em;">Adınız, Soyadınız</label>
+                <input type="text" id="contact-name" required placeholder="Nümunə: Elvin" class="form-control form-control-custom w-100">
+              </div>
+
+              <div class="mb-3">
+                <label class="text-uppercase fw-bold text-secondary mb-2 block" style="font-size: 11px; letter-spacing: 0.05em;">E-Poçt Ünvanı</label>
+                <input type="email" id="contact-email" required placeholder="email@example.com" class="form-control form-control-custom w-100">
+              </div>
+
+              <div class="mb-4">
+                <label class="text-uppercase fw-bold text-secondary mb-2 block" style="font-size: 11px; letter-spacing: 0.05em;">Mesaj / Sifariş qeydləri</label>
+                <textarea id="contact-msg" rows="4" required placeholder="Layihə haqqında qısa məlumat qeyd edin..." class="form-control form-control-custom w-100" style="resize: none;"></textarea>
+              </div>
+
+              <button type="submit" class="btn gradient-btn w-100 py-3 fw-bold text-uppercase rounded-lg" style="font-size: 12px; letter-spacing: 0.08em;">
+                MÜRACİƏTİ GÖNDƏR
+              </button>
+
+            </form>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- --- FOOTER --- -->
+  <footer class="bg-navy-dark py-5 text-white-50">
+    <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between gap-4">
+      
+      <!-- Brand Logo in Footer -->
+      <div class="d-flex flex-column text-start">
+        <span class="fs-4 fw-black tracking-tighter" style="color: #C17F21; font-weight: 900;">DVS</span>
+        <span class="text-uppercase fw-bold text-white opacity-90" style="font-size: 9px; letter-spacing: 0.3em;">STUDİYASI</span>
+      </div>
+
+      <!-- Copyright Details -->
+      <div class="text-center text-md-end" style="font-size: 12px;">
+        <p class="mb-1">&copy; 2026 DVS Studiyası (Dizayn və Veb Həllər). Bütün hüquqlar qorunur.</p>
+        <p class="mb-0 text-muted" style="font-size: 10px;">Premium və unikal interaktiv veb platformalar.</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- --- INTERACTIVE PROJECT WIZARD MODAL --- -->
+  <div id="wizard-modal" class="position-fixed inset-0 top-0 start-0 w-100 h-100 d-none d-flex align-items-center justify-content-center z-3 wizard-backdrop" style="z-index: 9999;">
+    <div class="bg-white rounded-4 border-top border-4 p-4 p-md-5 position-relative shadow-2xl m-3 space-y-4" style="max-width: 500px; width: 100%; border-color: #C17F21 !important;">
+      
+      <!-- Close button -->
+      <button onclick="closeWizard()" class="btn-close position-absolute top-0 end-0 m-4 shadow-none" style="cursor: pointer;"></button>
+
+      <!-- Header details -->
+      <div class="border-bottom pb-3">
+        <h3 class="h4 fw-bold text-navy mb-1">DVS Layihə Sihirbazı</h3>
+        <p class="text-gold fw-semibold mb-0" style="font-size: 11px;">İdeyalarınızı analiz edərək sizə uyğun xidməti müəyyən edək.</p>
+      </div>
+
+      <!-- Step dots indicator -->
+      <div class="d-flex align-items-center gap-2 mb-4" id="wizard-dots">
+        <div class="step-dot active" id="dot-1"></div>
+        <div class="step-dot" id="dot-2"></div>
+        <div class="step-dot" id="dot-3"></div>
+      </div>
+
+      <!-- Successful registration message -->
+      <div id="wizard-success-msg" class="text-center py-5 d-none">
+        <span class="display-4 text-success mb-3 d-block">✓</span>
+        <h4 class="fw-bold text-navy">Uğurlu layihə sifarişi!</h4>
+        <p class="text-secondary text-xs">Məlumatlarınız tam qeydə alındı. İnkişaf komandamız ən qısa zamanda sizinlə əlaqə yaradacaqdır.</p>
+      </div>
+
+      <!-- Form logic steps -->
+      <form id="wizard-form" onsubmit="handleWizardSubmit(event)" class="space-y-4">
+        
+        <!-- STEP 1: SERVICE TYPE -->
+        <div id="step-pane-1" class="wizard-pane">
+          <label class="text-uppercase fw-bold text-secondary mb-2 block" style="font-size: 11px; letter-spacing: 0.05em;">Sizə hansı xidmət növü maraqlıdır?</label>
+          <div class="d-flex flex-column gap-2">
+            <button type="button" onclick="selectWizardService('web')" id="wiz-btn-web" class="btn btn-outline-secondary w-100 p-3 text-start fw-bold" style="font-size: 12px; border-radius: 10px;">
+              💻 Veb Saytların Hazırlanması
+            </button>
+            <button type="button" onclick="selectWizardService('design')" id="wiz-btn-design" class="btn btn-outline-secondary w-100 p-3 text-start fw-bold" style="font-size: 12px; border-radius: 10px;">
+              🎨 UX/UI Brendinq & Figma
+            </button>
+            <button type="button" onclick="selectWizardService('app')" id="wiz-btn-app" class="btn btn-outline-secondary w-100 p-3 text-start fw-bold" style="font-size: 12px; border-radius: 10px;">
+              📱 Mobil Tətbiqlər (iOS/Android)
+            </button>
+          </div>
+        </div>
+
+        <!-- STEP 2: PROJECT DESCRIPTION -->
+        <div id="step-pane-2" class="wizard-pane d-none">
+          <label class="text-uppercase fw-bold text-secondary mb-2 block" style="font-size: 11px; letter-spacing: 0.05em;">Layihə haqqında ətraflı qeydiniz varmı?</label>
+          <textarea id="wizard-notes" rows="4" class="form-control form-control-custom w-100" placeholder="Məsələn: loqo, ödəniş inteqrasiyası, rus dili və s." style="resize: none;"></textarea>
+        </div>
+
+        <!-- STEP 3: CONTACT INFORMATION -->
+        <div id="step-pane-3" class="wizard-pane d-none">
+          <div class="mb-3">
+            <label class="text-uppercase fw-bold text-secondary mb-1 block" style="font-size: 10px; letter-spacing: 0.05em;">Adınız, Soyadınız *</label>
+            <input type="text" id="wizard-name" required placeholder="Elvin Məmmədov" class="form-control form-control-custom w-100">
+          </div>
+          <div class="mb-3">
+            <label class="text-uppercase fw-bold text-secondary mb-1 block" style="font-size: 10px; letter-spacing: 0.05em;">Əlaqə Telefonu *</label>
+            <input type="tel" id="wizard-phone" required placeholder="+994 (50) 000-00-00" class="form-control form-control-custom w-100">
+          </div>
+        </div>
+
+        <!-- Navigation triggers -->
+        <div class="d-flex justify-content-between pt-4 border-top" style="border-color: #E2E8F0 !important;">
+          <button type="button" id="wizard-back-btn" onclick="wizardBack()" class="btn btn-outline-secondary px-4 py-2 d-none" style="font-size: 12px; border-radius: 8px;">
+            GERİ
+          </button>
+          <button type="button" id="wizard-next-btn" onclick="wizardNext()" class="btn bg-navy text-white px-4 py-2 ms-auto" style="font-size: 12px; border-radius: 8px;">
+            NƏVBƏTİ
+          </button>
+          <button type="submit" id="wizard-submit-btn" class="btn text-white px-4 py-2 ms-auto d-none" style="font-size: 12px; border-radius: 8px; background-color: #C17F21;">
+            GÖNDƏR
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+  <!-- --- JAVASCRIPT FOR REALTIME ANIMATIONS & CALCULATIONS --- -->
+  <script>
+    // --- TYPEWRITER EFFECT ---
+    const typewriterWords = ['SaytHazırlanması', 'UX/UI Dizaynı', 'Mobil Tətbiqlər'];
+    let currentWordIndex = 0;
+    let currentCharIndex = 0;
+    let isDeletingText = false;
+    const typingSpeed = 120;
+    const deletingSpeed = 60;
+    const switchWordDelay = 2200;
+    const typewriterElement = document.getElementById('typewriter-text');
+
+    function performTypewriterEffect() {
+      const fullWord = typewriterWords[currentWordIndex];
+
+      if (!isDeletingText) {
+        typewriterElement.textContent = fullWord.substring(0, currentCharIndex + 1);
+        currentCharIndex++;
+
+        if (currentCharIndex === fullWord.length) {
+          isDeletingText = true;
+          setTimeout(performTypewriterEffect, switchWordDelay);
+        } else {
+          setTimeout(performTypewriterEffect, typingSpeed);
+        }
+      } else {
+        typewriterElement.textContent = fullWord.substring(0, currentCharIndex - 1) || '\u00A0';
+        currentCharIndex--;
+
+        if (currentCharIndex === 0) {
+          isDeletingText = false;
+          currentWordIndex = (currentWordIndex + 1) % typewriterWords.length;
+          setTimeout(performTypewriterEffect, typingSpeed);
+        } else {
+          setTimeout(performTypewriterEffect, deletingSpeed);
+        }
+      }
+    }
+
+    // --- INTERACTIVE PRICE CALCULATOR ---
+    const serviceSelector = document.getElementById('calc-service');
+    const pageSliderWrap = document.getElementById('calc-pages-container');
+    const pageRangeSlider = document.getElementById('calc-pages');
+    const pageCounterLabel = document.getElementById('calc-pages-val');
+    const seoOptSwitch = document.getElementById('calc-seo');
+    const customDesignSwitch = document.getElementById('calc-design');
+
+    const invoiceServiceText = document.getElementById('inv-service');
+    const invoicePagesRow = document.getElementById('inv-pages-row');
+    const invoicePagesText = document.getElementById('inv-pages');
+    const invoiceSeoText = document.getElementById('inv-seo');
+    const invoiceDesignText = document.getElementById('inv-design');
+    const invoiceDaysText = document.getElementById('inv-days');
+    const invoicePriceText = document.getElementById('inv-price');
+
+    function updateCalc() {
+      const serviceVal = serviceSelector.value;
+      const pagesCount = parseInt(pageRangeSlider.value);
+      const isSeoActive = seoOptSwitch.checked;
+      const isDesignActive = customDesignSwitch.checked;
+
+      pageCounterLabel.textContent = pagesCount;
+
+      if (serviceVal === 'web') {
+        pageSliderWrap.classList.remove('d-none');
+        invoicePagesRow.classList.remove('d-none');
+        invoicePagesText.textContent = pagesCount + ' Səhifə';
+      } else {
+        pageSliderWrap.classList.add('d-none');
+        invoicePagesRow.classList.add('d-none');
+      }
+
+      let baseCost = 450;
+      if (serviceVal === 'design') baseCost = 500;
+      if (serviceVal === 'app') baseCost = 1500;
+
+      let pageAdditionalCost = (serviceVal === 'web') ? pagesCount * 50 : 0;
+      let seoAdditionalCost = isSeoActive ? 250 : 0;
+      let designAdditionalCost = isDesignActive ? 350 : 0;
+
+      let computedPrice = baseCost + pageAdditionalCost + seoAdditionalCost + designAdditionalCost;
+
+      let totalDays = 8;
+      if (serviceVal === 'app') totalDays = 30;
+      if (serviceVal === 'web' && pagesCount > 10) totalDays += Math.floor(pagesCount / 4);
+
+      invoiceServiceText.textContent = serviceVal.toUpperCase() + ' xidməti';
+      invoiceSeoText.textContent = isSeoActive ? 'Bəli' : 'Xeyr';
+      invoiceDesignText.textContent = isDesignActive ? 'Bəli' : 'Xeyr';
+      invoiceDaysText.textContent = totalDays + ' gün';
+      invoicePriceText.textContent = computedPrice + ' AZN';
+    }
+
+    // Calculate directly into Wizard modal
+    function handleCalculatorOrder() {
+      const serviceVal = serviceSelector.value;
+      const pagesCount = pageRangeSlider.value;
+      const isSeo = seoOptSwitch.checked ? 'Hə' : 'Yox';
+      const isDesign = customDesignSwitch.checked ? 'Hə' : 'Yox';
+      const calculatedPrice = invoicePriceText.textContent;
+
+      document.getElementById('wizard-notes').value = `Kalkulyator hesabatı: ${serviceVal} layihəsi, Səhifə sayı: ${pagesCount}, SEO: ${isSeo}, Dizayn: ${isDesign}. Təxmini Qiymət: ${calculatedPrice}`;
+      selectWizardService(serviceVal);
+      openWizard(3); // open directly on the contact pane
+    }
+
+    // --- FAQ ACCORDION ---
+    function toggleFaq(index) {
+      const targetElement = document.getElementById('faq-answer-' + index);
+      const symbolElement = document.getElementById('faq-symbol-' + index);
+
+      if (targetElement.classList.contains('d-none')) {
+        targetElement.classList.remove('d-none');
+        symbolElement.textContent = '−';
+      } else {
+        targetElement.classList.add('d-none');
+        symbolElement.textContent = '+';
+      }
+    }
+
+    // --- CONTACT FORM SUBMISSION ---
+    function handleContactSubmit(event) {
+      event.preventDefault();
+      document.getElementById('contact-form').classList.add('d-none');
+      document.getElementById('contact-success-msg').classList.remove('d-none');
+
+      setTimeout(() => {
+        document.getElementById('contact-form').classList.remove('d-none');
+        document.getElementById('contact-success-msg').classList.add('d-none');
+        document.getElementById('contact-form').reset();
+      }, 4000);
+    }
+
+    // --- WIZARD FORM & NAVIGATION MODAL ---
+    let wizardCurrentStep = 1;
+    let selectedWizardServiceType = 'web';
+
+    function openWizard(startStep = 1) {
+      document.getElementById('wizard-modal').classList.remove('d-none');
+      wizardGoToStep(startStep);
+    }
+
+    function closeWizard() {
+      document.getElementById('wizard-modal').classList.add('d-none');
+      // Reset after closing
+      wizardCurrentStep = 1;
+      document.getElementById('wizard-form').classList.remove('d-none');
+      document.getElementById('wizard-success-msg').classList.add('d-none');
+      document.getElementById('wizard-dots').classList.remove('d-none');
+      document.getElementById('wizard-form').reset();
+    }
+
+    function selectWizardService(type) {
+      selectedWizardServiceType = type;
+      // Reset highlights
+      ['web', 'design', 'app'].forEach(t => {
+        const btn = document.getElementById('wiz-btn-' + t);
+        btn.classList.remove('btn-secondary');
+        btn.classList.add('btn-outline-secondary');
+        btn.style.borderColor = '';
+        btn.style.color = '';
+      });
+
+      const activeBtn = document.getElementById('wiz-btn-' + type);
+      activeBtn.classList.remove('btn-outline-secondary');
+      activeBtn.classList.add('btn-secondary');
+      activeBtn.style.borderColor = '#C17F21';
+      activeBtn.style.color = '#FFFFFF';
+    }
+
+    function wizardGoToStep(step) {
+      wizardCurrentStep = step;
+
+      // Toggle visible panes
+      for (let s = 1; s <= 3; s++) {
+        const pane = document.getElementById('step-pane-' + s);
+        const dot = document.getElementById('dot-' + s);
+        if (s === step) {
+          pane.classList.remove('d-none');
+          dot.classList.add('active');
+        } else {
+          pane.classList.add('d-none');
+          dot.classList.remove('active');
+        }
+      }
+
+      // Handle buttons state
+      const backBtn = document.getElementById('wizard-back-btn');
+      const nextBtn = document.getElementById('wizard-next-btn');
+      const submitBtn = document.getElementById('wizard-submit-btn');
+
+      if (step === 1) {
+        backBtn.classList.add('d-none');
+        nextBtn.classList.remove('d-none');
+        submitBtn.classList.add('d-none');
+      } else if (step === 2) {
+        backBtn.classList.remove('d-none');
+        nextBtn.classList.remove('d-none');
+        submitBtn.classList.add('d-none');
+      } else if (step === 3) {
+        backBtn.classList.remove('d-none');
+        nextBtn.classList.add('d-none');
+        submitBtn.classList.remove('d-none');
+      }
+    }
+
+    function wizardNext() {
+      if (wizardCurrentStep < 3) {
+        wizardGoToStep(wizardCurrentStep + 1);
+      }
+    }
+
+    function wizardBack() {
+      if (wizardCurrentStep > 1) {
+        wizardGoToStep(wizardCurrentStep - 1);
+      }
+    }
+
+    function handleWizardSubmit(event) {
+      event.preventDefault();
+      document.getElementById('wizard-form').classList.add('d-none');
+      document.getElementById('wizard-dots').classList.add('d-none');
+      document.getElementById('wizard-success-msg').classList.remove('d-none');
+
+      setTimeout(() => {
+        closeWizard();
+      }, 4000);
+    }
+
+    // Initialize all components on DOM Ready
+    window.addEventListener('DOMContentLoaded', () => {
+      performTypewriterEffect();
+      updateCalc();
+      selectWizardService('web');
+    });
+  </script>
+
+  <!-- Bootstrap 5 JS Bundle CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
