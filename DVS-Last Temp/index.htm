@@ -1,0 +1,349 @@
+﻿<!doctype html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DVS</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/img/logo-dark.png" type="image/x-icon">
+
+    <!-- Site font -->
+    <link rel="stylesheet" href="assets/fonts/webfonts/inter/stylesheet.css">
+    <link rel="stylesheet" href="assets/fonts/webfonts/syne/stylesheet.css">
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="assets/css/vendors/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/vendors/jos.css">
+    <link rel="stylesheet" href="assets/css/vendors/menu.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <!-- Development css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Popins Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- Production css -->
+    <!-- <link rel="stylesheet" href="/assets/css/style.min.css" /> -->
+</head>
+
+<body class="bg-colorIvory">
+    <div class="page-wrapper">
+        <!-- ...::: Header Section Start :::... -->
+        <header class="section-header site-header fixed top-0 z-30 w-full py-5"
+            style="background-color: rgb(5, 52, 106);">
+            <!-- Section Container -->
+            <div class="container">
+                <!-- Header Area -->
+                <div class="flex items-center justify-between">
+                    <!-- Header Left Block -->
+                    <div class="flex items-center gap-x-10">
+                        <!-- Header Logo -->
+                        <a class='h-auto w-auto' href='index.htm'>
+                            <img src="assets/img/logo.png" alt="DVS-logo" width="121" height="24">
+                        </a>
+                        <!-- Header Logo -->
+
+                        <!-- Header Navigation -->
+                        <div class="menu-block-wrapper">
+                            <div class="menu-overlay"></div>
+                            <nav class="menu-block" id="append-menu-header">
+                                <div class="mobile-menu-head">
+                                    <div class="go-back">
+                                        <img src="assets/img/icons/icon-caret-down.svg" alt="icon-caret-down" width="12"
+                                            height="7">
+                                    </div>
+                                    <div class="current-menu-title"></div>
+                                    <div class="mobile-menu-close">&times;</div>
+                                </div>
+                                <ul class="site-menu-main">
+                                    <li
+                                        class="nav-link-item drop-trigger text-colorDark rounded-none border border-transparent lg:text-white">
+                                        <a class='nav-link-item' href='index.htm'>Ana səhifə</a>
+                                    </li>
+                                    <li
+                                        class="nav-link-item drop-trigger text-colorDark rounded-none border border-transparent lg:text-white">
+                                        <a class='nav-link-item' href='about.html'>Haqqımızda</a>
+                                    </li>
+                                    <li class="nav-item nav-item-has-children">
+                                        <a href="#"
+                                            class="nav-link-item drop-trigger text-colorDark rounded-none border border-transparent lg:text-white">Xidmətlər
+                                            <img src="assets/img/icons/icon-caret-down.svg" alt="icon-caret-down"
+                                                width="7" height="4" class="-rotate-90 invert-0 lg:rotate-0 lg:invert">
+                                        </a>
+                                        <ul class="sub-menu" id="submenu-0">
+                                            <li class="sub-menu--item">
+                                                <a href='service.html'>Xidmətlər</a>
+                                            </li>
+                                            <li class="sub-menu--item">
+                                                <a href='service-details.html'>Xidmət Detalları</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item nav-item-has-children">
+                                        <a href="#"
+                                            class="nav-link-item drop-trigger text-colorDark rounded-none border border-transparent lg:text-white">Portfolio
+                                            <img src="assets/img/icons/icon-caret-down.svg" alt="icon-caret-down"
+                                                width="7" height="4" class="-rotate-90 invert-0 lg:rotate-0 lg:invert">
+                                        </a>
+                                        <ul class="sub-menu" id="submenu-1">
+                                            <li class="sub-menu--item">
+                                                <a href='portfolio-1.html'>Portfolio 1</a>
+                                            </li>
+                                            <li class="sub-menu--item">
+                                                <a href='portfolio-2.html'>Portfolio 2</a>
+                                            </li>
+                                            <li class="sub-menu--item">
+                                                <a href='portfolio-details.html'>Portfolio Detalları</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li
+                                        class="nav-link-item drop-trigger text-colorDark rounded-none border border-transparent lg:text-white">
+                                        <a class='nav-link-item' href='#'>Menyu</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <!-- Header Navigation -->
+                    </div>
+                    <!-- Header Left Block -->
+
+                    <!-- Header Right Block -->
+                    <div class="flex items-center gap-x-6">
+                        <a class='btn-primary relative hidden px-[30px] py-[10px] sm:inline-flex' href='contact.html'
+                            style="background-color: rgb(190, 247, 72); color: #000; border-color: rgb(190, 247, 72);">Əlaqə</a>
+
+                        <!-- Responsive Offcanvas Menu Button -->
+                        <div class="block lg:hidden">
+                            <button id="openBtn" class="hamburger-menu mobile-menu-trigger">
+                                <span class="bg-white before:bg-white after:bg-white"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Header Right Block -->
+                </div>
+                <!-- Header Area -->
+            </div>
+            <!-- Section Container -->
+        </header>
+        <!-- ...::: Header Section End :::... -->
+
+        <!-- Main Wrapper Start -->
+        <main class="main-wrapper">
+            <!-- ...::: Hero Section Start :::... -->
+            <section class="section-hero">
+                <div class="bg-black">
+                    <!-- Hero Space -->
+                    <div class="pb-16 pt-[195px] lg:pb-[100px] lg:pt-[130px] xl:pb-[100px]">
+                        <!-- Section Container -->
+                        <div class="container">
+                            <!-- Hero Area -->
+                            <div
+                                class="relative z-10 grid grid-cols-1 items-start justify-center gap-x-[90px] gap-y-16 lg:grid-cols-[1fr_minmax(0,0.6fr)] lg:items-start">
+                                <!-- Hero Left Block -->
+                                <div class="text-center text-colorButteryWhite lg:text-start">
+                                    <h1>
+
+                                        <span class="inline-flex items-center gap-5">Brendiniz Üçün Mükəmməl
+                                            <img src="assets/img/elemnts/shape-light-lime-5-arms-star.svg"
+                                                alt="shape-light-lime-5-arms-star" width="20px" height="20"
+                                                class="mb-4"></span>
+                                    </h1>
+                                    <div class="hero-text-rotator mx-auto mt-5 mb-5 lg:mx-0" aria-label="Xidmət növləri slideri">
+                                        <span class="text-[42px] font-bold leading-none text-colorLightLime md:text-[54px] lg:text-[60px]">Veb Saytlar</span>
+                                        <span class="text-[42px] font-bold leading-none text-colorLightLime md:text-[54px] lg:text-[60px]">Mobil Tətbiqlər</span>
+                                        <span class="text-[42px] font-bold leading-none text-colorLightLime md:text-[54px] lg:text-[60px]">Ecommerce saytlar</span>
+                                    </div>
+
+                                    <div
+                                        class="mb-[50px] flex flex-wrap items-center justify-center gap-4 lg:justify-start">
+                                        <p class="opacity-70">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci doloremque vitae, sapiente odio possimus doloribus amet reprehenderit qui ullam voluptas enim sequi? Laudantium minima recusandae maxime maiores at iusto ratione?</p>                                      
+                                    </div>
+
+                                    <a class='btn-primary relative pr-20 md:pr-[118px]' href='contact.html'>Məsləhət üçün zəng et
+                                        <span
+                                            class="absolute right-[5px] inline-flex h-[50px] w-[50px] items-center justify-center rounded-[50%] bg-black"><img
+                                                src="assets/img/icons/icon-buttery-white-phone.svg"
+                                                alt="icon-buttery-white-phone" width="30" height="30"></span></a>
+                                </div>
+                                <!-- Hero Left Block -->
+                                <!-- Hero Right Block -->
+                                <div
+                                    class="mx-auto inline-block max-w-[495px] overflow-hidden rounded-[25px] bg-colorButteryWhite p-[5px] lg:mx-0">
+                                    <img src="assets/img/images/th-1/hero-img.jpg" alt="hero-img" width="485"
+                                        height="540" class="h-full w-full rounded-[20px] object-cover">
+                                </div>
+                                <!-- Hero Right Block -->
+
+                                <!-- Hero Elements -->
+                                <img src="assets/img/elemnts/element-light-lime-curve-arrow.svg"
+                                    alt="element-light-lime-curve-arrow" width="284" height="153"
+                                    class="absolute bottom-0 left-1/2 -z-10 hidden h-auto max-w-52 -translate-x-1/2 lg:inline-block xl:max-w-full">
+                                <!-- Hero Elements -->
+                            </div>
+                            <!-- Hero Area -->
+                        </div>
+                        <!-- Section Container -->
+                    </div>
+                    <!-- Hero Space -->
+                </div>
+            </section>
+            <!-- ...::: Hero Section End :::... -->
+
+            <!-- ...::: Service Section Start :::... -->
+            <section class="section-service">
+                <!-- Section Background -->
+                <div class="bg-colorIvory">
+                    <!-- Section Space -->
+                    <div class="section-space">
+                        <!-- Section Container -->
+                        <div class="container">
+                            <!-- Section Block -->
+                            <div
+                                class="section-block mx-auto mb-10 max-w-[650px] text-center md:mb-[60px] xl:mb-20 xl:max-w-[856px]">
+                                <h2 class="jos">
+                                    Biz effektiv dizayn
+                                    <span>
+                                        həlləri təqdim edirik
+                                        <img src="assets/img/elemnts/shape-light-lime-5-arms-star.svg"
+                                            alt="shape-light-lime-5-arms-star" width="74" height="70"
+                                            class="relative inline-block h-auto w-8 after:bg-black md:w-10 lg:w-[57px]">
+                                    </span>
+                                </h2>
+                            </div>
+                            <!-- Section Block -->
+
+                            <!-- Service List -->
+                            <ul class="grid grid-cols-1 gap-[30px] lg:grid-cols-2">
+                                <!-- Service Item -->
+                                <li class="jos group/team-item" data-jos_delay="0">
+                                    <div class="shadow-bg group h-full">
+                                        <div
+                                            class="flex h-full flex-col items-start overflow-hidden rounded-[20px] border-2 border-black bg-colorIvory p-[30px] transition duration-300 group-hover:bg-colorLightLime">
+                                            <img src="assets/img/icons/th-1-service-icon-1.svg"
+                                                alt="th-1-service-icon-1" width="64" height="70"
+                                                class="h-[70px] w-auto">
+
+                                            <h4 class="mb-[15px] mt-[30px]">UI/UX Dizayn</h4>
+                                            <p class="mb-7">
+                                                İstifadəçi interfeysi (UI) və istifadəçi təcrübəsi
+                                                (UX) dizaynına fokuslanaraq rəqəmsal məhsul və
+                                                tətbiqlərin rahatlığını və əlçatanlığını artırırıq.
+                                            </p>
+                                            <a class='mt-auto inline-block translate-x-0 transition-all duration-300 group-hover:translate-x-5'
+                                                href='service-details.html'><img
+                                                    src="assets/img/icons/icon-black-arrow-right.svg"
+                                                    alt="icon-black-arrow-right" width="34" height="28"></a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- Service Item -->
+                                <!-- Service Item -->
+                                <li class="jos" data-jos_delay="0.3">
+                                    <div class="shadow-bg group h-full">
+                                        <div
+                                            class="flex h-full flex-col items-start overflow-hidden rounded-[20px] border-2 border-black bg-colorIvory p-[30px] transition duration-300 group-hover:bg-colorLightLime">
+                                            <img src="assets/img/icons/th-1-service-icon-2.svg"
+                                                alt="th-1-service-icon-2" width="77" height="70"
+                                                class="h-[70px] w-auto">
+
+                                            <h4 class="mb-[15px] mt-[30px]">Qrafik Dizayn</h4>
+                                            <p class="mb-7">
+                                                Loqolar, brend materialları, səhifə tərtibatı,
+                                                broşürlər və digər marketinq materialları kimi vizual
+                                                elementlər hazırlayırıq.
+                                            </p>
+                                            <a class='mt-auto inline-block translate-x-0 transition-all duration-300 group-hover:translate-x-5'
+                                                href='service-details.html'><img
+                                                    src="assets/img/icons/icon-black-arrow-right.svg"
+                                                    alt="icon-black-arrow-right" width="34" height="28"></a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- Service Item -->
+                                <!-- Service Item -->
+                                <li class="jos" data-jos_delay="0.6">
+                                    <div class="shadow-bg group h-full">
+                                        <div
+                                            class="flex h-full flex-col items-start overflow-hidden rounded-[20px] border-2 border-black bg-colorIvory p-[30px] transition duration-300 group-hover:bg-colorLightLime">
+                                            <img src="assets/img/icons/th-1-service-icon-3.svg"
+                                                alt="th-1-service-icon-3" width="75" height="70"
+                                                class="h-[70px] w-auto">
+
+                                            <h4 class="mb-[15px] mt-[30px]">Veb Dizayn</h4>
+                                            <p class="mb-7">
+                                                Veb saytların vizual baxımdan cəlbedici, istifadəçi
+                                                dostu və funksional olmasını təmin edən dizayn və
+                                                inkişaf xidmətləri göstəririk.
+                                            </p>
+                                            <a class='mt-auto inline-block translate-x-0 transition-all duration-300 group-hover:translate-x-5'
+                                                href='service-details.html'><img
+                                                    src="assets/img/icons/icon-black-arrow-right.svg"
+                                                    alt="icon-black-arrow-right" width="34" height="28"></a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- Service Item -->
+                                <!-- Service Item -->
+                                <li class="jos" data-jos_delay="0.9">
+                                    <div class="shadow-bg group h-full">
+                                        <div
+                                            class="flex h-full flex-col items-start overflow-hidden rounded-[20px] border-2 border-black bg-colorIvory p-[30px] transition duration-300 group-hover:bg-colorLightLime">
+                                            <img src="assets/img/icons/th-1-service-icon-4.svg"
+                                                alt="th-1-service-icon-4" width="55" height="70"
+                                                class="h-[70px] w-auto">
+
+                                            <h4 class="mb-[15px] mt-[30px]">Hərəkətli Qrafika</h4>
+                                            <p class="mb-7">
+                                                Marketinq və əyləncə daxil olmaqla müxtəlif məqsədlər
+                                                üçün animasiyalı qrafika və videolar hazırlayırıq.
+                                                Məhsul və ya xidmətin təqdimatını gücləndiririk.
+                                            </p>
+                                            <a class='mt-auto inline-block translate-x-0 transition-all duration-300 group-hover:translate-x-5'
+                                                href='service-details.html'><img
+                                                    src="assets/img/icons/icon-black-arrow-right.svg"
+                                                    alt="icon-black-arrow-right" width="34" height="28"></a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- Service Item -->
+                            </ul>
+                            <!-- Service List -->
+                        </div>
+                        <!-- Section Container -->
+                    </div>
+                    <!-- Section Space -->
+                </div>
+                <!-- Section Background -->
+            </section>
+            <!-- ...::: Service Section end :::... -->
+
+            <!-- ...::: Team Section End :::... -->
+        </main>
+        <!--  Main Wrapper End -->
+
+        <!-- ...::: Footer Section Start :::... -->
+      
+        <!-- ...::: Footer Section End :::... -->
+    </div>
+
+    <!--Vendor js-->
+    <script src="assets/js/vendors/counterup.js" type="module"></script>
+    <script src="assets/js/vendors/swiper-bundle.min.js"></script>
+    <script src="assets/js/vendors/fslightbox.js"></script>
+    <script src="assets/js/vendors/jos.min.js"></script>
+    <script src="assets/js/vendors/menu.js"></script>
+
+    <!-- Main js -->
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
