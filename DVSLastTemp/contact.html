@@ -1,0 +1,667 @@
+<!doctype html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DVS</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/img/logo-dark.png" type="image/x-icon">
+
+    <!-- Site font -->
+    <link rel="stylesheet" href="assets/fonts/webfonts/inter/stylesheet.css">
+    <link rel="stylesheet" href="assets/fonts/webfonts/syne/stylesheet.css">
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="assets/css/vendors/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/vendors/jos.css">
+    <link rel="stylesheet" href="assets/css/vendors/menu.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <!-- Development css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Popins Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- Production css -->
+    <!-- <link rel="stylesheet" href="/assets/css/style.min.css" /> -->
+</head>
+
+<body class="bg-colorIvory">
+    <div class="page-wrapper">
+        <!-- ...::: Header Section Start :::... -->
+        <header class="section-header site-header fixed top-0 z-30 w-full py-5"
+            style="background-color: rgb(5, 52, 106);">
+            <!-- Section Container -->
+            <div class="container">
+                <!-- Header Area -->
+                <div class="flex items-center justify-between">
+                    <!-- Header Left Block -->
+                    <div class="flex items-center gap-x-10">
+                        <!-- Header Logo -->
+                        <a class='h-auto w-auto' href='index.htm'>
+                            <img src="assets/img/logo.png" alt="DVS-logo" width="121" height="24">
+                        </a>
+                        <!-- Header Logo -->
+
+                        <!-- Header Navigation -->
+                        <div class="menu-block-wrapper">
+                            <div class="menu-overlay"></div>
+                            <nav class="menu-block" id="append-menu-header">
+                                <div class="mobile-menu-head">
+                                    <div class="go-back">
+                                        <img src="assets/img/icons/icon-caret-down.svg" alt="icon-caret-down" width="12"
+                                            height="7">
+                                    </div>
+                                    <div class="current-menu-title"></div>
+                                    <div class="mobile-menu-close">&times;</div>
+                                </div>
+                                <ul class="site-menu-main">
+                                    <li
+                                        class="nav-link-item drop-trigger text-colorDark rounded-none border border-transparent lg:text-white">
+                                        <a class='nav-link-item' href='index.htm'>Əsas səhifə</a>
+                                    </li>
+                                    <li
+                                        class="nav-link-item drop-trigger text-colorDark rounded-none border border-transparent lg:text-white">
+                                        <a class='nav-link-item' href='about.html'>Haqqımızda</a>
+                                    </li>
+                                    <li class="nav-item nav-item-has-children">
+                                        <a href="services.html"
+                                            class="nav-link-item drop-trigger text-colorDark rounded-none border border-transparent lg:text-white">
+                                            Xidmətlər
+                                            <img src="assets/img/icons/icon-caret-down.svg" alt="icon-caret-down"
+                                                width="7" height="4" class="-rotate-90 invert-0 lg:rotate-0 lg:invert">
+                                        </a>
+
+                                        <ul class="sub-menu" id="submenu-0">
+                                            <li class="sub-menu--item">
+                                                <a href="#">Veb Dizayn & Proqramlaşdırma</a>
+                                            </li>
+                                            <li class="sub-menu--item">
+                                                <a href="#">UI/UX və Qrafik Dizayn</a>
+                                            </li>
+                                            <li class="sub-menu--item">
+                                                <a href="#">E-Commerce Həlləri</a>
+                                            </li>
+                                            <li class="sub-menu--item">
+                                                <a href="#">SEO Xidmətləri</a>
+                                            </li>
+                                            <li class="sub-menu--item">
+                                                <a href="#">Mobil Tətbiqlər</a>
+                                            </li>
+                                            <li class="sub-menu--item">
+                                                <a href="#">Rəqəmsal Marketinq</a>
+                                            </li>
+                                            <li class="sub-menu--item">
+                                                <a href="#"> Çap Xidməti
+                                                </a>
+                                            </li>
+                                            <li class="sub-menu--item">
+                                                <a href="#">Texniki Xidmət</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li
+                                        class="nav-link-item drop-trigger text-colorDark rounded-none border border-transparent lg:text-white">
+                                        <a class='nav-link-item' href='portfolio.html'>Portfolio</a>
+                                    </li>
+                                    <li
+                                        class="nav-link-item drop-trigger text-colorDark rounded-none border border-transparent lg:text-white">
+                                        <a class='nav-link-item' href='fag.html'>FAQ</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <!-- Header Navigation -->
+                    </div>
+                    <!-- Header Left Block -->
+
+                    <!-- Header Right Block -->
+                    <div class="flex items-center gap-x-6">
+                        <a class='btn-primary relative hidden px-[30px] py-[10px] sm:inline-flex' href='contact.html'
+                            style="background-color: rgb(190, 247, 72); color: #000; border-color: rgb(190, 247, 72);">Əlaqə</a>
+
+                        <!-- Responsive Offcanvas Menu Button -->
+                        <div class="block lg:hidden">
+                            <button id="openBtn" class="hamburger-menu mobile-menu-trigger">
+                                <span class="bg-white before:bg-white after:bg-white"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Header Right Block -->
+                </div>
+                <!-- Header Area -->
+            </div>
+            <!-- Section Container -->
+        </header>
+        <!-- ...::: Header Section End :::... -->
+
+        <!-- Main Wrapper Start -->
+       <main class="main-wrapper">
+            <!-- ...::: Breadcrumb Section Start :::... -->
+            <section class="section-breadcrumb">
+                <!-- Breadcrumb Background -->
+                <div class="bg-black">
+                    <!-- Breadcrumb Space -->
+                    <div class="breadcrumb-space">
+                        <!-- Section Container -->
+                        <div class="container">
+                            <div class="breadcrumb-block">
+                                <h1>Əlaqə</h1>
+                                <!-- Breadcrumb Nav -->
+                                <ul class="breadcrumb-nav">
+                                    <li>
+                                        <a href="index-1.htm">Əsas səhifə</a>
+                                    </li>
+                                    <li>Əlaqə</li>
+                                </ul>
+                                <!-- Breadcrumb Nav -->
+                            </div>
+                        </div>
+                        <!-- Section Container -->
+                    </div>
+                    <!-- Breadcrumb Space -->
+                </div>
+                <!-- Breadcrumb Background -->
+            </section>
+            <!-- ...::: Breadcrumb Section End :::... -->
+
+            <!-- ...::: Contact From Section Start :::... -->
+            <section class="section-contact-form">
+                <!-- Section Space -->
+                <div class="section-space">
+                    <!-- Section Container -->
+                    <div class="container">
+                        <!-- Contact Form Area -->
+                        <div class="grid grid-cols-1 items-end gap-x-20 gap-y-10 lg:grid-cols-[1fr_minmax(0,420px)]">
+                            <!-- Contact Form Left Block - Form-->
+                            <div class="jos" data-jos_animation="fade-left" data-jos_once="1" data-jos_timingfunction="ease" data-jos_duration="0.7" data-jos_delay="0.5" data-jos_counter="1">
+                                <!-- Section Block -->
+                                <div class="section-block mb-10 md:mb-[60px] xl:mb-20">
+                                    <h2>
+                                        Fərdi təcrübə üçün
+                                        <span>
+                                            <img src="assets/img/elemnts/shape-light-lime-5-arms-star.svg" alt="shape-light-lime-5-arms-star" width="74" height="70" class="relative inline-block h-auto w-8 after:bg-black md:w-10 lg:w-[57px]">
+                                        </span>
+                                        bizimlə əlaqə saxlayın
+                                    </h2>
+                                </div>
+                                <!-- Section Block -->
+
+                                <!-- Contact Form -->
+                                <form action="https://formspree.io/f/mlqvzkyx" method="post" class="flex flex-col gap-y-6 rounded-[30px] border border-black p-[30px]">
+                                    <!-- Form Group -->
+                                    <div>
+                                        <label for="contact-name" class="mb-3 block pl-6 text-base font-bold">Adınız</label>
+                                        <input type="text" name="contact-name" id="contact-name" class="w-full rounded-[50px] border border-black bg-colorIvory px-8 py-4 text-base font-bold" required="">
+                                    </div>
+                                    <!-- Form Group -->
+                                    <!-- Form Group -->
+                                    <div>
+                                        <label for="contact-email" class="mb-3 block pl-6 text-base font-bold">E-poçt ünvanı</label>
+                                        <input type="email" name="contact-email" id="contact-email" class="w-full rounded-[50px] border border-black bg-colorIvory px-8 py-4 text-base font-bold" required="">
+                                    </div>
+                                    <!-- Form Group -->
+                                    <!-- Form Group -->
+                                    <div>
+                                        <label for="contact-phone" class="mb-3 block pl-6 text-base font-bold">Telefon nömrəsi</label>
+                                        <input type="tel" name="contact-phone" id="contact-phone" class="w-full rounded-[50px] border border-black bg-colorIvory px-8 py-4 text-base font-bold" required="">
+                                    </div>
+                                    <!-- Form Group -->
+                                    <!-- Form Group -->
+                                    <div>
+                                        <label for="contact-massage" class="mb-3 block pl-6 text-base font-bold">Mesajınızı buraya yazın...</label>
+                                        <textarea name="contact-massage" id="contact-massage" class="min-h-52 w-full rounded-[20px] border border-black bg-colorIvory px-8 py-4 text-base font-bold"></textarea>
+                                    </div>
+                                    <!-- Form Group -->
+                                    <!-- Form Group -->
+                                    <div>
+                                        <button type="submit" class="btn-black">
+                                            Mesaj Göndər
+                                        </button>
+                                    </div>
+                                    <!-- Form Group -->
+                                </form>
+                                <!-- Contact Form -->
+                            </div>
+                            <!-- Contact Form Left Block - Form-->
+
+                            <!-- Contact Form Right Block - Image-->
+                            <div class="hidden overflow-hidden rounded-[20px] border-2 border-black lg:block lg:border-[5px] jos" data-jos_animation="fade-right" data-jos_once="1" data-jos_timingfunction="ease" data-jos_duration="0.7" data-jos_delay="0.5" data-jos_counter="1">
+                                <img src="https://picsum.photos/seed/dvs-contact/456/731" alt="əlaqə-şəkli" width="456" height="731" class="h-full w-full object-cover">
+                            </div>
+                            <!-- Contact Form Right Block - Image-->
+                        </div>
+                        <!-- Contact Form Area -->
+                    </div>
+                    <!-- Section Container -->
+                </div>
+                <!-- Section Space -->
+            </section>
+            <!-- ...::: Contact From Section End :::... -->
+
+            <!-- ...::: Contact Info Section Start :::... -->
+            <section class="section-contact-info">
+                <!-- Section Space -->
+                <div class="section-space-bottom">
+                    <!-- Section Container -->
+                    <div class="container">
+                        <!-- Section Block -->
+                        <div class="section-block mx-auto mb-10 max-w-[650px] text-center md:mb-[60px] xl:mb-20 xl:max-w-[866px]">
+                            <h2 class="jos" data-jos_once="1" data-jos_animation="fade-up" data-jos_timingfunction="ease" data-jos_duration="0.7" data-jos_delay="0.5" data-jos_counter="1">
+                                Əlaqə Məlumatları
+                                <span>
+                                    <img src="assets/img/elemnts/shape-light-lime-5-arms-star.svg" alt="shape-light-lime-5-arms-star" width="74" height="70" class="relative inline-block h-auto w-8 after:bg-black md:w-10 lg:w-[57px]">
+                                </span>
+                            </h2>
+                        </div>
+                        <!-- Section Block -->
+
+                        <!-- Contact Info List -->
+                        <ul class="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+                            <!-- Contact Info Item -->
+                            <li class="flex gap-x-6 rounded-[10px] bg-black px-5 py-[30px] xl:px-8 xxl:px-[70px] jos" data-jos_once="1" data-jos_animation="fade-up" data-jos_timingfunction="ease" data-jos_duration="0.7" data-jos_delay="0.5" data-jos_counter="1">
+                                <div class="h-auto w-10">
+                                    <img src="assets/img/icons/icon-buttery-white-phone.svg" alt="icon-buttery-white-phone" width="30" height="30" class="h-auto w-10">
+                                </div>
+                                <div class="flex-1">
+                                    <span class="mb-3 block text-xl font-bold text-colorButteryWhite xl:text-2xl">Bizə zəng edin</span>
+                                    <div class="flex flex-col text-lg leading-[1.42] lg:text-[21px]">
+                                        <a href="tel:+994107295851" class="text-colorButteryWhite hover:text-colorLightLime">+994 10 729 58 51</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- Contact Info Item -->
+                            <!-- Contact Info Item -->
+                            <li class="flex gap-x-6 rounded-[10px] bg-black px-5 py-[30px] xl:px-8 xxl:px-[70px] jos" data-jos_once="1" data-jos_animation="fade-up" data-jos_timingfunction="ease" data-jos_duration="0.7" data-jos_delay="0.5" data-jos_counter="1">
+                                <div class="h-auto w-10">
+                                    <img src="assets/img/icons/icon-buttery-white-mail.svg" alt="icon-buttery-white-mail" width="40" height="40" class="h-auto w-10">
+                                </div>
+                                <div class="flex-1">
+                                    <span class="mb-3 block text-xl font-bold text-colorButteryWhite xl:text-2xl">Bizə e-poçt göndərin</span>
+                                    <div class="flex flex-col text-lg leading-[1.42] lg:text-[21px]">
+                                        <a href="mailto:info@dvs.az" class="text-colorButteryWhite hover:text-colorLightLime">info@dvs.az</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- Contact Info Item -->
+                            <!-- Contact Info Item -->
+                            <li class="flex gap-x-6 rounded-[10px] bg-black px-5 py-[30px] xl:px-8 xxl:px-[70px] jos" data-jos_once="1" data-jos_animation="fade-up" data-jos_timingfunction="ease" data-jos_duration="0.7" data-jos_delay="0.5" data-jos_counter="1">
+                                <div class="h-auto w-10">
+                                    <img src="assets/img/icons/icon-buttery-white-location-marker.svg" alt="icon-buttery-white-location-marker" width="40" height="40" class="h-auto w-10">
+                                </div>
+                                <div class="flex-1">
+                                    <span class="mb-3 block text-xl font-bold text-colorButteryWhite xl:text-2xl">Ofis ünvanı</span>
+                                    <div class="flex flex-col text-lg leading-[1.42] lg:text-[21px]">
+                                        <address class="not-italic text-colorButteryWhite">
+                                            Bakı, Azərbaycan
+                                        </address>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- Contact Info Item -->
+                        </ul>
+                        <!-- Contact Info List -->
+
+                        <!-- Location Map Block -->
+                        <div class="mt-10 md:mt-[60px] lg:mt-20 jos" data-jos_once="1" data-jos_animation="fade-up" data-jos_timingfunction="ease" data-jos_duration="0.7" data-jos_delay="0.5" data-jos_counter="1">
+                            <div class="h-96 w-full overflow-hidden rounded-[20px] border-2 border-black lg:h-[600px] lg:rounded-[30px] lg:border-[5px]">
+                                <iframe class="h-full w-full" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=1%20Grafton%20Street,%20Dublin,%20Ireland+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+                            </div>
+                        </div>
+                        <!-- Location Map Block -->
+                    </div>
+                    <!-- Section Container -->
+                </div>
+                <!-- Section Space -->
+            </section>
+            <!-- ...::: Contact Info Section End :::... -->
+
+            <!-- Horizontal Line -->
+            <div class="horizontal-line bg-[#e6e6e6]"></div>
+            <!-- Horizontal Line -->
+
+            <!-- ...::: FAQ Section Start :::... -->
+            <section class="section-faq">
+                <!-- Section Space -->
+                <div class="section-space">
+                    <!-- Section Container -->
+                    <div class="container">
+                        <!-- Section Block -->
+                        <div class="section-block mx-auto mb-10 max-w-[650px] text-center md:mb-[60px] xl:mb-20 xl:max-w-[856px]">
+                            <h2 class="jos" data-jos_once="1" data-jos_animation="fade-up" data-jos_timingfunction="ease" data-jos_duration="0.7" data-jos_delay="0.5" data-jos_counter="1">
+                                Bu suallar müştərilərimizə
+                                <span>
+                                    <img src="assets/img/elemnts/shape-light-lime-5-arms-star.svg" alt="shape-light-lime-5-arms-star" width="74" height="70" class="relative inline-block h-auto w-8 after:bg-black md:w-10 lg:w-[57px]">
+                                </span>
+                                bizi tanımağa kömək edir
+                            </h2>
+                        </div>
+                        <!-- Section Block -->
+
+                        <!-- FAQ Area -->
+                        <div class="grid grid-cols-1 gap-x-6 gap-y-10 lg:grid-cols-2">
+                            <!-- FAQ List -->
+                            <ul class="flex flex-col gap-y-10">
+                                <!-- FAQ Item -->
+                                <li class="flex flex-col gap-y-4 jos" data-jos_once="1" data-jos_animation="fade-up" data-jos_timingfunction="ease" data-jos_duration="0.7" data-jos_delay="0.5" data-jos_counter="1">
+                                    <!-- FAQ Header Block -->
+                                    <h4 class="relative pl-10 before:absolute before:left-0 before:top-1 before:h-[30px] before:w-[30px] before:bg-[url(../img/icons/icon-lightlime-question.svg)]">
+                                        Agentliyiniz hansı xidmətləri təqdim edir?
+                                    </h4>
+                                    <!-- FAQ Header Block -->
+                                    <!-- FAQ Body -->
+                                    <div class="ml-10 text-[#0C0C0C]">
+                                        <p>
+                                            Müştərilər çox vaxt qrafik dizayn, veb dizayn, brendinq
+                                            kimi agentliyin təqdim etdiyi dizayn xidmətlərinin
+                                            diapazonunu anlamaq istəyirlər.
+                                        </p>
+                                    </div>
+                                    <!-- FAQ Body -->
+                                </li>
+                                <!-- FAQ Item -->
+                                <!-- FAQ Item -->
+                                <li class="flex flex-col gap-y-4 jos" data-jos_once="1" data-jos_animation="fade-up" data-jos_timingfunction="ease" data-jos_duration="0.7" data-jos_delay="0.5" data-jos_counter="1">
+                                    <!-- FAQ Header Block -->
+                                    <h4 class="relative pl-10 before:absolute before:left-0 before:top-1 before:h-[30px] before:w-[30px] before:bg-[url(../img/icons/icon-lightlime-question.svg)]">
+                                        Dizayn prosesiniz necə həyata keçirilir?
+                                    </h4>
+                                    <!-- FAQ Header Block -->
+                                    <!-- FAQ Body -->
+                                    <div class="ml-10 text-[#0C0C0C]">
+                                        <p>
+                                            İlkin konsepdən son təhvilə qədər dizayn agentliyinin
+                                            prosesini izah etmək müştərilərə nə gözləməli olduqlarını
+                                            anlamağa kömək edir.
+                                        </p>
+                                    </div>
+                                    <!-- FAQ Body -->
+                                </li>
+                                <!-- FAQ Item -->
+                                <!-- FAQ Item -->
+                                <li class="flex flex-col gap-y-4 jos" data-jos_once="1" data-jos_animation="fade-up" data-jos_timingfunction="ease" data-jos_duration="0.7" data-jos_delay="0.5" data-jos_counter="1">
+                                    <!-- FAQ Header Block -->
+                                    <h4 class="relative pl-10 before:absolute before:left-0 before:top-1 before:h-[30px] before:w-[30px] before:bg-[url(../img/icons/icon-lightlime-question.svg)]">
+                                        Dizayn işi nə qədər başa gəlir?
+                                    </h4>
+                                    <!-- FAQ Header Block -->
+                                    <!-- FAQ Body -->
+                                    <div class="ml-10 text-[#0C0C0C]">
+                                        <p>
+                                            Dizayn xidmətlərimizin qiyməti layihənin əhatə dairəsindən
+                                            asılı olaraq dəyişir. Tələbləri müzakirə etdikdən sonra
+                                            fərdi qiymət təklifləri təqdim edirik.
+                                        </p>
+                                    </div>
+                                    <!-- FAQ Body -->
+                                </li>
+                                <!-- FAQ Item -->
+                            </ul>
+                            <!-- FAQ List -->
+
+                            <!-- FAQ List -->
+                            <ul class="flex flex-col gap-y-10">
+                                <!-- FAQ Item -->
+                                <li class="flex flex-col gap-y-4 jos" data-jos_once="1" data-jos_animation="fade-up" data-jos_timingfunction="ease" data-jos_duration="0.7" data-jos_delay="0.5" data-jos_counter="1">
+                                    <!-- FAQ Header Block -->
+                                    <h4 class="relative pl-10 before:absolute before:left-0 before:top-1 before:h-[30px] before:w-[30px] before:bg-[url(../img/icons/icon-lightlime-question.svg)]">
+                                        Dizayn prosesinizin mərhələləri hansılardır?
+                                    </h4>
+                                    <!-- FAQ Header Block -->
+                                    <!-- FAQ Body -->
+                                    <div class="ml-10 text-[#0C0C0C]">
+                                        <p>
+                                            Dizayn prosesimiz adətən araşdırma, konsepsiya
+                                            hazırlanması, dizayn, geri bildirimə əsaslanan düzəlişlər
+                                            və yekunlaşdırmadan ibarətdir.
+                                        </p>
+                                    </div>
+                                    <!-- FAQ Body -->
+                                </li>
+                                <!-- FAQ Item -->
+                                <!-- FAQ Item -->
+                                <li class="flex flex-col gap-y-4 jos" data-jos_once="1" data-jos_animation="fade-up" data-jos_timingfunction="ease" data-jos_duration="0.7" data-jos_delay="0.5" data-jos_counter="1">
+                                    <!-- FAQ Header Block -->
+                                    <h4 class="relative pl-10 before:absolute before:left-0 before:top-1 before:h-[30px] before:w-[30px] before:bg-[url(../img/icons/icon-lightlime-question.svg)]">
+                                        İstifadəçi rəylərini necə nəzərə alırsınız?
+                                    </h4>
+                                    <!-- FAQ Header Block -->
+                                    <!-- FAQ Body -->
+                                    <div class="ml-10 text-[#0C0C0C]">
+                                        <p>
+                                            Müştəri rəylərinə dəyər veririk və son dizaynın sizi
+                                            məmnun etməsi üçün sizinlə yaxından işləyirik. Müəyyən
+                                            sayda düzəliş imkanı təqdim edirik.
+                                        </p>
+                                    </div>
+                                    <!-- FAQ Body -->
+                                </li>
+                                <!-- FAQ Item -->
+                                <!-- FAQ Item -->
+                                <li class="flex flex-col gap-y-4 jos" data-jos_once="1" data-jos_animation="fade-up" data-jos_timingfunction="ease" data-jos_duration="0.7" data-jos_delay="0.5" data-jos_counter="1">
+                                    <!-- FAQ Header Block -->
+                                    <h4 class="relative pl-10 before:absolute before:left-0 before:top-1 before:h-[30px] before:w-[30px] before:bg-[url(../img/icons/icon-lightlime-question.svg)]">
+                                        İşlərinizin nümunələrini görə bilərikmi?
+                                    </h4>
+                                    <!-- FAQ Header Block -->
+                                    <!-- FAQ Body -->
+                                    <div class="ml-10 text-[#0C0C0C]">
+                                        <p>
+                                            Bəli, əvvəlki layihələrimizin portfelini nümayiş etdirməkdən
+                                            qürur duyuruq. İşlərimizin nümunələrini veb-saytımızda və
+                                            ya portfolio bölməmizdə görə bilərsiniz.
+                                        </p>
+                                    </div>
+                                    <!-- FAQ Body -->
+                                </li>
+                                <!-- FAQ Item -->
+                            </ul>
+                            <!-- FAQ List -->
+                        </div>
+                        <!-- FAQ Area -->
+                    </div>
+                    <!-- Section Container -->
+                </div>
+                <!-- Section Space -->
+            </section>
+            <!-- ...::: FAQ Section End :::... -->
+        </main>
+        <!--  Main Wrapper End -->
+
+        <!-- ...::: Footer Section Start :::... -->
+        <footer class="section-footer">
+            <div class="bg-black">
+                <!-- Footer Top -->
+                <div class="section-space">
+                    <!-- Section Container -->
+                    <div class="container">
+                        <!-- Footer Top Area -->
+                        <div
+                            class="grid grid-cols-1 gap-x-10 gap-y-10 md:grid-cols-2 lg:grid-cols-[1fr_minmax(0,0.8fr)] lg:gap-x-20 xl:gap-x-24 xxl:gap-x-[139px]">
+                            <!-- Footer Left Block -->
+                            <div>
+                                <!-- Section Block -->
+                                <div class="section-block text-colorButteryWhite">
+                                    <h2 class="mb-6">
+                                        Gəlin birlikdə bir
+                                        <span>
+                                            <img src="assets/img/elemnts/shape-light-lime-5-arms-star.svg"
+                                                alt="shape-light-lime-5-arms-star" width="74" height="70"
+                                                class="relative inline-block h-auto w-8 after:bg-black md:w-10 lg:w-[57px]">
+                                        </span>
+                                        layihəyə başlayaq
+                                    </h2>
+
+                                    <p class="section-para">
+                                        Müştərilərimizlə yaxından işləyərək onların məqsədlərini,
+                                        hədəf auditoriyasını və unikal ehtiyaclarını anlayırıq.
+                                        Bu tələbləri praktiki dizayn həllərinə çevirmək üçün
+                                        yaradıcı bacarıqlarımızdan istifadə edirik.
+                                    </p>
+                                </div>
+                                <!-- Section Block -->
+
+                                <div class="grid grid-cols-[1fr_auto] items-center">
+                                    <div>
+                                        <!-- Footer Info -->
+                                        <ul class="mt-12 flex flex-col gap-y-3">
+                                            <li>
+                                                <span
+                                                    class="block font-syne text-[21px] font-bold leading-[1.42] text-colorLightLime">Bizə
+                                                    zəng edin:</span>
+                                                <a href="tel:+994107295851"
+                                                    class="text-[21px] leading-[1.42] text-colorButteryWhite">+994 10 729 58 51</a>
+                                            </li>
+                                            <li>
+                                                <span
+                                                    class="block font-syne text-[21px] font-bold leading-[1.42] text-colorLightLime">Bizə
+                                                    e-poçt göndərin:
+                                                </span>
+                                                <a href="mailto:info@dvs.az"
+                                                    class="text-[21px] leading-[1.42] text-colorButteryWhite">info@dvs.az</a>
+                                            </li>
+                                        </ul>
+                                        <!-- Footer Info -->
+
+                                        <!-- Social Link -->
+                                        <div class="mt-11 flex w-full gap-4">
+                                            <a href="http://www.twitter.com" target="_blank" rel="noopener noreferrer"
+                                                class="group/link relative inline-flex h-[34px] w-[34px] items-center justify-center rounded-[50%] border border-colorButteryWhite bg-black transition-all duration-300 hover:border-black hover:bg-colorLightLime hover:shadow-[0_1.5px_0_0] hover:shadow-colorButteryWhite">
+                                                <img src="assets/img/icons/icon-logo-buttery-white-twitter.svg"
+                                                    alt="icon-logo-buttery-white-twitter" width="19" height="16"
+                                                    class="opacity-100 transition-all duration-300 group-hover/link:opacity-0">
+                                                <img src="assets/img/icons/icon-logo-black-twitter.svg"
+                                                    alt="icon-logo-black-twitter" width="19" height="16"
+                                                    class="absolute opacity-0 transition-all duration-300 group-hover/link:opacity-100">
+                                            </a>
+                                            <a href="http://www.facebook.com" target="_blank" rel="noopener noreferrer"
+                                                class="group/link relative inline-flex h-[34px] w-[34px] items-center justify-center rounded-[50%] border border-colorButteryWhite bg-black transition-all duration-300 hover:border-black hover:bg-colorLightLime hover:shadow-[0_1.5px_0_0] hover:shadow-colorButteryWhite">
+                                                <img src="assets/img/icons/icon-logo-buttery-white-facebook.svg"
+                                                    alt="icon-logo-buttery-white-facebook" width="10" height="17"
+                                                    class="opacity-100 transition-all duration-300 group-hover/link:opacity-0">
+                                                <img src="assets/img/icons/icon-logo-black-facebook.svg"
+                                                    alt="icon-logo-black-facebook" width="10" height="17"
+                                                    class="absolute opacity-0 transition-all duration-300 group-hover/link:opacity-100">
+                                            </a>
+                                            <a href="http://www.instagram.com" target="_blank" rel="noopener noreferrer"
+                                                class="group/link relative inline-flex h-[34px] w-[34px] items-center justify-center rounded-[50%] border border-colorButteryWhite bg-black transition-all duration-300 hover:border-black hover:bg-colorLightLime hover:shadow-[0_1.5px_0_0] hover:shadow-colorButteryWhite">
+                                                <img src="assets/img/icons/icon-logo-buttery-white-instagram.svg"
+                                                    alt="icon-logo-buttery-white-instagram" width="17" height="18"
+                                                    class="opacity-100 transition-all duration-300 group-hover/link:opacity-0">
+                                                <img src="assets/img/icons/icon-logo-black-instagram.svg"
+                                                    alt="icon-logo-black-instagram" width="17" height="18"
+                                                    class="absolute opacity-0 transition-all duration-300 group-hover/link:opacity-100">
+                                            </a>
+                                            <a href="http://www.linkedin.com" target="_blank" rel="noopener noreferrer"
+                                                class="group/link relative inline-flex h-[34px] w-[34px] items-center justify-center rounded-[50%] border border-colorButteryWhite bg-black transition-all duration-300 hover:border-black hover:bg-colorLightLime hover:shadow-[0_1.5px_0_0] hover:shadow-colorButteryWhite">
+                                                <img src="assets/img/icons/icon-logo-buttery-white-linkedin.svg"
+                                                    alt="icon-logo-buttery-white-linkedin" width="17" height="18"
+                                                    class="opacity-100 transition-all duration-300 group-hover/link:opacity-0">
+                                                <img src="assets/img/icons/icon-logo-black-linkedin.svg"
+                                                    alt="icon-logo-black-linkedin" width="17" height="18"
+                                                    class="absolute opacity-0 transition-all duration-300 group-hover/link:opacity-100">
+                                            </a>
+                                        </div>
+                                        <!-- Social Link -->
+                                    </div>
+                                    <div class="hidden lg:inline-block">
+                                        <img src="assets/img/elemnts/element-light-lime-curve-arrow.svg"
+                                            alt="element-light-lime-curve-arrow" width="284" height="153"
+                                            class="h-auto max-w-52 lg:inline-block xl:max-w-full">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Footer Left Block -->
+
+                            <!-- Footer Right Block -->
+                            <div>
+                                <span
+                                    class="display-heading display-heading-5 mb-[30px] block text-colorButteryWhite">Bizə
+                                    mesaj göndərin</span>
+                                <form action="https://formspree.io/f/mlqvzkyx" method="post"
+                                    class="flex flex-col gap-y-6">
+                                    <input type="text" placeholder="Adınız"
+                                        class="w-full rounded-[50px] border border-[#cccccc] bg-transparent px-6 py-5 text-base font-bold leading-none text-white placeholder:text-[#cccccc]"
+                                        required="">
+                                    <input type="email" placeholder="E-poçt ünvanınız"
+                                        class="w-full rounded-[50px] border border-[#cccccc] bg-transparent px-6 py-5 text-base font-bold leading-none text-white placeholder:text-[#cccccc]"
+                                        required="">
+                                    <input type="tel" placeholder="Telefon nömrəniz"
+                                        class="w-full rounded-[50px] border border-[#cccccc] bg-transparent px-6 py-5 text-base font-bold leading-none text-white placeholder:text-[#cccccc]"
+                                        required="">
+                                    <textarea placeholder="Mesajınızı buraya yazın..."
+                                        class="min-h-[150px] w-full rounded-[20px] border border-[#cccccc] bg-transparent px-6 py-5 text-base font-bold leading-none text-white placeholder:text-[#cccccc]"
+                                        required=""></textarea>
+
+                                    <button type="submit"
+                                        class="btn-primary relative justify-start pr-20 md:pr-[118px]">
+                                        Mesaj göndər
+                                        <span
+                                            class="absolute right-[5px] inline-flex h-[50px] w-[50px] items-center justify-center rounded-[50%] bg-black"><img
+                                                src="assets/img/icons/icon-buttery-white-arrow-right.svg"
+                                                alt="icon-buttery-white-arrow-right" width="34" height="28"></span>
+                                    </button>
+                                </form>
+                            </div>
+                            <!-- Footer Right Block -->
+                        </div>
+                        <!-- Footer Top Area -->
+                    </div>
+                    <!-- Section Container -->
+                </div>
+                <!-- Footer Top -->
+
+                <!-- Horizontal Line -->
+                <div class="horizontal-line bg-[#333333]"></div>
+                <!-- Horizontal Line -->
+
+                <!-- Footer Bottom -->
+                <div class="py-[35px]">
+                    <!-- Section Container -->
+                    <div class="container">
+                        <div class="flex flex-wrap justify-center gap-x-[30px] gap-y-4 lg:justify-between">
+                            <a href='index-1.htm'>
+                                <img src="assets/img/logo.png" alt="logo-buttery-white" width="121"
+                                    height="24">
+                            </a>
+
+                            <!-- Copyright Text -->
+                            <div class="text-colorButteryWhite">
+                                &copy; Müəllif hüququ 2026, Bütün hüquqlar qorunur - dvs.az
+                            </div>
+                            <!-- Copyright Text -->
+                        </div>
+                    </div>
+                    <!-- Section Container -->
+                </div>
+                <!-- Footer Bottom -->
+            </div>
+        </footer>
+        </main>
+        <!--  Main Wrapper End -->
+
+        <!-- ...::: Footer Section Start :::... -->
+
+        <!-- ...::: Footer Section End :::... -->
+    </div>
+
+    <!--Vendor js-->
+    <script src="assets/js/vendors/counterup.js" type="module"></script>
+    <script src="assets/js/vendors/swiper-bundle.min.js"></script>
+    <script src="assets/js/vendors/fslightbox.js"></script>
+    <script src="assets/js/vendors/jos.min.js"></script>
+    <script src="assets/js/vendors/menu.js"></script>
+
+    <!-- Main js -->
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
