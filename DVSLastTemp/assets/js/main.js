@@ -361,6 +361,40 @@ const hero9Slider = new Swiper(".hero-9-slider", {
     },
   },
 });
+
+// Service Modals
+document.addEventListener("click", function (e) {
+  const trigger = e.target.closest(".service-modal-trigger");
+  if (trigger) {
+    e.preventDefault();
+    const modal = document.getElementById(trigger.dataset.modal);
+    if (modal) {
+      modal.classList.add("is-open");
+      document.body.style.overflow = "hidden";
+    }
+    return;
+  }
+
+  const closeBtn = e.target.closest(".service-modal-close");
+  const overlay = e.target.classList && e.target.classList.contains("service-modal") ? e.target : null;
+  if (closeBtn || overlay) {
+    const modal = closeBtn ? closeBtn.closest(".service-modal") : overlay;
+    if (modal) {
+      modal.classList.remove("is-open");
+      document.body.style.overflow = "";
+    }
+  }
+});
+
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape") {
+    document.querySelectorAll(".service-modal.is-open").forEach(function (modal) {
+      modal.classList.remove("is-open");
+    });
+    document.body.style.overflow = "";
+  }
+});
+
 const hero9SliderReverse = new Swiper(".hero-9-slider-reverse", {
   loop: true,
   speed: 5000,
