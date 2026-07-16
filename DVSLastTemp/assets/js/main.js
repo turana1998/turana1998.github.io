@@ -386,6 +386,24 @@ document.addEventListener("click", function (e) {
   }
 });
 
+// Open the matching service modal automatically when arriving via a
+// "services.html#service-card-N" link from the header submenu.
+function openServiceModalFromHash() {
+  const match = /^#service-card-(\d+)$/.exec(location.hash);
+  if (!match) return;
+  const modal = document.getElementById("service-modal-" + match[1]);
+  const card = document.getElementById("service-card-" + match[1]);
+  if (card) {
+    card.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+  if (modal) {
+    modal.classList.add("is-open");
+    document.body.style.overflow = "hidden";
+  }
+}
+document.addEventListener("DOMContentLoaded", openServiceModalFromHash);
+window.addEventListener("hashchange", openServiceModalFromHash);
+
 document.addEventListener("keydown", function (e) {
   if (e.key === "Escape") {
     document.querySelectorAll(".service-modal.is-open").forEach(function (modal) {
